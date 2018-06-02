@@ -46,7 +46,7 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
 6.  Choose the **DS1\_V2 Standard** or **F2S** instance size on the Size blade.
 
-Note: You may have to click the View All link to see the instance sizes.
+    > Note: You may have to click the View All link to see the instance sizes.
 
     [On the Choose a size blade, the DS1\_V2 Standard option is selected.](images/Setup/image6.png "Choose a size blade")
 
@@ -138,5 +138,5 @@ NOTE: Please wait for the LABVM to be provisioned prior to moving to the next st
 
 ![In File Explorer, ECN-Hackathon is selected, and from its right-click menu, Extract All is selected.](images/Setup/image23.png "File Explorer")
 
-    [In the Extract Files window, Files are being extracted to C:\\ECH-Hackathon, and the Extract button is selected.](images/Setup/image24.png "Extract Files window")
+![In the Extract Files window, Files are being extracted to C:\\ECH-Hackathon, and the Extract button is selected.](images/Setup/image24.png "Extract Files window")
 
