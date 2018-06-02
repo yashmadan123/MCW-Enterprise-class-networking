@@ -55,9 +55,9 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
         - [Solutions for Cloud web app deployment](#solutions-for-cloud-web-app-deployment)
         - [ExpressRoute configuration details](#expressroute-configuration-details)
         - [ExpressRoute prerequisites](#expressroute-prerequisites)
-        - [ExpressRoute connectivity type -- Chicago](#expressroute-connectivity-type----chicago)
-        - [ExpressRoute connectivity type -- Plano](#expressroute-connectivity-type----plano)
-        - [ExpressRoute integration -- NAT requirements](#expressroute-integration----nat-requirements)
+        - [ExpressRoute connectivity type for Chicago](#expressroute-connectivity-type-for-chicago)
+        - [ExpressRoute connectivity type for Plano](#expressroute-connectivity-type-for-plano)
+        - [ExpressRoute integration NAT requirements](#expressroute-integration-nat-requirements)
         - [ExpressRoute availability](#expressroute-availability)
         - [Next-Generation Firewall HA configuration](#next-generation-firewall-ha-configuration)
         - [Managing traffic routing](#managing-traffic-routing)
@@ -527,7 +527,7 @@ Woodgrove needed to provide Public IP addresses they own to set up Microsoft pee
 
 ![This table lists the IP addresses and Autonomous System Numbers for Customer/Provider use and Microsoft use. IP Addresses are now 72.191.44.5/30, and 72.191.44.6/30.](images/Whiteboarddesignsessiontrainerguide-Enterprise-classnetworkinginAzureimages/media/image11.png "Link 2 table")
 
-###  ExpressRoute connectivity type -- Chicago 
+###  ExpressRoute connectivity type for Chicago 
 
 Woodgrove Financial Services happen to use colocation datacenter space at a facility in which Equinix has a presence. As a result, it made sense to connect the ExpressRoute circuit in Chicago using virtual cross-connections through Equinix's Ethernet exchange. To reduce cost, Woodgrove chose Equinix's unmanaged layer 2 connectivity. It requires Woodgrove networking staff to provision redundant edge routers and to configure all BGP peering. Specifically, they will need to:
 
@@ -571,7 +571,7 @@ Woodgrove Financial Services happen to use colocation datacenter space at a faci
 
 Because Woodgrove is using a layer 2 connection in Chicago, they deployed redundant routers in the datacenter in an active-active configuration. They connected the primary circuit to one router and the secondary circuit to the other. It provided a highly available connection at both ends of the connection. It is necessary to realize the ExpressRoute SLA.
 
-### ExpressRoute connectivity type -- Plano
+### ExpressRoute connectivity type for Plano
 
 At the Plano datacenter, Woodgrove opted to work with level 3 and connect the second ExpressRoute circuit to their existing MPLS cloud. This connectivity type was offered as a managed layer 3 service, which Woodgrove signed up for. The steps to configure ExpressRoute in this case are fewer because the provider configures BGP peering on the customer's behalf. The steps to complete are:
 
@@ -600,7 +600,7 @@ $gw = Get-AzureRmVirtualNetworkGateway -Name <<gateway-name>> -ResourceGroupName
 New-AzureRmVirtualNetworkGatewayConnection -Name <<connection-name>> -ResourceGroupName <<resource-group>> -Location <<location> -VirtualNetworkGateway1 $gw -PeerId $circuit.Id -ConnectionType ExpressRoute
 ```
 
-### ExpressRoute integration -- NAT requirements
+### ExpressRoute integration NAT requirements
 
 The Azure public peering path enables you to connect to all services hosted in Azure over their Public IP addresses. These services include all services listed in the ExpressRoute FAQ and any services hosted by ISVs on Microsoft Azure. Connectivity to Microsoft Azure services on public peering is always initiated from your network into the Microsoft network. Traffic destined to Microsoft Azure on public peering must be SNATed to valid Public IPv4 addresses before they enter the Microsoft network.
 
