@@ -168,6 +168,8 @@ Duration: 15 minutes
 
     d.  Route table: **None**
 
+    e. Service Endpoints: **Leave as Default**
+
     When your dialog looks like the following screenshot, choose **OK** to create the subnet.
 
     ![Field values in the Add Subnet blade are set to the previously defined settings.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image30.png "Add Subnet blade")
@@ -311,7 +313,7 @@ Route Tables are containers for User Defined Routes (UDRs). The route table is c
 
 3.  Repeat this procedure to add the **DataToMgmt** route using the following information:
 
-    e.  Route name:
+    e.  Route name: **DataToMgmt**
 
     f.  Address prefix: **10.7.0.8/29**
 
@@ -437,7 +439,7 @@ Route Tables are containers for User Defined Routes (UDRs). The route table is c
 
 ## Exercise 4: Deploy n-tier application and validate functionality
 
-Duration: 60 minutes
+Duration: 90 minutes
 
 In this task, you will provision the CloudShop application using an ARM template deployment. This application has a web tier and a data tier.
 
@@ -465,7 +467,7 @@ NOTE: If you have not downloaded the student files see this section in the befor
 
     ![In the Edit template blade, Load file is selected.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image58.png "Edit template blade")
 
-7.  Update the following parameters to reference the **WGNet2** virtual network in the **WGBNetRG2** resource group
+7.  Update the following parameters to reference the **WGVNet2** virtual network in the **WGBNetRG2** resource group
 
     ![A screenshot that shows the Existing Virtual Network Name and Existing Virtual Network Resource group parameters.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image59.png "Template parameters")
 
@@ -801,7 +803,7 @@ Within 1-2 minutes, the resource group **barracudafwrg** will be created and the
 
 ## Exercise 8: Configure the firewall to control traffic flow
 
-Duration: 30 minutes
+Duration: 45 minutes
 
 In this exercise, you will configure the firewall appliance to allow the necessary traffic to flow so that:
 

@@ -72,41 +72,43 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
     [Screenshot of the Configure required settings option.](images/Setup/image11.png "Configure required settings")
 
-12. Accept the remaining default values on the Settings blade, and click **OK**. On the Summary page, click **OK**. The deployment should begin provisioning. It may take 10+ minutes for the virtual machine to complete provisioning.
+12. Select public inbound ports to RDP to connect to the LAB VM remotely.
+
+13. Accept the remaining default values on the Settings blade, and click **OK**. On the Summary page, click **Create**. The deployment should begin provisioning. It may take 10+ minutes for the virtual machine to complete provisioning.
 
     [Screenshot of the Deploying Visual Studio Community 2017 announcement.](images/Setup/image12.png "Deploying Visual Studio Community")
 
 NOTE: Please wait for the LABVM to be provisioned prior to moving to the next step.
 
-13. Move back to the Portal page on your local machine, and wait for **LABVM** to show the Status of **Running**. Click **Connect** to establish a new Remote Desktop Session.
+14. Move back to the Portal page on your local machine, and wait for **LABVM** to show the Status of **Running**. Click **Connect** to establish a new Remote Desktop Session.
 
     [The Connect button is circled on the Azure Portal top menu bar.](images/Setup/image13.png "Azure Portal")
 
-14. Depending on your Remote Desktop protocol client and browser configuration, you will either be prompted to open an RDP file, or you will need to download it and then open it separately to connect.
+15. Depending on your Remote Desktop protocol client and browser configuration, you will either be prompted to open an RDP file, or you will need to download it and then open it separately to connect.
 
-15. Log in with the credentials specified during creation:
+16. Log in with the credentials specified during creation:
 
     a.  User: **demouser **
 
     b.  Password: **demo\@pass123**
 
-16. You will be presented with a Remote Desktop Connection warning because of a certificate trust issue. Click **Yes** to continue with the connection.
+17. You will be presented with a Remote Desktop Connection warning because of a certificate trust issue. Click **Yes** to continue with the connection.
 
     [The Remote Desktop Connection warning displays, and the Yes button is selected.](images/Setup/image14.png "Remote Desktop Connection warning")
 
-17. When logging on for the first time, you will see a prompt on the right asking about network discovery. Click **No**.
+18. When logging on for the first time, you will see a prompt on the right asking about network discovery. Click **No**.
 
 ![On the Network Discovery prompt, the No button is selected.](images/Setup/image15.png "Network Discovery prompt")
 
-18. Notice that Server Manager opens by default. On the left, click **Local Server**.
+19. Notice that Server Manager opens by default. On the left, click **Local Server**.
 
 ![On the Server Manager menu, Local Server is selected.](images/Setup/image16.png "Server Manager menu")
 
-19. On the right side of the pane, click **On** by **IE Enhanced Security Configuration**.
+20. On the right side of the pane, click **On** by **IE Enhanced Security Configuration**.
 
 ![In the Essentials section, IE Enhanced Security Configuration is set to On, and is selected.](images/Setup/image17.png "Essentials section")
 
-20. Change to **Off** for Administrators, and click **OK**.
+21. Change to **Off** for Administrators, and click **OK**.
 
 ![In the Internet Explorer Enhanced Security Configuration dialog box, Administrators are set to Off, and the OK button is selected.](images/Setup/image18.png "Internet Explorer Enhanced Security Configuration dialog box")
 
