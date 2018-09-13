@@ -76,25 +76,25 @@ Thank you for taking time to support the whiteboard design sessions as a trainer
 
 An amazing trainer:
 
--   Creates a safe environment in which learning can take place
+-   Creates a safe environment in which learning can take place.
 
--   Stimulates the participant's thinking
+-   Stimulates the participant's thinking.
 
--   Involves the participant in the learning process
+-   Involves the participant in the learning process.
 
--   Manages the learning process (on time, on topic, and adjusting to benefit participants)
+-   Manages the learning process (on time, on topic, and adjusting to benefit participants).
 
--   Ensures individual participant accountability
+-   Ensures individual participant accountability.
 
--   Ties it all together for the participant
+-   Ties it all together for the participant.
 
--   Provides insight and experience to the learning process
+-   Provides insight and experience to the learning process.
 
--   Effectively leads the whiteboard design session discussion
+-   Effectively leads the whiteboard design session discussion.
 
--   Monitors quality and appropriateness of participant deliverables
+-   Monitors quality and appropriateness of participant deliverables.
 
--   Effectively leads the feedback process
+-   Effectively leads the feedback process.
 
 ## Whiteboard design session flow 
 
@@ -102,7 +102,9 @@ Each whiteboard design session uses the following flow:
 
 **Step 1: Review the customer case study (15 minutes)**
 
-Outcome: Analyze your customer's needs
+**Outcome**
+
+Analyze your customer's needs.
 
 -   Customer's background, situation, needs and technical requirements
 
@@ -112,19 +114,23 @@ Outcome: Analyze your customer's needs
 
 **Step 2: Design a proof of concept solution (60 minutes)**
 
-Outcome: Prepare to present a solution for your target customer audience
+**Outcome**
 
--   Determine your target customer audience
+Design a solution and prepare to present the solution to the target customer audience in a 15-minute chalk-talk format.
 
--   Determine customer's business needs to address your solution
+-   Determine your target customer audience.
 
--   Design and diagram your solution
+-   Determine customer's business needs to address your solution.
 
--   Prepare to present your solution
+-   Design and diagram your solution.
+
+-   Prepare to present your solution.
 
 **Step 3: Present the solution (30 minutes)**
 
-Outcome: Present solution to your customer
+**Outcome**
+
+Present solution to your customer:
 
 -   Present solution
 
@@ -140,15 +146,15 @@ Outcome: Present solution to your customer
 
 Before conducting your first whiteboard design session:
 
--   Read the student guide (including the case study) and trainer guide
+-   Read the Student guide (including the case study) and Trainer guide.
 
--   Become familiar with all key points and activities
+-   Become familiar with all key points and activities.
 
--   Plan the point you want to stress, which questions you want to drive, transitions, and be ready to answer questions
+-   Plan the point you want to stress, which questions you want to drive, transitions, and be ready to answer questions.
 
--   Prior to the whiteboard design session, discuss the case study to pick up more ideas
+-   Prior to the whiteboard design session, discuss the case study to pick up more ideas.
 
--   Make notes for later
+-   Make notes for later.
 
 ## During the whiteboard design session: Tips for an effective whiteboard design session
 
@@ -158,7 +164,7 @@ Before conducting your first whiteboard design session:
 
 When participants are doing activities, you can **look ahead to refresh your memory**.
 
--   **Adjust activity and whiteboard design session pace** as needed to allow time for presenting, feedback, and sharing
+-   **Adjust activity and whiteboard design session pace** as needed to allow time for presenting, feedback, and sharing.
 
 -   **Add examples, points, and stories** from your own experience. Think about stories you can share that help you make your points clearly and effectively.
 
@@ -170,7 +176,7 @@ When participants are doing activities, you can **look ahead to refresh your mem
 
 **Ask questions** and get them to share to fully involve your group in the learning process.
 
-**Ask first**, whenever possible. Before launching into a topic, learn your audience's opinions about it and experiences with it. Asking first enables you to assess their level of knowledge and experience and leaves them more open to what you are presenting.
+**Ask first**, whenever possible. Before launching into a topic, learn your audience's opinions about it and experiences with it. Asking first enables you to assess their level of knowledge and experience, and leaves them more open to what you are presenting.
 
 **Wait for responses**. If you ask a question such as, "What's your experience with (fill in the blank)?" then wait. Do not be afraid of a little silence. If you leap into the silence, your participants will feel you are not serious about involving them and will become passive. Give participants a chance to think, and if no one answers, patiently ask again. You will usually get a response.
 
@@ -178,21 +184,25 @@ When participants are doing activities, you can **look ahead to refresh your mem
 
 ## Abstract and learning objectives 
 
-In this workshop, you will look at the process of configuring am enterprise class network within Azure. Your design will include technologies to connect multiple virtual networks, as well as using capabilities such as routing to deploy network virtual appliances such as firewalls to secure your deployment. 
+In this whiteboard design session, you will look at the process of configuring am enterprise class network within Azure. Your design will include technologies to connect multiple virtual networks, as well as using capabilities such as routing to deploy network virtual appliances such as firewalls to secure your deployment. 
 
 At the end of this whiteboard design session, you will be better able to design solutions using Azure Networking features and capabilities.
 
 ## Step 1: Review the customer case study 
 
-**Outcome** 
+**Outcome**
 
-Analyze your customer’s needs.
-Time frame: 15 minutes 
-Directions: With all participants in the session, the facilitator/SME presents an overview of the customer case study along with technical tips. 
-1.  Meet your table participants and trainer 
-2.  Read all of the directions for steps 1–3 in the student guide 
-3.  As a table team, review the following customer case study
+Analyze your customer's needs.
 
+Timeframe: 15 minutes
+
+Directions: With all participants in the session, the facilitator/SME presents an overview of the customer case study along with technical tips.
+
+1.  Meet your table participants and trainer.
+
+2.  Read all of the directions for steps 1-3 in the student guide.
+
+3.  As a table team, review the following customer case study.
 
 ###  Customer background
 
@@ -220,9 +230,9 @@ Woodgrove's business critical applications include:
 
 -   Their website that enables online banking features (running on several web farms in the company's perimeter network and securely interacting with the banking application servers).
 
--   Their HR system (a custom-written system taking advantage of several application servers and an Oracle-based data tier)
+-   Their HR system (a custom-written system taking advantage of several application servers and an Oracle-based data tier).
 
--   Email (Exchange Server 2010 taking advantage of Database Availability Groups that span their two datacenters)
+-   Email (Exchange Server 2010 taking advantage of Database Availability Groups that span their two datacenters).
 
 Woodgrove's pilot deployment of cloud-native application include:
 
@@ -258,25 +268,28 @@ Woodgrove's pilot deployment of cloud-native application include:
 
 5.  Woodgrove has an arduous process for testing vendor-supplied solutions. In the network space, they have standardized on 3rd party solutions for network and application firewalls with existing vendors. They would like to use their trusted vendors to support cloud-based configurations as much as possible.
 
-
 ### Infographic for common scenarios
 
 ![Infographic that depicts several Azure infrastructure technologies including virtual machines, virtual networks, site-to-site VPN, and ExpressRoute ](images/Whiteboarddesignsessionstudentguide-Enterprise-classnetworkinginAzureimages/media/image3.jpeg "Infographic for common scenarios")
 
 ## Step 2: Design a proof of concept solution
 
-**Outcome** 
-Design a solution and prepare to present the solution to the target customer audience in a 15-minute chalk-talk format. 
+**Outcome**
 
-Time frame: 60 minutes
+Design a solution and prepare to present the solution to the target customer audience in a 15-minute chalk-talk format.
+
+Timeframe: 60 minutes
 
 **Business needs**
 
-Directions: With all participants at your table, answer the following questions and list the answers on a flip chart. 
-1.  Who should you present this solution to? Who is your target customer audience? Who are the decision makers? 
+Directions:  With all participants at your table, answer the following questions and list the answers on a flip chart:
+
+1.  Who should you present this solution to? Who is your target customer audience? Who are the decision makers?
+
 2.  What customer business needs do you need to address with your solution?
 
-**Design** 
+**Design**
+
 Directions: With all participants at your table, respond to the following questions on a flip chart.
 
 The desired outcome is a network architecture that meets the needs of a modern financial services organization. This design will not have single points of failure and will include concepts such as a perimeter network with redundant firewalls protecting the internal subnets containing the application tiers. A simple network design will most likely confirm the director of Network Operation's beliefs that Azure cannot support real-world, enterprise-class networking (see customer objections)---*prove her wrong!*
@@ -285,13 +298,13 @@ The desired outcome is a network architecture that meets the needs of a modern f
 
 -   Which peering options and other ExpressRoute features would be required?
 
--   Diagram at a high-level the workflow that Woodgrove will follow to enable ExpressRoute in its environment
+-   Diagram at a high-level the workflow that Woodgrove will follow to enable ExpressRoute in its environment.
 
--   Identify the information you would need to collect to configure peering and the NAT requirements for the solution
+-   Identify the information you would need to collect to configure peering and the NAT requirements for the solution.
 
 -   How will you address providing connectivity in the event of a major connectivity provider outage?
 
--   Be sure your design considers the international needs of the organization
+-   Be sure your design considers the international needs of the organization.
 
 ### Virtual network design in Azure
 
@@ -311,47 +324,55 @@ The network team at Woodgrove is giving you an address space of 10.7.0.0/16 and 
 
 -   How could secure remote administration of the Azure environment be achieved with an administrator working from home?
 
--   Note all special requirements for any virtual appliance use in this scenario
+-   Note all special requirements for any virtual appliance use in this scenario.
 
 -   What other measures will you use to protect Woodgrove at the network layer?
 
 -   How will you address the requirement that all Internet traffic be directed through Woodgrove's security appliance (intrusion prevention/detection)?
 
+**Prepare**
 
-Directions: With all participants at your table: 
+Directions: With all participants at your table:
 
-1.  Identify any customer needs that are not addressed with the proposed solution 
-2.  Identify the benefits of your solution
-3.  Determine how you will respond to the customer’s objections 
+1.  Identify any customer needs that are not addressed with the proposed solution.
 
-Prepare a 15-minute chalk-talk style presentation to the customer. 
+2.  Identify the benefits of your solution.
+
+3.  Determine how you will respond to the customer's objections.
+
+Prepare a 15-minute chalk-talk style presentation to the customer.
 
 ## Step 3: Present the solution
 
 **Outcome**
- 
+
 Present a solution to the target customer audience in a 15-minute chalk-talk format.
 
-Time frame: 30 minutes
+Timeframe: 30 minutes
 
-**Presentation** 
+**Presentation**
 
 Directions:
-1.  Pair with another table
-2.  One table is the Microsoft team and the other table is the customer
-3.  The Microsoft team presents their proposed solution to the customer
-4.  The customer makes one of the objections from the list of objections
-5.  The Microsoft team responds to the objection
-6.  The customer team gives feedback to the Microsoft team
-7.  Tables switch roles and repeat Steps 2–6
 
+1.  Pair with another table.
 
+2.  One table is the Microsoft team and the other table is the customer.
+
+3.  The Microsoft team presents their proposed solution to the customer.
+
+4.  The customer makes one of the objections from the list of objections.
+
+5.  The Microsoft team responds to the objection.
+
+6.  The customer team gives feedback to the Microsoft team.
+
+7.  Tables switch roles and repeat Steps 2-6.
 
 ##  Wrap-up 
 
-Time frame: 15 minutes
+Timeframe: 15 minutes
 
-Directions: Tables reconvene with the larger group to hear a facilitator or SME share the preferred solution for the case study.
+Directions: Tables reconvene with the larger group to hear the facilitator/SME share the preferred solution for the case study.
 
 ##  Additional references
 
@@ -376,47 +397,45 @@ Directions: Tables reconvene with the larger group to hear a facilitator or SME 
 
 ## Step 1: Review the customer case study
 
--   Check in with your table participants to introduce yourself as the trainer
+-   Check in with your table participants to introduce yourself as the trainer.
 
 -   Ask, "What questions do you have about the customer case study?"
 
--   Briefly review the steps and timeframes of the whiteboard design session
+-   Briefly review the steps and timeframes of the whiteboard design session.
 
 -   Ready, set, go! Let the table participants begin.
 
 ## Step 2: Design a proof of concept solution
 
--   Check in with your tables to ensure that they are transitioning from step to step on time
+-   Check in with your tables to ensure that they are transitioning from step to step on time.
 
--   Provide some feedback on their responses to the business needs and design
+-   Provide some feedback on their responses to the business needs and design.
 
-    -   Try asking questions first that will lead the participants to discover the answers on their own
+    -   Try asking questions first that will lead the participants to discover the answers on their own.
 
--   Provide feedback for their responses to the customer's objections
+-   Provide feedback for their responses to the customer's objections.
 
-    -   Try asking questions first that will lead the participants to discover the answers on their own
+    -   Try asking questions first that will lead the participants to discover the answers on their own.
 
 ## Step 3: Present the solution
 
--   Determine which table will be paired with your table before Step 3 begins
+-   Determine which table will be paired with your table before Step 3 begins.
 
--   For the first round, assign one table as the Microsoft team and the other table as the customer
+-   For the first round, assign one table as the presenting team and the other table as the customer.
 
--   Have the Microsoft team present their solution to the customer team
+-   Have the presenting team present their solution to the customer team.
 
-    -   Have the customer team provide one objection for the Microsoft team to respond to
+    -   Have the customer team provide one objection for the presenting team to respond to.
 
-    -   The presentation and objections should be no longer than 10 minutes
+    -   The presentation, objections, and feedback should take no longer than 15 minutes.
 
--   Have participants on the customer team give feedback to the Microsoft team
+    -   If needed, the trainer may also provide feedback.
+    
+##  Wrap-up 
 
-    -   The feedback should be no longer than 5 minutes
+Timeframe: 15 minutes
 
-    -   If needed, the trainer may also provide feedback
-
-## Wrap-up
-
--   Have the table participants reconvene with the larger group to hear a facilitator or SME share the preferred solution for the case study.
+Directions: Tables reconvene with the larger group to hear the facilitator/SME share the preferred solution for the case study.
 
 ##  Preferred target audience
 
@@ -444,30 +463,29 @@ The solution for Woodgrove involved several technologies, including:
 
     -   Multiple Virtual Networks
 
-    -   Six subnets, including a gateway, perimeter, web tier, business tier, data tier, and management subnet
+    -   Six subnets, including a gateway, perimeter, web tier, business tier, data tier, and management subnet.
 
-    -   Two NGFWs configured in an HA pair providing hybrid connectivity support and internal firewall capabilities internal to the Azure VNet and any paired VNets
+    -   Two NGFWs configured in an HA pair providing hybrid connectivity support and internal firewall capabilities internal to the Azure VNet and any paired VNets.
 
-    -   Five route tables associated with their corresponding subnets, each with specific user defined routes configured
+    -   Five route tables associated with their corresponding subnets, each with specific user defined routes configured.
 
-    -   Five Network Security Groups associated with their respective subnets, each with specific allow/deny rules configured
+    -   Five Network Security Groups associated with their respective subnets, each with specific allow/deny rules configured.
 
-    -   Three internal Azure Load Balancers to direct load to the primary NGFW and to the servers in each application tier
+    -   Three internal Azure Load Balancers to direct load to the primary NGFW and to the servers in each application tier.
 
-    -   One application gateway to load-balancer and provide Layer-7 (WAG and WAF) protection to the Web tier
+    -   One application gateway to load-balancer and provide Layer-7 (WAG and WAF) protection to the Web tier.
 
-    -   Configuration of Virtual Network Service endpoints to further secure access to PaaS services such as storage and Azure SQL
+    -   Configuration of Virtual Network Service endpoints to further secure access to PaaS services such as storage and Azure SQL.
 
--   Implement a WAF in order to inspect and protect incoming traffic
+-   Implement a WAF in order to inspect and protect incoming traffic.
 
-      -   Application G will be used
+      -   Application G will be used.
 
-      -   Azure Web App will be configured as backend back-end pool member of Application G
+      -   Azure Web App will be configured as backend back-end pool member of Application G.
 
-    -   To ensure end users will hit the App Gw, a CNAME record can be used to point to the public endpoint of the application gateway
+    -   To ensure end users will hit the App Gw, a CNAME record can be used to point to the public endpoint of the application gateway.
 
-    -   To create the alias, it needs Public IP Address and DNS name attached to the App Gw
-
+    -   To create the alias, it needs Public IP Address and DNS name attached to the App Gw.
 
 ### Solutions for Cloud web app deployment
 
@@ -490,7 +508,6 @@ After learning that, with ExpressRoute, PaaS services do not traverse the Intern
 ![This image represents private and public peering for the ExpressRoute circuits.](images/Whiteboarddesignsessiontrainerguide-Enterprise-classnetworkinginAzureimages/media/image7.png)
 
 Figure 2 - Peering for ExpressRoute
-
 
 **Private peering**
 
@@ -680,7 +697,7 @@ Traffic to manage the NSGs will only be allowed from the management subnet and f
 
 **Management NSG**
 
-Only RDP traffic from the headquarters-based NOC will be allowed into the management subnet
+Only RDP traffic from the headquarters-based NOC will be allowed into the management subnet.
 
   **Name**  |  **Priority**  |  **Source**   |  **Protocol**  |  **Source Port Range**  |  **Destination**  |  **Dest. Port Range**  |  **Action**
   ---------- | --------------|  ------------- | --------------|  ----------------------- | ----------------- | ---------------------- | ------------
@@ -713,27 +730,32 @@ Only RDP traffic from the headquarters-based NOC will be allowed into the manage
 
 1.  As a financial institution, Woodgrove is under tight regulatory compliance requirements. Security is a key aspect of compliance and as such, it must be a key tenant of all operations including those related to technology. The corporate security officer is generally opposed to using services solely accessible over the public Internet. Services like Office 365, CRM, and other Microsoft SaaS offerings are off limits. Additionally, PaaS services accessed over the Internet are also unusable. It has relegated Woodgrove to private Azure services such as IaaS.
 
-    **Potential Answer**---Using ExpressRoute, Woodgrove can access and use Azure private and public services without traversing the Internet. This secure connectivity, in addition to the business-class SLAs and greater bandwidth, make ExpressRoute a compelling offering that addresses this objection. Regarding SaaS offerings, such as Office 365, Woodgrove can employ Azure Active Directory conditional access to provide controls such as a multi-factor authenticated user, an authenticated device, and a compliant device. All traffic to and from Office 365 is encrypted with SSL/TLS, and the data is encrypted at rest in Microsoft datacenters.
+    **Potential Answer**
+    Using ExpressRoute, Woodgrove can access and use Azure private and public services without traversing the Internet. This secure connectivity, in addition to the business-class SLAs and greater bandwidth, make ExpressRoute a compelling offering that addresses this objection. Regarding SaaS offerings, such as Office 365, Woodgrove can employ Azure Active Directory conditional access to provide controls such as a multi-factor authenticated user, an authenticated device, and a compliant device. All traffic to and from Office 365 is encrypted with SSL/TLS, and the data is encrypted at rest in Microsoft datacenters.
 
 2.  The director of Network Operations is under the impression that complex enterprise-grade networking scenarios, such as those that support n-tier applications, cannot be configured in hyper-scale public clouds. Trust comes slowly with this director. She will most likely need detailed solution plans, case studies, and even customer testimonials to help convince her of the viability of anything other than simple networking scenarios in Azure.
 
-    **Potential Answer**---Azure supports many technologies that enable complex networking scenarios. For example, Azure offers both internal and external load balancers, network security groups that filter traffic in a similar fashion as firewall rules, user defined routing that allows for designing routing patterns, Virtual Network appliances from well-known vendors like Barracuda, Cisco, and Checkpoint, and Azure offers the ability to set up your Virtual Network with as many subnets as are required for your workload.
+    **Potential Answer**
+    Azure supports many technologies that enable complex networking scenarios. For example, Azure offers both internal and external load balancers, network security groups that filter traffic in a similar fashion as firewall rules, user defined routing that allows for designing routing patterns, Virtual Network appliances from well-known vendors like Barracuda, Cisco, and Checkpoint, and Azure offers the ability to set up your Virtual Network with as many subnets as are required for your workload.
 
 3. The director of Network Operations also does not trust cloud security. She will need a strategy in place which allows Network Engineers the ability to analyze traffic flows and capture packets when needed for cloud-hosted resources.
 
-    **Potential Answer**---Azure fully supports forced tunneling ensuring that all Internet traffic is directed to the desired site, be that in an Azure Virtual Network or on-premises. For example, all Internet traffic can easily be routed from Azure to an on-premises appliance for intrusion detection/prevention and logging.
+    **Potential Answer**
+    Azure fully supports forced tunneling ensuring that all Internet traffic is directed to the desired site, be that in an Azure Virtual Network or on-premises. For example, all Internet traffic can easily be routed from Azure to an on-premises appliance for intrusion detection/prevention and logging.
 
 4. The corporate compliance officer of Woodgrove must ensure compliance with many requirements to ensure his organization passes audits from both internal and external entities. One requirement is all outbound Internet requests must pass through an on-premises system that inspects and logs this traffic. The CCO is skeptical of IaaS solutions in Azure since "those VMs in the cloud can access the Internet directly."
 
-    **Potential Answer**---The Azure Marketplace has thousands of solutions from many different vendors. These solutions are built and validated by the vendor to perform as well as their on-premises variety. In the case of Woodgrove, which takes advantage of solutions from Barracuda, there are several solutions from this vendor in place and ready for use today.
+    **Potential Answer**
+    The Azure Marketplace has thousands of solutions from many different vendors. These solutions are built and validated by the vendor to perform as well as their on-premises variety. In the case of Woodgrove, which takes advantage of solutions from Barracuda, there are several solutions from this vendor in place and ready for use today.
 
 5.  Woodgrove has an arduous process for testing vendor-supplied solutions. In the network space, they have standardized on 3rd party solutions for network and application firewalls with existing vendors. They would like to use their trusted vendors to support cloud-based configurations as much as possible.
 
-    **Potential Answer**---Network Watcher in combination with NSG flow logs will allow Network Engineers to perform a full analysis of traffic between NSGs and from compute resources hosted in Azure.
+    **Potential Answer**
+    Network Watcher in combination with NSG flow logs will allow Network Engineers to perform a full analysis of traffic between NSGs and from compute resources hosted in Azure.
 
 ## Customer quote (to be read back to the attendees at the end)
 
 Quote from the Network Director:
 
-\"Azure's advanced networking capabilities and support for partner solutions are a welcome surprise. Your proof of concept has clearly demonstrated the platform's ability to more than satisfy our complex requirements.\"
+"Azure's advanced networking capabilities and support for partner solutions are a welcome surprise. Your proof of concept has clearly demonstrated the platform's ability to more than satisfy our complex requirements."
 
