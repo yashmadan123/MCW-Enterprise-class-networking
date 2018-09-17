@@ -1,7 +1,7 @@
 ![](https://github.com/Microsoft/MCW-Template-Cloud-Workshop/raw/master/Media/ms-cloud-workshop.png "Microsoft Cloud Workshops")
 
 <div class="MCWHeader1">
-Enterprise-class networking
+Enterprise-class networking in Azure
 </div>
 
 <div class="MCWHeader2">
@@ -27,7 +27,7 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 
 <!-- TOC -->
 
-- [Enterprise-class networking before the hands-on lab setup guide](#Enterprise-class-networking-before-the-hands-on-lab-setup-guide)
+- [Enterprise-class networking in Azure before the hands-on lab setup guide](#Enterprise-class-networking-in-Azure-before-the-hands-on-lab-setup-guide)
     - [Requirements](#requirements)
     - [Before the hands-on lab](#before-the-hands-on-lab)
         - [Task 1: Create a virtual machine to execute the lab in](#task-1-task-name)
@@ -36,7 +36,7 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 
 <!-- /TOC -->
 
-# Enterprise-class networking before the hands-on lab setup guide
+# Enterprise-class networking in Azure before the hands-on lab setup guide
 
 ## Requirements
 
