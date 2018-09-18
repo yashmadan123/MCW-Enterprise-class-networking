@@ -282,13 +282,13 @@ Route Tables are containers for User Defined Routes (UDRs). The route table is c
 
 6.  After you see the **DataRT** route table created (you may need to select **Refresh** again), complete steps 2 and 3 again to create the **WebRT** route table:
 
-    i.  Name: **WebRT**
+    a.  Name: **WebRT**
 
-    j.  Subscription: **Choose your subscription**.
+    b.  Subscription: **Choose your subscription**.
 
-    k.  Resource group: Select **Use existing**, choose the drop-down menu, and select **WGVNetRG2**.
+    c.  Resource group: Select **Use existing**, choose the drop-down menu, and select **WGVNetRG2**.
 
-    l.  Location: **south central**
+    d.  Location: **south central**
 
 7.  Once route tables are created, your **Route tables** blade should look like the following screenshot:
 
@@ -374,13 +374,13 @@ Route Tables are containers for User Defined Routes (UDRs). The route table is c
 
 9.  Repeat this procedure add the **WebToMgmt** route using the following information:
 
-    u.  Route name: **WebToMgmt**
+    a.  Route name: **WebToMgmt**
 
-    v.  Address prefix: **10.7.0.8/29**
+    b.  Address prefix: **10.7.0.8/29**
 
-    w.  Next hop type: **Virtual appliance**
+    c.  Next hop type: **Virtual appliance**
 
-    x.  Next hop address: **10.8.0.4**
+    d.  Next hop address: **10.8.0.4**
 
     ![This is in repetition to earlier steps.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image48.jpeg "Edit route")
 
@@ -404,7 +404,7 @@ Route Tables are containers for User Defined Routes (UDRs). The route table is c
 
     c.  Next hop type: **Internet**
 
-    d.  Next hop address: leave it blank
+    d.  Next hop address: **Leave it blank**.
 
     ![Continuation of steps to adding another route table.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image51.jpeg "Add route")
 
@@ -516,7 +516,7 @@ In this task, you will provision the CloudShop application using an ARM template
 
     ![In the Internet Explorer Enhanced Security Configuration dialog box, the Administrators Off radio button is selected, and the OK button is selected as well.](images/Setup/image18.png "Internet Explorer Enhanced Security Configuration")
 
-10. You will now ensure the CloudShop application is up and running. Open Internet explorer, and browse to both the WGWEB1 and WGWEB2 servers.
+10. You will now ensure the CloudShop application is up and running. Open Internet explorer, and browse to both the WGWEB1 and WGWEB2 servers:
 
     http://wgweb1
 
@@ -648,7 +648,7 @@ In this exercise, management of the Azure-based systems will only be available f
 
     d.  Password: **demo\@pass123**
 
-    e.  Subscription: **Choose your subscription**
+    e.  Subscription: **Choose your subscription**.
 
     f.  Resource group: Choose **Create new** and enter **WGMGMTRG**.
 
@@ -836,13 +836,13 @@ In this exercise, you will configure the firewall appliance to allow the necessa
 
     ![In the Barracuda NextGen Admin 7.2 Log In dialog box, specify the following, and choose Sign In.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image105.jpeg "Barracuda login page")
 
-    Management IP: **The public IP address of the Barracuda NextGen virtual machine you identified in the Azure portal**.
+    a.  Management IP: **The public IP address of the Barracuda NextGen virtual machine you identified in the Azure portal**.
 
-    Username: **root**
+    b.  Username: **root**
 
-    Password: **demo\@pass123**
+    c.  Password: **demo\@pass123**
 
-    Select: **Sign in**
+    d.  Select: **Sign in**
 
     ![Select \"Trust\" if an Authentication Check dialog box is prompted.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image106.jpeg "Authentication check")
 
@@ -952,14 +952,14 @@ In this exercise, we will simulate an on-premises connection to the internal web
 
 2.  See the following screenshot, and specify the configuration:
 
--   Name: **OnPremVNet**
--   Address space: **192.168.0.0/16**
--   Subscription: **Choose your Subscription**
--   Resource Group: Create new: **OnPremVNetRG**
--   Subnet name: **default**
--   Subnet address range: **192.168.0.0/24**
--   Location: **East US**
--   Make sure this is **NOT** the same location you have specified in the previous exercises.
+    a.  Name: **OnPremVNet**
+    b.  Address space: **192.168.0.0/16**
+    c.  Subscription: **Choose your Subscription**
+    d.  Resource Group: Create new: **OnPremVNetRG**
+    e.  Subnet name: **default**
+    f.  Subnet address range: **192.168.0.0/24**
+    g.  Location: **East US**
+    h.  Make sure this is **NOT** the same location you have specified in the previous exercises.
 
     ![This represents the configuration of Creating an on-premises Virtual Network.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image121.jpeg "Create virtual network") |  |
 
@@ -974,9 +974,9 @@ In this exercise, we will simulate an on-premises connection to the internal web
 
 3.  Specify the following configuration for the subnet, and select **OK**:
 
-    -   Address range: **192.168.1.0/29**
+    a.  Address range: **192.168.1.0/29**
 
-    -   Route table: **None** (We will add later.)
+    b.  Route table: **None** (We will add later.)
 
     ![Subnet Configuration selection followed by selecting ok.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image123.jpeg "Add subnet")
 
@@ -1094,11 +1094,11 @@ In this exercise, you will validate connectivity from your simulated on-premises
 
 2.  Specify the following configuration, and choose **OK**. Refer to the following screenshot for more details.
 
--   Name: **OnPremVM**
--   User name: **demouser** 
--   Password: **demo\@pass123**
--   Resource Group: Create new: **OnPremVMRG** 
--   Location: **The region you created the OnPremVNet Virtual Network in (East US).** 
+    a.  Name: **OnPremVM**
+    b.  User name: **demouser** 
+    c.  Password: **demo\@pass123**
+    d.  Resource Group: Create new: **OnPremVMRG** 
+    e.  Location: **The region you created the OnPremVNet Virtual Network in (East US).** 
   
     ![Configuration specification while creating a virtual machine](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image140.jpeg "Basics blade") 
 
