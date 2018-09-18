@@ -953,12 +953,19 @@ In this exercise, we will simulate an on-premises connection to the internal web
 2.  See the following screenshot, and specify the configuration:
 
     a.  Name: **OnPremVNet**
+    
     b.  Address space: **192.168.0.0/16**
+    
     c.  Subscription: **Choose your Subscription**
+    
     d.  Resource Group: Create new: **OnPremVNetRG**
+    
     e.  Subnet name: **default**
+    
     f.  Subnet address range: **192.168.0.0/24**
+    
     g.  Location: **East US**
+    
     h.  Make sure this is **NOT** the same location you have specified in the previous exercises.
 
     ![This represents the configuration of Creating an on-premises Virtual Network.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image121.jpeg "Create virtual network") |  |
@@ -1095,9 +1102,13 @@ In this exercise, you will validate connectivity from your simulated on-premises
 2.  Specify the following configuration, and choose **OK**. Refer to the following screenshot for more details.
 
     a.  Name: **OnPremVM**
+    
     b.  User name: **demouser** 
+    
     c.  Password: **demo\@pass123**
+    
     d.  Resource Group: Create new: **OnPremVMRG** 
+    
     e.  Location: **The region you created the OnPremVNet Virtual Network in (East US).** 
   
     ![Configuration specification while creating a virtual machine](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image140.jpeg "Basics blade") 
