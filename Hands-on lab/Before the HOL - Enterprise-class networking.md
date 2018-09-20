@@ -1,11 +1,46 @@
 ![](https://github.com/Microsoft/MCW-Template-Cloud-Workshop/raw/master/Media/ms-cloud-workshop.png "Microsoft Cloud Workshops")
 
-# Enterprise-class networking setup
+<div class="MCWHeader1">
+Enterprise-class networking in Azure
+</div>
+
+<div class="MCWHeader2">
+Before the hands-on lab setup guide
+</div>
+
+<div class="MCWHeader3">
+August 2018
+</div>
+
+
+Information in this document, including URL and other Internet Web site references, is subject to change without notice. Unless otherwise noted, the example companies, organizations, products, domain names, e-mail addresses, logos, people, places, and events depicted herein are fictitious, and no association with any real company, organization, product, domain name, e-mail address, logo, person, place or event is intended or should be inferred. Complying with all applicable copyright laws is the responsibility of the user. Without limiting the rights under copyright, no part of this document may be reproduced, stored in or introduced into a retrieval system, or transmitted in any form or by any means (electronic, mechanical, photocopying, recording, or otherwise), or for any purpose, without the express written permission of Microsoft Corporation.
+
+Microsoft may have patents, patent applications, trademarks, copyrights, or other intellectual property rights covering subject matter in this document. Except as expressly provided in any written license agreement from Microsoft, the furnishing of this document does not give you any license to these patents, trademarks, copyrights, or other intellectual property.
+
+The names of manufacturers, products, or URLs are provided for informational purposes only and Microsoft makes no representations and warranties, either expressed, implied, or statutory, regarding these manufacturers or the use of the products with any Microsoft technologies. The inclusion of a manufacturer or product does not imply endorsement of Microsoft of the manufacturer or product. Links may be provided to third party sites. Such sites are not under the control of Microsoft and Microsoft is not responsible for the contents of any linked site or any link contained in a linked site, or any changes or updates to such sites. Microsoft is not responsible for webcasting or any other form of transmission received from any linked site. Microsoft is providing these links to you only as a convenience, and the inclusion of any link does not imply endorsement of Microsoft of the site or the products contained therein.
+
+© 2018 Microsoft Corporation. All rights reserved.
+
+Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/Usage/General.aspx> are trademarks of the Microsoft group of companies. All other trademarks are property of their respective owners.
+
+**Contents**
+
+<!-- TOC -->
+
+- [Enterprise-class networking in Azure before the hands-on lab setup guide](#enterprise-class-networking-in-azure-before-the-hands-on-lab-setup-guide)
+    - [Requirements](#requirements)
+    - [Before the hands-on lab](#before-the-hands-on-lab)
+        - [Task 1: Create a virtual machine to execute the lab in](#task-1-create-a-virtual-machine-to-execute-the-lab-in)
+        - [Task 2: Update Azure PowerShell version](#task-2-update-azure-powershell-version)
+        - [Task 3: Download hands-on lab step-by-step support files](#task-3-download-hands-on-lab-step-by-step-support-files)
+
+<!-- /TOC -->
+
+# Enterprise-class networking in Azure before the hands-on lab setup guide
 
 ## Requirements
 
 You must have a working Azure subscription to carry out this hands-on lab step-by-step without a spending cap to deploy the Barracuda firewall from the Azure Marketplace.
-
 
 ## Before the hands-on lab
 
@@ -19,7 +54,7 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
 1.  Select **+NEW**, and in the search box, type in **Visual Studio Community 2017 on Windows Server 2016 (x64)**, and press enter. Select the Visual Studio Community 2017 image running on Windows Server 2016 with the latest update.
 
-3.  In the returned search results, select the image name
+3.  In the returned search results, select the image name.
 
     ![In the Azure Portal, Everything blade, the search field is set to Visual Studio Community 2017 on Windows Server 2016 (x64), and under Results, Visual Studio Community 2017 on Windows Server 2016 (x64) is selected.](images/Setup/image3.png "Azure Portal, Everything blade")
 
@@ -37,35 +72,35 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
     -   Password: **demo\@pass123**
 
-    -   Subscription: **If you have multiple subscriptions, choose the subscription to execute your labs in**
+    -   Subscription: **If you have multiple subscriptions, choose the subscription to execute your labs in**.
 
     -   Resource Group: **OPSLABRG**
 
-    -   Location: **Choose the closest Azure region to you**
+    -   Location: **Choose the closest Azure region to you**.
 
     ![All fields in the Basics blade are set to the previously defined settings.](images/Setup/image5.png "Basics blade")
 
-6.  Choose the **DS1\_V2 Standard** or **F2S** instance size on the Size blade
+6.  Choose the **DS1\_V2 Standard** or **F2S** instance size on the Size blade.
 
-    > Note: You may have to select the View All link to see the instance sizes.
+    > **Note:** You may have to select the View All link to see the instance sizes.
 
     ![On the Choose a size blade, the DS1\_V2 Standard option is selected.](images/Setup/image6.png "Choose a size blade")
 
-**Note**: If the Azure Subscription you are using is [NOT]{.underline} a trial Azure subscription, you may want to choose the DS2\_V2 to have more power in this LABMV. If you are using a Trial Subscription or one that you know has a restriction on the number of cores, stick with the DS1\_V2.
+>**Note**: If the Azure Subscription you are using is [NOT]{.underline} a trial Azure subscription, you may want to choose the DS2\_V2 to have more power in this LABMV. If you are using a Trial Subscription or one that you know has a restriction on the number of cores, stick with the DS1\_V2.
 
-7.  Select **Configure required settings** to specify a storage account for your virtual machine if a storage account name is not automatically selected for you
+7.  Select **Configure required settings** to specify a storage account for your virtual machine if a storage account name is not automatically selected for you.
 
     ![On the Settings blade, Configure required settings is selected.](images/Setup/image7.png "Settings blade")
 
-8.  Select **Create New**
+8.  Select **Create New**.
 
     ![Screenshot of the Create new button.](images/Setup/image8.png "Create new button")
 
-9.  Specify a unique name for the storage account (all lower letters and alphanumeric characters), and ensure the green checkmark shows the name is valid
+9.  Specify a unique name for the storage account (all lower letters and alphanumeric characters), and ensure the green checkmark shows the name is valid.
 
     ![In the Name field, a green checkmark is called out.](images/Setup/image9.png "Name field")
 
-10. Select **OK** to continue
+10. Select **OK** to continue.
 
     ![Screenshot of the OK button.](images/Setup/image10.png "OK button")
 
@@ -77,13 +112,13 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
     ![Screenshot of the Deploying Visual Studio Community 2017 announcement.](images/Setup/image12.png "Deploying Visual Studio Community")
 
-NOTE: Please wait for the LABVM to be provisioned prior to moving to the next step.
+>**Note:** Please wait for the LABVM to be provisioned prior to moving to the next step.
 
-13. Move back to the Portal page on your local machine, and wait for **LABVM** to show the Status of **Running**. Choose **Connect** to establish a new Remote Desktop Session
+13. Move back to the Portal page on your local machine, and wait for **LABVM** to show the Status of **Running**. Choose **Connect** to establish a new Remote Desktop Session.
 
     ![The Connect button is circled on the Azure Portal top menu bar.](images/Setup/image13.png "Azure Portal")
 
-14. Depending on your Remote Desktop protocol client and browser configuration, you will either be prompted to open an RDP file, or you will need to download it and then open it separately to connect
+14. Depending on your Remote Desktop protocol client and browser configuration, you will either be prompted to open an RDP file, or you will need to download it and then open it separately to connect.
 
 15. Log in with the credentials specified during creation:
 
@@ -99,15 +134,15 @@ NOTE: Please wait for the LABVM to be provisioned prior to moving to the next st
 
     ![On the Network Discovery prompt, the No button is selected.](images/Setup/image15.png "Network Discovery prompt")
 
-18. Notice that Server Manager opens by default. Select **Local Server**
+18. Notice that Server Manager opens by default. Select **Local Server**.
 
     ![On the Server Manager menu, Local Server is selected.](images/Setup/image16.png "Server Manager menu")
 
-19. On the side of the pane, choose **On** by **IE Enhanced Security Configuration**
+19. On the side of the pane, choose **On** by **IE Enhanced Security Configuration**.
 
     ![In the Essentials section, IE Enhanced Security Configuration is set to On, and is selected.](images/Setup/image17.png "Essentials section")
 
-20. Change to **Off** for Administrators, and select **OK**
+20. Change to **Off** for Administrators, and select **OK**.
 
     ![In the Internet Explorer Enhanced Security Configuration dialog box, Administrators are set to Off, and the OK button is selected.](images/Setup/image18.png "Internet Explorer Enhanced Security Configuration dialog box")
 
@@ -117,28 +152,30 @@ NOTE: Please wait for the LABVM to be provisioned prior to moving to the next st
 
     ![In the Download box, the Run button is selected.](images/Setup/image19.png "Download box")
 
-2.  A Web Platform Installer dialog box will open. Choose **Install** to install the latest version of the Azure PowerShell module (your version may differ from the screenshot). 
-Note: the version on the virtual machine may already be up-to-date.
+2.  A Web Platform Installer dialog box will open. Choose **Install** to install the latest version of the Azure PowerShell module (your version may differ from the screenshot).
 
-    ![In the Microsoft Azure PowerShell Web Platform Installer dialog box, an Install button is selected.](images/Setup/image20.png "Microsoft Azure PowerShell dialog box")
+>**Note:** The version on the virtual machine may already be up-to-date.
 
-3.  Accept the license terms by select **I Accept**
+   ![In the Microsoft Azure PowerShell Web Platform Installer dialog box, an Install button is selected.](images/Setup/image20.png "Microsoft Azure PowerShell dialog box")
+
+3.  Accept the license terms by select **I Accept**.
 
     ![In the Web Platform Installer 5.0 license terms dialog box, the I Accept button is selected.](images/Setup/image21.png "Web Platform Installer 5.0 license terms dialog box")
 
-4.  Select **Finish** to complete the installation
+4.  Select **Finish** to complete the installation.
 
     ![In the Web Platform Installer 5.0 Finish dialog box, the Finish button is selected.](images/Setup/image22.png "Web Platform Installer 5.0 Finished dialog box")
 
-5.  After the installation is complete, **reboot** the machine you installed Azure PowerShell on
+5.  After the installation is complete, **reboot** the machine you installed Azure PowerShell on.
 
 ### Task 3: Download hands-on lab step-by-step support files
 
 1.  After the reboot has completed, download the zipped hands-on lab step-by-step student files by selecting this link: <https://cloudworkshop.blob.core.windows.net/enterprise-networking/ECN-Hackathon.zip>
 
-2.  Extract the downloaded files into the directory **C:\\ECN-Hackathon**
+2.  Extract the downloaded files into the directory **C:\\ECN-Hackathon**.
 
     ![In File Explorer, ECN-Hackathon is selected, and from its right-click menu, Extract All is selected.](images/Setup/image23.png "File Explorer")
 
     ![In the Extract Files window, Files are being extracted to C:\\ECH-Hackathon, and the Extract button is selected.](images/Setup/image24.png "Extract Files window")
 
+You should follow all steps provided *before* performing the Hands-on lab.
