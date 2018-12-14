@@ -468,7 +468,7 @@ In this task, you will provision the CloudShop application using an ARM template
 
     ![In the Edit template blade, Load file is selected.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image58.png "Edit template blade")
 
-7.  Update the following parameters to reference the **WGVNet2** virtual network in the **WGBNetRG2** resource group.
+7.  Update the following parameters to reference the **WGVNet2** virtual network in the **WGVNetRG2** resource group.
 
     ![A screenshot that shows the Existing Virtual Network Name and Existing Virtual Network Resource group parameters.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image59.png "Template parameters")
 
