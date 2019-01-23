@@ -9,7 +9,7 @@ Before the hands-on lab setup guide
 </div>
 
 <div class="MCWHeader3">
-August 2018
+January 2019
 </div>
 
 
@@ -30,9 +30,9 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 - [Enterprise-class networking in Azure before the hands-on lab setup guide](#enterprise-class-networking-in-azure-before-the-hands-on-lab-setup-guide)
     - [Requirements](#requirements)
     - [Before the hands-on lab](#before-the-hands-on-lab)
-        - [Task 1: Create a virtual machine to execute the lab in](#task-1-create-a-virtual-machine-to-execute-the-lab-in)
-        - [Task 2: Update Azure PowerShell version](#task-2-update-azure-powershell-version)
-        - [Task 3: Download hands-on lab step-by-step support files](#task-3-download-hands-on-lab-step-by-step-support-files)
+        - [Task 1: Create a virtual machine to execute the lab in](#task-1--create-a-virtual-machine-to-execute-the-lab-in)
+        - [Task 2: Update Azure PowerShell version](#task-2--update-azure-powershell-version)
+        - [Task 3: Download hands-on lab step-by-step support files](#task-3--download-hands-on-lab-step-by-step-support-files)
 
 <!-- /TOC -->
 
@@ -60,8 +60,6 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
 4.  In the Marketplace solution blade, at the bottom of the page keep the deployment model set to **Resource Manager**, and choose **Create**.
 
-    ![Resource Manager is selected from the Select a deployment model drop-down list box.](images/Setup/image4.png "Select a deployment model ")
-
 5.  Set the following configuration on the Basics tab, and choose **OK**:
 
     -   Name: **LABVM**
@@ -78,39 +76,20 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
     -   Location: **Choose the closest Azure region to you**.
 
-    ![All fields in the Basics blade are set to the previously defined settings.](images/Setup/image5.png "Basics blade")
-
 6.  Choose the **DS1\_V2 Standard** or **F2S** instance size on the Size blade.
 
-    > **Note:** You may have to select the View All link to see the instance sizes.
-
-    ![On the Choose a size blade, the DS1\_V2 Standard option is selected.](images/Setup/image6.png "Choose a size blade")
-
->**Note**: If the Azure Subscription you are using is [NOT]{.underline} a trial Azure subscription, you may want to choose the DS2\_V2 to have more power in this LABMV. If you are using a Trial Subscription or one that you know has a restriction on the number of cores, stick with the DS1\_V2.
+    >**Note**: If the Azure Subscription you are using is [NOT]{.underline} a trial Azure subscription, you may want to choose the DS2\_V2 to have more power in this LABMV. If you are using a Trial Subscription or one that you know has a restriction on the number of cores, stick with the DS1\_V2.
 
 7.  Select **Configure required settings** to specify a storage account for your virtual machine if a storage account name is not automatically selected for you.
 
-    ![On the Settings blade, Configure required settings is selected.](images/Setup/image7.png "Settings blade")
-
 8.  Select **Create New**.
-
-    ![Screenshot of the Create new button.](images/Setup/image8.png "Create new button")
-
 9.  Specify a unique name for the storage account (all lower letters and alphanumeric characters), and ensure the green checkmark shows the name is valid.
-
-    ![In the Name field, a green checkmark is called out.](images/Setup/image9.png "Name field")
 
 10. Select **OK** to continue.
 
-    ![Screenshot of the OK button.](images/Setup/image10.png "OK button")
-
 11. Select **Configure required settings** for the Diagnostics storage account if a storage account name is not automatically selected for you. Repeat the previous steps to select a unique storage account name. This storage account will hold diagnostic logs about your virtual machine that you can use for troubleshooting purposes.
 
-    ![Screenshot of the Configure required settings option.](images/Setup/image11.png "Configure required settings")
-
-12. Accept the remaining default values on the Settings blade, and choose **OK**. On the Summary page, select **OK**. The deployment should begin provisioning. It may take 10+ minutes for the virtual machine to complete provisioning.
-
-    ![Screenshot of the Deploying Visual Studio Community 2017 announcement.](images/Setup/image12.png "Deploying Visual Studio Community")
+12. Accept the remaining default values on the Settings blade, and choose **Review and Create**. The deployment should begin provisioning. It may take 10+ minutes for the virtual machine to complete provisioning.
 
 >**Note:** Please wait for the LABVM to be provisioned prior to moving to the next step.
 
