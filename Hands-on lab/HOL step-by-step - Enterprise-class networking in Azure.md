@@ -848,7 +848,7 @@ In this exercise, we will simulate an on-premises connection to the internal web
 
 ### Task 1: Create OnPrem Virtual Network
 
-1.  Using the Azure Management portal, choose **+Create a resource**, **Networking**, and **Virtual network**.
+1.  Using the Azure Management portal, choose **+Create a resource**, **Networking** and **Virtual network**.
 
 2.  See the following screenshot, and specify the configuration:
 
@@ -873,7 +873,7 @@ In this exercise, we will simulate an on-premises connection to the internal web
 
 ### Task 2: Configure gateway subnets for on premise Virtual Network
 
-1.  Select the **OnPremVnetRG** Resource Group and then open the **OnPremVNet** blade, and choose **Subnets**.
+1.  Select the **OnPremVnetRG** Resource Group and then open the **OnPremVNet** blade and choose **Subnets**.
 
 2.  Next, choose +**Gateway subnet**.
 
@@ -887,7 +887,7 @@ In this exercise, we will simulate an on-premises connection to the internal web
 
     ![Subnet Configuration selection followed by selecting ok.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image123.jpeg "Add subnet")
 
-4.  Next, select the Resource Group **OnPremVnetRG**, and choose the **OnPremVNet Virtual Network**. Add an on- premise Management Subnet to the **OnPremVNet shown below in the screenshot.**
+4.  Next, select the Resource Group **OnPremVnetRG** and choose the **OnPremVNet Virtual Network**. Add an on- premise Management Subnet to the **OnPremVNet shown below in the screenshot.**
 
     ![Addition of an on-premise Management Subnet.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image124.jpeg "Add subnet")
 
@@ -935,7 +935,7 @@ In this exercise, we will simulate an on-premises connection to the internal web
 
 6.  Select the **Public IP address** tile, and choose **Create new**.
 
-7.  Name the IP **VNETGWIP**, and select **OK**.
+7.  Name the IP **VNETGWIP** and select **OK**.
 
 8.  Validate your settings look like the following screenshot, and select **Create**.
 
@@ -947,7 +947,7 @@ In this exercise, we will simulate an on-premises connection to the internal web
 
 1.  Using the Azure Management portal, click **+Create a resource**, type in **Connection**, and press **Enter**.
 
-2.  Select **Connection**, and choose **Create**.
+2.  Select **Connection** and choose **Create**.
 
     ![Under Results, Connection is selected.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image133.png "Results section")
 
