@@ -256,7 +256,9 @@ Woodgrove's pilot deployment of cloud-native application include:
 
 7.  URL based routing, redirection, SSL termination will need to be on the FW/LB level for the new cloud web apps.
    
-8.  All the incoming traffic coming to the web and data tier will need to be inspected to make sure there are no DDoS attacks. DDoS is an issue and needs to make sure DDoS protection plan is configured for the Virtual Network which will have Data and Web. 
+8.  All the incoming traffic coming to the web and data tier will need to be inspected to make sure there are no DDoS attacks. DDoS is an issue and needs to make sure DDoS protection plan is configured for the Virtual Network which will have Data and Web.
+   
+9.  All traffic that goes in and out of Cloud network must be filtered and passed through a firewall appliance.  
 
 ### Customer objections 
 
@@ -490,6 +492,8 @@ The solution for Woodgrove involved several technologies, including:
     -   To create the alias, it needs Public IP Address and DNS name attached to the App Gw.
 
 -   Implement DDoS protection services and enable the service for the Virtual network where Data and Web tier exists to protect the network against DDoS attacks.
+  
+-   Implement Azure Firewall to make sure it protects and filters all the traffic coming into and going out from the Azure virtual network.
 
 ### Solutions for Cloud web app deployment
 
