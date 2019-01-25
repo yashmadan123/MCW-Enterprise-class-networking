@@ -374,7 +374,7 @@ Route Tables are containers for User Defined Routes (UDRs). The route table is c
 
     ![Successful completion.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image49.jpeg "Route table")
 
-10. In the Azrue Portal, go back to **Route tables** blade to see the list of Route tables. 
+10. In the Azure Portal, go back to **Route tables** blade to see the list of Route tables. 
 
     ![Route tables is selected on the Azure Portal top menu.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image44.png "Azure Portal menu")
 
@@ -666,7 +666,7 @@ Duration: 20 Minutes
 
     ![Add Peerings.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image92.jpeg "Virtual network blade")
 
-3.  Name the new peering **VNETPeering** and check the box for allow forwarded traffic, and select **OK** to create peerings.
+3.  Name the new peering **VNETPeering** and check the box for allow forwarded traffic and select **OK** to create peerings.
 
     ![OK to create Peerings screen.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image93.jpeg "Add peering blade")
 
@@ -682,7 +682,7 @@ In this exercise, you will provision and configure a Azure firewall appliance in
 
 ### Task 1: Provision the Azure firewall appliance
 
-1.  Within the Azure portal, select **+ Create a resource** in the portal. In the search dialog, type **azure firewall** and select and click the **create** to open the create a firewal window
+1.  Within the Azure portal, select **+ Create a resource** in the portal. In the search dialog, type **azure firewall** and select and click the **create** to open the create a firewall window
 
 2.  On the **Basics** blade, enter the following information: 
    
@@ -806,7 +806,7 @@ Repeat the above process and Create another rule for https similar to the screen
 
 14. On the **Associate subnet** blade, select **Virtual network**. Then, select **WGVNet2**.
 
-    ![In the Associate subnet blade, Virtual network, Choose a virtual network is selected, as is WGVNet westus.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image116.png "Associate subnet blade")
+    ![In the Associate subnet blade, Virtual network, Choose a virtual network is selected, as is WGVNet West us.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image116.png "Associate subnet blade")
 
 15. The **Choose subnet** blade opens. Choose **WebTier**.
 
@@ -925,7 +925,7 @@ In this exercise, we will simulate an on-premises connection to the internal web
 
 3.  Name the gateway **WGVNetGWVNet1**.
 
-4.  One of the last configurable options is the **Location**. Choose the Azure region where **WGVNet1** exists (Southcentral US if following this guide).
+4.  One of the last configurable options is the **Location**. Choose the Azure region where **WGVNet1** exists (South central US if following this guide).
 
     >**Note: If you don't choose the location right after you put the name, right Virtual Network will not appear to create the Gateway.**
 
@@ -951,7 +951,7 @@ In this exercise, we will simulate an on-premises connection to the internal web
 
     ![Under Results, Connection is selected.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image133.png "Results section")
 
-3.  On the **Basics** blade, leave the **Connection type** set to **VNet-to-VNet**. Select the existing **WGVNetRG1** resource group. Then, change the location of this connection to the Azure region the **WGVNet1** Virtual Network is deployed to (Southcentral). Choose **OK**.
+3.  On the **Basics** blade, leave the **Connection type** set to **VNet-to-VNet**. Select the existing **WGVNetRG1** resource group. Then, change the location of this connection to the Azure region the **WGVNet1** Virtual Network is deployed to (South central). Choose **OK**.
 
     ![Basics Tab - Connection Type/Subscription/Resource Group selections](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image134.jpeg "Basics")
 

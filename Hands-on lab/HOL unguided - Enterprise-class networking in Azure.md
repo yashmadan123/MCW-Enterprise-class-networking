@@ -9,7 +9,7 @@ Hands-on lab unguided
 </div>
 
 <div class="MCWHeader3">
-August 2018
+January 2019
 </div>
 
 
@@ -120,7 +120,7 @@ In the first exercise, you will provision a Virtual Network and the subnets requ
 
 ### Tasks to complete
 
--   Provision a Virtual Network using the Address Space 10.7.0.0/16 in your Azure subscription. It should have a gateway subnet, a management subnet. This will support future tasks that will enable traffic segregation commensurate with an n-tier application deployment in an enterprise.
+-   Provision a Virtual Network using the Address Space 10.7.0.0/16 in your Azure subscription. It should have a gateway subnet a management subnet. This will support future tasks that will enable traffic segregation commensurate with an n-tier application deployment in an enterprise.
 
 -   Provision a management subnet. This subnet will have a management server from which management traffic can flow to the internal subnets.
 
