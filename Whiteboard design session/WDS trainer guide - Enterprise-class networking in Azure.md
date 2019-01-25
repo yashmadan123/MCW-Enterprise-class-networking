@@ -259,6 +259,10 @@ Woodgrove's pilot deployment of cloud-native application include:
 8.  All the incoming traffic coming to the web and data tier will need to be inspected to make sure there are no DDoS attacks. DDoS is an issue and needs to make sure DDoS protection plan is configured for the Virtual Network which will have Data and Web.
    
 9.  All traffic that goes in and out of Cloud network must be filtered and passed through a firewall appliance.  
+    
+10. All traffic that goes through ExpressRoute circuit needs to be distributed based on business units and will have granular control of circuit distributions.
+11. ExpressRoute circuits need to be link together to make a private network so that data can directly exchange between offices.
+
 
 ### Customer objections 
 
@@ -309,6 +313,10 @@ The desired outcome is a network architecture that meets the needs of a modern f
 -   How will you address providing connectivity in the event of a major connectivity provider outage?
 
 -   Be sure your design considers the international needs of the organization.
+  
+-   All traffic that goes through ExpressRoute circuit needs to be distributed based on business units and will have granular control of circuit distributions.
+  
+-   ExpressRoute circuits need to be link together to make a private network so that data can directly exchange between offices.
 
 ### Virtual network design in Azure
 
@@ -494,6 +502,11 @@ The solution for Woodgrove involved several technologies, including:
 -   Implement DDoS protection services and enable the service for the Virtual network where Data and Web tier exists to protect the network against DDoS attacks.
   
 -   Implement Azure Firewall to make sure it protects and filters all the traffic coming into and going out from the Azure virtual network.
+
+-   ExpressRoute Direct will be used for all traffic that goes through ExpressRoute circuit needs to be distributed based on business units and will have granular control of circuit distributions.
+
+-   ExpressRoute Global Reach will be used to link ExpressRoute circuits together to make a private network so that data can directly exchange between offices.
+
 
 ### Solutions for Cloud web app deployment
 

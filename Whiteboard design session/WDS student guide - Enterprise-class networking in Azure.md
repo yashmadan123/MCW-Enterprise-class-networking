@@ -122,7 +122,13 @@ Woodgrove's pilot deployment of cloud-native application include:
    
 8. All the incoming traffic coming to the web and data tier will need to be inspected to make sure there are no DDoS attacks. DDoS is an issue and needs to make sure DDoS protection plan is configured for the Virtual Network which will have Data and Web.
    
-9.  All traffic that goes in and out of Cloud network must be filtered and passed through a firewall appliance.  
+9.  All traffic that goes in and out of Cloud network must be filtered and passed through a firewall appliance.
+    
+10. All traffic that goes through ExpressRoute circuit needs to be distributed based on business units and will have granular control of circuit distributions.
+    
+11. ExpressRoute circuits need to be link together to make a private network so that data can directly exchange between offices.
+
+
 
 ### Customer objections 
 
