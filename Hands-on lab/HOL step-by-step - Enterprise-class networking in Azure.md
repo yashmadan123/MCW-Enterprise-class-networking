@@ -130,7 +130,7 @@ Duration: 15 minutes
 
     d.  Resource group: Select **Create new**, and enter the name **WGVNetRG1**.
 
-    e.  Location: **Southcentral**
+    e.  Location: **South central**
 
     f.  Subnet name: **GatewaySubnet**
 
@@ -188,7 +188,7 @@ Duration: 15 minutes
 
     e.  Location: **south central**
 
-    f.  Subnet name: **AzureFirewallSubnet** (this name is fixed and can can not be changed)
+    f.  Subnet name: **AzureFirewallSubnet** (this name is fixed and can not be changed)
 
     g.  Subnet address range: **10.8.0.0/26** (/26 is minimum requirement for azure firewall)
 
@@ -625,7 +625,7 @@ In this exercise, management of the Azure-based systems will only be available f
       
     3. VM Name: **WGMGMT1**
 
-    4. Region: **southcentral us**
+    4. Region: **south central us**
 
     5. **Image** : Windows Server 2016 Datacenter
     
@@ -678,7 +678,7 @@ Duration: 20 Minutes
 
 Duration: 15 minutes
 
-In this exercise, you will provision and configure a Azure firewall appliance in your network. 
+In this exercise, you will provision and configure an Azure firewall appliance in your network. 
 
 ### Task 1: Provision the Azure firewall appliance
 
@@ -833,7 +833,7 @@ In this task you will enable DDoS services for your virtual network.
 
  7. Now Go to Azure Portal **All Resources** - select and open **DDoSprotection** and in the **settings area** go to **Properties** take a note of **Resource ID** and **click to copy the ID**.
 
-8. In the Azure Portal - Go to **Resource Group** - **WGVNetRG2** - Virtual Network **WGVNet2** in the settings ares select and open **DDos Protection** select **Standard** choose **I know my resource ID** AND Paste your Resource ID in the field. 
+8. In the Azure Portal - Go to **Resource Group** - **WGVNetRG2** - Virtual Network **WGVNet2** in the settings areas select and open **DDos Protection** select **Standard** choose **I know my resource ID** AND Paste your Resource ID in the field. 
 
     ![Enabling DDos Protection from VNet.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/DDosimage3.png "DDos Creation blade")
 
