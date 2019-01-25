@@ -10,7 +10,7 @@ Whiteboard design session trainer guide
 </div>
 
 <div class="MCWHeader3">
-August 2018
+January 2019
 </div>
 
 Information in this document, including URL and other Internet Website references, is subject to change without notice. Unless otherwise noted, the example companies, organizations, products, domain names, e-mail addresses, logos, people, places, and events depicted herein are fictitious, and no association with any real company, organization, product, domain name, e-mail address, logo, person, place or event is intended or should be inferred. Complying with all applicable copyright laws is the responsibility of the user. Without limiting the rights under copyright, no part of this document may be reproduced, stored in or introduced into a retrieval system, or transmitted in any form or by any means (electronic, mechanical, photocopying, recording, or otherwise), or for any purpose, without the express written permission of Microsoft Corporation.
@@ -255,6 +255,8 @@ Woodgrove's pilot deployment of cloud-native application include:
 6.  All the traffic that will hit the cloud-based marketing web app will not be passed through on premises network. An alternative cloud-native security solution is required.
 
 7.  URL based routing, redirection, SSL termination will need to be on the FW/LB level for the new cloud web apps.
+   
+8.  All the incoming traffic coming to the web and data tier will need to be inspected to make sure there are no DDoS attacks. DDoS is an issue and needs to make sure DDoS protection plan is configured for the Virtual Network which will have Data and Web. 
 
 ### Customer objections 
 
@@ -486,6 +488,8 @@ The solution for Woodgrove involved several technologies, including:
     -   To ensure end users will hit the App Gw, a CNAME record can be used to point to the public endpoint of the application gateway.
 
     -   To create the alias, it needs Public IP Address and DNS name attached to the App Gw.
+
+-   Implement DDoS protection services and enable the service for the Virtual network where Data and Web tier exists to protect the network against DDoS attacks.
 
 ### Solutions for Cloud web app deployment
 
