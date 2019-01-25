@@ -56,6 +56,7 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
         - [Task 1: Provision the Azure firewall appliance](#task-1--provision-the-azure-firewall-appliance)
         - [Task 2: Create Firewall Rules](#task-2--create-firewall-rules)
         - [Task 3: Associate route tables to subnets](#task-3--associate-route-tables-to-subnets)
+        - [Task 4: Associate route tables to subnets](#task-4--associate-route-tables-to-subnets)
     - [Exercise 8: Configure Site-to-Site connectivity](#exercise-8--configure-site-to-site-connectivity)
         - [Task 1: Create OnPrem Virtual Network](#task-1--create-onprem-virtual-network)
         - [Task 2: Configure gateway subnets for on premise Virtual Network](#task-2--configure-gateway-subnets-for-on-premise-virtual-network)
@@ -118,8 +119,6 @@ Duration: 15 minutes
 ### Task 1: Create a Virtual Network
 
 1.  From your **LABVM**, connect to the Azure portal, select **New**, and in the list of Marketplace categories, select **Networking** followed by selecting **Virtual Network**. See the following screenshot for more details.
-
-    ![In the Azure Porta, New is selected. Under Azure Marketplace, Networking is selected. Under Featured, Virtual network is selected.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image25.png "Azure Portal")
 
 2.  On the **Create virtual network** blade, enter the following information:
 
@@ -439,9 +438,7 @@ In this task, you will provision the CloudShop application using an ARM template
 
 2.  Sign into the Azure portal at <http://portal.azure.com>.
 
-3.  Choose **New**, and search for template deployment.
-
-    ![In the search field of the Azure Portal, template deployment displays. ](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image55.png "Azure Portal")
+3.  Choose **+Create a resource**, and search for template deployment.
 
 4.  Select the template deployment link, and choose Create.
 
@@ -618,9 +615,7 @@ In this exercise, management of the Azure-based systems will only be available f
 
 ### Task 1: Build the management VM
 
-1.  In the Azure portal, select **New** in the portal. In the marketplace category list, choose **Compute**. In the Featured Apps list, choose **Windows Server 2016 Datacenter**.
-
-    ![In the Azure Portal, the New button is selected. Under Azure Marketplace, Compute is selected. Under featured, Windows Server 2016 Datacenter is selected.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image82.png "Azure Portal")
+1.  In the Azure portal, select **+Create a resource** in the portal. In the marketplace category list, choose **Compute**. In the Featured Apps list, choose **Windows Server 2016 Datacenter**.
 
 2.  On the **Basics** blade, shown in the following screenshot, enter the following information, and select **OK**:
 
@@ -657,7 +652,7 @@ In this exercise, management of the Azure-based systems will only be available f
 
     15. Under **Management**, for **Boot diagnostics and OS guest diagnostics**, choose **Off**.
 
-    16. At the bottom of teh page select **Review + Create**, ensure the validation passes, and choose **Create**. The virtual machine will take 5-10 minutes to provision.
+    16. At the bottom of the page select **Review + Create**, ensure the validation passes, and choose **Create**. The virtual machine will take 5-10 minutes to provision.
 
 ## Exercise 6: Virtual Network Peering
 
@@ -819,6 +814,32 @@ Repeat the above process and Create another rule for https similar to the screen
 
 16. Select **OK** at the bottom of the **Associate subnet** blade.
 
+### Task 4: Associate route tables to subnets
+
+In this task you will enable DDoS services for your virtual network.
+
+1. In the Azure Portal, select **+ Create a resource** and in the search box type **DDoS Protection Plan** and Select **Create**
+        
+    ![DDos Protection creation Blade.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/DDosimage1.png "DDos Creation blade")
+
+2. Name: DDoSprotection
+3. Subscription: Choose the right subscription
+4. Resource group: WGVNetRG2
+5. Location: South Central
+
+    ![DDos Protection creation Blade.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/DDosimage2.png "DDos Creation blade")
+
+ Once completed, select **Create** to enable DDoS protection. Wait few minutes to complete the provisioning.
+
+ 7. Now Go to Azure Portal **All Resources** - select and open **DDoSprotection** and in the **settings area** go to **Properties** take a note of **Resource ID** and **click to copy the ID**.
+
+8. In the Azure Portal - Go to **Resource Group** - **WGVNetRG2** - Virtual Network **WGVNet2** in the settings ares select and open **DDos Protection** select **Standard** choose **I know my resource ID** AND Paste your Resource ID in the field. 
+
+    ![Enabling DDos Protection from VNet.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/DDosimage3.png "DDos Creation blade")
+
+Once completed click **Save**
+
+
 ## Exercise 8: Configure Site-to-Site connectivity
 
 Duration: 60 minutes
@@ -827,9 +848,7 @@ In this exercise, we will simulate an on-premises connection to the internal web
 
 ### Task 1: Create OnPrem Virtual Network
 
-1.  Using the Azure Management portal, choose **New**, **Networking**, and **Virtual network**.
-
-    ![In the Azure Portal, New is selected. Under Azure Marketplace, Networking is selected, and under Featured, Virtual Network, Learn more is selected.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image120.png "Azure Portal")
+1.  Using the Azure Management portal, choose **+Create a resource**, **Networking**, and **Virtual network**.
 
 2.  See the following screenshot, and specify the configuration:
 
@@ -890,7 +909,7 @@ In this exercise, we will simulate an on-premises connection to the internal web
 
 6.  Select the **Public IP address** tile, and choose **Create new**.
 
-7.  Name the IP **onpremwggateway**, and select **OK**.
+7.  Name the IP **onpremgwgateway**, and select **OK**.
 
     ![Name creation in the Create public IP address tile.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image128.jpeg "Create public IP address")
 
@@ -926,9 +945,7 @@ In this exercise, we will simulate an on-premises connection to the internal web
 
 ### Task 5: Connect the gateways
 
-1.  Using the Azure Management portal, choose **New**, type in **Connection**, and press **Enter**.
-
-    ![In the Azure portal, both New and connection are selected.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image132.png "Azure Portal")
+1.  Using the Azure Management portal, click **+Create a resource**, type in **Connection**, and press **Enter**.
 
 2.  Select **Connection**, and choose **Create**.
 
@@ -938,9 +955,9 @@ In this exercise, we will simulate an on-premises connection to the internal web
 
     ![Basics Tab - Connection Type/Subscription/Resource Group selections](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image134.jpeg "Basics")
 
-4.  On the Settings tab, select **OnPremWGGateway** for the first Virtual Network gateway and **WGVNetGWVNet1** for the second Virtual Network gateway. Ensure **Establish bidirectional connectivity** is selected. Enter a Shared key, such as **A1B2C3D4** for example. After your settings reflect the below screenshot, select **OK**.
+4.  On the Settings tab, select **WGVNetGWVNet1** for the first Virtual Network gateway and **OnPremWGGateway** for the second Virtual Network gateway. Ensure **Establish bidirectional connectivity** is selected. Enter a Shared key, such as **A1B2C3D4** for example. After your settings reflect the below screenshot, select **OK**.
 
-    ![On the Settings tab, select OnPremWGGateway for the first Virtual Network gateway and WGVNetGWVNet1 for the second Virtual Network gateway. Ensure Establish bidirectional connectivity is selected. Enter a Shared key, such as A1B2C3D4 for example. After your settings reflect the below screenshot, choose OK.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image135.jpeg "Choose virtual network gateway")
+    ![On the Settings tab, select OnPremWGGateway for the second Virtual Network gateway and WGVNetGWVNet1 for the first Virtual Network gateway. Ensure Establish bidirectional connectivity is selected. Enter a Shared key, such as A1B2C3D4 for example. After your settings reflect the below screenshot, choose OK.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image135.jpeg "Choose virtual network gateway")
 
     **Second gateway**
 
@@ -952,7 +969,7 @@ In this exercise, we will simulate an on-premises connection to the internal web
 
 5.  Choose **OK** on the **Summary** page to create the connection.
 
-6.  Using the Azure Management portal, choose **More services**. Then, type **connections** in the search window, and select **Connections**.
+6.  Using the Azure Management portal, choose **All services**. Then, type **connections** in the search window, and select **Connections**.
 
     ![In the Azure portal, Browse is selected. In the search field, connections is typed. In the results section, Connections is selected.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image138.png "Azure Portal")
 
@@ -968,39 +985,45 @@ In this exercise, you will validate connectivity from your simulated on-premises
 
 ### Task 1: Create a virtual machine to validate connectivity
 
-1.  Create a new Virtual Machine in the second Virtual Network by selecting **New**, **Compute**, and **Windows Server 2016 Datacenter**.
+Create a new Virtual Machine in the second Virtual Network by selecting **+Create a resource**, **Compute**, and **Windows Server 2016 Datacenter**. Choose the following configurations and select **Review + Create** to provision
 
-2.  Specify the following configuration, and choose **OK**. Refer to the following screenshot for more details.
+1. Subscription: **Choose your subscription**.
 
-    a.  Name: **OnPremVM**
+2. Resource group: Choose **Create new** and enter **OnPremVMRG**.
+      
+3. VM Name: **OnPremVM**
+
+4. Region: **The region you created the OnPremVNet Virtual Network in (East US).**
+
+5. **Image** : Windows Server 2016 Datacenter
     
-    b.  User name: **demouser** 
-    
-    c.  Password: **demo\@pass123**
-    
-    d.  Resource Group: Create new: **OnPremVMRG** 
-    
-    e.  Location: **The region you created the OnPremVNet Virtual Network in (East US).** 
-  
-    ![Configuration specification while creating a virtual machine](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image140.jpeg "Basics blade") 
+6. Size:  **F1 Standard** (you will need to choose **View all** and scroll down to find the F1S size). Choose **Select**.
 
-3.  On the **Size** blade, choose **F1 Standard**, and choose **Select**.
+7. User name: **demouser**
 
-    ![The F1 Standard option displays on the Size blade.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image141.png "Size blade")
+8. Password: **demo\@pass123**
 
-4.  On the **Settings** blade, change the Virtual network to **OnPremVNet**, and set the subnet to the default subnet named: **default**
+9. Inbound Port Rule: **Allow selected ports** choose **RDP**
 
-    ![Virtual network, OnPremSimVNet is selected in the Network section in the Settings blade.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image142.png "Settings blade")
+10. One the disk blade: **Standard SSD**
 
-5.  Choose **OK** twice to provision the virtual machine.
+11. On the Storage blade, Under **Advanced**, select **No** for **Use managed disks**.
+
+12. Under **Networking** blade, select the **Virtual network** section. On the **Choose Virtual Network** blade, choose **OnPremVNet**.
+
+13. In the **Subnet** section, select the subnet that was chosen, and choose **default**
+
+14. In the **Public IP address** section, select the name that was pre-populated. 
+
+15. Under **Management**, leave as default
+
+16. At the bottom of the page select **Review + Create**, ensure the validation passes, and choose **Create**. The virtual machine will take 5-10 minutes to provision.
 
 ### Task 2: Configure routing for simulated 'on-premises' to Azure traffic
 
 When packets arrive from the simulated 'on-premises' Virtual Network (OnPremVNet) to the 'Azure-side' (WGVNET1), they arrive at the gateway WGVNETGWVNET1. This gateway is in a gateway subnet (10.7.0.0/29). For packets to be directed to the barracuda firewall, we need another route table and route to be associated with the gateway subnet on the 'Azure' side.
 
-1.  On the main portal menu, choose **More services** at the bottom. Enter **route** in the search box, and select **Route tables**.
-
-    ![In the Azure Portal, More services is selected. The search field is set to route, and in the results section, Route tables is selected.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image34.png "Azure Portal")
+1.  On the main portal menu, choose **All services** at the bottom. Enter **route** in the search box, and select **Route tables**.
 
 2.  On the **Route tables** blade, select **Add**.
 
@@ -1036,10 +1059,7 @@ When packets arrive from the simulated 'on-premises' Virtual Network (OnPremVNet
 
     ![Routes blade: information entry](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image145.jpeg "Add route")
 
-7.  Using the breadcrumb menu at the top of the portal, navigate back to the **WGAzureVNetGWRT** route table settings.
-
-
-8.  On the **Settings** blade, select **Subnets**.
+7.  In WGAzureVNetGWRT Routes, On the **Settings**, select **Subnets**.
 
 9.  On the **Subnets** blade, select the **Associate** link.
 
@@ -1052,6 +1072,8 @@ When packets arrive from the simulated 'on-premises' Virtual Network (OnPremVNet
 11. The **Choose subnet** blade opens. Select **Gateway Subnet**. Then, choose **OK** at the bottom to complete the association.
 
     ![Opening of the Choose subnet blade - Selecting ok to complete the association.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image149.jpeg "Choose subnet")
+
+   **Note**: At this point, you have configured your enterprise network. You should be able to test your Enterprise Class Network from one region to another. 
 
 ## After the hands-on lab
 
