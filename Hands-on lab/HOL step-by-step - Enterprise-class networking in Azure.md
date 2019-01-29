@@ -735,9 +735,9 @@ Within 1-2 minutes, the resource group **WGVNetRG2** will have the firewall appl
         
         i. Translated Port: 80
 
-Repeat the above process and Create another rule for https similar to the screenshot below.
+    Repeat the above process and Create another rule for https similar to the screenshot below.
 
-![Azure Firewall.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image0101.png "Azure Firewall NAT Rules")
+    ![Azure Firewall.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image0101.png "Azure Firewall NAT Rules")
 
 4.  On the Azure Firewall **Overview** page, select **Rules**. Then Select **+ Add Network Rule collection** and enter the following information to create Network Rule for outbound traffic. Any traffic from Azure Vnet to go outside via Azure Firewall. 
 
@@ -758,7 +758,7 @@ Repeat the above process and Create another rule for https similar to the screen
 
         h. Destination ports: *
 
-![Azure Firewall.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image00101.png "Azure Firewall Network Rules")
+    ![Azure Firewall.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image00101.png "Azure Firewall Network Rules")
 
 ### Task 3: Associate route tables to subnets
 
@@ -915,7 +915,7 @@ In this exercise, we will simulate an on-premises connection to the internal web
 
 8.  Validate your settings look like the following screenshot, and select **Create**.
 
->**Note:** The gateway will take 30-45 minutes to provision. Continue to the next section while waiting.
+    >**Note:** The gateway will take 30-45 minutes to provision. Continue to the next section while waiting.
 
 ### Task 4: Create the second gateway
 

@@ -91,7 +91,7 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
 12. Accept the remaining default values on the Settings blade, and choose **Review and Create**. The deployment should begin provisioning. It may take 10+ minutes for the virtual machine to complete provisioning.
 
->**Note:** Please wait for the LABVM to be provisioned prior to moving to the next step.
+    >**Note:** Please wait for the LABVM to be provisioned prior to moving to the next step.
 
 13. Move back to the Portal page on your local machine, and wait for **LABVM** to show the Status of **Running**. Choose **Connect** to establish a new Remote Desktop Session.
 
@@ -133,9 +133,9 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
 2.  A Web Platform Installer dialog box will open. Choose **Install** to install the latest version of the Azure PowerShell module (your version may differ from the screenshot).
 
->**Note:** The version on the virtual machine may already be up-to-date.
+    >**Note:** The version on the virtual machine may already be up-to-date.
 
-   ![In the Microsoft Azure PowerShell Web Platform Installer dialog box, an Install button is selected.](images/Setup/image20.png "Microsoft Azure PowerShell dialog box")
+    ![In the Microsoft Azure PowerShell Web Platform Installer dialog box, an Install button is selected.](images/Setup/image20.png "Microsoft Azure PowerShell dialog box")
 
 3.  Accept the license terms by select **I Accept**.
 

@@ -140,7 +140,6 @@ Woodgrove's pilot deployment of cloud-native application include:
 
 4.  The corporate compliance officer of Woodgrove must ensure compliance with many requirements to ensure his organization passes audits from both internal and external entities. One requirement is all outbound Internet requests must pass through an on-premises system that inspects and logs this traffic. The CCO is skeptical of IaaS solutions in Azure since "those VMs in the cloud can access the Internet directly."
 
-5.  Woodgrove has an arduous process for testing vendor-supplied solutions. In the network space, they have standardized on 3rd party solutions for network and application firewalls with existing vendors. They would like to use their trusted vendors to support cloud-based configurations as much as possible.
 
 ### Infographic for common scenarios
 
@@ -168,41 +167,20 @@ Directions: With all participants at your table, respond to the following questi
 
 The desired outcome is a network architecture that meets the needs of a modern financial services organization. This design will not have single points of failure and will include concepts such as a perimeter network with redundant firewalls protecting the internal subnets containing the application tiers. A simple network design will most likely confirm the director of Network Operation's beliefs that Azure cannot support real-world, enterprise-class networking (see customer objections)---*prove her wrong!*
 
-### ExpressRoute integration
 
--   Which peering options and other ExpressRoute features would be required?
+1. Create a high-level architecture diagram and explanation of the components of your solution. 
 
--   Diagram at a high-level the workflow that Woodgrove will follow to enable ExpressRoute in its environment.
+2. Explain the approach you would take to deploying ExpressRoute Circuits including location and circuit size.
 
--   Identify the information you would need to collect to configure peering and the NAT requirements for the solution.
+3. What ExpressRoute peering options you would enable and what workloads would use them? Diagram your peering configuration including subnet, IP and autonomous system number configuration needed.
 
--   How will you address providing connectivity in the event of a major connectivity provider outage?
+4. What are the NAT requirements for ExpressRoute integration?
 
--   Be sure your design considers the international needs of the organization.
+5. How does your design address availability at the network layer?
 
-### Virtual network design in Azure
+6. How is routing configured in your overall design?
 
-The network team at Woodgrove is giving you an address space of 10.7.0.0/16 and 10.10.1.0/24 to work with on this project.
-
--   How will you design the address space and subnets to support Woodgrove's requirements?
-
--   Will your design take advantage of network virtual appliances? If so, how will you ensure network traffic is processed by the appliances?
-
--   How will your design distribute load to both internal and external application servers?
-
--   How will your design ensure no single point of failure exists?
-
--   How would you test the resiliency of the design in practice?
-
--   Are there networking features in Azure that could be used to have access to higher bandwidth connections for compute resources? What are the requirements to use this service?
-
--   How could secure remote administration of the Azure environment be achieved with an administrator working from home?
-
--   Note all special requirements for any virtual appliance use in this scenario.
-
--   What other measures will you use to protect Woodgrove at the network layer?
-
--   How will you address the requirement that all Internet traffic be directed through Woodgrove's security appliance (intrusion prevention/detection)?
+7. Identify where Network Security Groups are used in your design.
 
 **Prepare**
 
