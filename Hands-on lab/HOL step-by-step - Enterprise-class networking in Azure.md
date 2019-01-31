@@ -19,7 +19,7 @@ Microsoft may have patents, patent applications, trademarks, copyrights, or othe
 
 The names of manufacturers, products, or URLs are provided for informational purposes only and Microsoft makes no representations and warranties, either expressed, implied, or statutory, regarding these manufacturers or the use of the products with any Microsoft technologies. The inclusion of a manufacturer or product does not imply endorsement of Microsoft of the manufacturer or product. Links may be provided to third party sites. Such sites are not under the control of Microsoft and Microsoft is not responsible for the contents of any linked site or any link contained in a linked site, or any changes or updates to such sites. Microsoft is not responsible for webcasting or any other form of transmission received from any linked site. Microsoft is providing these links to you only as a convenience, and the inclusion of any link does not imply endorsement of Microsoft of the site or the products contained therein.
 
-© 2018 Microsoft Corporation. All rights reserved.
+© 2019 Microsoft Corporation. All rights reserved.
 
 Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/Usage/General.aspx> are trademarks of the Microsoft group of companies. All other trademarks are property of their respective owners
 
@@ -33,39 +33,39 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
     - [Solution architecture](#solution-architecture)
     - [Requirements](#requirements)
     - [Help references](#help-references)
-    - [Exercise 1: Create a Virtual Network and provision subnets](#exercise-1--create-a-virtual-network-and-provision-subnets)
-        - [Task 1: Create a Virtual Network](#task-1--create-a-virtual-network)
-        - [Task 2: Configure subnets](#task-2--configure-subnets)
-    - [Exercise 2: Create second Virtual Network and provision subnets](#exercise-2--create-second-virtual-network-and-provision-subnets)
-        - [Task 1: Create a second Virtual Network](#task-1--create-a-second-virtual-network)
-        - [Task 2: Configure Subnets](#task-2--configure-subnets)
-    - [Exercise 3: Create route tables with required routes](#exercise-3--create-route-tables-with-required-routes)
-        - [Task 1: Create route tables](#task-1--create-route-tables)
-        - [Task 2: Add routes to each route table](#task-2--add-routes-to-each-route-table)
-    - [Exercise 4: Deploy n-tier application and validate functionality](#exercise-4--deploy-n-tier-application-and-validate-functionality)
-        - [Task 1: Use the Azure portal for a template deployment](#task-1--use-the-azure-portal-for-a-template-deployment)
-        - [Task 2: Validate the CloudShop application is up after the deployment](#task-2--validate-the-cloudshop-application-is-up-after-the-deployment)
-        - [Task 3: Create a load balancer to distribute load between the web servers](#task-3--create-a-load-balancer-to-distribute-load-between-the-web-servers)
-        - [Task 4: Configure the load balancer](#task-4--configure-the-load-balancer)
-    - [Exercise 5: Build the management station](#exercise-5--build-the-management-station)
-        - [Task 1: Build the management VM](#task-1--build-the-management-vm)
-    - [Exercise 6: Virtual Network Peering](#exercise-6--virtual-network-peering)
-        - [Task 1: Configure VNet peering WGVNET1 to WGVNET2](#task-1--configure-vnet-peering-wgvnet1-to-wgvnet2)
-        - [Task 2: Configure VNet peering WGVNET2 to WGVNET1](#task-2--configure-vnet-peering-wgvnet2-to-wgvnet1)
-    - [Exercise 7: Provision and configure Azure firewall solution](#exercise-7--provision-and-configure-azure-firewall-solution)
-        - [Task 1: Provision the Azure firewall appliance](#task-1--provision-the-azure-firewall-appliance)
-        - [Task 2: Create Firewall Rules](#task-2--create-firewall-rules)
-        - [Task 3: Associate route tables to subnets](#task-3--associate-route-tables-to-subnets)
-        - [Task 4: Associate route tables to subnets](#task-4--associate-route-tables-to-subnets)
-    - [Exercise 8: Configure Site-to-Site connectivity](#exercise-8--configure-site-to-site-connectivity)
-        - [Task 1: Create OnPrem Virtual Network](#task-1--create-onprem-virtual-network)
-        - [Task 2: Configure gateway subnets for on premise Virtual Network](#task-2--configure-gateway-subnets-for-on-premise-virtual-network)
-        - [Task 3: Create the first gateway](#task-3--create-the-first-gateway)
-        - [Task 4: Create the second gateway](#task-4--create-the-second-gateway)
-        - [Task 5: Connect the gateways](#task-5--connect-the-gateways)
-    - [Exercise 9: Validate connectivity from 'on-premises' to Azure](#exercise-9--validate-connectivity-from-on-premises-to-azure)
-        - [Task 1: Create a virtual machine to validate connectivity](#task-1--create-a-virtual-machine-to-validate-connectivity)
-        - [Task 2: Configure routing for simulated 'on-premises' to Azure traffic](#task-2--configure-routing-for-simulated-on-premises-to-azure-traffic)
+    - [Exercise 1: Create a Virtual Network and provision subnets](#exercise-1-create-a-virtual-network-and-provision-subnets)
+        - [Task 1: Create a Virtual Network](#task-1-create-a-virtual-network)
+        - [Task 2: Configure subnets](#task-2-configure-subnets)
+    - [Exercise 2: Create second Virtual Network and provision subnets](#exercise-2-create-second-virtual-network-and-provision-subnets)
+        - [Task 1: Create a second Virtual Network](#task-1-create-a-second-virtual-network)
+        - [Task 2: Configure Subnets](#task-2-configure-subnets)
+    - [Exercise 3: Create route tables with required routes](#exercise-3-create-route-tables-with-required-routes)
+        - [Task 1: Create route tables](#task-1-create-route-tables)
+        - [Task 2: Add routes to each route table](#task-2-add-routes-to-each-route-table)
+    - [Exercise 4: Deploy n-tier application and validate functionality](#exercise-4-deploy-n-tier-application-and-validate-functionality)
+        - [Task 1: Use the Azure portal for a template deployment](#task-1-use-the-azure-portal-for-a-template-deployment)
+        - [Task 2: Validate the CloudShop application is up after the deployment](#task-2-validate-the-cloudshop-application-is-up-after-the-deployment)
+        - [Task 3: Create a load balancer to distribute load between the web servers](#task-3-create-a-load-balancer-to-distribute-load-between-the-web-servers)
+        - [Task 4: Configure the load balancer](#task-4-configure-the-load-balancer)
+    - [Exercise 5: Build the management station](#exercise-5-build-the-management-station)
+        - [Task 1: Build the management VM](#task-1-build-the-management-vm)
+    - [Exercise 6: Virtual Network Peering](#exercise-6-virtual-network-peering)
+        - [Task 1: Configure VNet peering WGVNET1 to WGVNET2](#task-1-configure-vnet-peering-wgvnet1-to-wgvnet2)
+        - [Task 2: Configure VNet peering WGVNET2 to WGVNET1](#task-2-configure-vnet-peering-wgvnet2-to-wgvnet1)
+    - [Exercise 7: Provision and configure Azure firewall solution](#exercise-7-provision-and-configure-azure-firewall-solution)
+        - [Task 1: Provision the Azure firewall appliance](#task-1-provision-the-azure-firewall-appliance)
+        - [Task 2: Create Firewall Rules](#task-2-create-firewall-rules)
+        - [Task 3: Associate route tables to subnets](#task-3-associate-route-tables-to-subnets)
+        - [Task 4: Associate route tables to subnets](#task-4-associate-route-tables-to-subnets)
+    - [Exercise 8: Configure Site-to-Site connectivity](#exercise-8-configure-site-to-site-connectivity)
+        - [Task 1: Create OnPrem Virtual Network](#task-1-create-onprem-virtual-network)
+        - [Task 2: Configure gateway subnets for on premise Virtual Network](#task-2-configure-gateway-subnets-for-on-premise-virtual-network)
+        - [Task 3: Create the first gateway](#task-3-create-the-first-gateway)
+        - [Task 4: Create the second gateway](#task-4-create-the-second-gateway)
+        - [Task 5: Connect the gateways](#task-5-connect-the-gateways)
+    - [Exercise 9: Validate connectivity from 'on-premises' to Azure](#exercise-9-validate-connectivity-from-on-premises-to-azure)
+        - [Task 1: Create a virtual machine to validate connectivity](#task-1-create-a-virtual-machine-to-validate-connectivity)
+        - [Task 2: Configure routing for simulated 'on-premises' to Azure traffic](#task-2-configure-routing-for-simulated-on-premises-to-azure-traffic)
     - [After the hands-on lab](#after-the-hands-on-lab)
 
 <!-- /TOC -->
@@ -182,13 +182,13 @@ Duration: 15 minutes
 
     b.  Address space: **10.8.0.0/16**
 
-    c.  Subscription: **Choose your subscription**
+    c.  Subscription: **Choose your subscription**.
 
     d.  Resource group: Select **Create new**, and enter the name **WGVNetRG2**.
 
-    e.  Location: **south central**
+    e.  Location: **South Central**
 
-    f.  Subnet name: **AzureFirewallSubnet** (this name is fixed and can not be changed)
+    f.  Subnet name: **AzureFirewallSubnet** (this name is fixed and cannot be changed)
 
     g.  Subnet address range: **10.8.0.0/26** (/26 is minimum requirement for azure firewall)
 
@@ -246,7 +246,7 @@ Route Tables are containers for User Defined Routes (UDRs). The route table is c
 
     a.  Name: **MgmtRT**
 
-    b.  Subscription: **Choose your subscription**
+    b.  Subscription: **Choose your subscription**.
 
     c.  Resource group: Select **Use existing**, choose the drop-down menu, and select **WGVNetRG1**.
 
@@ -276,7 +276,7 @@ Route Tables are containers for User Defined Routes (UDRs). The route table is c
 
     c.  Resource group: Select **Use existing**, choose the drop-down menu, and select **WGVNetRG2**.
 
-    d.  Location: **south central**
+    d.  Location: **South Central**
 
 6.  Once route tables are created, your **Route tables** blade should look like the following screenshot:
 
@@ -561,6 +561,7 @@ In this task, you will provision the CloudShop application using an ARM template
 8.  Select **+ Add a target network IP configuration** repeating these steps, but this time, adding **WGWEB2** along with its IP configuration.
 
 9. Then, choose **OK**.
+
 10. Wait to proceed until the Backend pool configuration is finished updating.
 
     ![Updating of the Backend pool configuration!](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image72.jpeg "Backend pool blade")
@@ -625,9 +626,9 @@ In this exercise, management of the Azure-based systems will only be available f
       
     3. VM Name: **WGMGMT1**
 
-    4. Region: **south central us**
+    4. Region: **South Central US**
 
-    5. **Image** : Windows Server 2016 Datacenter
+    5. Image: **Windows Server 2016 Datacenter**
     
     6. Size:  **F1S** (you will need to choose **View all** and scroll down to find the F1S size). Choose **Select**.
 
@@ -715,25 +716,25 @@ Within 1-2 minutes, the resource group **WGVNetRG2** will have the firewall appl
 
     ![Azure Firewall.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image101.jpeg "Azure Firewall overview page")
 
-3.  On the **Overview** page, select **Rules**. Then Select **+ Add NAT Rule collection** and enter the following information to create Inbound NAT Rule
+3.  On the **Overview** page, select **Rules**. Then Select **+ Add NAT Rule collection** and enter the following information to create Inbound NAT Rule:
    
-        a. Name: natrule1
+       a. Name: **natrule1**
 
-        b. Priority: 250
+       b. Priority: **250**
 
-        c. Rules Name: Incoming
+       c. Rules Name: **Incoming**
 
-        d. protocol: Select TCP and UDP
+       d. protocol: **Select TCP and UDP**
 
-        e. Source address: * (Any IP address from internet can hit the firewall)
+       e. Source address: **(Any IP address from internet can hit the firewall)**
 
-        f. Destination Address: Firewall public IP Address. In this case 40. 119.2.178. Verify your Azure Firewall's public ip address
+       f. Destination Address: **Firewall public IP Address. In this case 40. 119.2.178. Verify your Azure Firewall's public IP address**.
 
-        g. Destination ports: 80 (Allow HTTP Traffic)
+       g. Destination ports: **80 (Allow HTTP Traffic)**
 
-        h. Translated Address: 10.8.1.10 (Azure Load Balancer Private IP)
+       h. Translated Address: **10.8.1.10 (Azure Load Balancer Private IP)**
         
-        i. Translated Port: 80
+       i. Translated Port: **80**
 
     Repeat the above process and Create another rule for https similar to the screenshot below.
 
@@ -741,22 +742,21 @@ Within 1-2 minutes, the resource group **WGVNetRG2** will have the firewall appl
 
 4.  On the Azure Firewall **Overview** page, select **Rules**. Then Select **+ Add Network Rule collection** and enter the following information to create Network Rule for outbound traffic. Any traffic from Azure Vnet to go outside via Azure Firewall. 
 
+       a. Name: **outgoingrule**
 
-        a. Name: outgoingrule
+       b. Priority: **100**
 
-        b. Priority: 100
+       c. Action: **Allow**
 
-        c. Action: Allow
+       d. Rules Name: **Outgoing**
 
-        d. Rules Name: Outgoing
+       e. protocol: **Any**
 
-        e. protocol: Any
+       f. Source address: * 
 
-        f. Source address: * 
+       g. Destination Address: *
 
-        g. Destination Address: *
-
-        h. Destination ports: *
+       h. Destination ports: *
 
     ![Azure Firewall.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image00101.png "Azure Firewall Network Rules")
 
@@ -818,14 +818,14 @@ Within 1-2 minutes, the resource group **WGVNetRG2** will have the firewall appl
 
 In this task you will enable DDoS services for your virtual network.
 
-1. In the Azure Portal, select **+ Create a resource** and in the search box type **DDoS Protection Plan** and Select **Create**
+1. In the Azure Portal, select **+ Create a resource** and in the search box type **DDoS Protection Plan** and Select **Create**.
         
     ![DDos Protection creation Blade.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/DDosimage1.png "DDos Creation blade")
 
-2. Name: DDoSprotection
-3. Subscription: Choose the right subscription
-4. Resource group: WGVNetRG2
-5. Location: South Central
+2. Name: **DDoSprotection**
+3. Subscription: **Choose the right subscription**.
+4. Resource group: **WGVNetRG2**
+5. Location: **South Central**
 
     ![DDos Protection creation Blade.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/DDosimage2.png "DDos Creation blade")
 
@@ -927,7 +927,7 @@ In this exercise, we will simulate an on-premises connection to the internal web
 
 4.  One of the last configurable options is the **Location**. Choose the Azure region where **WGVNet1** exists (South central US if following this guide).
 
-    >**Note: If you don't choose the location right after you put the name, right Virtual Network will not appear to create the Gateway.**
+    >**Note**: If you don't choose the location right after you put the name, right Virtual Network will not appear to create the Gateway.
 
 5.  In the **Virtual network** section, select **Choose a Virtual Network** followed by **WGVNet1**.
 
@@ -1073,7 +1073,7 @@ When packets arrive from the simulated 'on-premises' Virtual Network (OnPremVNet
 
     ![Opening of the Choose subnet blade - Selecting ok to complete the association.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image149.jpeg "Choose subnet")
 
-   **Note**: At this point, you have configured your enterprise network. You should be able to test your Enterprise Class Network from one region to another. 
+   >**Note**: At this point, you have configured your enterprise network. You should be able to test your Enterprise Class Network from one region to another. 
 
 ## After the hands-on lab
 
