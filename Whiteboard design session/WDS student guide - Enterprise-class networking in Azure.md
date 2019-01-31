@@ -165,20 +165,23 @@ Directions: With all participants at your table, respond to the following questi
 
 The desired outcome is a network architecture that meets the needs of a modern financial services organization. This design will not have single points of failure and will include concepts such as a perimeter network with redundant firewalls protecting the internal subnets containing the application tiers. A simple network design will most likely confirm the director of Network Operation's beliefs that Azure cannot support real-world, enterprise-class networking (see customer objections)---*prove her wrong!*
 
+*High-level architecture*
 
-1. Create a high-level architecture diagram and explanation of the components of your solution. 
+1. Create a high-level architecture diagram and explanation of the components of your solution.
 
-2. Explain the approach you would take to deploying ExpressRoute Circuits including location and circuit size.
+*Address the following customer requirements*
 
-3. What ExpressRoute peering options you would enable and what workloads would use them? Diagram your peering configuration including subnet, IP and autonomous system number configuration needed.
+1. Explain the approach you would take to deploying ExpressRoute Circuits including location and circuit size.
 
-4. What are the NAT requirements for ExpressRoute integration?
+2. What ExpressRoute peering options you would enable and what workloads would use them? Diagram your peering configuration including subnet, IP and autonomous system number configuration needed.
 
-5. How does your design address availability at the network layer?
+3. What are the NAT requirements for ExpressRoute integration?
 
-6. How is routing configured in your overall design?
+4. How does your design address availability at the network layer?
 
-7. Identify where Network Security Groups are used in your design.
+5. How is routing configured in your overall design?
+
+6. Identify where Network Security Groups are used in your design.
 
 **Prepare**
 
