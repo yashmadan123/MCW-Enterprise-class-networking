@@ -78,7 +78,7 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
 6.  Choose the **DS1\_V2 Standard** or **F2S** instance size on the Size blade.
 
-    >**Note**: If the Azure Subscription you are using is [NOT]{.underline} a trial Azure subscription, you may want to choose the DS2\_V2 to have more power in this LABMV. If you are using a Trial Subscription or one that you know has a restriction on the number of cores, stick with the DS1\_V2.
+    >**Note**: If the Azure Subscription you are using is **NOT** a trial Azure subscription, you may want to choose the DS2\_V2 to have more power in this LABMV. If you are using a Trial Subscription or one that you know has a restriction on the number of cores, stick with the DS1\_V2.
 
 7.  Select **Configure required settings** to specify a storage account for your virtual machine if a storage account name is not automatically selected for you.
 
@@ -101,7 +101,7 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
 15. Log in with the credentials specified during creation:
 
-    a.  User: **demouser **
+    a.  User: **demouser**
 
     b.  Password: **demo\@pass123**
 
@@ -137,7 +137,7 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
     ![In the Microsoft Azure PowerShell Web Platform Installer dialog box, an Install button is selected.](images/Setup/image20.png "Microsoft Azure PowerShell dialog box")
 
-3.  Accept the license terms by select **I Accept**.
+3.  Accept the license terms by selecting **I Accept**.
 
     ![In the Web Platform Installer 5.0 license terms dialog box, the I Accept button is selected.](images/Setup/image21.png "Web Platform Installer 5.0 license terms dialog box")
 
