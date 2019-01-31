@@ -288,19 +288,23 @@ Directions: With all participants at your table, respond to the following questi
 
 The desired outcome is a network architecture that meets the needs of a modern financial services organization. This design will not have single points of failure and will include concepts such as a perimeter network with redundant firewalls protecting the internal subnets containing the application tiers. A simple network design will most likely confirm the director of Network Operation's beliefs that Azure cannot support real-world, enterprise-class networking (see customer objections)---*prove her wrong!*
 
+*High-Level architecture*
+
 1. Create a high-level architecture diagram and explanation of the components of your solution. 
 
-2. Explain the approach you would take to deploying ExpressRoute Circuits including location and circuit size.
+*Address the following customer requirements*
 
-3. What ExpressRoute peering options you would enable and what workloads would use them? Diagram your peering configuration including subnet, IP and autonomous system number configuration needed.
+1. Explain the approach you would take to deploying ExpressRoute Circuits including location and circuit size.
 
-4. What are the NAT requirements for ExpressRoute integration?
+2. What ExpressRoute peering options you would enable and what workloads would use them? Diagram your peering configuration including subnet, IP and autonomous system number configuration needed.
 
-5. How does your design address availability at the network layer?
+3. What are the NAT requirements for ExpressRoute integration?
 
-6. How is routing configured in your overall design?
+4. How does your design address availability at the network layer?
 
-7. Identify where Network Security Groups are used in your design.
+5. How is routing configured in your overall design?
+
+6. Identify where Network Security Groups are used in your design.
 
 **Prepare**
 
@@ -420,6 +424,8 @@ Directions: Tables reconvene with the larger group to hear the facilitator/SME s
 ## Preferred solution
 
 *High-level architecture*
+
+1. Create a high-level architecture diagram and explanation of the components of your solution.
 
 The solution for Woodgrove involved several technologies, including:
 
@@ -706,23 +712,26 @@ The solution for Woodgrove involved several technologies, including:
 1.  As a financial institution, Woodgrove is under tight regulatory compliance requirements. Security is a key aspect of compliance and as such, it must be a key tenant of all operations including those related to technology. The corporate security officer is generally opposed to using services solely accessible over the public Internet. Services like Office 365, CRM, and other Microsoft SaaS offerings are off limits. Additionally, PaaS services accessed over the Internet are also unusable. It has relegated Woodgrove to private Azure services such as IaaS.
 
     **Potential Answer**
+    
     Using ExpressRoute, Woodgrove can access and use Azure private and public services without traversing the Internet. This secure connectivity, in addition to the business-class SLAs and greater bandwidth, make ExpressRoute a compelling offering that addresses this objection. Regarding SaaS offerings, such as Office 365, Woodgrove can employ Azure Active Directory conditional access to provide controls such as a multi-factor authenticated user, an authenticated device, and a compliant device. All traffic to and from Office 365 is encrypted with SSL/TLS, and the data is encrypted at rest in Microsoft datacenters.
 
 2.  The director of Network Operations is under the impression that complex enterprise-grade networking scenarios, such as those that support n-tier applications, cannot be configured in hyper-scale public clouds. Trust comes slowly with this director. She will most likely need detailed solution plans, case studies, and even customer testimonials to help convince her of the viability of anything other than simple networking scenarios in Azure.
 
     **Potential Answer**
+    
     Azure supports many critical enterprise-grade scenarios, including scenarios that require hybrid connectivity and high availability such as Woodgrove. Many of these scenarios are documented in the Azure Architecture Center with reference architectures that cover best practices. 
 
 3. The director of Network Operations also does not trust cloud security. She will need a strategy in place which allows Network Engineers the ability to analyze traffic flows and capture packets when needed for cloud-hosted resources.
 
     **Potential Answer**
+    
     Azure fully supports forced tunneling ensuring that all Internet traffic is directed to the desired site, be that in an Azure Virtual Network or on-premises. For example, all Internet traffic can easily be routed from Azure to an on-premises appliance for intrusion detection/prevention and logging.
 
 4. The corporate compliance officer of Woodgrove must ensure compliance with many requirements to ensure his organization passes audits from both internal and external entities. One requirement is all outbound Internet requests must pass through an on-premises system that inspects and logs this traffic. The CCO is skeptical of IaaS solutions in Azure since "those VMs in the cloud can access the Internet directly."
 
     **Potential Answer**
+    
     This can be addressed by enabling forced tunneling, which directs all outbound traffic to an on-premises location such as a security appliance. This is enabled in ExpressRoute by advertising a default BGP route.
-
 
 
 ## Customer quote (to be read back to the attendees at the end)
