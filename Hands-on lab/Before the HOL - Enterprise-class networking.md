@@ -30,9 +30,9 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 - [Enterprise-class networking in Azure before the hands-on lab setup guide](#enterprise-class-networking-in-azure-before-the-hands-on-lab-setup-guide)
     - [Requirements](#requirements)
     - [Before the hands-on lab](#before-the-hands-on-lab)
-        - [Task 1: Create a virtual machine to execute the lab in](#task-1--create-a-virtual-machine-to-execute-the-lab-in)
-        - [Task 2: Update Azure PowerShell version](#task-2--update-azure-powershell-version)
-        - [Task 3: Download hands-on lab step-by-step support files](#task-3--download-hands-on-lab-step-by-step-support-files)
+        - [Task 1: Create a virtual machine to execute the lab in](#task-1-create-a-virtual-machine-to-execute-the-lab-in)
+        - [Task 2: Update Azure PowerShell version](#task-2-update-azure-powershell-version)
+        - [Task 3: Download hands-on lab step-by-step support files](#task-3-download-hands-on-lab-step-by-step-support-files)
 
 <!-- /TOC -->
 
