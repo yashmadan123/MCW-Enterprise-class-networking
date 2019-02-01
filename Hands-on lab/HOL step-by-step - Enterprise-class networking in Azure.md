@@ -25,7 +25,51 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 
 **Contents**
 
-<!-- TOC -->autoauto- [Enterprise-class networking in Azure hands-on lab step-by-step](#enterprise-class-networking-in-azure-hands-on-lab-step-by-step)auto    - [Abstract and learning objectives](#abstract-and-learning-objectives)auto    - [Overview](#overview)auto    - [Solution architecture](#solution-architecture)auto    - [Requirements](#requirements)auto    - [Help references](#help-references)auto    - [Exercise 1: Create a Virtual Network and provision subnets](#exercise-1-create-a-virtual-network-and-provision-subnets)auto        - [Task 1: Create a Virtual Network](#task-1-create-a-virtual-network)auto        - [Task 2: Configure subnets](#task-2-configure-subnets)auto    - [Exercise 2: Create second Virtual Network and provision subnets](#exercise-2-create-second-virtual-network-and-provision-subnets)auto        - [Task 1: Create a second Virtual Network](#task-1-create-a-second-virtual-network)auto        - [Task 2: Configure Subnets](#task-2-configure-subnets)auto    - [Exercise 3: Create route tables with required routes](#exercise-3-create-route-tables-with-required-routes)auto        - [Task 1: Create route tables](#task-1-create-route-tables)auto        - [Task 2: Add routes to each route table](#task-2-add-routes-to-each-route-table)auto    - [Exercise 4: Deploy n-tier application and validate functionality](#exercise-4-deploy-n-tier-application-and-validate-functionality)auto        - [Task 1: Use the Azure portal for a template deployment](#task-1-use-the-azure-portal-for-a-template-deployment)auto        - [Task 2: Validate the CloudShop application is up after the deployment](#task-2-validate-the-cloudshop-application-is-up-after-the-deployment)auto        - [Task 3: Create a load balancer to distribute load between the web servers](#task-3-create-a-load-balancer-to-distribute-load-between-the-web-servers)auto        - [Task 4: Configure the load balancer](#task-4-configure-the-load-balancer)auto    - [Exercise 5: Build the management station](#exercise-5-build-the-management-station)auto        - [Task 1: Build the management VM](#task-1-build-the-management-vm)auto    - [Exercise 6: Virtual Network Peering](#exercise-6-virtual-network-peering)auto        - [Task 1: Configure VNet peering WGVNET1 to WGVNET2](#task-1-configure-vnet-peering-wgvnet1-to-wgvnet2)auto        - [Task 2: Configure VNet peering WGVNET2 to WGVNET1](#task-2-configure-vnet-peering-wgvnet2-to-wgvnet1)auto    - [Exercise 7: Provision and configure Azure firewall solution](#exercise-7-provision-and-configure-azure-firewall-solution)auto        - [Task 1: Provision the Azure firewall appliance](#task-1-provision-the-azure-firewall-appliance)auto        - [Task 2: Create Firewall Rules](#task-2-create-firewall-rules)auto        - [Task 3: Associate route tables to subnets](#task-3-associate-route-tables-to-subnets)auto        - [Task 4: Associate route tables to subnets](#task-4-associate-route-tables-to-subnets)auto    - [Exercise 8: Configure Site-to-Site connectivity](#exercise-8-configure-site-to-site-connectivity)auto        - [Task 1: Create OnPrem Virtual Network](#task-1-create-onprem-virtual-network)auto        - [Task 2: Configure gateway subnets for on premise Virtual Network](#task-2-configure-gateway-subnets-for-on-premise-virtual-network)auto        - [Task 3: Create the first gateway](#task-3-create-the-first-gateway)auto        - [Task 4: Create the second gateway](#task-4-create-the-second-gateway)auto        - [Task 5: Connect the gateways](#task-5-connect-the-gateways)auto    - [Exercise 9: Validate connectivity from 'on-premises' to Azure](#exercise-9-validate-connectivity-from-on-premises-to-azure)auto        - [Task 1: Create a virtual machine to validate connectivity](#task-1-create-a-virtual-machine-to-validate-connectivity)auto        - [Task 2: Configure routing for simulated 'on-premises' to Azure traffic](#task-2-configure-routing-for-simulated-on-premises-to-azure-traffic)auto    - [After the hands-on lab](#after-the-hands-on-lab)autoauto<!-- /TOC -->
+<!-- TOC -->
+
+- [Enterprise-class networking in Azure hands-on lab step-by-step](#enterprise-class-networking-in-azure-hands-on-lab-step-by-step)
+    - [Abstract and learning objectives](#abstract-and-learning-objectives)
+    - [Overview](#overview)
+    - [Solution architecture](#solution-architecture)
+    - [Requirements](#requirements)
+    - [Help references](#help-references)
+    - [Exercise 1: Create a Virtual Network and provision subnets](#exercise-1-create-a-virtual-network-and-provision-subnets)
+        - [Task 1: Create a Virtual Network](#task-1-create-a-virtual-network)
+        - [Task 2: Configure subnets](#task-2-configure-subnets)
+    - [Exercise 2: Create second Virtual Network and provision subnets](#exercise-2-create-second-virtual-network-and-provision-subnets)
+        - [Task 1: Create a second Virtual Network](#task-1-create-a-second-virtual-network)
+        - [Task 2: Configure Subnets](#task-2-configure-subnets)
+    - [Exercise 3: Create route tables with required routes](#exercise-3-create-route-tables-with-required-routes)
+        - [Task 1: Create route tables](#task-1-create-route-tables)
+        - [Task 2: Add routes to each route table](#task-2-add-routes-to-each-route-table)
+    - [Exercise 4: Deploy n-tier application and validate functionality](#exercise-4-deploy-n-tier-application-and-validate-functionality)
+        - [Task 1: Use the Azure portal for a template deployment](#task-1-use-the-azure-portal-for-a-template-deployment)
+        - [Task 2: Validate the CloudShop application is up after the deployment](#task-2-validate-the-cloudshop-application-is-up-after-the-deployment)
+        - [Task 3: Create a load balancer to distribute load between the web servers](#task-3-create-a-load-balancer-to-distribute-load-between-the-web-servers)
+        - [Task 4: Configure the load balancer](#task-4-configure-the-load-balancer)
+    - [Exercise 5: Build the management station](#exercise-5-build-the-management-station)
+        - [Task 1: Build the management VM](#task-1-build-the-management-vm)
+    - [Exercise 6: Virtual Network Peering](#exercise-6-virtual-network-peering)
+        - [Task 1: Configure VNet peering WGVNET1 to WGVNET2](#task-1-configure-vnet-peering-wgvnet1-to-wgvnet2)
+        - [Task 2: Configure VNet peering WGVNET2 to WGVNET1](#task-2-configure-vnet-peering-wgvnet2-to-wgvnet1)
+    - [Exercise 7: Provision and configure Azure firewall solution](#exercise-7-provision-and-configure-azure-firewall-solution)
+        - [Task 1: Provision the Azure firewall appliance](#task-1-provision-the-azure-firewall-appliance)
+        - [Task 2: Create Firewall Rules](#task-2-create-firewall-rules)
+        - [Task 3: Associate route tables to subnets](#task-3-associate-route-tables-to-subnets)
+        - [Task 4: Associate route tables to subnets](#task-4-associate-route-tables-to-subnets)
+    - [Exercise 8: Configure Site-to-Site connectivity](#exercise-8-configure-site-to-site-connectivity)
+        - [Task 1: Create OnPrem Virtual Network](#task-1-create-onprem-virtual-network)
+        - [Task 2: Configure gateway subnets for on premise Virtual Network](#task-2-configure-gateway-subnets-for-on-premise-virtual-network)
+        - [Task 3: Create the first gateway](#task-3-create-the-first-gateway)
+        - [Task 4: Create the second gateway](#task-4-create-the-second-gateway)
+        - [Task 5: Connect the gateways](#task-5-connect-the-gateways)
+    - [Exercise 9: Validate connectivity from 'on-premises' to Azure](#exercise-9-validate-connectivity-from-on-premises-to-azure)
+        - [Task 1: Create a virtual machine to validate connectivity](#task-1-create-a-virtual-machine-to-validate-connectivity)
+        - [Task 2: Configure routing for simulated 'on-premises' to Azure traffic](#task-2-configure-routing-for-simulated-on-premises-to-azure-traffic)
+    - [After the hands-on lab](#after-the-hands-on-lab)
+
+<!-- /TOC -->
+
 # Enterprise-class networking in Azure hands-on lab step-by-step
 
 ## Abstract and learning objectives
@@ -495,7 +539,7 @@ In this task, you will provision the CloudShop application using an ARM template
 
 1.  Open the **WGWEBLB** load balancer in the Azure portal.
 
-2.  Select **Backend pools**, and choose **+Add** at the beginning.
+2. Select **Backend pools**, and choose **+Add** at the beginning.
 
     ![In the Load balancer blade under Settings, Backend pools is selected, and the Add button is selected as well.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image67.png "Load balancer blade")
 
@@ -777,8 +821,11 @@ In this task you will enable DDoS services for your virtual network.
     ![DDos Protection creation Blade.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/DDosimage1.png "DDos Creation blade")
 
 2. Name: **DDoSprotection**
+
 3. Subscription: **Choose the right subscription**.
+
 4. Resource group: **WGVNetRG2**
+
 5. Location: **South Central**
 
     ![DDos Protection creation Blade.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/DDosimage2.png "DDos Creation blade")
@@ -789,7 +836,7 @@ In this task you will enable DDoS services for your virtual network.
 
 8. In the Azure Portal - Go to **Resource Group** - **WGVNetRG2** - Virtual Network **WGVNet2** in the settings areas select and open **DDos Protection** select **Standard** choose **I know my resource ID** AND Paste your Resource ID in the field. 
 
-   ![Enabling DDos Protection from VNet.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/DDosimage3.png "DDos Creation blade")
+    ![Enabling DDos Protection from VNet.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/DDosimage3.png "DDos Creation blade")
 
     Once completed click **Save**
 
