@@ -9,7 +9,7 @@ Hands-on lab unguided
 </div>
 
 <div class="MCWHeader3">
-August 2018
+January 2019
 </div>
 
 
@@ -120,7 +120,7 @@ In the first exercise, you will provision a Virtual Network and the subnets requ
 
 ### Tasks to complete
 
--   Provision a Virtual Network using the Address Space 10.7.0.0/16 in your Azure subscription. It should have a gateway subnet, a management subnet. This will support future tasks that will enable traffic segregation commensurate with an n-tier application deployment in an enterprise.
+-   Provision a Virtual Network using the Address Space 10.7.0.0/16 in your Azure subscription. It should have a gateway subnet a management subnet. This will support future tasks that will enable traffic segregation commensurate with an n-tier application deployment in an enterprise.
 
 -   Provision a management subnet. This subnet will have a management server from which management traffic can flow to the internal subnets.
 
@@ -214,7 +214,7 @@ In this exercise, you will build a 'jump-box', which will be used to manage the 
 
 ### Tasks to complete
 
--   Provision a server in the management subnet. This server will be used as a 'jump box' allowing administrators to RDP to other Azure-based servers from it. The server should not have a Public IP address since RDP access will be accomplished using NATting through the firewall appliance (configured in a later task).
+-   Provision a server in the management subnet. This server will be used as a 'jump box' allowing administrators to RDP to other Azure-based servers from it. The server should not have a Public IP address since RDP access will be accomplished using NAT through the firewall appliance (configured in a later task).
 
 ### Exit criteria
 
@@ -258,15 +258,15 @@ In this exercise, you will 'wire up' the configuration to allow access to the Cl
 
 ### Tasks to complete
 
--   Configure partner firewall NATting and firewall rules to accomplish the following goals.
+-   Configure partner firewall NAT and firewall rules to accomplish the following goals.
 
     -   Only one IP address is exposed to the Internet. All other servers in the environment should **not** have Public IP addresses when this exercise is complete.
 
     -   All Azure VMs access the Internet through the firewall only.
 
-    -   Served from the internal load-balancer IP (NATted through the firewall), CloudShop website is accessible from the Internet.
+    -   Served from the internal load-balancer IP (NAT through the firewall), CloudShop website is accessible from the Internet.
 
-    -   From the Internet, RDP access will **only** be available to the management station (NATed through the firewall). RDP access to the Azure-based servers from the management station will be enabled via the firewall.
+    -   From the Internet, RDP access will **only** be available to the management station (NAT through the firewall). RDP access to the Azure-based servers from the management station will be enabled via the firewall.
 
 -   Associate the previously created route tables to their corresponding subnets. This will bypass system routes and should force all traffic to flow from each subnet to the firewall as the next hop.
 

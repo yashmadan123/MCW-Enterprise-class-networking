@@ -9,7 +9,7 @@ Before the hands-on lab setup guide
 </div>
 
 <div class="MCWHeader3">
-August 2018
+January 2019
 </div>
 
 
@@ -19,7 +19,7 @@ Microsoft may have patents, patent applications, trademarks, copyrights, or othe
 
 The names of manufacturers, products, or URLs are provided for informational purposes only and Microsoft makes no representations and warranties, either expressed, implied, or statutory, regarding these manufacturers or the use of the products with any Microsoft technologies. The inclusion of a manufacturer or product does not imply endorsement of Microsoft of the manufacturer or product. Links may be provided to third party sites. Such sites are not under the control of Microsoft and Microsoft is not responsible for the contents of any linked site or any link contained in a linked site, or any changes or updates to such sites. Microsoft is not responsible for webcasting or any other form of transmission received from any linked site. Microsoft is providing these links to you only as a convenience, and the inclusion of any link does not imply endorsement of Microsoft of the site or the products contained therein.
 
-© 2018 Microsoft Corporation. All rights reserved.
+© 2019 Microsoft Corporation. All rights reserved.
 
 Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/Usage/General.aspx> are trademarks of the Microsoft group of companies. All other trademarks are property of their respective owners.
 
@@ -60,8 +60,6 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
 4.  In the Marketplace solution blade, at the bottom of the page keep the deployment model set to **Resource Manager**, and choose **Create**.
 
-    ![Resource Manager is selected from the Select a deployment model drop-down list box.](images/Setup/image4.png "Select a deployment model ")
-
 5.  Set the following configuration on the Basics tab, and choose **OK**:
 
     -   Name: **LABVM**
@@ -78,41 +76,22 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
     -   Location: **Choose the closest Azure region to you**.
 
-    ![All fields in the Basics blade are set to the previously defined settings.](images/Setup/image5.png "Basics blade")
-
 6.  Choose the **DS1\_V2 Standard** or **F2S** instance size on the Size blade.
 
-    > **Note:** You may have to select the View All link to see the instance sizes.
-
-    ![On the Choose a size blade, the DS1\_V2 Standard option is selected.](images/Setup/image6.png "Choose a size blade")
-
->**Note**: If the Azure Subscription you are using is [NOT]{.underline} a trial Azure subscription, you may want to choose the DS2\_V2 to have more power in this LABMV. If you are using a Trial Subscription or one that you know has a restriction on the number of cores, stick with the DS1\_V2.
+    >**Note**: If the Azure Subscription you are using is **NOT** a trial Azure subscription, you may want to choose the DS2\_V2 to have more power in this LABMV. If you are using a Trial Subscription or one that you know has a restriction on the number of cores, stick with the DS1\_V2.
 
 7.  Select **Configure required settings** to specify a storage account for your virtual machine if a storage account name is not automatically selected for you.
 
-    ![On the Settings blade, Configure required settings is selected.](images/Setup/image7.png "Settings blade")
-
 8.  Select **Create New**.
-
-    ![Screenshot of the Create new button.](images/Setup/image8.png "Create new button")
-
 9.  Specify a unique name for the storage account (all lower letters and alphanumeric characters), and ensure the green checkmark shows the name is valid.
-
-    ![In the Name field, a green checkmark is called out.](images/Setup/image9.png "Name field")
 
 10. Select **OK** to continue.
 
-    ![Screenshot of the OK button.](images/Setup/image10.png "OK button")
-
 11. Select **Configure required settings** for the Diagnostics storage account if a storage account name is not automatically selected for you. Repeat the previous steps to select a unique storage account name. This storage account will hold diagnostic logs about your virtual machine that you can use for troubleshooting purposes.
 
-    ![Screenshot of the Configure required settings option.](images/Setup/image11.png "Configure required settings")
+12. Accept the remaining default values on the Settings blade, and choose **Review and Create**. The deployment should begin provisioning. It may take 10+ minutes for the virtual machine to complete provisioning.
 
-12. Accept the remaining default values on the Settings blade, and choose **OK**. On the Summary page, select **OK**. The deployment should begin provisioning. It may take 10+ minutes for the virtual machine to complete provisioning.
-
-    ![Screenshot of the Deploying Visual Studio Community 2017 announcement.](images/Setup/image12.png "Deploying Visual Studio Community")
-
->**Note:** Please wait for the LABVM to be provisioned prior to moving to the next step.
+    >**Note:** Please wait for the LABVM to be provisioned prior to moving to the next step.
 
 13. Move back to the Portal page on your local machine, and wait for **LABVM** to show the Status of **Running**. Choose **Connect** to establish a new Remote Desktop Session.
 
@@ -122,7 +101,7 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
 15. Log in with the credentials specified during creation:
 
-    a.  User: **demouser **
+    a.  User: **demouser**
 
     b.  Password: **demo\@pass123**
 
@@ -154,11 +133,11 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
 2.  A Web Platform Installer dialog box will open. Choose **Install** to install the latest version of the Azure PowerShell module (your version may differ from the screenshot).
 
->**Note:** The version on the virtual machine may already be up-to-date.
+    >**Note:** The version on the virtual machine may already be up-to-date.
 
-   ![In the Microsoft Azure PowerShell Web Platform Installer dialog box, an Install button is selected.](images/Setup/image20.png "Microsoft Azure PowerShell dialog box")
+    ![In the Microsoft Azure PowerShell Web Platform Installer dialog box, an Install button is selected.](images/Setup/image20.png "Microsoft Azure PowerShell dialog box")
 
-3.  Accept the license terms by select **I Accept**.
+3.  Accept the license terms by selecting **I Accept**.
 
     ![In the Web Platform Installer 5.0 license terms dialog box, the I Accept button is selected.](images/Setup/image21.png "Web Platform Installer 5.0 license terms dialog box")
 

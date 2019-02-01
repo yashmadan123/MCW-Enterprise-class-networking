@@ -10,7 +10,7 @@ Whiteboard design session student guide
 </div>
 
 <div class="MCWHeader3">
-August 2018
+January 2019
 </div>
 
 Information in this document, including URL and other Internet Web site references, is subject to change without notice. Unless otherwise noted, the example companies, organizations, products, domain names, e-mail addresses, logos, people, places, and events depicted herein are fictitious, and no association with any real company, organization, product, domain name, e-mail address, logo, person, place or event is intended or should be inferred. Complying with all applicable copyright laws is the responsibility of the user. Without limiting the rights under copyright, no part of this document may be reproduced, stored in or introduced into a retrieval system, or transmitted in any form or by any means (electronic, mechanical, photocopying, recording, or otherwise), or for any purpose, without the express written permission of Microsoft Corporation.
@@ -19,7 +19,7 @@ Microsoft may have patents, patent applications, trademarks, copyrights, or othe
 
 The names of manufacturers, products, or URLs are provided for informational purposes only and Microsoft makes no representations and warranties, either expressed, implied, or statutory, regarding these manufacturers or the use of the products with any Microsoft technologies. The inclusion of a manufacturer or product does not imply endorsement of Microsoft of the manufacturer or product. Links may be provided to third party sites. Such sites are not under the control of Microsoft and Microsoft is not responsible for the contents of any linked site or any link contained in a linked site, or any changes or updates to such sites. Microsoft is not responsible for webcasting or any other form of transmission received from any linked site. Microsoft is providing these links to you only as a convenience, and the inclusion of any link does not imply endorsement of Microsoft of the site or the products contained therein.
 
-© 2018 Microsoft Corporation. All rights reserved.
+© 2019 Microsoft Corporation. All rights reserved.
 
 Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/Usage/General.aspx> are trademarks of the Microsoft group of companies. All other trademarks are property of their respective owners.
 
@@ -29,16 +29,14 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 
 - [Enterprise-class networking in Azure whiteboard design session student guide](#enterprise-class-networking-in-azure-whiteboard-design-session-student-guide)
     - [Abstract and learning objectives](#abstract-and-learning-objectives)
-    - [Step 1: Review the customer case study](#step-1--review-the-customer-case-study)
+    - [Step 1: Review the customer case study](#step-1-review-the-customer-case-study)
         - [Customer background](#customer-background)
         - [Customer situation](#customer-situation)
         - [Customer needs](#customer-needs)
         - [Customer objections](#customer-objections)
         - [Infographic for common scenarios](#infographic-for-common-scenarios)
-    - [Step 2: Design a proof of concept solution](#step-2--design-a-proof-of-concept-solution)
-        - [ExpressRoute integration](#expressroute-integration)
-        - [Virtual network design in Azure](#virtual-network-design-in-azure)
-    - [Step 3: Present the solution](#step-3--present-the-solution)
+    - [Step 2: Design a proof of concept solution](#step-2-design-a-proof-of-concept-solution)
+    - [Step 3: Present the solution](#step-3-present-the-solution)
     - [Wrap-up](#wrap-up)
     - [Additional references](#additional-references)
 
@@ -119,6 +117,16 @@ Woodgrove's pilot deployment of cloud-native application include:
 6.  All the traffic that will hit the cloud-based marketing web app will not be passed through on premises network. An alternative cloud-native security solution is required.
 
 7.  URL based routing, redirection, SSL termination will need to be on the FW/LB level for the new cloud web apps.
+   
+8. All the incoming traffic coming to the web and data tier will need to be inspected to make sure there are no DDoS attacks. DDoS is an issue and needs to make sure DDoS protection plan is configured for the Virtual Network which will have Data and Web.
+   
+9.  All traffic that goes in and out of Cloud network must be filtered and passed through a firewall appliance.
+    
+10. All traffic that goes through ExpressRoute circuit needs to be distributed based on business units and will have granular control of circuit distributions.
+    
+11. ExpressRoute circuits need to be link together to make a private network so that data can directly exchange between offices.
+
+
 
 ### Customer objections 
 
@@ -130,7 +138,6 @@ Woodgrove's pilot deployment of cloud-native application include:
 
 4.  The corporate compliance officer of Woodgrove must ensure compliance with many requirements to ensure his organization passes audits from both internal and external entities. One requirement is all outbound Internet requests must pass through an on-premises system that inspects and logs this traffic. The CCO is skeptical of IaaS solutions in Azure since "those VMs in the cloud can access the Internet directly."
 
-5.  Woodgrove has an arduous process for testing vendor-supplied solutions. In the network space, they have standardized on 3rd party solutions for network and application firewalls with existing vendors. They would like to use their trusted vendors to support cloud-based configurations as much as possible.
 
 ### Infographic for common scenarios
 
@@ -158,41 +165,23 @@ Directions: With all participants at your table, respond to the following questi
 
 The desired outcome is a network architecture that meets the needs of a modern financial services organization. This design will not have single points of failure and will include concepts such as a perimeter network with redundant firewalls protecting the internal subnets containing the application tiers. A simple network design will most likely confirm the director of Network Operation's beliefs that Azure cannot support real-world, enterprise-class networking (see customer objections)---*prove her wrong!*
 
-### ExpressRoute integration
+*High-level architecture*
 
--   Which peering options and other ExpressRoute features would be required?
+1. Create a high-level architecture diagram and explanation of the components of your solution.
 
--   Diagram at a high-level the workflow that Woodgrove will follow to enable ExpressRoute in its environment.
+*Address the following customer requirements*
 
--   Identify the information you would need to collect to configure peering and the NAT requirements for the solution.
+1. Explain the approach you would take to deploying ExpressRoute Circuits including location and circuit size.
 
--   How will you address providing connectivity in the event of a major connectivity provider outage?
+2. What ExpressRoute peering options you would enable and what workloads would use them? Diagram your peering configuration including subnet, IP and autonomous system number configuration needed.
 
--   Be sure your design considers the international needs of the organization.
+3. What are the NAT requirements for ExpressRoute integration?
 
-### Virtual network design in Azure
+4. How does your design address availability at the network layer?
 
-The network team at Woodgrove is giving you an address space of 10.7.0.0/16 and 10.10.1.0/24 to work with on this project.
+5. How is routing configured in your overall design?
 
--   How will you design the address space and subnets to support Woodgrove's requirements?
-
--   Will your design take advantage of network virtual appliances? If so, how will you ensure network traffic is processed by the appliances?
-
--   How will your design distribute load to both internal and external application servers?
-
--   How will your design ensure no single point of failure exists?
-
--   How would you test the resiliency of the design in practice?
-
--   Are there networking features in Azure that could be used to have access to higher bandwidth connections for compute resources? What are the requirements to use this service?
-
--   How could secure remote administration of the Azure environment be achieved with an administrator working from home?
-
--   Note all special requirements for any virtual appliance use in this scenario.
-
--   What other measures will you use to protect Woodgrove at the network layer?
-
--   How will you address the requirement that all Internet traffic be directed through Woodgrove's security appliance (intrusion prevention/detection)?
+6. Identify where Network Security Groups are used in your design.
 
 **Prepare**
 
