@@ -774,16 +774,16 @@ In this task you will enable DDoS services for your virtual network.
 
 1. In the Azure Portal, select **+ Create a resource** and in the search box type **DDoS Protection Plan** and Select **Create**.
         
-   ![DDos Protection creation Blade.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/DDosimage1.png "DDos Creation blade")
+    ![DDos Protection creation Blade.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/DDosimage1.png "DDos Creation blade")
 
 2. Name: **DDoSprotection**
 3. Subscription: **Choose the right subscription**.
 4. Resource group: **WGVNetRG2**
 5. Location: **South Central**
 
-   ![DDos Protection creation Blade.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/DDosimage2.png "DDos Creation blade")
+    ![DDos Protection creation Blade.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/DDosimage2.png "DDos Creation blade")
 
- Once completed, select **Create** to enable DDoS protection. Wait few minutes to complete the provisioning.
+    Once completed, select **Create** to enable DDoS protection. Wait few minutes to complete the provisioning.
 
  7. Now Go to Azure Portal **All Resources** - select and open **DDoSprotection** and in the **settings area** go to **Properties** take a note of **Resource ID** and **click to copy the ID**.
 
@@ -791,7 +791,7 @@ In this task you will enable DDoS services for your virtual network.
 
    ![Enabling DDos Protection from VNet.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/DDosimage3.png "DDos Creation blade")
 
-Once completed click **Save**
+    Once completed click **Save**
 
 
 ## Exercise 8: Configure Site-to-Site connectivity
