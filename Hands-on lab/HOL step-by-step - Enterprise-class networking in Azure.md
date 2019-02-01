@@ -818,7 +818,7 @@ In this task you will enable DDoS services for your virtual network.
 
 1. In the Azure Portal, select **+ Create a resource** and in the search box type **DDoS Protection Plan** and Select **Create**.
         
-    ![DDos Protection creation Blade.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/DDosimage1.png "DDos Creation blade")
+    ![DDos Protection creation Blade.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/ddosimage1.jpg "DDos Creation blade")
 
 2. Name: **DDoSprotection**
 
@@ -828,7 +828,7 @@ In this task you will enable DDoS services for your virtual network.
 
 5. Location: **South Central**
 
-    ![DDos Protection creation Blade.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/DDosimage2.png "DDos Creation blade")
+    ![DDos Protection creation Blade.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/ddosimage2.jpg "DDos Creation blade")
 
     Once completed, select **Create** to enable DDoS protection. Wait few minutes to complete the provisioning.
 
@@ -836,7 +836,7 @@ In this task you will enable DDoS services for your virtual network.
 
 8. In the Azure Portal - Go to **Resource Group** - **WGVNetRG2** - Virtual Network **WGVNet2** in the settings areas select and open **DDos Protection** select **Standard** choose **I know my resource ID** AND Paste your Resource ID in the field. 
 
-    ![Enabling DDos Protection from VNet.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/DDosimage3.png "DDos Creation blade")
+    ![Enabling DDos Protection from VNet.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/ddosimage3.png "DDos Creation blade")
 
     Once completed click **Save**
 
