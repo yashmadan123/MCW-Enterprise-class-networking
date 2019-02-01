@@ -621,37 +621,37 @@ In this exercise, management of the Azure-based systems will only be available f
 
 2.  On the **Basics** blade, shown in the following screenshot, enter the following information, and select **OK**:
 
-    - Subscription: **Choose your subscription**.
+    a. Subscription: **Choose your subscription**.
 
-    - Resource group: Choose **Create new** and enter **WGMGMTRG**.
+    b. Resource group: Choose **Create new** and enter **WGMGMTRG**.
       
-    - VM Name: **WGMGMT1**
+    c. VM Name: **WGMGMT1**
 
-    - Region: **South Central US**
+    d. Region: **South Central US**
 
-    - Image: **Windows Server 2016 Datacenter**
+    e. Image: **Windows Server 2016 Datacenter**
     
-    - Size:  **F1S** (you will need to choose **View all** and scroll down to find the F1S size). Choose **Select**.
+    f. Size:  **F1S** (you will need to choose **View all** and scroll down to find the F1S size). Choose **Select**.
 
-    - User name: **demouser**
+    g. User name: **demouser**
 
-    - Password: **demo\@pass123**
+    h. Password: **demo\@pass123**
 
-    - One the disk blade: **Premium SSD**
+    i. One the disk blade: **Premium SSD**
 
-    - On the Storage blade, Under **Advanced**, select **No** for **Use managed disks**.
+    j. On the Storage blade, Under **Advanced**, select **No** for **Use managed disks**.
 
-    - Under **Networking** blade, select the **Virtual network** section. On the **Choose Virtual Network** blade, choose **WGVNet1**.
+    k. Under **Networking** blade, select the **Virtual network** section. On the **Choose Virtual Network** blade, choose **WGVNet1**.
 
-    - In the **Subnet** section, select the subnet that was chosen, and choose **Management**
+    l. In the **Subnet** section, select the subnet that was chosen, and choose **Management**
 
-    - In the **Public IP address** section, select the name that was pre-populated. Then, select the **Choose Public IP address** and choose **None**.
+    m. In the **Public IP address** section, select the name that was pre-populated. Then, select the **Choose Public IP address** and choose **None**.
     
-    - Select the **Network security group**: **None**.
+    n. Select the **Network security group**: **None**.
 
-    - Under **Management**, for **Boot diagnostics and OS guest diagnostics**, choose **Off**.
+    o. Under **Management**, for **Boot diagnostics and OS guest diagnostics**, choose **Off**.
 
-    - At the bottom of the page select **Review + Create**, ensure the validation passes, and choose **Create**. The virtual machine will take 5-10 minutes to provision.
+    p. At the bottom of the page select **Review + Create**, ensure the validation passes, and choose **Create**. The virtual machine will take 5-10 minutes to provision.
 
 ## Exercise 6: Virtual Network Peering
 
