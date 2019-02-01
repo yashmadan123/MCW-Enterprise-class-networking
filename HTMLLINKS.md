@@ -7,5 +7,3 @@
 
 [HOL step-by-step - Enterprise-class networking in Azure.html](https://cloudworkshop.blob.core.windows.net/enterprise-networking/Hands-on%20lab/HOL%20step-by-step%20-%20Enterprise-class%20networking%20in%20Azure.html)
 
-[HOL unguided - Enterprise-class networking in Azure.html](https://cloudworkshop.blob.core.windows.net/enterprise-networking/Hands-on%20lab/HOL%20unguided%20-%20Enterprise-class%20networking%20in%20Azure.html)
-
