@@ -836,7 +836,7 @@ In this task you will enable DDoS services for your virtual network.
 
 8. In the Azure Portal - Go to **Resource Group** - **WGVNetRG2** - Virtual Network **WGVNet2** in the settings areas select and open **DDos Protection** select **Standard** choose **I know my resource ID** AND Paste your Resource ID in the field. 
 
-    ![Enabling DDos Protection from VNet.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/ddosimage3.png "DDos Creation blade")
+    ![Enabling DDos Protection from VNet.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/ddosimage3.jpg "DDos Creation blade")
 
     Once completed click **Save**
 
