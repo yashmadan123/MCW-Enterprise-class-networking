@@ -1,4 +1,4 @@
-﻿![](https://github.com/Microsoft/MCW-Template-Cloud-Workshop/raw/master/Media/ms-cloud-workshop.png "Microsoft Cloud Workshops")
+﻿![Microsoft Cloud Workshops](https://github.com/Microsoft/MCW-Template-Cloud-Workshop/raw/master/Media/ms-cloud-workshop.png "Microsoft Cloud Workshops")
 
 <div class="MCWHeader1">
 Enterprise-class networking in Azure
@@ -62,9 +62,9 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
     -  Virtual machine name: **LABVM**
 
-    -  Region: **Choose the closest Azure region to you**
+    -  Region: **Choose the closest Azure region to you**.
 
-    -  Availability options: **No infrastructure redundancy required**
+    -  Availability options: **No infrastructure redundancy required**.
 
     -  Image: **Visual Studio Community 2017 (latest release) on Windows Server 2016 (x64)**
 
@@ -74,7 +74,7 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
     -  Password: **demo\@pass123**
 
-    -  Public inbound ports: **Allow selected ports**
+    -  Public inbound ports: **Allow selected ports**.
 
     -  Select inbound ports: **RDP**
 
