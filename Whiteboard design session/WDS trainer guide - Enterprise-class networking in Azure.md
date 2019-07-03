@@ -226,7 +226,7 @@ Woodgrove's pilot deployment of cloud-native applications will include:
 
 -   Implementing a simple marketing web application in Azure. The application should use PaaS rather than IaaS.
 
--   Identifying an alternative to forced tunneling. To support the strategy of embracing cloud technologies, Network and security team are considering alternatives to redirecting  Internet traffic via an on-premises security gateway for this deployment. They are looking for a Cloud-native security solution.
+-   Identifying an alternative to forced tunneling. To support the strategy of embracing cloud technologies, Network and security team are considering alternatives to redirecting internet traffic via an on-premises security gateway for this deployment. They are looking for a Cloud-native security solution.
 
 -   Evaluating options for securing multi-tier business apps. Woodgrove IT is considering leveraging Azure Network Security Groups in combination with Application Security Groups.
 
