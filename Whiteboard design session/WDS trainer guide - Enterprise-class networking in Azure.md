@@ -1,5 +1,4 @@
-﻿
-![](https://github.com/Microsoft/MCW-Template-Cloud-Workshop/raw/master/Media/ms-cloud-workshop.png "Microsoft Cloud Workshops")
+﻿![Microsoft Cloud Workshops](https://github.com/Microsoft/MCW-Template-Cloud-Workshop/raw/master/Media/ms-cloud-workshop.png "Microsoft Cloud Workshops")
 
 <div class="MCWHeader1">
 Enterprise-class networking in Azure
@@ -171,7 +170,7 @@ When participants are doing activities, you can **look ahead to refresh your mem
 
 ## Abstract and learning objectives 
 
-In this whiteboard design session, you will look at the process of configuring am enterprise class network within Azure. Your design will include technologies to connect multiple virtual networks, as well as using capabilities such as routing to deploy network virtual appliances such as firewalls to secure your deployment. 
+In this whiteboard design session, you will look at the process of configuring an enterprise class network within Azure. Your design will include technologies to connect multiple virtual networks, as well as using capabilities such as routing to deploy network virtual appliances such as firewalls to secure your deployment. 
 
 At the end of this whiteboard design session, you will be better able to design solutions using Azure Networking features and capabilities.
 
@@ -203,7 +202,7 @@ Woodgrove Financial Services headquarters is in Chicago, IL, and their United St
 
 Ten years ago, Woodgrove went through a major upgrade of their Ethernet core and WAN connectivity between their two United States datacenters (located in Plano, TX and Chicago, IL). Today, the United States datacenters have redundant 5 Gbps connections between them. At the same time, they increased the bandwidth from their United States branch locations to no less than 100 Mbps with each branch having connectivity to both datacenters. Most United States branches have an MPLS-based connection to both datacenters but about forty percent have 1 MPLS connection to a datacenter and one Site-to-Site VPN connection to the other datacenter. About five percent of the United States branches have only Site-to-Site connections to both datacenters.
 
-There is also a datacenter in Mexico, located in Mexico City. The Mexico datacenter has an MPLS connection to the Chicago datacenter with 200 Mbps bandwidth and a Site-to-Site VPN connection for redundancy that is 100 Mbps. All 64 of the Mexico-based branches have Site-to-Site VPN connections to this datacenter and the Internet bandwidth for all branches was standardized recently at 50 Mbps up/down.
+There is also a datacenter in Mexico, located in Mexico City. The Mexico datacenter has an MPLS connection to the Chicago datacenter with 200 Mbps bandwidth and a Site-to-Site VPN connection for redundancy that is 100 Mbps. All 64 of the Mexico-based branches have Site-to-Site VPN connections to this datacenter and the internet bandwidth for all branches was standardized recently at 50 Mbps up/down.
 
 ![The diagram of Woodgrove's current scenario has a cloud at the top, city locations below the cloud, and branches and one headquarters below the cities. Two of the cities - Plano Texas and Chicago Illinois - connect to the cloud with 500 Mbps connections. Mexico City Mexico, the third city, connect with a 100 Mbps connection. Plano and Chicago connect to each other wisth 5 Gbps connections, while Chicago and Mexico connect with a 200 Mbps, and 100 Mbps connections. Mexico City has three branch offices with 50 Mbps connections, while Plano and Chicago share four branch offices and headquarters. Connections between Chicago / Plano and the branches vary between 100 Mbps and 200 Mbps. The connection with headquarters is 200Mbps.](images/Whiteboarddesignsessionstudentguide-Enterprise-classnetworkinginAzureimages/media/image2.png "Woodgrove current scenario diagram")
 
@@ -242,9 +241,9 @@ Woodgrove's pilot deployment of cloud-native applications will include:
 
 3.  The result of needs one and two should be a network design that allows applications to run both on-premises and in Azure.
 
-4.  For the time being, all Internet traffic must be passed through an on-premises intrusion detection or prevention system to comply with company policy.
+4.  For the time being, all internet traffic must be passed through an on-premises intrusion detection or prevention system to comply with company policy.
 
-5.  All the incoming traffic must be inspected in order to ensure protection against sql injections, cross-site scripting and other web attacks such as http protocol violation etc.
+5.  All the incoming traffic must be inspected in order to ensure protection against SQL injections, cross-site scripting and other web attacks such as http protocol violation etc.
 
 6.  All traffic targeting the cloud-based marketing web app will not be passed through on premises network. An alternative cloud-native security solution is required.
 
@@ -261,13 +260,13 @@ Woodgrove's pilot deployment of cloud-native applications will include:
 
 ### Customer objections 
 
-1.  As a financial institution, Woodgrove is under tight regulatory compliance requirements. Security is a key aspect of compliance and as such, it must be a key tenet of all operations including those related to technology. The corporate security officer is generally opposed to using services solely accessible over the public Internet. Services like Office 365, CRM, and other Microsoft SaaS offerings are off limits. Additionally, PaaS services accessed over the Internet are also unusable. It has relegated Woodgrove to private Azure services such as IaaS.
+1.  As a financial institution, Woodgrove is under tight regulatory compliance requirements. Security is a key aspect of compliance and as such, it must be a key tenet of all operations including those related to technology. The corporate security officer is generally opposed to using services solely accessible over the public internet. Services like Office 365, CRM, and other Microsoft SaaS offerings are off limits. Additionally, PaaS services accessed over the internet are also unusable. It has relegated Woodgrove to private Azure services such as IaaS.
 
 2.  The director of Network Operations is under the impression that complex enterprise-grade networking scenarios, such as those that support n-tier applications, cannot be configured in hyper-scale public clouds. Trust comes slowly with this director. She will most likely need detailed solution plans, case studies, and even customer testimonials to help convince her of the viability of anything other than simple networking scenarios in Azure.
 
 3.  The director of Network Operations also does not trust cloud security. She will need a strategy in place which allows Network Engineers the ability to analyze traffic flows and capture packets when needed for cloud-hosted resources.
 
-4.  The corporate compliance officer of Woodgrove must ensure compliance with many requirements to ensure his organization passes audits from both internal and external entities. One requirement is all outbound Internet requests must pass through an on-premises system that inspects and logs this traffic. The CCO is skeptical of IaaS solutions in Azure since "those VMs in the cloud can access the Internet directly."
+4.  The corporate compliance officer of Woodgrove must ensure compliance with many requirements to ensure his organization passes audits from both internal and external entities. One requirement is all outbound internet requests must pass through an on-premises system that inspects and logs this traffic. The CCO is skeptical of IaaS solutions in Azure since "those VMs in the cloud can access the internet directly."
 
 
 ### Infographic for common scenarios
@@ -451,7 +450,7 @@ The solution for Woodgrove involved several technologies, including:
 
     -   Multiple Virtual Networks
 
-    -   Six subnet designations, inclding gateway, perimeter, web tier, business tier, data tier, and management subnet.
+    -   Six subnet designations, including gateway, perimeter, web tier, business tier, data tier, and management subnet.
 
     -   Azure Firewall configured to provide hybrid connectivity support and internal firewall capabilities internal to the Azure VNet and any paired VNets.
 
@@ -503,7 +502,7 @@ The solution for Woodgrove involved several technologies, including:
 
 2. What ExpressRoute peering options you would enable and what workloads would use them? Diagram your peering configuration including subnet, IP and autonomous system number configuration needed.
 
-    After learning that, with ExpressRoute, PaaS services do not traverse the Internet, there was renewed interest in planning for PaaS adoption. These needs, in conjunction with connecting to private services (such as IaaS), dictate for the ExpressRoute circuits to be set up for private and Microsoft peering.
+    After learning that, with ExpressRoute, PaaS services do not traverse the internet, there was renewed interest in planning for PaaS adoption. These needs, in conjunction with connecting to private services (such as IaaS), dictate for the ExpressRoute circuits to be set up for private and Microsoft peering.
 
     ![This image represents private and Microsoft peering for the ExpressRoute circuits.](images/Whiteboarddesignsessiontrainerguide-Enterprise-classnetworkinginAzureimages/media/image7.png)
 
@@ -629,7 +628,7 @@ The solution for Woodgrove involved several technologies, including:
 
 5. How is routing configured in your overall design?
 
-    For many cases, this solution will apply user defined routes to ensure desired routing; however, because ExpressRoute is in use, we must take advantage of BGP routing for some scenarios like force tunneling. In the case of the preferred solution, we are using a BGP route to force outbound Internet traffic back to an on-premises firewall. This device is monitoring outbound traffic for sensitive data such as unencrypted social security numbers, credit card numbers, etc.
+    For many cases, this solution will apply user defined routes to ensure desired routing; however, because ExpressRoute is in use, we must take advantage of BGP routing for some scenarios like force tunneling. In the case of the preferred solution, we are using a BGP route to force outbound internet traffic back to an on-premises firewall. This device is monitoring outbound traffic for sensitive data such as unencrypted social security numbers, credit card numbers, etc.
 
     Keep in mind that user defined routing only applies to traffic leaving the subnet they are applied to. Also, the appliance you are forwarding traffic to cannot be in the same subnet where the traffic originates. Always create a separate subnet for your appliances.
 
@@ -718,11 +717,11 @@ The solution for Woodgrove involved several technologies, including:
 
 ## Checklist of preferred objection handling
 
-1.  As a financial institution, Woodgrove is under tight regulatory compliance requirements. Security is a key aspect of compliance and as such, it must be a key tenant of all operations including those related to technology. The corporate security officer is generally opposed to using services solely accessible over the public Internet. Services like Office 365, CRM, and other Microsoft SaaS offerings are off limits. Additionally, PaaS services accessed over the Internet are also unusable. It has relegated Woodgrove to private Azure services such as IaaS.
+1.  As a financial institution, Woodgrove is under tight regulatory compliance requirements. Security is a key aspect of compliance and as such, it must be a key tenant of all operations including those related to technology. The corporate security officer is generally opposed to using services solely accessible over the public internet. Services like Office 365, CRM, and other Microsoft SaaS offerings are off limits. Additionally, PaaS services accessed over the internet are also unusable. It has relegated Woodgrove to private Azure services such as IaaS.
 
     **Potential Answer**
     
-    Using ExpressRoute, Woodgrove can access and use Azure private and public services without traversing the Internet. This secure connectivity, in addition to the business-class SLAs and greater bandwidth, make ExpressRoute a compelling offering that addresses this objection. Regarding SaaS offerings, such as Office 365, Woodgrove can employ Azure Active Directory conditional access to provide controls such as a multi-factor authenticated user, an authenticated device, and a compliant device. All traffic to and from Office 365 is encrypted with SSL/TLS, and the data is encrypted at rest in Microsoft datacenters.
+    Using ExpressRoute, Woodgrove can access and use Azure private and public services without traversing the internet. This secure connectivity, in addition to the business-class SLAs and greater bandwidth, make ExpressRoute a compelling offering that addresses this objection. Regarding SaaS offerings, such as Office 365, Woodgrove can employ Azure Active Directory conditional access to provide controls such as a multi-factor authenticated user, an authenticated device, and a compliant device. All traffic to and from Office 365 is encrypted with SSL/TLS, and the data is encrypted at rest in Microsoft datacenters.
 
 2.  The director of Network Operations is under the impression that complex enterprise-grade networking scenarios, such as those that support n-tier applications, cannot be configured in hyper-scale public clouds. Trust comes slowly with this director. She will most likely need detailed solution plans, case studies, and even customer testimonials to help convince her of the viability of anything other than simple networking scenarios in Azure.
 
@@ -734,9 +733,9 @@ The solution for Woodgrove involved several technologies, including:
 
     **Potential Answer**
     
-    Azure fully supports forced tunneling ensuring that all Internet traffic is directed to the desired site, be that in an Azure Virtual Network or on-premises. For example, all Internet traffic can easily be routed from Azure to an on-premises appliance for intrusion detection/prevention and logging.
+    Azure fully supports forced tunneling ensuring that all internet traffic is directed to the desired site, be that in an Azure Virtual Network or on-premises. For example, all Internet traffic can easily be routed from Azure to an on-premises appliance for intrusion detection/prevention and logging.
 
-4. The corporate compliance officer of Woodgrove must ensure compliance with many requirements to ensure his organization passes audits from both internal and external entities. One requirement is all outbound Internet requests must pass through an on-premises system that inspects and logs this traffic. The CCO is skeptical of IaaS solutions in Azure since "those VMs in the cloud can access the Internet directly."
+4. The corporate compliance officer of Woodgrove must ensure compliance with many requirements to ensure his organization passes audits from both internal and external entities. One requirement is all outbound internet requests must pass through an on-premises system that inspects and logs this traffic. The CCO is skeptical of IaaS solutions in Azure since "those VMs in the cloud can access the internet directly."
 
     **Potential Answer**
     
