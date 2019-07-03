@@ -1,4 +1,4 @@
-![](https://github.com/Microsoft/MCW-Template-Cloud-Workshop/raw/master/Media/ms-cloud-workshop.png "Microsoft Cloud Workshops")
+﻿![](https://github.com/Microsoft/MCW-Template-Cloud-Workshop/raw/master/Media/ms-cloud-workshop.png "Microsoft Cloud Workshops")
 
 <div class="MCWHeader1">
 Enterprise-class networking in Azure
@@ -9,7 +9,7 @@ Hands-on lab unguided
 </div>
 
 <div class="MCWHeader3">
-January 2019
+June 2019
 </div>
 
 
@@ -43,7 +43,7 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
     - [Exercise 3: Create route tables with required routes](#exercise-3--create-route-tables-with-required-routes)
         - [Tasks to complete](#tasks-to-complete)
         - [Exit criteria](#exit-criteria)
-    - [Exercise 4: Create n-tier application and validate functionality](#exercise-4--create-n-tier-application-and-validate-functionality)
+    - [Exercise 4: Deploy n-tier application and validate functionality](#exercise-4-deploy-n-tier-application-and-validate-functionality)
         - [Tasks to complete](#tasks-to-complete)
         - [Exit criteria](#exit-criteria)
     - [Exercise 5: Build the management station](#exercise-5--build-the-management-station)
@@ -52,16 +52,19 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
     - [Exercise 6: Virtual Network Peering](#exercise-6--virtual-network-peering)
         - [Task to Complete](#task-to-complete)
         - [Exit criteria](#exit-criteria)
-    - [Exercise 7: Provision and configure partner firewall solution](#exercise-7--provision-and-configure-partner-firewall-solution)
+   - [Exercise 7: Provision and configure Azure firewall solution](#exercise-7-provision-and-configure-azure-firewall-solution)
         - [Tasks to complete](#tasks-to-complete)
         - [Exit criteria](#exit-criteria)
-    - [Exercise 8: Configure the firewall to control traffic flow](#exercise-8--configure-the-firewall-to-control-traffic-flow)
+    - [Exercise 8: Configure Site-to-Site connectivity](#exercise-8--configure-site-to-site-connectivity)
         - [Tasks to complete](#tasks-to-complete)
         - [Exit criteria](#exit-criteria)
-    - [Exercise 9: Configure Site-to-Site connectivity](#exercise-9--configure-site-to-site-connectivity)
+    - [Exercise 9: Configure Network Security Groups and Application Security Groups](#exercise-9-configure-network-security-groups-and-application-security-groups)
         - [Tasks to complete](#tasks-to-complete)
         - [Exit criteria](#exit-criteria)
-    - [Exercise 10: Validate connectivity from 'on-premises' to Azure](#exercise-10--validate-connectivity-from-on-premises-to-azure)
+    - [Exercise 10: Configure Service Endpoints](#exercise-10-configure-service-endpoints)
+        - [Tasks to complete](#tasks-to-complete)
+        - [Exit criteria](#exit-criteria)
+    - [Exercise 11: Validate connectivity from 'on-premises' to Azure](#exercise-11--validate-connectivity-from-on-premises-to-azure)
         - [Tasks to complete](#tasks-to-complete)
         - [Exit criteria](#exit-criteria)
     - [After the hands-on lab](#after-the-hands-on-lab)
@@ -84,7 +87,11 @@ You have been asked by Woodgrove Financial Services to provision a proof of conc
 
 -   How to capitalize on load balancers to distribute load and ensure service availability.
 
--   How to implement a partner firewall solution to control traffic flow based on policies.
+-   How to implement Azure Firewall to control hybrid and cross-virtual network traffic flow based on policies.
+
+-   How to implement a combination of Network Security Groups (NSGs) and Application Security Groups (ASGs) to control traffic flow within virtual networks.
+
+-   How to leverage service endpoints to provide restricted access to Azure PaaS services.
 
 The result of this proof of concept will be an environment resembling this diagram:
 
@@ -109,7 +116,9 @@ You must have a working Azure subscription to carry out this hands-on lab unguid
 | User-Defined Routing and IP Forwarding   | <https://azure.microsoft.com/en-us/documentation/articles/virtual-networks-udr-overview/>  |
 | Load Balancer       | <https://azure.microsoft.com/en-us/documentation/articles/load-balancer-overview/>  |
 | Implementing a DMZ between Azure and your on-premises data center    |  <https://azure.microsoft.com/en-us/documentation/articles/guidance-iaas-ra-secure-vnet-hybrid/>  |
-
+| What is Azure Firewall?    |  <https://docs.microsoft.com/en-us/azure/firewall/overview/>  |
+| Security groups    |  <https://docs.microsoft.com/en-us/azure/virtual-network/security-overview/>  |
+| Virtual Network Service Endpoints |  <https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview/>  |
 
 
 ## Exercise 1: Create a Virtual Network and provision subnets
@@ -120,13 +129,13 @@ In the first exercise, you will provision a Virtual Network and the subnets requ
 
 ### Tasks to complete
 
--   Provision a Virtual Network using the Address Space 10.7.0.0/16 in your Azure subscription. It should have a gateway subnet a management subnet. This will support future tasks that will enable traffic segregation commensurate with an n-tier application deployment in an enterprise.
+-   Provision a Virtual Network using the Address Space 10.7.0.0/24 with the gateway subnet (10.7.0.0/29) in your Azure subscription. 
 
--   Provision a management subnet. This subnet will have a management server from which management traffic can flow to the internal subnets.
+-   Provision a management subnet (10.7.0.8/29). This subnet will have a management server from which management traffic can flow to the internal subnets.
 
 ### Exit criteria
 
--   One Virtual Network is provisioned.
+-   One virtual network is provisioned.
 
 -   Two subnets are configured:
 
@@ -138,19 +147,19 @@ In the first exercise, you will provision a Virtual Network and the subnets requ
 
 ### Tasks to complete
 
--   Provision a second Virtual Network using the Address Space 10.8.0.0/16 in your Azure subscription. It should have a perimeter subnet, a web subnet and a data subnet. This will support future tasks that will enable traffic segregation commensurate with an n-tier application deployment in an enterprise.
+-   Provision a second Virtual Network using the Address Space 10.7.1.0/24 in your Azure subscription. It should have the AzureFirewallSubnet subnet (10.7.1.0/26). 
+
+-   Provision a subnet named AppSubnet (10.7.1.128/25). This will support future tasks that will enable traffic segregation commensurate with an n-tier application deployment in an enterprise.
 
 ### Exit criteria
 
 -   One Virtual Network is provisioned.
 
--   Three subnets are configured:
+-   Two subnets are configured:
 
-    -   Perimeter 10.8.0.0/29
+    -   AppSubnet
 
-    -   Data 10.8.2.0/24
-
-    -   Web 10.8.1.0/24
+    -   AzureFirewallSubnet
 
 ## Exercise 3: Create route tables with required routes
 
@@ -160,9 +169,7 @@ In this exercise, you will create User Defined Routes (UDRs), for the Subnets of
 
 ### Tasks to complete
 
--   Configure route tables with appropriate routes for each subnet in the Virtual Network (with the exception of the perimeter subnet). The goal is to provide directed traffic flow to a network virtual appliance (NVA) that you will deploy in a later task. All traffic between subnets and to the Internet must be managed by the firewall. The only appliance that should be deployed in your perimeter subnet is the NVA. As such, it will take the first IP address available in the subnet. So, if your subnet address range is 10.8.0.0/29, your NVA will be allocated 10.8.0.4 (the first four addresses are reserved by Azure fabric). Use route tables and appropriate routes to direct traffic to this address.
-
--   **Do not associate the route tables with their corresponding subnet until directed to do so in a later task.**
+-   Configure route tables with appropriate routes for each subnet in the virtual networks (with the exception of the AzureFirewallSubnet subnet). The goal is to provide directed traffic flow to an Azure Firewall instance that you will deploy in a later exercise. All traffic between subnets and to the Internet must be managed by the firewall. The only service that should be deployed in the AzureFirewallSubnet subnet is the Azure Firewall. As such, it will take the first IP address available in the subnet. So, if your subnet address range is 10.7.1.0/26, the Azure Firewall will be allocated 10.7.1.4 (the first four addresses are reserved by Azure fabric). Use route tables and appropriate routes to direct traffic to this address.
 
 ### Exit criteria
 
@@ -170,7 +177,7 @@ In this exercise, you will create User Defined Routes (UDRs), for the Subnets of
 
 -   Each route table will have routes to the other subnets and to the Internet, all with a 'next hop' configured as the NVA.
 
-## Exercise 4: Create n-tier application and validate functionality
+## Exercise 4: Deploy n-tier application and validate functionality
 
 Duration: 60 minutes
 
@@ -184,19 +191,19 @@ In this exercise, you will deploy a web application using an ARM template. Once 
 
     ![The Cloud shop webpage displays, with a message displaying, saying that Products are running on WGWEB1. Below that, a drop-down list of products display.](images/Hands-onlabunguided-Enterprise-classnetworkinginAzureimages/media/image24.png "Cloud shop webpage")
 
--   Create an Internal load balancer in the WebTier Subnet of the VNet and assign it a static IP Address of 10.7.1.10.
+-   Create an Internal load balancer in the WebTier Subnet of the VNet and assign it a static IP Address of 10.7.1.254.
 
--   RDP to WGWEB1 and browse to <http://10.7.1.10> validate the CloudShop app has been configured behind the internal load balancer and connecting to both web servers.
+-   RDP to WGWEB1 and browse to <http://10.7.1.254> validate the CloudShop app has been configured behind the internal load balancer and connecting to both web servers.
 
 -   After the website is validated, remove the Public IP address from WGWEB1.
 
 ### Exit criteria
 
--   Two IIS-based web servers deployed in the Web tier subnet.
+-   Two IIS-based web servers deployed in the Web tier.
 
--   One SQL server deployed in the Data tier subnet.
+-   One SQL server deployed in the Data tier.
 
--   One internal load balancer with a static IP address deployed in the Web tier subnet, and configured with:
+-   One internal load balancer with a static IP address 10.7.1.254, and configured with:
 
     -   A backend pool containing both web servers.
 
@@ -214,7 +221,7 @@ In this exercise, you will build a 'jump-box', which will be used to manage the 
 
 ### Tasks to complete
 
--   Provision a server in the management subnet. This server will be used as a 'jump box' allowing administrators to RDP to other Azure-based servers from it. The server should not have a Public IP address since RDP access will be accomplished using NAT through the firewall appliance (configured in a later task).
+-   Provision a server in the management subnet. This server will be used as a 'jump box' allowing administrators to RDP to other Azure-based servers from it.
 
 ### Exit criteria
 
@@ -232,59 +239,31 @@ Configure a Virtual Network peering from both Virtual Network bidirectional.
 
 -   VNet peering must be configured from each VNet to each other.
 
-## Exercise 7: Provision and configure partner firewall solution
+## Exercise 7: Provision and configure Azure firewall solution
 
 Duration: 15 minutes
 
-In this exercise, you will provision and configure an Enterprise grade firewall solution in your Azure Vnet.
+In this exercise, you will provision and configure an Azure Firewall instance in your Azure Vnet.
 
 ### Tasks to complete
 
--   Provision a partner firewall solution from the Azure Marketplace into the Perimeter subnet. The **barracuda cloudgen firewall for azure** was used during the creation of this hands-on lab unguided, but other Marketplace options should work as well. For this PoC, the firewall solution does not need to be an HA pair. A firewall with a single network interface is sufficient, as the Azure fabric will handle routing.
+-   Provision an Azure Firewall instance into the AzureFirewallSubnet subnet. 
 
--   The network interface assigned to the firewall must have both a Public IP address and a Private IP address. It is recommended to configure the Public IP address as static.
+-   Create a NAT rule collection allowing inbound HTTP traffic to 10.7.1.254 from Internet
 
--   The network interface assigned to the firewall appliance must have IP Forwarding enabled.
+-   Create a network rule collection allowing inbound HTTP and HTTPS traffic from any source IP address to 10.7.1.254
 
-### Exit criteria
+-   Create a network rule collection allowing inbound RDP traffic from the management subnet to 10.7.1.128/25
 
--   A partner firewall appliance is provisioned into a perimeter subnet with a single network interface (IP forwarding enabled).
+-   Associate rules to the correspondning subnets
 
-## Exercise 8: Configure the firewall to control traffic flow
-
-Duration: 30 minutes
-
-In this exercise, you will 'wire up' the configuration to allow access to the CloudShop application through the firewall.
-
-### Tasks to complete
-
--   Configure partner firewall NAT and firewall rules to accomplish the following goals.
-
-    -   Only one IP address is exposed to the Internet. All other servers in the environment should **not** have Public IP addresses when this exercise is complete.
-
-    -   All Azure VMs access the Internet through the firewall only.
-
-    -   Served from the internal load-balancer IP (NAT through the firewall), CloudShop website is accessible from the Internet.
-
-    -   From the Internet, RDP access will **only** be available to the management station (NAT through the firewall). RDP access to the Azure-based servers from the management station will be enabled via the firewall.
-
--   Associate the previously created route tables to their corresponding subnets. This will bypass system routes and should force all traffic to flow from each subnet to the firewall as the next hop.
-
--   Remove any Public IP addresses from all servers with the exception of the firewall appliance.
+-   Enable DDoS Standard for WGVNetRG2
 
 ### Exit criteria
 
--   The CloudShop web application is accessible via HTTP using the Public IP address of the firewall only.
+-   An instance of Azure Firewall is provisioned into the AzureFirewallSubnet subnet with appropriately configured rules.
 
--   Several refreshes of the CloudShop web application should eventually display both web server names at the top of the site validating the load balancer is functioning.
-
-    ![The same Cloud shop webpage displays, with WGWEB! circled in the same top message.](images/Hands-onlabunguided-Enterprise-classnetworkinginAzureimages/media/image25.png "Cloud Shop webpage")
-
--   RDP access from the Internet is functional to the management server **only** through the firewall.
-
-The outcome of the above exercises demonstrates leveraging a firewall in an Azure Virtual Network to manage all inter-subnet and Internet traffic. Also, a web application was made available on the Internet via the firewall.
-
-## Exercise 9: Configure Site-to-Site connectivity
+## Exercise 8: Configure Site-to-Site connectivity
 
 Duration: 60 minutes
 
@@ -302,7 +281,40 @@ In this task, we will set up another Virtual Network in a separate Azure region.
 
 -   Site-to-site connectivity between the VNets.
 
-## Exercise 10: Validate connectivity from 'on-premises' to Azure
+## Exercise 9: Configure Network Security Groups and Application Security Groups
+
+Duration: 20 minutes
+
+In this exercise, you will restrict traffic between tiers of n-tier application by using network security groups and application security groups.
+
+### Exit criteria
+
+-   One new Azure Virtual Network with a single subnet.
+
+-   Site-to-site connectivity between the VNets.
+
+### Tasks to complete
+
+-   Create application security groups for the web tier and database tier VMs
+
+-   Configure application security groups by associating them with the appropriate NICs
+
+-   Create network security group controlling traffic between the application security groups you configured earlier in the previous task
+
+## Exercise 10: Configure Service Endpoints
+
+In this exercise, you will configure service endpoints to restrict access to Azure Storage.
+
+Duration: 20 minutes
+
+### Tasks to complete
+
+-   Create and configure a storage account with the service endpoint from the management subnet
+
+-   Configure Azure Storage firewall and add a service endpoint
+
+
+## Exercise 11: Validate connectivity from 'on-premises' to Azure
 
 Duration: 30 minutes
 
@@ -310,11 +322,34 @@ In this exercise, you will configure an Azure route table with appropriate route
 
 ### Tasks to complete
 
--   Create a route table with appropriate route rules to direct VNet to VNet traffic to the firewall appliance configured earlier
+-   Create a virtual machine to validate connectivity in the virtual network emulating the on-premises environment
 
--   Create firewall rules to permit the traffic from the new Virtual Network to the Web subnet where CloudShop is deployed
+-   Configure routing for simulated 'on-premises' to Azure traffic. When packets arrive from the simulated 'on-premises' Virtual Network (OnPremVNet) to the 'Azure-side' (WGVNet1), they arrive at the gateway WGVNet1Gateway. This gateway is in a gateway subnet (10.7.0.0/29). For packets to be directed to the Azure firewall, we need another route table and route to be associated with the gateway subnet on the 'Azure-side'.
 
--   Create a virtual machine in this new Virtual Network. It should have a Public IP address enabling direct RDP connectivity to it
+### Exit criteria
+
+-   Test your Enterprise Class Network from one region to another. Your testing can include the following scenarios:
+
+      -  On your lab VM, open Internet Explorer and browse to the web application deployed to the WGVnet2 via the public IP address of the Azure Firewall (20.45.4.50). Note that this IP address can be also be reached by any of the Azure virtual machines provisioned in this lab.
+
+      -  On the 'on-premises' virtual machine (OnPremVM), attempt to initiate a Remote Desktop session to any virtual machine on the AppSubnet (10.7.1.128/25). Note that this should fail since it is blocked by Azure Firewall.
+
+      -  On the 'on-premises' virtual machine (OnPremVM), open Internet Explorer and browse to the web application deployed to the WGVnet2 via the private IP address of the Azure Load Balancer (10.7.1.254). Note that this traffic is routed (and allowed) via Azure Firewall.
+
+      -  On the jump host virtual machine (WGMGMT1), open Internet Explorer and browse to the web application deployed to the WGVnet2 via the private IP address of the Azure Load Balancer(10.7.1.254). Note that this traffic is not routed via Azure Firewall.
+
+      -  On the jump host virtual machine (WGMGMT1), initiate a Remote Desktop session to the WGWEB1 via its private IP address (10.7.1.132). This should be successful since it is allowed by Azure Firewall. However, an attempt to connect via Remote Desktop to the WGSQL1 via its private IP address shoudl fail since it is blocked by a network security group.
+
+      -  On the jump host virtual machine (WGMGMT1), initiate a Remote Desktop session to the WGWEB2 via its private IP address (10.7.1.133). This should be successful since it is allowed by Azure Firewall. However, an attempt to connect via Remote Desktop to the WGSQL1 via its private IP address shoudl fail since it is blocked by a network security group.
+
+      -  On the jump host virtual machine (WGMGMT1), initiate a Remote Desktop session to the WGSQL1 via its private IP address (10.7.1.134). This should be successful since it is allowed by Azure Firewall.
+
+      -  Create a file share in the storage account created in exercise 10 and map a drive to it from both the jump host virtual machine (WGMGMT1) and one of the virtual machines on the WGVNet2 virtual network (WGWEB1, WGWEB2, or WGSQL1). This should be successful since it is allowed by Service Endpoints. Next, attempt mapping a drive from the 'on-premises' virtual machine (OnPremVM). This should fail since the direct route associated with Service Endpoint does not apply to this virtual machine. 
+
+    >**Note:** You will need to create the file share from the jump host virtual machine (WGMGMT1), not from your lab virtual machine due to the Azure Storage firewall settings you configured in exercise 10.
+
+
+
 
 ### Exit criteria
 
