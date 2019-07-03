@@ -147,7 +147,7 @@ Duration: 15 minutes
 
     -  Location: **(US) South Central US**
 
-    -  Subnet name: **GatewaySubnet** (this name is fixed and cannot be changed)
+    -  Subnet name: **GatewaySubnet** (This name is fixed and cannot be changed.)
 
     -  Subnet address range: **10.7.0.0/29**
  
@@ -205,9 +205,9 @@ Duration: 15 minutes
 
     -  Location: **(US) South Central US**
 
-    -  Subnet name: **AzureFirewallSubnet** (this name is fixed and cannot be changed)
+    -  Subnet name: **AzureFirewallSubnet** (This name is fixed and cannot be changed.)
 
-    -  Subnet address range: **10.7.1.0/26** (/26 is minimum requirement for azure firewall)
+    -  Subnet address range: **10.7.1.0/26** (/26 is the minimum requirement for azure firewall)
 
 1.  Upon completion, it should look like the following screenshot. Validate the information is correct, and choose **Create**.
 
@@ -327,7 +327,7 @@ Route Tables are containers for User Defined Routes (UDRs). The route table is c
 
     -  Next hop type: **Virtual network gateway**
 
-    -  Next hop address: **Leave it blank**.
+    -  Next hop address: **Leave blank**.
 
     ![Continuation of steps to adding another route table.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image51.png "Add route")
 
@@ -339,7 +339,7 @@ Route Tables are containers for User Defined Routes (UDRs). The route table is c
 
     -  Next hop type: **Virtual appliance**
 
-    -  Next hop address: **10.7.1.4** (this is the private IP of Azure Firewall)
+    -  Next hop address: **10.7.1.4** (This is the private IP of Azure Firewall.)
 
     ![Continuation of steps to adding another route table.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image52.png "Add route")
 
@@ -385,7 +385,7 @@ In this task, you will provision the CloudShop application using an ARM template
 
     -  Resource Group: Create new / **WGVMRGTMT**
 
-    -  Location: **(US) South Central US** (the same location you used to provision resources earlier in this lab)
+    -  Location: **(US) South Central US** (The same location you used to provision resources earlier in this lab.)
 
     ![Deployment purchase in updating the Custom deployment blade.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image60.png "Template blade")
 
@@ -393,7 +393,7 @@ In this task, you will provision the CloudShop application using an ARM template
 
 1.  Using the Azure portal, open the **WGVMRG** Resource group and review the deployment.
 
-1.  Navigate to the the **WGWEB1** blade.
+1.  Navigate to the **WGWEB1** blade.
 
 1.  On the **WGWEB1** blade, first select **Connect** and then select **Download RDP file** to establish a Remote Desktop session.
 
@@ -559,17 +559,17 @@ In this exercise, management of the Azure-based systems will only be available f
 
     -  Region: **(US) South Central US**
 
-    -  Availability options: **No infrastructure redundancy required**
+    -  Availability options: **No infrastructure redundancy required**.
 
     -  Image: **[smalldisk] Windows Server 2016 Datacenter**
 
     -  Size: **Standard DS1 v2**
 
-    -  User name: **demouser**
+    -  Username: **demouser**
 
     -  Password: **demo\@pass123**
 
-    -  Public inbound ports: **Allow selected ports**
+    -  Public inbound ports: **Allow selected ports**.
 
     -  Select inbound ports: **RDP**
 
@@ -638,7 +638,7 @@ In this exercise, you will provision and configure an Azure firewall in your net
 
 ### Task 1: Provision the Azure firewall
 
-1.  In the Azure portal, select **+ Create a resource**. In the **Search the Marketplace** text box, type **Azure firewall**, in the list of results, selct **Firewall**, and on the **Firewall** blade, click **Create**.
+1.  In the Azure portal, select **+ Create a resource**. In the **Search the Marketplace** text box, type **Azure firewall**, in the list of results, select **Firewall**, and on the **Firewall** blade, click **Create**.
 
 1.  On the **Create a firewall** blade, on the **Basics** tab, enter the following information: 
    
@@ -650,7 +650,7 @@ In this exercise, you will provision and configure an Azure firewall in your net
 
     -  Region: **(US) South Central US**
 
-    -  Choose a Virtual network: select **Use existing** and then select **WGVNet2**
+    -  Choose a Virtual network: select **Use existing** and then select **WGVNet2**.
 
     -  Public IP address: **Create new**
 
@@ -686,13 +686,13 @@ Within 1-2 minutes, the resource group **WGVNetRG2** will have the firewall crea
 
     -  Protocol: **TCP**
 
-    -  Source address: *****
+    -  Source address: **\***
 
-    -  Destination Address: type the public IP address assigned to the firewall you identified earlier in this task
+    -  Destination Address: Type the public IP address assigned to the firewall you identified earlier in this task.
 
     -  Destination ports: **80** (to allow HTTP traffic)
 
-    -  Translated Address: **10.7.1.254** (private IP of the Azure Load Balancer you deployed earlier in this lab)
+    -  Translated Address: **10.7.1.254** (Private IP of the Azure Load Balancer you deployed earlier in this lab.)
         
     -  Translated Port: **80**
 
@@ -714,7 +714,7 @@ Within 1-2 minutes, the resource group **WGVNetRG2** will have the firewall crea
 
     -  Protocol: **TCP**
 
-    -  Source address: *****
+    -  Source address: **\***
 
     -  Destination Address: **10.7.1.254**
 
@@ -812,11 +812,11 @@ In this exercise, we will simulate an on-premises connection to the internal web
     
     -  Address space: **192.168.0.0/16**
     
-    -  Subscription: Choose your subscription
+    -  Subscription: Choose your subscription.
     
-    -  Resource group: Select **Create new**, and enter the name **OnPremVNetRG**
+    -  Resource group: Select **Create new**, and enter the name **OnPremVNetRG**.
 
-    -  Location: **(US) East US** (make sure this is **NOT** the same location you have specified in the previous exercises)
+    -  Location: **(US) East US** (Make sure this is **NOT** the same location you have specified in the previous exercises.)
 
     -  Subnet name: **default**
 
@@ -855,13 +855,13 @@ In this exercise, we will simulate an on-premises connection to the internal web
 
 1.  On the **Create virtual network gateway** blade,  enter the following information and select **Review + create**:
 
-    -  Subscription: Choose your subscription
+    -  Subscription: Choose your subscription.
     
     -  Name: **OnPremWGGateway**
 
     -  Resource group: **OnPremVNetRG**
 
-    -  Location: **(US) East US** (this must match the location in which you created the **OnPremVNet** virtual network)
+    -  Location: **(US) East US** (This must match the location in which you created the **OnPremVNet** virtual network.)
 
     -  Gateway type: **VPN**
 
@@ -891,13 +891,13 @@ In this exercise, we will simulate an on-premises connection to the internal web
 
 1.  On the **Create virtual network gateway** blade,  enter the following information and select **Review + create**:
 
-    -  Subscription: Choose your subscription
+    -  Subscription: Choose your subscription.
     
     -  Name: **WGVNet1Gateway**
 
     -  Resource group: **OnPremVNetRG**
 
-    -  Location: **(US) South Central US** (this must match the location in which you created the **WGVNet1** virtual network)
+    -  Location: **(US) South Central US** (This must match the location in which you created the **WGVNet1** virtual network.)
 
     -  Gateway type: **VPN**
 
@@ -960,13 +960,13 @@ In this exercise, you will restrict traffic between tiers of n-tier application 
 
 1.  On the **Create an application security group** blade, on the **Basics** tab, enter the following information, and select **Review + create**:
 
-    -  Subscription: Choose your subscription
+    -  Subscription: Choose your subscription.
     
     -  Resource group: **WGVNetRG2**
 
     -  Name: **WebTier**
 
-    -  Region: **(US) South Central US** (this must match the location in which you created the **WGVNet2** virtual network)
+    -  Region: **(US) South Central US** (This must match the location in which you created the **WGVNet2** virtual network.)
 
     ![WebTier application security group creation](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image140.png "Create Web Tier ASG")
 
@@ -982,7 +982,7 @@ In this exercise, you will restrict traffic between tiers of n-tier application 
 
 1.  On the **WGWEB1** blade, select **Networking**. 
 
-1.  On the **WGWEB1 - Networking ** blade, select **Application security groups** and then select **Configure the application security groups**.
+1.  On the **WGWEB1 - Networking** blade, select **Application security groups** and then select **Configure the application security groups**.
 
 1.  On the **Configure the application security groups** blade, in the **Application security groups** drop-down list, select **WebTier** and then select **Save**.
 
@@ -1000,15 +1000,15 @@ In this exercise, you will restrict traffic between tiers of n-tier application 
 
     -  Name: **WGAppNSG1**
 
-    -  Subscription: Choose your subscription
+    -  Subscription: Choose your subscription.
     
     -  Resource group: **WGVNetRG2**
 
-    -  Region: **(US) South Central US** (this must match the location in which you created the **WGVNet2** virtual network)
+    -  Region: **(US) South Central US** (This must match the location in which you created the **WGVNet2** virtual network.)
 
     ![Network security group creation](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image143.png "Create WGApp NSG")
 
-1.  In the Azure Portal, navigate to **All Services**, type **Network secuirity groups** the search box and select **Network security groups**
+1.  In the Azure Portal, navigate to **All Services**, type **Network security groups** the search box and select **Network security groups**
 
 1.  On the **Network security groups** blade, select **WGAppNSG1**. 
 
@@ -1068,7 +1068,7 @@ In this exercise, you will restrict traffic between tiers of n-tier application 
 
     -  Source: **IP Addresses**
 
-    -  Source IP addresses/CIDR ranges: **10.7.0.8/29** (this IP address range represents the Management subnet on WGVNet1)
+    -  Source IP addresses/CIDR ranges: **10.7.0.8/29** (This IP address range represents the Management subnet on WGVNet1.)
 
     -  Source port ranges: **\***
 
@@ -1163,9 +1163,9 @@ Duration: 20 minutes
 
     -  Resource group: **WGMGMTRG**.
       
-    -  Storage account name: any unique name consisting of lower case letters and digits of length between 3 and 24 characters
+    -  Storage account name: **Any unique name consisting of lower-case letters and digits of length between 3 and 24 characters**.
 
-    -  Region: **(US) South Central US**  (this must match the location in which you created the **WGVNet1** and **WGVNet2** virtual networks)
+    -  Region: **(US) South Central US**  (This must match the location in which you created the **WGVNet1** and **WGVNet2** virtual networks.)
 
     -  Performance: **Standard**
 
@@ -1183,7 +1183,7 @@ Duration: 20 minutes
 
     -  Virtual network: **WGVNet1**
 
-    -  Subnets: **Management (10.7.0.8/29) ('Microsoft.Storage' endpoint will be added)
+    -  Subnets: **Management (10.7.0.8/29) ('Microsoft.Storage' endpoint will be added)**
 
     -  Blob soft delete: **Disabled**
 
@@ -1203,7 +1203,7 @@ Duration: 20 minutes
 
 1.  On the **Add networks** blade, enter the following information:
 
-    -  Subscription: Choose your subscription
+    -  Subscription: Choose your subscription.
 
     -  Virtual networks: **WGVNet2**
 
@@ -1352,9 +1352,9 @@ When packets arrive from the simulated 'on-premises' Virtual Network (OnPremVNet
 
     -  On the jump host virtual machine (WGMGMT1), open Internet Explorer and browse to the web application deployed to the WGVnet2 via the private IP address of the Azure Load Balancer(10.7.1.254). Note that this traffic is not routed via Azure Firewall.
 
-    -  On the jump host virtual machine (WGMGMT1), initiate a Remote Desktop session to the WGWEB1 via its private IP address (10.7.1.132). This should be successful since it is allowed by Azure Firewall. However, an attempt to connect via Remote Desktop to the WGSQL1 via its private IP address shoudl fail since it is blocked by a network security group.
+    -  On the jump host virtual machine (WGMGMT1), initiate a Remote Desktop session to the WGWEB1 via its private IP address (10.7.1.132). This should be successful since it is allowed by Azure Firewall. However, an attempt to connect via Remote Desktop to the WGSQL1 via its private IP address should fail since it is blocked by a network security group.
 
-    -  On the jump host virtual machine (WGMGMT1), initiate a Remote Desktop session to the WGWEB2 via its private IP address (10.7.1.133). This should be successful since it is allowed by Azure Firewall. However, an attempt to connect via Remote Desktop to the WGSQL1 via its private IP address shoudl fail since it is blocked by a network security group.
+    -  On the jump host virtual machine (WGMGMT1), initiate a Remote Desktop session to the WGWEB2 via its private IP address (10.7.1.133). This should be successful since it is allowed by Azure Firewall. However, an attempt to connect via Remote Desktop to the WGSQL1 via its private IP address should fail since it is blocked by a network security group.
 
     -  On the jump host virtual machine (WGMGMT1), initiate a Remote Desktop session to the WGSQL1 via its private IP address (10.7.1.134). This should be successful since it is allowed by Azure Firewall.
 
