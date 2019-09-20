@@ -80,7 +80,8 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
     -  Already have a Windows license?: **No**
 
-    -  VM disk type: **SSD**
+   
+ 
 
     >**Note**: If the Azure Subscription you are using is **NOT** a trial Azure subscription, you may want to choose the **Standard D2 v3** to have more power in this LABMV. If you are using a Trial Subscription or one that you know has a restriction on the number of cores, stick with **Standard DS1 v2**.
 
