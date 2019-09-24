@@ -4,12 +4,14 @@ Woodgrove Financial Services has been in business for over 75 years and is a wel
 
 Woodgrove is committed to migrating to Microsoft Azure with the goal of modernizing their infrastructure and want to start with designing an enterprise-class network.
 
+June 2019
+
 ## Target audience
 - Infrastructure Architect
 - IT Professional
 - Cloud Solution Architect
 
-## Abstract
+## Abstracts
 
 ### Workshop
 
@@ -44,3 +46,16 @@ At the end of this hands-on lab, you will be better able to configure Azure netw
 - [DMZ](https://microsoft.sharepoint.com/sites/infopedia/pages/layouts/kcdoc.aspx?k=g01kc-1-30336)
 - [Windows VMs](https://microsoft.sharepoint.com/sites/infopedia/pages/layouts/kcdoc.aspx?k=g01kc-1-30338)
 - [Highly available network virtual appliances](https://microsoft.sharepoint.com/sites/infopedia/pages/layouts/kcdoc.aspx?k=g01kc-1-30337)
+
+## Help & Support
+
+We welcome feedback and comments from Microsoft SMEs & learning partners who deliver MCWs.  
+
+***Having trouble?***
+- First, verify you have followed all written lab instructions (including the Before the Hands-on lab document).
+- Next, submit an issue with a detailed description of the problem.
+- Please do not submit pull requests. Our authors will review open issues and submit pull requests, as needed, for approval.  
+
+If you are planning to present a workshop, *review and test the materials early*! We recommend at least two weeks prior.
+
+### Please allow 5 - 10 business days for review and resolution of issues.
