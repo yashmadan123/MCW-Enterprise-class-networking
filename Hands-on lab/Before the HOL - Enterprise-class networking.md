@@ -9,7 +9,7 @@ Before the hands-on lab setup guide
 </div>
 
 <div class="MCWHeader3">
-June 2019
+September 2019
 </div>
 
 
@@ -51,7 +51,7 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
 1.  Launch a browser, and navigate to <https://portal.azure.com>. Once prompted, login with your Microsoft Azure credentials. If asked, choose whether your account is an organization account or just a Microsoft Account.
 
-2.  Select **+Create a resource**, and in the search box, type in **Visual Studio**, and press enter. In the list of results, select **Visual Studio 2019 Latest**. From the drop down, select **Visual Studio 2019 Community (latest release) on Windows Server 2019 x64**. Then click **Create**. 
+2.  Select **+Create a resource**, and in the search box, type in **Visual Studio**, and press enter. In the list of results, select **Visual Studio 2019 Latest**. From the drop down, select **Visual Studio 2019 Community (latest release) on Windows Server 2019 x64**. Then select **Create**. 
 
     ![](images/Setup/SelectVS.png)
 
@@ -138,7 +138,7 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
 2.  Extract the downloaded files into the directory **C:\\ECN-Hackathon**.
 
-    ![In File Explorer, ECN-Hackathon is selected, and from its right-click menu, Extract All is selected.](images/Setup/image23.png "File Explorer")
+    ![In File Explorer, ECN-Hackathon is selected, and from its menu, Extract All is selected.](images/Setup/image23.png "File Explorer")
 
     ![In the Extract Files window, Files are being extracted to C:\\ECH-Hackathon, and the Extract button is selected.](images/Setup/image24.png "Extract Files window")
 

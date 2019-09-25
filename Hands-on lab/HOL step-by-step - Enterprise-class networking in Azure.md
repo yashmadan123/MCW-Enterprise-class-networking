@@ -9,7 +9,7 @@ Hands-on lab step-by-step
 </div>
 
 <div class="MCWHeader3">
-June 2019
+September 2019
 </div>
 
 
@@ -467,7 +467,7 @@ In this task, you will provision the CloudShop application using an ARM template
 
     -  IP address assignment: Choose **Static** and enter the IP address **10.7.1.254**.
 
-    Ensure your **Create load balancer** dialog looks like the following, and select **Review + create** then click **Create**.
+    Ensure your **Create load balancer** dialog looks like the following, and select **Review + create** then select **Create**.
 
     ![Load Balancer Check/Creation](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image66.png "Create load balancer")
 
@@ -554,7 +554,7 @@ In this exercise, management of the Azure-based systems will only be available f
 
 ### Task 1: Build the management VM
 
-1.  In the Azure portal, select **+ Create a resource** then click **Windows Server 2016 Datacenter**. 
+1.  In the Azure portal, select **+ Create a resource** then select **Windows Server 2016 Datacenter**. 
 
 2.  On the **Create a virtual machine** blade, on the **Basics** tab, enter the following information, and select **Next : Disks >**:
 
@@ -653,7 +653,7 @@ In this exercise, you will provision and configure an Azure firewall in your net
 
 ### Task 1: Provision the Azure firewall
 
-1.  In the Azure portal, select **+ Create a resource**. In the **Search the Marketplace** text box, type **Azure firewall**, in the list of results, select **Firewall**, and on the **Firewall** blade, click **Create**.
+1.  In the Azure portal, select **+ Create a resource**. In the **Search the Marketplace** text box, type **Azure firewall**, in the list of results, select **Firewall**, and on the **Firewall** blade, select **Create**.
 
 2.  On the **Create a firewall** blade, on the **Basics** tab, enter the following information: 
    
@@ -774,7 +774,7 @@ Within 1-2 minutes, the resource group **WGVNetRG2** will have the firewall crea
 
     ![On the Route table blade, under Settings, Subnets is selected.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image114.png "Route table blade")
 
-3.  On the **Associate subnet** blade, select **Virtual network**. Then, click on **WGVNet2**.
+3.  On the **Associate subnet** blade, select **Virtual network**. Then, select on **WGVNet2**.
 
     ![Under Associate subnet, Virtual network - Choose a virtual network is selected. Under Resource, WGVNet westus is selected.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image116.png "Associate subnet section")
 
@@ -822,7 +822,7 @@ In this task you will enable DDoS services for your virtual network.
 
     ![Enabling DDos Protection from VNet.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/ddosimage3.png "DDos Creation blade")
 
-5.  Once completed click **Save**
+5.  Once completed select **Save**
 
 
 ## Exercise 8: Configure Site-to-Site connectivity
@@ -960,7 +960,7 @@ In this exercise, we will simulate an on-premises connection to the internal web
 
 ### Task 5: Connect the gateways
 
-1.  In the Azure portal, click **+ Create a resource**, in the **Search the Marketplace** text box, type in **Connection**, and press **Enter**.
+1.  In the Azure portal, select **+ Create a resource**, in the **Search the Marketplace** text box, type in **Connection**, and press **Enter**.
 
 2.  On the **Connection** blade, choose **Create**.
 
@@ -1055,7 +1055,7 @@ In this exercise, you will restrict traffic between tiers of n-tier application 
 
 4.  On the **Network security groups** blade, select **WGAppNSG1**. 
 
-5.  On the **WGAppNSG1** blade, click **Inbound security rules** and select **Add**.
+5.  On the **WGAppNSG1** blade, select **Inbound security rules** and select **Add**.
 
 6.  On the **Add inbound security rule** blade, enter the following information, and select **Add**:
 
