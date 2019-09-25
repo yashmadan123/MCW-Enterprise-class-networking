@@ -28,11 +28,10 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 <!-- TOC -->
 
 - [Enterprise-class networking in Azure before the hands-on lab setup guide](#enterprise-class-networking-in-azure-before-the-hands-on-lab-setup-guide)
-    - [Requirements](#requirements)
-    - [Before the hands-on lab](#before-the-hands-on-lab)
-        - [Task 1: Create a virtual machine to execute the lab in](#task-1-create-a-virtual-machine-to-execute-the-lab-in)
-        - [Task 2: Update Azure PowerShell version](#task-2-update-azure-powershell-version)
-        - [Task 3: Download hands-on lab step-by-step support files](#task-3-download-hands-on-lab-step-by-step-support-files)
+  - [Requirements](#requirements)
+  - [Before the hands-on lab](#before-the-hands-on-lab)
+    - [Task 1: Create a virtual machine to execute the lab in](#task-1-create-a-virtual-machine-to-execute-the-lab-in)
+    - [Task 2: Download hands-on lab step-by-step support files](#task-2-download-hands-on-lab-step-by-step-support-files)
 
 <!-- /TOC -->
 
@@ -52,13 +51,15 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
 1.  Launch a browser, and navigate to <https://portal.azure.com>. Once prompted, login with your Microsoft Azure credentials. If asked, choose whether your account is an organization account or just a Microsoft Account.
 
-1.  Select **+Create a resource**, and in the search box, type in **Visual Studio**, and press enter. In the list of results, select the **Visual Studio Community 2017 (latest release) on Windows Server 2016 (x64)** image.
+2.  Select **+Create a resource**, and in the search box, type in **Visual Studio**, and press enter. In the list of results, select **Visual Studio 2019 Latest**. From the drop down, select **Visual Studio 2019 Community (latest release) on Windows Server 2019 x64**. Then click **Create**. 
 
-1.  On the **Create a virtual machine** blade, on the **Basics** tab, set the following configuration and choose **Next : Disks**:
+    ![](images/Setup/SelectVS.png)
+
+3.  On the **Create a virtual machine** blade, on the **Basics** tab, set the following configuration and choose **Next : Disks**:
 
     -  Subscription: **If you have multiple subscriptions, choose the subscription to execute your labs in**.
 
-    -  Resource Group: **OPSLABRG**
+    -  Resource Group: (Create new) **OPSLABRG**
 
     -  Virtual machine name: **LABVM**
 
@@ -66,80 +67,68 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
     -  Availability options: **No infrastructure redundancy required**.
 
-    -  Image: **Visual Studio Community 2017 (latest release) on Windows Server 2016 (x64)**
+    -  Image: **Visual Studio 2019 Community (latest release) on Windows Server 2019 (x64)**
 
-    -  Size: **Standard D2 v3** or **Standard DS1 v2**
+    -  Size: **Standard DS1 v2** or **Standard D2s v3**
 
     -  User name: **demouser**
 
-    -  Password: **demo\@pass123**
+    -  Password: **demo@pass123**
 
     -  Public inbound ports: **Allow selected ports**.
 
-    -  Select inbound ports: **RDP**
+    -  Select inbound ports: **RDP (3389)**
 
     -  Already have a Windows license?: **No**
 
    
  
 
-    >**Note**: If the Azure Subscription you are using is **NOT** a trial Azure subscription, you may want to choose the **Standard D2 v3** to have more power in this LABMV. If you are using a Trial Subscription or one that you know has a restriction on the number of cores, stick with **Standard DS1 v2**.
+    >**Note**: If the Azure Subscription you are using is **NOT** a trial Azure subscription, you may want to choose the **Standard D2s v3** to have more power in this LABMV. If you are using a Trial Subscription or one that you know has a restriction on the number of cores, stick with **Standard DS1 v2**.
 
-1.  On the **Create a virtual machine** blade, on the **Disks** tab, set the following configuration and choose **Review + create**:
+4.  On the **Create a virtual machine** blade, on the **Disks** tab, set the following configuration and choose **Review + create**:
 
     -  OS disk type: **Standard SSD**
 
-1.  On the **Create a virtual machine** blade, on the **Disks** tab, set the following configuration and choose **Review + create**:
-
-1.  Ensure that the validation passed and select **Create**. The deployment should begin provisioning. It may take 10+ minutes for the virtual machine to complete provisioning.
+5.  Ensure that the validation passed and select **Create**. The deployment should begin provisioning. It may take 10+ minutes for the virtual machine to complete provisioning.
 
     >**Note:** Please wait for the LABVM to be provisioned prior to moving to the next step.
 
-1.  Wait for deployment status of **LABVM** to complete. Once the deployment blade displays the message **Your deployment is complete**, select **Go to resource**. 
+6.  Wait for deployment status of **LABVM** to complete. Once the deployment blade displays the message **Your deployment is complete**, select **Go to resource**. 
 
-1.  On the **LABVM** blade, first select **Connect** and then select **Download RDP file** to establish a Remote Desktop session.
+7.  On the **LABVM** blade, first select **Connect** and then select **Download RDP file** to establish a Remote Desktop session.
 
     ![The Connect button is circled on the Azure Portal top menu bar.](images/Setup/image13.png "Azure Portal")
 
-1.  Depending on your Remote Desktop protocol client and browser configuration, you will either be prompted to open an RDP file, or you will need to download it and then open it separately to connect.
+8.  Depending on your Remote Desktop protocol client and browser configuration, you will either be prompted to open an RDP file, or you will need to download it and then open it separately to connect.
 
-1.  Log in with the credentials specified during creation:
+9.  Log in with the credentials specified during creation:
 
     a.  User: **demouser**
 
-    b.  Password: **demo\@pass123**
+    b.  Password: **demo@pass123**
 
-1.  You will be presented with a Remote Desktop Connection warning because of a certificate trust issue. Choose **Yes** to continue with the connection.
+10. You will be presented with a Remote Desktop Connection warning because of a certificate trust issue. Choose **Yes** to continue with the connection.
 
     ![The Remote Desktop Connection warning displays, and the Yes button is selected.](images/Setup/image14.png "Remote Desktop Connection warning")
 
-1.  When logging on for the first time, there will be a prompt asking about network discovery. Select **No**.
+11. When logging on for the first time, there will be a prompt asking about network discovery. Select **No**.
 
     ![On the Network Discovery prompt, the No button is selected.](images/Setup/image15.png "Network Discovery prompt")
 
-1.  Notice that Server Manager opens by default. Select **Local Server**.
+12. Notice that Server Manager opens by default. Select **Local Server**.
 
     ![On the Server Manager menu, Local Server is selected.](images/Setup/image16.png "Server Manager menu")
 
-1.  In the details pane, ensure the **IE Enhanced Security Configuration** is set to **Off**. If that is not the case, select **On**. 
+13. In the details pane, ensure the **IE Enhanced Security Configuration** is set to **Off**. If that is not the case, select **On**. 
 
     ![In the Essentials section, IE Enhanced Security Configuration is set to On, and is selected.](images/Setup/image17.png "Essentials section")
 
-1.  Change the setting to **Off** for Administrators, and select **OK**.
+14. Change the setting to **Off** for Administrators, and select **OK**.
 
     ![In the Internet Explorer Enhanced Security Configuration dialog box, Administrators are set to Off, and the OK button is selected.](images/Setup/image18.png "Internet Explorer Enhanced Security Configuration dialog box")
 
-### Task 2: Update Azure PowerShell version
-
-1.  While logged into **LABVM** via Remote Desktop, from the Start menu, open Windows PowerShell. In the **Administrator: Windows PowerShell** window, run the following:
-
-    ```
-    Install-Module -Name Az -AllowClobber
-    ```
-
-1.  When prompted for confirmation, press the **Y** key twice. This will automatically install the Az PowerShell module.
-
-### Task 3: Download hands-on lab step-by-step support files
+### Task 2: Download hands-on lab step-by-step support files
 
 1.  Within the Remote Desktop session to **LABVM**, open Internet Explorer and download the zipped hands-on lab step-by-step student files by selecting this link:
 
@@ -147,7 +136,7 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
     https://github.com/microsoft/MCW-Enterprise-class-networking/tree/master/Hands-on%20lab/labfiles/ECN-Hackathon.zip
     ```
 
-1.  Extract the downloaded files into the directory **C:\\ECN-Hackathon**.
+2.  Extract the downloaded files into the directory **C:\\ECN-Hackathon**.
 
     ![In File Explorer, ECN-Hackathon is selected, and from its right-click menu, Extract All is selected.](images/Setup/image23.png "File Explorer")
 
