@@ -4,7 +4,7 @@ Woodgrove Financial Services has been in business for over 75 years and is a wel
 
 Woodgrove is committed to migrating to Microsoft Azure with the goal of modernizing their infrastructure and want to start with designing an enterprise-class network.
 
-June 2019
+September 2019
 
 ## Target audience
 - Infrastructure Architect
