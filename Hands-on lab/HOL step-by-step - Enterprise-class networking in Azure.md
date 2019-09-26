@@ -1,4 +1,4 @@
-﻿![](https://github.com/Microsoft/MCW-Template-Cloud-Workshop/raw/master/Media/ms-cloud-workshop.png "Microsoft Cloud Workshops")
+﻿![Microsoft Cloud Workshops](https://github.com/Microsoft/MCW-Template-Cloud-Workshop/raw/master/Media/ms-cloud-workshop.png "Microsoft Cloud Workshops")
 
 <div class="MCWHeader1">
 Enterprise-class networking in Azure
@@ -50,7 +50,7 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
   - [Exercise 5: Build the management station](#exercise-5-build-the-management-station)
     - [Task 1: Build the management VM](#task-1-build-the-management-vm)
   - [Exercise 6: Virtual Network Peering](#exercise-6-virtual-network-peering)
-    - [Task 1: Configure VNet peering WGVNet1 to WGVNet2 amd Vice Versa](#task-1-configure-vnet-peering-wgvnet1-to-wgvnet2-amd-vice-versa)
+    - [Task 1: Configure VNet peering WGVNet1 to WGVNet2 and Vice Versa](#task-1-configure-vnet-peering-wgvnet1-to-wgvnet2-and-vice-versa)
   - [Exercise 7: Provision and configure Azure firewall solution](#exercise-7-provision-and-configure-azure-firewall-solution)
     - [Task 1: Provision the Azure firewall](#task-1-provision-the-azure-firewall)
     - [Task 2: Create Firewall Rules](#task-2-create-firewall-rules)
@@ -312,7 +312,7 @@ Route Tables are containers for User Defined Routes (UDRs). The route table is c
 
     ![AppRT route table is seen here if successful.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image43.png "Route table ")
 
-5.  In the Azure Portal, go to All Services and type Route in the search box and select **Route tables**
+5.  In the Azure Portal, go to All Services and type Route in the search box and select **Route tables**.
 
 6.  Select **MgmtRT**, and choose **Routes**.
 
@@ -518,7 +518,7 @@ In this task, you will provision the CloudShop application using an ARM template
 13. After the Health probe has updated. Select **Load balancing rules**. Choose +**Add** and complete the configuration as shown below followed by selecting **OK**.
 
     - Name: **HTTP**
-    - Leave the rest as defaults
+    - Leave the rest as defaults.
     
     ![Configuration completion for adding a load balancer rule.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image76.png "Add load balancing rule")
 
@@ -616,7 +616,7 @@ In this exercise, management of the Azure-based systems will only be available f
 
 Duration: 20 Minutes
 
-### Task 1: Configure VNet peering WGVNet1 to WGVNet2 amd Vice Versa
+### Task 1: Configure VNet peering WGVNet1 to WGVNet2 and Vice Versa
 
 1.  Select the resource group **WGVNetRG1**, and select the configuration blade for **WGVNet1**. Choose **Peerings**.
 
@@ -631,8 +631,8 @@ Duration: 20 Minutes
     - Peering Name (WGVNet2 to WGVNet1): **VNETPeering_WGVNet2-WGVNet1**
     - Allow virtual network access from WGVNet1 to WGVNet2: **Enabled** 
     - Allow virtual network access from WGVNet2 to WGVNet1: **Enabled** 
-    - Allow forwarded traffice from WGVNet2 to WGVNet1: **Enabled**
-    - Allow forwarded traffice from WGVNet1 to WGVNet2: **Enabled**
+    - Allow forwarded traffic from WGVNet2 to WGVNet1: **Enabled**
+    - Allow forwarded traffic from WGVNet1 to WGVNet2: **Enabled**
 
     ![OK to create Peerings screen.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image93.png "WGVNet1 add peering blade")
 
@@ -645,6 +645,7 @@ Duration: 20 Minutes
 3.  Name the new peering **VNETPeering_WGVNet2-WGVNet1**, enable the **Allow forwarded traffic** and **Use remote gateways** settings, and select **OK** to create the peering.
 
     ![OK to create Peerings screen.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image94.png "WGVNet2 add peering blade") -->
+
 ## Exercise 7: Provision and configure Azure firewall solution
 
 Duration: 15 minutes
