@@ -53,7 +53,7 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
 2.  Select **+Create a resource**, and in the search box, type in **Visual Studio**, and press enter. In the list of results, select **Visual Studio 2019 Latest**. From the drop down, select **Visual Studio 2019 Community (latest release) on Windows Server 2019 x64**. Then select **Create**. 
 
-    ![](images/Setup/SelectVS.png)
+    ![The Azure Marketplace showing the Visual Studio 2019 image selection.](images/Setup/SetupVS.png "Visual Studio image selection")
 
 3.  On the **Create a virtual machine** blade, on the **Basics** tab, set the following configuration and choose **Next : Disks**:
 
