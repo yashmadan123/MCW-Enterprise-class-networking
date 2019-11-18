@@ -9,9 +9,8 @@ Hands-on lab step-by-step
 </div>
 
 <div class="MCWHeader3">
-September 2019
+November 2019
 </div>
-
 
 Information in this document, including URL and other Internet Web site references, is subject to change without notice. Unless otherwise noted, the example companies, organizations, products, domain names, e-mail addresses, logos, people, places, and events depicted herein are fictitious, and no association with any real company, organization, product, domain name, e-mail address, logo, person, place or event is intended or should be inferred. Complying with all applicable copyright laws is the responsibility of the user. Without limiting the rights under copyright, no part of this document may be reproduced, stored in or introduced into a retrieval system, or transmitted in any form or by any means (electronic, mechanical, photocopying, recording, or otherwise), or for any purpose, without the express written permission of Microsoft Corporation.
 
@@ -30,23 +29,21 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 - [Enterprise-class networking in Azure hands-on lab step-by-step](#enterprise-class-networking-in-azure-hands-on-lab-step-by-step)
   - [Abstract and learning objectives](#abstract-and-learning-objectives)
   - [Overview](#overview)
-  - [Solution architecture](#solution-architecture)
+  - [Solution Architecture](#solution-architecture)
   - [Requirements](#requirements)
   - [Help references](#help-references)
   - [Exercise 1: Create a Virtual Network and provision subnets](#exercise-1-create-a-virtual-network-and-provision-subnets)
     - [Task 1: Create a Virtual Network](#task-1-create-a-virtual-network)
     - [Task 2: Configure subnets](#task-2-configure-subnets)
-  - [Exercise 2: Create second Virtual Network and provision subnets](#exercise-2-create-second-virtual-network-and-provision-subnets)
-    - [Task 1: Create a second Virtual Network (hub)](#task-1-create-a-second-virtual-network-hub)
-    - [Task 2: Configure App Subnet](#task-2-configure-app-subnet)
+  - [Exercise 2: Create a Network Monitoring Solution](#exercise-2-create-a-network-monitoring-solution)
+    - [Task 1: Create a Log Analytics Workspace](#task-1-create-a-log-analytics-workspace)
+    - [Task 2: Configure Network Watcher](#task-2-configure-network-watcher)
   - [Exercise 3: Create route tables with required routes](#exercise-3-create-route-tables-with-required-routes)
     - [Task 1: Create route tables](#task-1-create-route-tables)
     - [Task 2: Add routes to each route table](#task-2-add-routes-to-each-route-table)
-  - [Exercise 4: Deploy n-tier application and validate functionality](#exercise-4-deploy-n-tier-application-and-validate-functionality)
-    - [Task 1: Use the Azure portal for a template deployment](#task-1-use-the-azure-portal-for-a-template-deployment)
-    - [Task 2: Validate the CloudShop application is up after the deployment](#task-2-validate-the-cloudshop-application-is-up-after-the-deployment)
-    - [Task 3: Create a load balancer to distribute load between the web servers](#task-3-create-a-load-balancer-to-distribute-load-between-the-web-servers)
-    - [Task 4: Configure the load balancer](#task-4-configure-the-load-balancer)
+  - [Exercise 4: Configure n-tier application and validate functionality](#exercise-4-configure-n-tier-application-and-validate-functionality)
+    - [Task 1: Create a load balancer to distribute load between the web servers](#task-1-create-a-load-balancer-to-distribute-load-between-the-web-servers)
+    - [Task 2: Configure the load balancer](#task-2-configure-the-load-balancer)
   - [Exercise 5: Build the management station](#exercise-5-build-the-management-station)
     - [Task 1: Build the management VM](#task-1-build-the-management-vm)
   - [Exercise 6: Virtual Network Peering](#exercise-6-virtual-network-peering)
@@ -55,7 +52,6 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
     - [Task 1: Provision the Azure firewall](#task-1-provision-the-azure-firewall)
     - [Task 2: Create Firewall Rules](#task-2-create-firewall-rules)
     - [Task 3: Associate route tables to subnets](#task-3-associate-route-tables-to-subnets)
-    - [Task 4: Enable DDoS for virtual network](#task-4-enable-ddos-for-virtual-network)
   - [Exercise 8: Configure Site-to-Site connectivity](#exercise-8-configure-site-to-site-connectivity)
     - [Task 1: Create OnPrem Virtual Network](#task-1-create-onprem-virtual-network)
     - [Task 2: Configure gateway subnets for on premise Virtual Network](#task-2-configure-gateway-subnets-for-on-premise-virtual-network)
@@ -66,12 +62,14 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
     - [Task 1: Create application security groups](#task-1-create-application-security-groups)
     - [Task 2: Configure application security groups](#task-2-configure-application-security-groups)
     - [Task 3: Create network security group](#task-3-create-network-security-group)
-  - [Exercise 10: Configure Service Endpoints](#exercise-10-configure-service-endpoints)
-    - [Task 1: Create and configure a storage account](#task-1-create-and-configure-a-storage-account)
-    - [Task 2: Configure Azure Storage firewall and add a service endpoint](#task-2-configure-azure-storage-firewall-and-add-a-service-endpoint)
-  - [Exercise 11: Validate connectivity from 'on-premises' to Azure](#exercise-11-validate-connectivity-from-on-premises-to-azure)
+  - [Exercise 10: Validate connectivity from 'on-premises' to Azure](#exercise-10-validate-connectivity-from-on-premises-to-azure)
     - [Task 1: Create a virtual machine to validate connectivity](#task-1-create-a-virtual-machine-to-validate-connectivity)
     - [Task 2: Configure routing for simulated 'on-premises' to Azure traffic](#task-2-configure-routing-for-simulated-on-premises-to-azure-traffic)
+  - [Exercise 11: Using Network Watcher to Test and Validate Connectivity](#exercise-11-using-network-watcher-to-test-and-validate-connectivity)
+    - [Task 1: Configuring the Storage Account for the NSG Flow Logs](#task-1-configuring-the-storage-account-for-the-nsg-flow-logs)
+    - [Task 2: Configuring Diagnostic Logs](#task-2-configuring-diagnostic-logs)
+    - [Task 3: Reviewing Network Traffic](#task-3-reviewing-network-traffic)
+    - [Task 4: Network Connection Troubleshooting](#task-4-network-connection-troubleshooting)
   - [After the hands-on lab](#after-the-hands-on-lab)
 
 <!-- /TOC -->
@@ -80,10 +78,9 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 
 ## Abstract and learning objectives
 
-In this hands-on lab, you will setup and configure virtual networks with subnets in Azure. You will also learn how to secure virtual networks by implementing Azure Firewall, service endpoints, network security groups and application security groups, as well as configure route tables on the subnets in your virtual network. Additionally, you will set up access to the virtual network via a jump box and provision a site-to-site VPN connection from another virtual network, providing emulation of hybrid connectivity from an on-premises environment.
+In this hands-on lab, you will setup and configure virtual networks with subnets in Azure. You will also learn how to secure virtual networks by implementing Azure Firewall, network security groups and application security groups, as well as configure route tables on the subnets in your virtual network. Additionally, you will set up access to the virtual network via a jump box and provision a site-to-site VPN connection from another virtual network, providing emulation of hybrid connectivity from an on-premises environment.
 
-At the end of this hands-on lab, you will be better able to configure Azure networking components. 
-
+At the end of this hands-on lab, you will be better able to configure Azure networking components.
 
 ## Overview
 
@@ -97,13 +94,13 @@ You have been asked by Woodgrove Financial Services to provision a proof of conc
 
 -   How to implement a combination of Network Security Groups (NSGs) and Application Security Groups (ASGs) to control traffic flow within virtual networks.
 
--   How to leverage service endpoints to provide restricted access to Azure PaaS services.
+-   How to monitor network traffic for proper route configuration and trouble shooting.
 
 The result of this proof of concept will be an environment resembling this diagram:
 
-## Solution architecture
+## Solution Architecture
 
-![This image represents an entire overview of an environment for the result of this proof of concept.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image2.png "Solution architecture")
+![This image represents an entire overview of an environment for the result of this proof of concept.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image200.png "Solution Architecture")
 
 ## Requirements
 
@@ -124,7 +121,6 @@ You must have a working Azure subscription to carry out this hands-on lab step-b
 | Implementing a DMZ between Azure and your on-premises data center    |  <https://azure.microsoft.com/en-us/documentation/articles/guidance-iaas-ra-secure-vnet-hybrid/>  |
 | What is Azure Firewall?    |  <https://docs.microsoft.com/en-us/azure/firewall/overview/>  |
 | Security groups    |  <https://docs.microsoft.com/en-us/azure/virtual-network/security-overview/>  |
-| Virtual Network Service Endpoints |  <https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview/>  |
 
 ## Exercise 1: Create a Virtual Network and provision subnets
 
@@ -132,15 +128,15 @@ Duration: 15 minutes
 
 ### Task 1: Create a Virtual Network
 
-1.  From your **LABVM**, connect to the Azure portal, select **+ Create a resource**, and in the list of Marketplace categories, select **Networking** followed by selecting **Virtual Network**. 
+1.  From your **LABVM**, connect to the Azure portal, select **+ Create a resource**, and in the list of Marketplace categories, select **Networking** followed by selecting **Virtual Network**.
 
 2.  On the **Create virtual network** blade, enter the following information:
 
     -  Name: **WGVNet1**
 
-    -  Address space: **10.7.0.0/24**
+    -  Address space: **10.7.0.0/20**
 
-    -  Subscription: Choose your subscription.
+    -  Subscription: select your subscription.
 
     -  Resource group: Select **Create new**, and enter the name **WGVNetRG1**.
 
@@ -149,7 +145,7 @@ Duration: 15 minutes
     -  Subnet name: **GatewaySubnet** (This name is fixed and cannot be changed.)
 
     -  Subnet address range: **10.7.0.0/29**
- 
+
 3.  Leave the other options as default for now.
 
 4.  Upon completion, it should look like the following screenshot. Validate the information is correct, and select **Create**.
@@ -172,7 +168,7 @@ Duration: 15 minutes
 
     -  Name: **Management**
 
-    -  Address range: **10.7.0.8/29**
+    -  Address range: **10.7.2.0/25**
 
     -  Network security group: **None**
 
@@ -180,61 +176,59 @@ Duration: 15 minutes
 
     -  Service Endpoints: **Leave as Default**.
 
-4.  When your dialog looks like the following screenshot, choose **OK** to create the subnet.
+4.  When your dialog looks like the following screenshot, select **OK** to create the subnet.
 
     ![Field values in the Add Subnet blade are set to the previously defined settings.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image30.png "Add Subnet blade")
 
-## Exercise 2: Create second Virtual Network and provision subnets
+5. Repeat Step 3, enter the following information for the Azure Firewall which we will use to control traffic flow in and out of the Network. 
 
-Duration: 15 minutes
+    -  Name: **AzureFirewallSubnet** (This name is fixed and cannot be changed.)
 
-### Task 1: Create a second Virtual Network (hub)
-
-1.  From your **LABVM**, connect to the Azure portal, select **+ Create a resource**, and in the list of Marketplace categories, select **Networking** followed by selecting **Virtual Network**. 
-
-2.  On the **Create virtual network** blade, enter the following information:
-
-    -  Name: **WGVNet2**
-
-    -  Address space: **10.7.1.0/24**
-
-    -  Subscription: Choose your subscription.
-
-    -  Resource group: Select **Create new**, and enter the name **WGVNetRG2**.
-
-    -  Location: **(US) South Central US**
-
-    -  Subnet name: **AzureFirewallSubnet** (This name is fixed and cannot be changed.)
-
-    -  Subnet address range: **10.7.1.0/26** (/26 is the minimum requirement for azure firewall)
-
-3.  Upon completion, it should look like the following screenshot. Validate the information is correct, and choose **Create**.
-
-    ![This represents the properly filled out fields when creating a second Virtual Network.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image31.png "Create virtual network")
-
-### Task 2: Configure App Subnet
-
-1.  Go to the WGVNetRG2 Resource Group, and select **WGVNet2** blade if you're not there already, and select **Subnets**.
-
-    ![This is a subnet configuration.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image32.png "Subnets blade")
-
-2.  In the **Subnets** blade, select **+Subnet**.
-
-    ![In the Subnets blade, the add Subnet button is selected.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image29.png "Subnets blade")
-
-3.  On the **Add subnet** blade, enter the following information:
-
-    -  Name: **AppSubnet**
-
-    -  Address range: **10.7.1.128/25**
+    -  Address range: **10.7.1.0/24**
 
     -  Network security group: **None**
 
     -  Route table: **None**
 
-4.  When your dialog looks like the following screenshot, select **OK** to create the subnet.
+    -  Service Endpoints: **Leave as Default**
 
-    ![This represents the properly filled out fields when creating AppSubnet of the second Virtual Network.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image33.png "Subnets blade")
+    ![Field values in the Add Subnet blade are set to the previously defined settings.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image159.png "Add Subnet blade")
+
+## Exercise 2: Create a Network Monitoring Solution
+
+Duration: 15 minutes
+
+### Task 1: Create a Log Analytics Workspace
+
+1.  From your **LABVM**, connect to the Azure portal, select **+ Create a resource**, and in the list of Marketplace categories, select **IT & Management Tools** followed by selecting **Log Analytics**.
+
+2.  On the **Create workspace** blade, enter the following information:
+
+    -  Name: **Enter Unique Name all lowercase**
+
+    -  Subscription: select your subscription.
+
+    -  Resource group: Select **Create new**, and enter the name **MonitoringRG**.
+
+    -  Location: **East US**
+
+    -  Pricing Tier: **Per GB (2018)**
+
+3.  Upon completion, it should look like the following screenshot. Validate the information is correct, and select **OK**.
+
+    ![This represents the properly filled out fields when creating a Log Analytics Workspace.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image160.png "Create Log Analytics Workspace")
+
+### Task 2: Configure Network Watcher
+
+1.  From your **LABVM**, connect to the Azure portal, select **All Services**, and in the Category list, select **Networking** followed by selecting **Network Watcher**.
+
+    ![This is a Network Watcher configuration.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image161.png "All Services blade")
+
+2.  In the **Overview** blade, expand your subscription and select **SouthCentralUS** by selecting the **eclipse to the right** then enabling the service within the region.
+
+3.    Repeat the step above this time enabling the service within the **East US** region.
+
+    ![This is the Network Watcher blade where the enable region is selected.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image162.png "Network Watcher Overview blade")
 
 ## Exercise 3: Create route tables with required routes
 
@@ -244,35 +238,35 @@ Route Tables are containers for User Defined Routes (UDRs). The route table is c
 
 ### Task 1: Create route tables
 
-1.  On the main portal menu, select **+ Create a Resource**. Type **route** into the search box, and choose **Route table** then select **Create**.
+1.  On the main portal menu, select **+ Create a Resource**. Type **route** into the search box, and select **Route table** then select **Create**.
 
 2.  On the **Create a Route table** blade enter the following information:
 
     -  Name: **MgmtRT**
 
-    -  Subscription: Choose your subscription.
+    -  Subscription: select your subscription.
 
     -  Resource group: Select **WGVNetRG1** from the drop down.
 
     -  Location: **(US) South Central US**
 
-    -  Virtual network gateway route propagation: **Disabled**
+    -  Virtual network gateway route propagation: **Enabled**
 
 3.  When the dialog looks like the following screenshot, select **Create**.
-    
-    ![This represents completed fields when initially creating a route table.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image36.png "Create route table")
+
+    ![This represents completed fields when initially creating a route table.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image163.png "Create route table")
 
 4.  Repeat steps 1 and 2 to create the **AppRT** route table:
 
     -  Name: **AppRT**
 
-    -  Subscription: Choose your subscription.
+    -  Subscription: select your subscription.
 
     -  Resource group: Select **WGVNetRG2** from the drop down.
 
     -  Location: **(US) South Central US**
 
-    -  Virtual network gateway route propagation: **Disabled**
+    -  Virtual network gateway route propagation: **Enabled**
 
 5.  Once route tables are created, your **Route tables** blade should look like the following screenshot:
 
@@ -280,11 +274,11 @@ Route Tables are containers for User Defined Routes (UDRs). The route table is c
 
 ### Task 2: Add routes to each route table
 
-1.  Select the **AppRT** route table, and choose **Routes**.
+1.  Select the **AppRT** route table, and select **Routes**.
 
     ![On the Route table blade, under Settings, Routes is selected. ](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image39.png "Route table blade ")
 
-2.  On the **Routes** blade, choose **+ Add**. Enter the following information, and select **OK**:
+2.  On the **Routes** blade, select **+ Add**. Enter the following information, and select **OK**:
 
     -  Route name: **AppToInternet**
 
@@ -314,11 +308,11 @@ Route Tables are containers for User Defined Routes (UDRs). The route table is c
 
 5.  In the Azure Portal, go to All Services and type Route in the search box and select **Route tables**.
 
-6.  Select **MgmtRT**, and choose **Routes**.
+6.  Select **MgmtRT**, and select **Routes**.
 
     ![Under Name, MgmtRT is selected.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image50.png "MgmtRT")
 
-7.  On the **Routes** blade, choose +**Add**. Enter the following information, and choose **OK**:
+7.  On the **Routes** blade, select +**Add**. Enter the following information, and select **OK**:
 
     -  Route name: **MgmtToOnPremises**
 
@@ -334,122 +328,31 @@ Route Tables are containers for User Defined Routes (UDRs). The route table is c
 
     -  Route name: **MgmtToApp**
 
-    -  Address prefix: **10.7.1.128/25**
+    -  Address prefix: **10.7.2.0/25**
 
     -  Next hop type: **Virtual appliance**
 
     -  Next hop address: **10.7.1.4** (This is the private IP of Azure Firewall.)
 
-    ![Continuation of steps to adding another route table.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image52.png "Add route")
+    ![Continuation of steps to adding another route table.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image164.png "Add route")
 
 9.  Upon completion, your routes in the **MgmtRT** route table should look like the following screenshot:
 
-    ![Continuation of steps to adding another route table.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image54.png "Route table")
+    ![Continuation of steps to adding another route table.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image165.png "Route table")
 
     >**Note:** The route tables and routes you have just created are not associated with any subnets yet, so they are not impacting any traffic flow yet. This will be accomplished later in the lab.
 
-## Exercise 4: Deploy n-tier application and validate functionality
+## Exercise 4: Configure n-tier application and validate functionality
 
-Duration: 90 minutes
+### Task 1: Create a load balancer to distribute load between the web servers
 
-In this task, you will provision the CloudShop application using an ARM template deployment. This application has a web tier and a data tier.
-
-### Task 1: Use the Azure portal for a template deployment
-
-> **Note:** If you have not downloaded the student files see this section in the before getting started section of this hands-on lab.
-
-1.  On your LABVM, open the **C:\\ECN-Hackathon** which contains the student files for this lab.
-
-2.  Make sure you are signed into the Azure portal at <http://portal.azure.com>.
-
-3.  Choose **+ Create a resource**, and search for **template deployment**.
-
-    ![On the New blade, the Search the Marketplace text box contains the text Template deployment.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image56.png "New blade")
-
-4.  On the Template deployment blade, choose Create.
-
-5.  On the Custom deployment blade, select **Build your own template in the editor**.
-
-    ![In the Custom deployment blade, the link to Build your own template in the editor is selected.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image57.png "Custom deployment blade")
-
-6.  Choose **Load file** and select the **CloudShop.json** file from your **C:\\ECN-Hackathon** directory and then select **Save**.
-
-    ![In the Edit template blade, Load file is selected.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image58.png "Edit template blade")
-
-7.  Update the following parameters to reference the **WGVNet2** virtual network in the **WGVNetRG2** resource group and to the **AppSubnet** subnet.
-
-    - Existing Virtual Network Name: **WGVNet2**
-    - Existing Virtual Network Resource Group: **WGVNetRG2**
-    - Web Subnet: **AppSubnet**
-    - Data Subnet: **AppSubnet**
-
-    ![A screenshot that shows the Existing Virtual Network Name, Existing Virtual Network Resource group parameters, Web Subnet, and Data Subnet.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image59.png "Template parameters")
-
-8.  Update the **Custom deployment** blade using the following inputs, agree to the terms, and choose **Purchase**. This deployment will take approximately 30-40 minutes.
-
-    -  Resource Group: Create new / **WGVNetRG2**
-
-    -  Location: **(US) South Central US** (The same location you used to provision resources earlier in this lab.)
-
-    ![Deployment purchase in updating the Custom deployment blade.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image60.png "Template blade")
-
-### Task 2: Validate the CloudShop application is up after the deployment
-
-1.  Using the Azure portal, open the **WGVNetRG2** Resource group and review the deployment.
-
-2.  Navigate to the **WGWEB1** blade.
-
-3.  On the **WGWEB1** blade, first select **Connect** and then select **Download RDP file** to establish a Remote Desktop session.
-
-    ![CloudShop application connection test](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image61.png "Virtual machine blade")
-
-4.  Depending on your Remote Desktop protocol client and browser configuration, you will either be prompted to open an RDP file, or you will need to download it and then open it separately to connect.
-
-5.  Log in with the credentials specified during creation:
-
-    -  User: **demouser**
-
-    -  Password: **demo@pass123**
-
-6.  You will be presented with a Remote Desktop Connection warning because of a certificate trust issue. Select **Yes** to continue with the connection.
-
-    ![The Remote Desktop Connection dialog box displays, warning you that the remote computer\'s identity cannot be verified, and asking you if you want to connect anyway. The Don\'t ask me again for connections to this computer is selected, as is the Yes button at the bottom.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image62.png "Remote Desktop Connection warning dialog box")
-
-7.  When logging on for the first time, you will have a prompt asking about network discovery. Select **No**.
-
-    ![The Networks prompt asks if you want to find other computers, devices and content automatically. The No button is selected.](images/Setup/image15.png "Networks prompt")
-
-8.  Notice that Server Manager opens by default. Choose **Local Server**.
-
-    ![Local Server is selected on the Server Manager menu.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image63.png "Server Manager menu")
-
-9.  In the Local Server pane, ensure the **IE Enhanced Security Configuration** is set to **Off**. If that is not the case, select **On**. 
-
-    ![IE Enhanced Security Configuration is set to On, and is selected.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image64.png "Under Essentials")
-
-10. If needed, change to **Off** for Administrators, and select **OK**.
-
-    ![In the Internet Explorer Enhanced Security Configuration dialog box, the Administrators Off radio button is selected, and the OK button is selected as well.](images/Setup/image18.png "Internet Explorer Enhanced Security Configuration")
-
-11. You will now ensure the CloudShop application is up and running. Open Internet Explorer, and browse to both the WGWEB1 and WGWEB2 servers:
-
-    ```
-    http://wgweb1
-    ```
-
-    ```
-    http://wgweb2
-    ```
-
-### Task 3: Create a load balancer to distribute load between the web servers
-
-1.  In the Azure portal, choose **+ Create a resource**, then **Networking** and **Load Balancer**.
+1.  In the Azure portal, select **+ Create a resource**, then **Networking** and **Load Balancer**.
 
     ![In the Azure Portal, New is selected. Under Azure Marketplace, Networking is selected, and under Featured, Load Balancer is selected.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image65.png "Azure Portal")
 
 2.  On the **Create load balancer** blade, on the **Basics** tab, enter the following values:
 
-    -  Subscription: Choose your subscription.
+    -  Subscription: select your subscription.
 
     -  Resource group: **WGVNetRG2**
 
@@ -463,68 +366,68 @@ In this task, you will provision the CloudShop application using an ARM template
 
     -  Virtual network: **WGVNet2**
 
-    -  Subnet: **AppSubnet (10.7.1.128/25)**
+    -  Subnet: **AppSubnet (10.8.0.0/25)**
 
-    -  IP address assignment: Choose **Static** and enter the IP address **10.7.1.254**.
+    -  IP address assignment: select **Static** and enter the IP address **10.8.0.100**.
 
     Ensure your **Create load balancer** dialog looks like the following, and select **Review + create** then select **Create**.
 
-    ![Load Balancer Check/Creation](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image66.png "Create load balancer")
+    ![Load Balancer Check/Creation](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image166.png "Create load balancer")
 
-### Task 4: Configure the load balancer
+### Task 2: Configure the load balancer
 
 1.  Open the **WGWEBLB** load balancer in the Azure portal.
 
-2.  Select **Backend pools**, and choose **+Add** at the beginning.
+2.  Select **Backend pools**, and select **+Add** at the beginning.
 
     ![In the Load balancer blade under Settings, Backend pools is selected, and the Add button is selected as well.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image67.png "Load balancer blade")
 
-3.  Enter **LBBE** for the pool name. Under **Associated to**, choose **Availability set**.
+3.  Enter **LBBE** for the pool name. Under **Associated to**, select **Availability set**.
 
     ![In the Name field in the Add backend pool blade is LBBE, and under Associated to, Availability set is selected.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image68.png "Add backend pool blade")
 
 4.  Next, select the **WebAVSet** Availability Set.
 
-5.  Under **Target network IP configurations**, choose **+ Add a target network IP configuration**.
+5.  Under **Target network IP configurations**, select **+ Add a target network IP configuration**.
 
     ![Under Target network IP configurations, Add a target network IP configuration is selected.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image69.png "Target network IP configurations")
 
-6.  Under **Target virtual machine**, choose **WGWEB1**.
+6.  Under **Target virtual machine**, select **WGWEB1**.
 
     ![Under Target virtual machines, WGWEB1 size: Standard\_D1\_v2, network interfaces: 1 is selected.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image70.png "Target virtual machines")
 
-7.  Under **Network IP configuration**, choose **WGWEB1NetworkInterface**
+7.  Under **Network IP configuration**, select **WGWEB1NetworkInterface**
 
 8.  Select **+ Add a target network IP configuration** repeating these steps, but this time, adding **WGWEB2** along with its IP configuration.
 
-9.  Then, choose **OK**.
+9.  Then, select **OK**.
 
 10. Wait to proceed until the Backend pool configuration is finished updating.
 
-    ![Updating of the Backend pool configuration!](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image72.png "Backend pool blade")
+    ![Updating of the Backend pool configuration!](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image167.png "Backend pool blade")
 
-11. Next, under **Settings** on the WGWEBLB Load Balancer blade select **Health Probes**. Choose **+ Add**, and use the following information to create a health probe.
+11. Next, under **Settings** on the WGWEBLB Load Balancer blade select **Health Probes**. Select **+ Add**, and use the following information to create a health probe.
 
     -  Name: **HTTP**
 
     -  Protocol: **HTTP**
 
     ![Under Settings, Health probes is selected. in the Add health probe blade, HTTP displays in the Name field, and Protocol is set to HTTP.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image73.png "Settings section, Add health probe blade")
-    
+
     ![In the Add health probe blade, Name is HTTP, and Protocol is HTTP.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image75.png "Add health probe blade")
 
-12. Choose **OK**.
+12. Select **OK**.
 
-13. After the Health probe has updated. Select **Load balancing rules**. Choose +**Add** and complete the configuration as shown below followed by selecting **OK**.
+13. After the Health probe has updated. Select **Load balancing rules**. Select +**Add** and complete the configuration as shown below followed by selecting **OK**.
 
     - Name: **HTTP**
     - Leave the rest as defaults.
-    
-    ![Configuration completion for adding a load balancer rule.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image76.png "Add load balancing rule")
+
+    ![Configuration completion for adding a load balancer rule.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image168.png "Add load balancing rule")
 
     **It will take 2-3 minutes for the changes to save.**
 
-14. From an RDP session to WGWEB1, open your browser and point it at <http://10.7.1.254>. Ensure that you successfully connect to either one of two Web servers. 
+14. From an RDP session to WGWEB1, open your browser and point it at <http://10.8.0.100>. Ensure that you successfully connect to either one of two Web servers. 
 
     ![A CloudShop Demo - Products - running on Web1 message displays. ](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image77.png "Server response")
 
@@ -536,15 +439,15 @@ In this task, you will provision the CloudShop application using an ARM template
 
 16. Next, select the listed network interface **WGWEB1NetworkInterface** on the hyperlink.
 
-17. Next, choose the **IP configurations** section shown.
+17. Next, select the **IP configurations** section shown.
 
-    ![Selection of the IP Configuration section.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image80.png "Network interface blade")
+    ![Selection of the IP Configuration section.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image169.png "Network interface blade")
 
 18. Next, select the **ipconfig1** section on the NAME shown above.
 
-19. Next, select and make sure that the **Public IP address settings** is shown disabled below, and choose **Save**. This should remove the public IP address from the network interface of the VM.
+19. Next, select and make sure that the **Public IP address settings** is shown disabled below, and select **Save**. This should remove the public IP address from the network interface of the VM.
 
-    ![Disabling of the Public IP address settings.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image81.png "IP configuration blade")
+    ![Disabling of the Public IP address settings.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image170.png "IP configuration blade")
 
 ## Exercise 5: Build the management station
 
@@ -554,14 +457,14 @@ In this exercise, management of the Azure-based systems will only be available f
 
 ### Task 1: Build the management VM
 
-1.  In the Azure portal, select **+ Create a resource** then select **Windows Server 2016 Datacenter**. 
+1.  In the Azure portal, select **+ Create a resource** then select **Windows Server 2016 Datacenter**.
 
 2.  On the **Create a virtual machine** blade, on the **Basics** tab, enter the following information, and select **Next : Disks >**:
 
-    -  Subscription: Choose your subscription.
+    -  Subscription: select your subscription.
 
-    -  Resource group: Choose **Create new** and enter **WGMGMTRG**.
-      
+    -  Resource group: select **Create new** and enter **WGMGMTRG**.
+
     -  Virtual machine name: **WGMGMT1**
 
     -  Region: **(US) South Central US**
@@ -582,25 +485,25 @@ In this exercise, management of the Azure-based systems will only be available f
 
     -  Already have a Windows license?: **No**
 
-3.  On the **Create a virtual machine** blade, on the **Disks** tab, set the following configuration and choose **Next : Networking >**:
+3.  On the **Create a virtual machine** blade, on the **Disks** tab, set the following configuration and select **Next : Networking >**:
 
     -  OS disk type: **Premium SSD**
 
-4.  On the **Create a virtual machine** blade, on the **Networking** tab, set the following configuration and choose **Next : Management >**:
+4.  On the **Create a virtual machine** blade, on the **Networking** tab, set the following configuration and select **Next : Management >**:
 
     -  Virtual network: **WGVNet1**
 
-    -  Subnet: **Management (10.7.0.8/29)**
+    -  Subnet: **Management (10.7.0.0/25)**
 
     -  Public IP: **None**
-    
+
     -  NIC network security group: **None**
 
     -  Accelerated networking: **Off**
 
     -  Place this virtual machine behind an existing load balancing solution: **No**
 
-5.  On the **Create a virtual machine** blade, on the **Management** tab, set the following configuration and choose **Review + create**:
+5.  On the **Create a virtual machine** blade, on the **Management** tab, set the following configuration and select **Review + create**:
 
     -  Boot diagnostics: **Off**
 
@@ -610,7 +513,7 @@ In this exercise, management of the Azure-based systems will only be available f
 
     -  Enable auto-shutdown: **Off**
 
-6.  On the **Create a virtual machine** blade, on the **Review + Create** tab, ensure the validation passes, and choose **Create**. The virtual machine will take about 5 minutes to provision.
+6.  On the **Create a virtual machine** blade, on the **Review + Create** tab, ensure the validation passes, and select **Create**. The virtual machine will take about 5 minutes to provision.
 
 ## Exercise 6: Virtual Network Peering
 
@@ -618,7 +521,7 @@ Duration: 20 Minutes
 
 ### Task 1: Configure VNet peering WGVNet1 to WGVNet2 and Vice Versa
 
-1.  Select the resource group **WGVNetRG1**, and select the configuration blade for **WGVNet1**. Choose **Peerings**.
+1.  Select the resource group **WGVNetRG1**, and select the configuration blade for **WGVNet1**. select **Peerings**.
 
 2.  Select **Add**.
 
@@ -634,11 +537,11 @@ Duration: 20 Minutes
     - Allow forwarded traffic from WGVNet2 to WGVNet1: **Enabled**
     - Allow forwarded traffic from WGVNet1 to WGVNet2: **Enabled**
 
-    ![OK to create Peerings screen.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image93.png "WGVNet1 add peering blade")
+    ![OK to create Peerings screen.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image171.png "WGVNet1 add peering blade")
 
 <!-- ### Task 2: Configure VNet peering WGVNET2 to WGVNET1
 
-1.  Select the resource group **WGVNetRG2**, and select the configuration blade for **WGVNet2**. Choose **Peerings**.
+1.  Select the resource group **WGVNetRG2**, and select the configuration blade for **WGVNet2**. select **Peerings**.
 
 2.  Select **Add**.
 
@@ -657,43 +560,43 @@ In this exercise, you will provision and configure an Azure firewall in your net
 1.  In the Azure portal, select **+ Create a resource**. In the **Search the Marketplace** text box, type **Azure firewall**, in the list of results, select **Firewall**, and on the **Firewall** blade, select **Create**.
 
 2.  On the **Create a firewall** blade, on the **Basics** tab, enter the following information: 
-   
-    -  Subscription: Choose your subscription.
 
-    -  Resource group: **WGVNetRG2**
-      
+    -  Subscription: select your subscription.
+
+    -  Resource group: **WGVNetRG1**
+
     -  Name: **azureFirewall**
 
     -  Region: **(US) South Central US**
 
-    -  Choose a Virtual network: select **Use existing** and then select **WGVNet2**.
+    -  select a Virtual network: select **Use existing** and then select **WGVNet1**.
 
     -  Public IP address: **Create new**
 
     -  Public IP address name: **azureFirewall-ip**
-    
+
     -  Public IP address SKU: **Standard**
 
 3.  Select **Review + create** and then select **Create** to provision the Azure Firewall. 
-   
-    ![Firewall creation and provision.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image95.png "Create firewall blade")
+
+    ![Firewall creation and provision.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image172.png "Create firewall blade")
 
 ### Task 2: Create Firewall Rules
 
-Within 1-2 minutes, the resource group **WGVNetRG2** will have the firewall created. Next, we will firewall rules to allow the inbound and outbound traffic.
+Within 1-2 minutes, the resource group **WGVNetRG1** will have the firewall created. Next, we will firewall rules to allow the inbound and outbound traffic.
 
 1.  On the main Azure menu select **Resource groups**.
 
-2.  Select the **WGVNetRG2** resource group. This resource group contains the azure firewall and its public IP address resources.
+2.  Select the **WGVNetRG1** resource group. This resource group contains the azure firewall and its public IP address resources.
 
 3.  Navigate to the **azureFirewall-ip** blade and note the value of its public IP address. You will need it later in this task.
 
 4.  Navigate to the **azureFirewall** blade, and, on the **Overview** page, select **Rules**.
 
-    ![Azure Firewall.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image96.png "Azure Firewall overview page")
+    ![Azure Firewall.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image173.png "Azure Firewall overview page")
 
 5.  Select **+ Add NAT Rule collection** and enter the following information to create an inbound NAT Rule (collection is a list of rules that share the same priority and action):
-   
+
     -  Name: **NATRuleCollection1**
 
     -  Priority: **250**
@@ -708,7 +611,7 @@ Within 1-2 minutes, the resource group **WGVNetRG2** will have the firewall crea
 
     -  Destination ports: **80** (to allow HTTP traffic)
 
-    -  Translated Address: **10.7.1.254** (Private IP of the Azure Load Balancer you deployed earlier in this lab.)
+    -  Translated Address: **10.8.0.100** (Private IP of the Azure Load Balancer you deployed earlier in this lab.)
         
     -  Translated Port: **80**
 
@@ -724,11 +627,11 @@ Within 1-2 minutes, the resource group **WGVNetRG2** will have the firewall crea
   
     - Destination ports: **443**
   
-    - Translated Address: **10.7.1.254**
+    - Translated Address: **10.8.0.100**
   
     - Translated Port: **443**
 
-    ![Azure Firewall.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image0101.png "Azure Firewall NAT Rules")
+    ![Azure Firewall.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image174.png "Azure Firewall NAT Rules")
 
 7.  Select **Add** and wait until the update completes.
 
@@ -746,7 +649,7 @@ Within 1-2 minutes, the resource group **WGVNetRG2** will have the firewall crea
 
     -  Source address: **\***
 
-    -  Destination Address: **10.7.1.254**
+    -  Destination Address: **10.8.0.100**
 
     -  Destination ports: **80,443**
 
@@ -756,16 +659,15 @@ Within 1-2 minutes, the resource group **WGVNetRG2** will have the firewall crea
 
     -  Protocol: **TCP**
 
-    -  Source address: **10.7.0.8/29**
+    -  Source address: **10.7.2.0/25**
 
-    -  Destination Address: **10.7.1.128/25**
+    -  Destination Address: **10.8.0.0/25**
 
     -  Destination ports: **3389**
 
     ![Azure Firewall.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image102.png "Azure Firewall Network Allow Rule")
 
 10. Select **Add** and wait until the update completes.
-
 
 ### Task 3: Associate route tables to subnets
 
@@ -777,11 +679,11 @@ Within 1-2 minutes, the resource group **WGVNetRG2** will have the firewall crea
 
 3.  On the **Associate subnet** blade, select **Virtual network**. Then, select on **WGVNet2**.
 
-    ![Under Associate subnet, Virtual network - Choose a virtual network is selected. Under Resource, WGVNet westus is selected.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image116.png "Associate subnet section")
+    ![Under Associate subnet, Virtual network - select a virtual network is selected. Under Resource, WGVNet westus is selected.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image116.png "Associate subnet section")
 
-4.  From the **Choose a subnet** blade, choose **AppSubnet**.
+4.  From the **select a subnet** blade, select **AppSubnet**.
 
-    ![In the Choose a subnet blade Subnet, choose a subnet is selected, as is DataTier WGVNetRG.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image117.png "Choose a subnet blade")
+    ![In the select a subnet blade Subnet, select a subnet is selected, as is DataTier WGVNetRG.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image117.png "select a subnet blade")
 
 5.  Select **OK** at the bottom of the **Associate subnet** blade.
 
@@ -789,42 +691,15 @@ Within 1-2 minutes, the resource group **WGVNetRG2** will have the firewall crea
 
 7.  Select the **+ Associate**.
 
-8.  On the **Associate subnet** blade, select **Virtual network**. Choose **WGVNet1**.
+8.  On the **Associate subnet** blade, select **Virtual network**. select **WGVNet1**.
 
-    ![In the Associate subnet blade, Virtual network, Choose a virtual network is selected, as is WGVNet westus.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image118.png "Associate subnet blade")
+    ![In the Associate subnet blade, Virtual network, select a virtual network is selected, as is WGVNet westus.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image118.png "Associate subnet blade")
 
-9.  The **Choose subnet** blade opens. Choose **Management**.
+9.  The **select subnet** blade opens. select **Management**.
 
-    ![In the Choose a subnet blade, Management WGVNetRG is selected.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image119.png "Choose a subnet blade")
+    ![In the select a subnet blade, Management WGVNetRG is selected.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image119.png "select a subnet blade")
 
 10. Select **OK** at the bottom of the **Associate subnet** blade.
-
-### Task 4: Enable DDoS for virtual network
-
-In this task you will enable DDoS services for your virtual network.
-
-1.  In the Azure Portal, select **+ Create a resource** and in the **Search the Marketplace** box type and select **DDoS Protection Plans**, and, on the **DDoS Protection Plans** blade, select **Create DDoS protection plan**.
-
-2.  On the **Create a DDoS protection plan** blade, enter the following information:
-        
-    -  Name: **DDoSprotection**
-
-    -  Subscription: Choose your subscription.
-
-    -  Resource group: **WGVNetRG2**
-
-    -  Location: **(US) South Central US**
-
-    ![DDos Protection creation Blade.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/ddosimage2.png "DDoS Creation blade")
-
-3.  Once completed, select **Create** to create a DDoS protection plan. Wait a few minutes to complete the provisioning.
-
-4.  In the Azure portal, navigate to the blade of the virtual network **WGVNet2**, select **DDoS protection**, select **Standard**, and, in the **DDoS protection plan** drop-down list, select the **DDoSprotection** entry. 
-
-    ![Enabling DDos Protection from VNet.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/ddosimage3.png "DDos Creation blade")
-
-5.  Once completed select **Save**
-
 
 ## Exercise 8: Configure Site-to-Site connectivity
 
@@ -834,16 +709,16 @@ In this exercise, we will simulate an on-premises connection to the internal web
 
 ### Task 1: Create OnPrem Virtual Network
 
-1.  In the Azure portal, choose **+ Create a resource**, **Networking** and **Virtual network**.
+1.  In the Azure portal, select **+ Create a resource**, **Networking** and **Virtual network**.
 
 2.  On the **Create virtual network** blade, enter the following information:
 
     -  Name: **OnPremVNet**
-    
+
     -  Address space: **192.168.0.0/16**
-    
-    -  Subscription: Choose your subscription.
-    
+
+    -  Subscription: select your subscription.
+
     -  Resource group: Select **Create new**, and enter the name **OnPremVNetRG**.
 
     -  Location: **(US) East US** (Make sure this is **NOT** the same location you have specified in the previous exercises.)
@@ -851,21 +726,20 @@ In this exercise, we will simulate an on-premises connection to the internal web
     -  Subnet name: **default**
 
     -  Subnet address range: **192.168.0.0/24**
- 
+
 3.  Leave the other options with their default values.
 
 4.  Upon completion, it should look like the following screenshot. Validate the information is correct, and select **Create**.
 
-    ![This represents the configuration of Creating an on-premises Virtual Network.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image121.png "Create virtual network") 
-
+    ![This represents the configuration of Creating an on-premises Virtual Network.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image121.png "Create virtual network")
 
 ### Task 2: Configure gateway subnets for on premise Virtual Network
 
-1.  Select the **OnPremVnetRG** Resource Group and then open the **OnPremVNet** blade and choose **Subnets**.
+1.  Select the **OnPremVnetRG** Resource Group and then open the **OnPremVNet** blade and select **Subnets**.
 
-2.  Next, choose **+ Gateway subnet**.
+2.  Next, select **+ Gateway subnet**.
 
-    ![Choose + Gateway subnet.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image122.png "Virtual network blade")
+    ![select + Gateway subnet.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image122.png "Virtual network blade")
 
 3.  Specify the following configuration for the subnet, and select **OK**:
 
@@ -887,12 +761,12 @@ In this exercise, we will simulate an on-premises connection to the internal web
 
 ### Task 3: Create the first gateway
 
-1.  Using the Azure Management portal, choose **+ Create a resource**, type **Virtual Network gateway** in the **Search the Marketplace** text box, in the list of results, select **Virtual network gateway**, and then select **Create**.
+1.  Using the Azure Management portal, select **+ Create a resource**, type **Virtual Network gateway** in the **Search the Marketplace** text box, in the list of results, select **Virtual network gateway**, and then select **Create**.
 
 2.  On the **Create virtual network gateway** blade,  enter the following information and select **Review + create**:
 
-    -  Subscription: Choose your subscription.
-    
+    -  Subscription: select your subscription.
+
     -  Name: **OnPremWGGateway**
 
     -  Region: **(US) East US** (This must match the location in which you created the **OnPremVNet** virtual network.)
@@ -909,13 +783,15 @@ In this exercise, we will simulate an on-premises connection to the internal web
 
     -  Public IP address: **Create new**
 
-    -  Public IP address name: **onpremgatewayIP**
+    -  Public IP address name: **onpremgatewayIP1**
 
-    -  Enable active-active mode: **Disabled**
+    -  Enable active-active mode: **Enabled**
+
+    -  Second Public IP address name: **onpremgatewayIP2**
 
     -  Configure BGP ASN: **Disabled**
 
-    ![Gateway name creation - OnPremWGGateway](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image127.png "Create virtual network gateway")
+    ![Gateway name creation - OnPremWGGateway](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image176.png "Create virtual network gateway")
 
 3.  Validate your settings and select **Create**.
 
@@ -923,12 +799,12 @@ In this exercise, we will simulate an on-premises connection to the internal web
 
 ### Task 4: Create the second gateway
 
-1.  Using the Azure Management portal, choose **+ Create a resource**, type **Virtual Network gateway** in the **Search the Marketplace** text box, in the list of results, select **Virtual network gateway**, and then select **Create**.
+1.  Using the Azure Management portal, select **+ Create a resource**, type **Virtual Network gateway** in the **Search the Marketplace** text box, in the list of results, select **Virtual network gateway**, and then select **Create**.
 
 2.  On the **Create virtual network gateway** blade,  enter the following information and select **Review + create**:
 
-    -  Subscription: Choose your subscription.
-    
+    -  Subscription: select your subscription.
+
     -  Name: **WGVNet1Gateway**
 
     -  Location: **(US) South Central US** (This must match the location in which you created the **WGVNet1** virtual network.)
@@ -945,13 +821,15 @@ In this exercise, we will simulate an on-premises connection to the internal web
 
     -  Public IP address: **Create new**
 
-    -  Public IP address name: **vnet1gatewayIP**
+    -  Public IP address name: **vnet1gatewayIP1**
 
-    -  Enable active-active mode: **Disabled**
+    -  Enable active-active mode: **Enabled**
+
+    -  Second Public IP address name: **vnet1gatewayIP2**
 
     -  Configure BGP ASN: **Disabled**
 
-    ![Gateway name creation - OnPremWGGateway](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image128.png "Create virtual network gateway")
+    ![Gateway name creation - OnPremWGGateway](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image177.png "Create virtual network gateway")
 
 3.  Validate your settings and select **Create**.
 
@@ -963,26 +841,25 @@ In this exercise, we will simulate an on-premises connection to the internal web
 
 1.  In the Azure portal, select **+ Create a resource**, in the **Search the Marketplace** text box, type in **Connection**, and press **Enter**.
 
-2.  On the **Connection** blade, choose **Create**.
+2.  On the **Connection** blade, select **Create**.
 
 3.  On the **Basics** blade, leave the **Connection type** set to **VNet-to-VNet**. Select the existing **WGVNetRG1** resource group. Then, change the location of this connection to the Azure region hosting the **WGVNet1** virtual network. Select **OK**.
 
     ![Basics Tab - Connection Type/Subscription/Resource Group selections](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image134.png "Basics")
 
-4.  On the Settings tab, select **WGVNet1Gateway** as the first virtual network gateway and **OnPremWGGateway** as the second virtual network gateway. Ensure **Establish bidirectional connectivity** is selected. Enter a shared key, such as **A1B2C3D4**, for example. Select **OK**.
+4.  On the Settings tab, select **WGVNet1Gateway** as the first virtual network gateway and **OnPremWGGateway** as the second virtual network gateway. Ensure **Establish bidirectional connectivity** and **IKEV2** is selected. Enter a shared key, such as **A1B2C3D4**, for example. Select **OK**.
 
-    ![On the Settings tab, select WGVNet1Gateway as the first virtual network gateway and OnPremWGGateway as the first virtual network gateway. Ensure Establish bidirectional connectivity is selected. Enter a Shared key, such as A1B2C3D4, for example.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image135.png "Choose virtual network gateway")
+    ![On the Settings tab, select WGVNet1Gateway as the first virtual network gateway and OnPremWGGateway as the first virtual network gateway. Ensure Establish bidirectional connectivity is selected. Enter a Shared key, such as A1B2C3D4, for example.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image178.png "select virtual network gateway")
 
-5.  Choose **OK** on the **Summary** page to create the connection.
+5.  select **OK** on the **Summary** page to create the connection.
 
-6.  In the Azure portal, choose **All services**. Then, type **connections** in the search text box and select **Connections**.
+6.  In the Azure portal, select **All services**. Then, type **connections** in the search text box and select **Connections**.
 
     ![In the Azure portal, Browse is selected. In the search field, connections is typed. In the results section, Connections is selected.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image138.png "Azure Portal")
 
 7.  Watch the progress of the connection status, and use the **Refresh** icon until the status changes for both connections from **Unknown** to **Connected**. This may take 5-10 minutes or more. You might need to refresh the page to see the change in status.
 
     ![Connections - Watch the progress of the connection status until the status changes for both connections from Unknown to Connected. This may take about 10 minutes.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image139.png "Connections blade")
-
 
 ## Exercise 9: Configure Network Security Groups and Application Security Groups
 
@@ -996,8 +873,8 @@ In this exercise, you will restrict traffic between tiers of n-tier application 
 
 2.  On the **Create an application security group** blade, on the **Basics** tab, enter the following information, and select **Review + create**:
 
-    -  Subscription: Choose your subscription.
-    
+    -  Subscription: select your subscription.
+
     -  Resource group: **WGVNetRG2**
 
     -  Name: **WebTier**
@@ -1006,12 +883,12 @@ In this exercise, you will restrict traffic between tiers of n-tier application 
 
     ![WebTier application security group creation](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image140.png "Create Web Tier ASG")
 
-3.  On the **Create an application security group** blade, on the **Review + Create** tab, ensure the validation passes, and choose **Create**. 
+3.  On the **Create an application security group** blade, on the **Review + Create** tab, ensure the validation passes, and select **Create**. 
 
 4.  Repeat the previous two steps to create an application security group named **DataTier** with the settings matching those on the following screenshot.
 
-    -  Subscription: Choose your subscription.
-    
+    -  Subscription: select your subscription.
+
     -  Resource group: **WGVNetRG2**
 
     -  Name: **DataTier**
@@ -1022,9 +899,9 @@ In this exercise, you will restrict traffic between tiers of n-tier application 
 
 ### Task 2: Configure application security groups
 
-1.  In the Azure portal, navigate to the **Virtual machines** blade and select **WGWEB1**. 
+1.  In the Azure portal, navigate to the **Virtual machines** blade and select **WGWEB1**.
 
-2.  On the **WGWEB1** blade, select **Networking**. 
+2.  On the **WGWEB1** blade, select **Networking**.
 
 3.  On the **WGWEB1 - Networking** blade, select **Application security groups** and then select **Configure the application security groups**.
 
@@ -1044,8 +921,8 @@ In this exercise, you will restrict traffic between tiers of n-tier application 
 
     -  Name: **WGAppNSG1**
 
-    -  Subscription: Choose your subscription.
-    
+    -  Subscription: select your subscription.
+
     -  Resource group: **WGVNetRG2**
 
     -  Region: **(US) South Central US** (This must match the location in which you created the **WGVNet2** virtual network.)
@@ -1112,7 +989,7 @@ In this exercise, you will restrict traffic between tiers of n-tier application 
 
     -  Source: **IP Addresses**
 
-    -  Source IP addresses/CIDR ranges: **10.7.0.8/29** (This IP address range represents the Management subnet on WGVNet1.)
+    -  Source IP addresses/CIDR ranges: **10.7.2.0/25** (This IP address range represents the Management subnet on WGVNet1.)
 
     -  Source port ranges: **\***
 
@@ -1128,7 +1005,7 @@ In this exercise, you will restrict traffic between tiers of n-tier application 
 
     -  Name: **AllowMgmtInboundAny3389**
 
-    ![Network security group configuration](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image150.png "Configure WGAppNSG1 AllowMgmtInboundAny3389 rule")
+    ![Network security group configuration](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image179.png "Configure WGAppNSG1 AllowMgmtInboundAny3389 rule")
 
 11. On the **WGAppNSG1 - Inbound security rules** blade, select **Add**.
 
@@ -1184,89 +1061,13 @@ In this exercise, you will restrict traffic between tiers of n-tier application 
 
 15. On the **WGAppNSG1 - Inbound security rules** blade, select **Subnets** and then select **+ Associate**
 
-16. On the **Associate subnet** blade, select **Virtual network**. Then, choose on **WGVNet2**.
+16. On the **Associate subnet** blade, select **Virtual network**. Then, select on **WGVNet2**.
 
-17. On the **Choose a subnet** blade, choose **AppSubnet**.
+17. On the **select a subnet** blade, select **AppSubnet**.
 
 18. Select **OK** at the bottom of the **Associate subnet** blade.
 
-
-## Exercise 10: Configure Service Endpoints
-
-In this exercise, you will configure service endpoints to restrict access to Azure Storage.
-
-Duration: 20 minutes
-
-### Task 1: Create and configure a storage account
-
-1.  In the Azure portal, select **+ Create a resource**, next select **Storage** and then select **Storage account**. 
-
-2.  On the **Create storage account** blade, on the **Basics** tab, enter the following information, and select **Next: Networking >**. 
-
-    -  Subscription: Choose your subscription.
-
-    -  Resource group: **WGMGMTRG**.
-      
-    -  Storage account name: **Any unique name consisting of lower-case letters and digits of length between 3 and 24 characters**.
-
-    -  Region: **(US) South Central US**  (This must match the location in which you created the **WGVNet1** and **WGVNet2** virtual networks.)
-
-    -  Performance: **Standard**
-
-    -  Account kind: **Storage (general purpose v1)**
-
-    -  Replication: **Locally-redundant storage (LRS)**
-
-    ![Basic tab of create storage account blade](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image153.png "Create storage account Basic tab")
-
-3. On the **Create storage account** blade, on the **Networking** tab, set the following configuration and choose **Next: Advanced >**:
-
-    - Connectivity Method: **Public endpoint (Selected network)**
-
-    - Virtual network: **WGVNet1**
-
-    - Subnets: **Management (10.7.0.8/29) ('Microsoft.Storage' endpoint will be added)**
-
-     ![Networking tab of create storage account blade](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/NetworkingTab.png "Create storage account Networking tab")
-
-4.  On the **Create storage account** blade, on the **Advanced** tab, set the following configuration and choose **Review + create**:
-
-    -  Secure transfer required: **Enabled**
-
-    -  Blob soft delete: **Disabled**
-
-    -  Hierarchical namespace: **Disabled**
-
-    ![Advanced tab of create storage account blade](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image154.png "Create storage account Advanced tab")
-
-5.  On the **Create storage account** blade, on the **Review + Create** tab, ensure the validation passes, and choose **Create**. 
-
-### Task 2: Configure Azure Storage firewall and add a service endpoint
-
-1.  In the Azure portal, navigate to the blade of the newly created storage account and select **Firewalls and virtual networks**.
-
-    ![Firewalls and vitual networks view of storage account blade](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image155.png "Firewalls and vitual networks view of storage account blade")
-
-2.  Select **+ Add existing virtual network**.
-
-3.  On the **Add networks** blade, enter the following information:
-
-    -  Subscription: Choose your subscription.
-
-    -  Virtual networks: **WGVNet2**
-
-    -  Subnet: **AppSubnet (Service endpoint required)**
-
-    ![Add networks blade](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image156.png "Add networks blade")
-
-4.  Select **Enable** and then select **Add**.
-
-5.  Back on the **Firewalls and virtual networks** blade of the storage account, select **Save**. Expand the entries in the **VIRTUAL NETWORK** column to ensure that the endpoints are enabled.
-
-    ![Firewalls and vitual networks view of storage account blade after the change](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image157.png "Firewalls and vitual networks view of storage account blade after the change")
-
-
-## Exercise 11: Validate connectivity from 'on-premises' to Azure
+## Exercise 10: Validate connectivity from 'on-premises' to Azure
 
 Duration: 30 minutes
 
@@ -1278,10 +1079,10 @@ In this exercise, you will validate connectivity from your simulated on-premises
 
 2.  On the **Create a virtual machine** blade, on the **Basics** tab, enter the following information, and select **Next : Disks >**:
 
-    -  Subscription: Choose your subscription.
+    -  Subscription: select your subscription.
 
-    -  Resource group: Choose **Create new** and enter **OnPremVMRG**.
-      
+    -  Resource group: select **Create new** and enter **OnPremVMRG**.
+
     -  Virtual machine name: **OnPremVM**
 
     -  Region: **(US) East US** (this must much the region you created the OnPremVNet virtual network)
@@ -1302,18 +1103,18 @@ In this exercise, you will validate connectivity from your simulated on-premises
 
     -  Already have a Windows license?: **No**
 
-3.  On the **Create a virtual machine** blade, on the **Disks** tab, set the following configuration and choose **Next : Networking >**:
+3.  On the **Create a virtual machine** blade, on the **Disks** tab, set the following configuration and select **Next : Networking >**:
 
     -  OS disk type: **Premium SSD**
 
-4.  On the **Create a virtual machine** blade, on the **Networking** tab, set the following configuration and choose **Next : Management >**:
+4.  On the **Create a virtual machine** blade, on the **Networking** tab, set the following configuration and select **Next : Management >**:
 
     -  Virtual network: **OnPremVNet**
 
     -  Subnet: **OnPremManagementSubnet (192.168.2.0/29)**
 
     -  Public IP: **(new)OnPremVM-ip**
-    
+
     -  NIC network security group: **Basic**
 
     -  Public inbound ports: **Allow selected ports**
@@ -1324,7 +1125,7 @@ In this exercise, you will validate connectivity from your simulated on-premises
 
     -  Place this virtual machine behind an existing load balancing solution: **No**
 
-5.  On the **Create a virtual machine** blade, on the **Management** tab, set the following configuration and choose **Review + create**:
+5.  On the **Create a virtual machine** blade, on the **Management** tab, set the following configuration and select **Review + create**:
 
     -  Boot diagnostics: **Off**
 
@@ -1334,13 +1135,13 @@ In this exercise, you will validate connectivity from your simulated on-premises
 
     -  Enable auto-shutdown: **Off**
 
-6.  On the **Create a virtual machine** blade, on the **Review + Create** tab, ensure the validation passes, and choose **Create**. The virtual machine will take about 5 minutes to provision.
+6.  On the **Create a virtual machine** blade, on the **Review + Create** tab, ensure the validation passes, and select **Create**. The virtual machine will take about 5 minutes to provision.
 
 ### Task 2: Configure routing for simulated 'on-premises' to Azure traffic
 
 When packets arrive from the simulated 'on-premises' Virtual Network (OnPremVNet) to the 'Azure-side' (WGVNet1), they arrive at the gateway WGVNet1Gateway. This gateway is in a gateway subnet (10.7.0.0/29). For packets to be directed to the Azure firewall, we need another route table and route to be associated with the gateway subnet on the 'Azure-side'.
 
-1.  On the Azure portal choose **All services** at the left navigation. Enter **Route** in the search box, and select **Route tables**.
+1.  On the Azure portal select **All services** at the left navigation. Enter **Route** in the search box, and select **Route tables**.
 
 2.  On the **Route tables** blade, select **Add**.
 
@@ -1348,69 +1149,186 @@ When packets arrive from the simulated 'on-premises' Virtual Network (OnPremVNet
 
     -  Name: **WGAzureVNetGWRT**
 
-    -  Subscription: Choose your subscription.
+    -  Subscription: select your subscription.
 
-    -  Resource group: Choose the drop-down menu, and select **WGVNetRG1**.
+    -  Resource group: select the drop-down menu, and select **WGVNetRG1**.
 
     -  Location: **(US) South Central US** (this must match the location in which you created the **WGVNet1** virtual network)
 
-    -  Virtual network gateway route propagation: **Disabled**
+    -  Virtual network gateway route propagation: **Enable**
 
-    ![Creating the WGAzureVNetGWRT route table.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/CreateRouteTable1.png "Create route table")
+    ![Creating the WGAzureVNetGWRT route table.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image180.png "Create route table")
 
-4.  Choose **Create**.
+4.  select **Create**.
 
-5.  Choose the **WGAzureVNetGWRT** route table.
+5.  select the **WGAzureVNetGWRT** route table.
 
-    ![Selecting the WGAzureVNetGWRT route table.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/ChooseRouteTable.png "Route tables")
+    ![Selecting the WGAzureVNetGWRT route table.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image181.png "Route tables")
 
 6.  Select **Routes**.
 
-7.  On the **Routes** blade, select the **+Add** button. Enter the following information, and choose **OK**:
+7.  On the **Routes** blade, select the **+Add** button. Enter the following information, and select **OK**:
 
     -  Route name: **OnPremToAppSubnet**
 
-    -  Address prefix: **10.7.1.128/25**
+    -  Address prefix: **10.8.0.0/25**
 
     -  Next hop type: **Virtual appliance**
 
     -  Next hop address: **10.7.1.4**
 
-    ![Routes blade: information entry](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image145.png "Add route")
+    ![Routes blade: information entry](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image182.png "Add route")
 
 8.  On the **WGAzureVNetGWRT - Routes** blade, select **Subnets**.
 
 9.  On the **Subnets** blade, select **Associate**.
 
-10. On the **Associate subnet** blade, select **Virtual Network**. Then, choose **WGVNet1**.
+10. On the **Associate subnet** blade, select **Virtual Network**. Then, select **WGVNet1**.
 
     ![WGVNet1 Selection](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image148.png "Associate subnet")
 
-11. The **Choose subnet** blade opens. Select **Gateway Subnet**. Then, choose **OK** to complete the association.
+11. The **select subnet** blade opens. Select **Gateway Subnet**. Then, select **OK** to complete the association.
 
-    ![Opening of the Choose subnet blade - Selecting ok to complete the association.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image149.png "Choose subnet")
+    ![Opening of the select subnet blade - Selecting ok to complete the association.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image149.png "select subnet")
 
     >**Note:** At this point, you have configured your enterprise network. You should be able to test your Enterprise Class Network from one region to another. Your testing can include the following scenarios:
 
-    -  On your lab VM, open Internet Explorer and browse to the web application deployed to the WGVnet2 via the public IP address of the Azure Firewall. Note that this IP address can be also be reached by any of the Azure virtual machines provisioned in this lab.
+    -  On the 'on-premises' virtual machine (OnPremVM), attempt to initiate a Remote Desktop session to any virtual machine on the AppSubnet (10.8.0.0/25). Note that this should fail since it is blocked by Azure Firewall.
 
-    -  On the 'on-premises' virtual machine (OnPremVM), attempt to initiate a Remote Desktop session to any virtual machine on the AppSubnet (10.7.1.128/25). Note that this should fail since it is blocked by Azure Firewall.
+    -  On the jump host virtual machine (WGMGMT1), open Internet Explorer and browse to the web application deployed to the WGVnet2 via the private IP address of the Azure Load Balancer(10.8.0.100). Note that this traffic is routed (and allowed) via Azure Firewall.
 
-    -  On the jump host virtual machine (WGMGMT1), open Internet Explorer and browse to the web application deployed to the WGVnet2 via the private IP address of the Azure Load Balancer(10.7.1.254). Note that this traffic is routed (and allowed) via Azure Firewall.
+    -  On the jump host virtual machine (WGMGMT1), initiate a Remote Desktop session to the WGWEB1 via its private IP address (10.8.0.4). This should be successful since it is allowed by Azure Firewall. However, an attempt to connect via Remote Desktop to the WGSQL1 via its private IP address should fail since it is blocked by a network security group.
 
-    -  On the jump host virtual machine (WGMGMT1), initiate a Remote Desktop session to the WGWEB1 via its private IP address (10.7.1.132). This should be successful since it is allowed by Azure Firewall. However, an attempt to connect via Remote Desktop to the WGSQL1 via its private IP address should fail since it is blocked by a network security group.
+    -  On the jump host virtual machine (WGMGMT1), initiate a Remote Desktop session to the WGWEB2 via its private IP address (10.8.0.5). This should be successful since it is allowed by Azure Firewall. However, an attempt to connect via Remote Desktop to the WGSQL1 via its private IP address should fail since it is blocked by a network security group.
 
-    -  On the jump host virtual machine (WGMGMT1), initiate a Remote Desktop session to the WGWEB2 via its private IP address (10.7.1.133). This should be successful since it is allowed by Azure Firewall. However, an attempt to connect via Remote Desktop to the WGSQL1 via its private IP address should fail since it is blocked by a network security group.
+    -  On the jump host virtual machine (WGMGMT1), initiate a Remote Desktop session to the WGSQL1 via its private IP address (10.8.1.4). This should be successful since it is allowed by Azure Firewall.
 
-    -  On the jump host virtual machine (WGMGMT1), initiate a Remote Desktop session to the WGSQL1 via its private IP address (10.7.1.134). This should be successful since it is allowed by Azure Firewall.
+## Exercise 11: Using Network Watcher to Test and Validate Connectivity
 
-    -  Create a file share in the storage account created in exercise 10 and map a drive to it from both the jump host virtual machine (WGMGMT1) and one of the virtual machines on the WGVNet2 virtual network (WGWEB1, WGWEB2, or WGSQL1). This should be successful since it is allowed by Service Endpoints. Next, attempt mapping a drive from the 'on-premises' virtual machine (OnPremVM). This should fail since the direct route associated with Service Endpoint does not apply to this virtual machine. 
+Duration: 60 minutes
 
-    >**Note:** You will need to create the file share from the jump host virtual machine (WGMGMT1), not from your lab virtual machine due to the Azure Storage firewall settings you configured in exercise 10.
+In this exercise, you will collect the flow log and perform connectivity from your simulated on-premises environment to Azure. This will be accomplished by using the Network Watcher Service in the Azure Platform.
+
+### Task 1: Configuring the Storage Account for the NSG Flow Logs
+
+1. On the Azure portal select **+ Create a resource**. From the Azure Marketplace menu select **storage** then select **Storage Account**
+
+2. On the **Create Storage account** blade. Enter the following information, and select **Review + Create** then select the **Create** button:
+
+    -  Subscription: **Your Subscription**
+
+    -  Resource Group: **MonitoringRG** (Use the existing resource group created earlier.)
+
+    -  Storage Account Name: **Must be Unique and alphanumeric, lowercase and no special characters**
+
+    -  Location: **East US**
+
+    -  Performance: **Standard**
+
+    -  Account Kind: **StorageV2 (general purpose v2)**
+
+    -  Replication: **Locally-redundant storage (LRS)**
+
+    -  Access Tier Default: **Hot**
+
+    ![Storage blade: information entry](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image186.png "Add storage account")
+
+   >**Note:** Ensure the storage account is created before continuing.
+
+3. On the Azure portal select **All services** at the left navigation. From the Categories menu select **Networking** then select **Network Watcher**
+
+4. From the **Network Watcher** blade under the **Logs** menu select **NSG flow logs**. You will see both the **OnPremVM-nsg and WGAppNSG1** Network Security Groups.
+
+    ![Opening of the NSG Flow logs blade.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image185.png "Network Security Groups in Flow Log")
+
+5. Select the **WGAppNSG1** network security group to open the flow log settings. Select **On** and then select **Version 2** for the the Flow logs version.
+
+6. Select **Storage Account Configure**. From the drop down select the storage account created earlier, selecting the **OK** button
+
+    ![Opening of the storage account selection in the NSG Flow logs blade.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image187.png "Network Watcher Flow Log Settings")
+
+7. Select **On** to enable the traffic analytics status setting the interval to 10 minutes. Select the **Log Analytics Workspace** created earlier. Click **Save** at the top to confirm the settings.  
+
+    ![NSG Flow logs Settings blade.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image188.png "Network Watcher Flow Log Settings")
+
+8. Repeat Steps 4 - 7 to enable the OnpremVM-nsg Network Security Group as well. When completed your configuration should show as the follwoing image.
+
+     ![NSG Flow logs Settings blade.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image189.png "Network Watcher Flow Log")
+
+9. Navigate back to the OnPremVM and then to the WGMGMT1. Generate some traffic to the public IP of the firewall and local Load Balancer refreshing the browser. Allow ten minutes to pass for traffic analytics to generate.  
+
+     ![CloudShop External and Internal web application.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image190.png "CloudShop Application")
+
+### Task 2: Configuring Diagnostic Logs
+
+1. On the Azure portal select **All services** at the left navigation. From the Categories menu select **Networking** then select **Network Watcher**
+
+2. Select **Diagnostic Logs** from the **Logs Menu** within the blade.
+
+     ![Network Watcher Diagnostic Log Settings Blade.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image192.png "Network Watcher Diagnostic Log")
+
+3. Select **onpremvm539** then select **+Add diagnostic setting**.
+
+4. Enter **OnPremDiag** as the name then select the checkbox for archive to a storage account. From the drop down select the storage account you created earlier.
+
+     ![Network Watcher Diagnostic Log Settings Blade.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image193.png "Network Watcher Diagnostic Resources")
+
+5. Select the **Send to Log Analytics** selecting the workspace created earlier. Select the **Save** button to complete the settings.
+
+     ![Network Watcher Diagnostic Log Settings Blade.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image194.png "Diagnostic Settings")
+
+6. Repeat Steps 2 - 5 for each network resource. Once completed your settings will look like the following screenshot.
+
+     ![Network Watcher Diagnostic Log Settings Blade.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image195.png "Diagnostic Settings")
+
+### Task 3: Reviewing Network Traffic
+
+1. On the Azure portal select **All services** at the left navigation. From the Categories menu select **Networking** then select **Network Watcher**
+
+2. Select **Traffic Analytics** from the **Logs Menu** in the blade. At this time the diagnostic logs from the network resources have been ingested. Select on **View Maps** in your environment.
+
+     ![Network Watcher Traffic Analytics Blade.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image195.png "Your Network Environment")
+
+3. Select the **green check mark** which identifies your network. Within the pop up menu select **More Details** to propagate detailed information of the flow to and from your network.
+
+     ![Network Watcher Traffic Analytics Blade.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image197.png "Your Network Environment")
+
+>**Note:** You can select **See More** link to query the connections detail for more information.
+
+### Task 4: Network Connection Troubleshooting
+
+1. On the Azure portal select **All services** at the left navigation. From the Categories menu select **Networking** then select **Network Watcher**
+
+2. Select **Connection Troubleshoot** from the **Network Diagnostic tools** menu.
+
+3. To troubleshoot a connection or to validate the route enter the following information and select **Check**:
+   
+    -  Subscription: **Your Subscription**
+
+    -  Resource Group: **OnPremVNetRG**
+
+    -  Source Type: **Virtual Machine**
+
+    -  Virtual Machine: **OnPremVM**
+
+    -  Destination: **Select a virtual machine**
+ 
+    -  Resource Group: **WGVNetRG2**
+ 
+    -  Virtual Machine: **WGWEB1**
+
+    -  Probe Settings: **TCP**
+    
+    -  Destination Port: **80**
+
+     ![Network Watcher Connection Troubleshoot Blade.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image198.png "Connection Troubleshoot")
+
+4. Once the check is complete the connection troubleshoot feature will display a grid view on the name, IP Address Status and Next hop as seen in the following screenshot. 
+
+     ![Network Watcher Connection Troubleshoot Blade.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image199.png "Connection Troubleshoot")
 
 ## After the hands-on lab
 
 Duration: 10 minutes
 
 After you have successfully completed the Enterprise-class networking in Azure hands-on lab step-by-step, you will want to delete the Resource Groups. This will free up your subscription from future charges.
-
