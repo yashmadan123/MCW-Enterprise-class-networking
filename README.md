@@ -4,7 +4,7 @@ Woodgrove Financial Services has been in business for over 75 years and is a wel
 
 Woodgrove is committed to migrating to Microsoft Azure with the goal of modernizing their infrastructure and want to start with designing an enterprise-class network.
 
-September 2019
+November 2019
 
 ## Target audience
 - Infrastructure Architect
@@ -26,7 +26,7 @@ In this whiteboard design session, you will look at the process of configuring a
 At the end of this whiteboard design session, you will be better able to design solutions using Azure Networking features and capabilities
 
 ### Hands-on Lab
-In this hands-on lab, you will setup and configure a virtual network with subnets in Azure. You will learn how to secure the virtual network by deploying network virtual appliances and configure route tables on the subnets. Additionally, you will set up access to the virtual network with a jump box and a site-to-site VPN connection.
+In this hands-on lab, you will setup and configure virtual networks in a secure hub-and-spoke design. You will also learn how to secure virtual networks by implementing Azure Firewall, network security groups and application security groups, as well as configure route tables on the subnets in your virtual network. Additionally, you will set up access to the virtual network via a jump box and provision a site-to-site VPN connection from another virtual network, providing emulation of hybrid connectivity from an on-premises environment.
 
 At the end of this hands-on lab, you will be better able to configure Azure networking components.
 

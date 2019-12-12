@@ -32,9 +32,8 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
     - [Task 1: Create a virtual machine to execute the lab in](#task-1-create-a-virtual-machine-to-execute-the-lab-in)
     - [Task 2: Download hands-on lab step-by-step support files](#task-2-download-hands-on-lab-step-by-step-support-files)
     - [Task 3: Create a Virtual Network (hub) with Subnets](#task-3-create-a-virtual-network-hub-with-subnets)
-    - [Task 4: Deploy n-tier application and validate functionality](#task-4-deploy-n-tier-application-and-validate-functionality)
-    - [Task 5: Use the Azure portal for a template deployment](#task-5-use-the-azure-portal-for-a-template-deployment)
-    - [Task 6: Validate the CloudShop application is up after the deployment](#task-6-validate-the-cloudshop-application-is-up-after-the-deployment)
+    - [Task 4: Use the Azure portal for a template deployment](#task-4-use-the-azure-portal-for-a-template-deployment)
+    - [Task 5: Validate the CloudShop application is up after the deployment](#task-5-validate-the-cloudshop-application-is-up-after-the-deployment)
 
 <!-- /TOC -->
 
@@ -192,13 +191,7 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
      ![This represents the properly filled out fields when creating AppSubnet of the second Virtual Network.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image158.png "Subnets blade")  
 
-### Task 4: Deploy n-tier application and validate functionality
-
-Duration: 90 minutes
-
-In this task, you will provision the CloudShop application using an ARM template deployment. This application has a web tier and a data tier.
-
-### Task 5: Use the Azure portal for a template deployment
+### Task 4: Use the Azure portal for a template deployment
 
 > **Note:** If you have not downloaded the student files see this section in the before getting started section of this hands-on lab.
 
@@ -237,7 +230,7 @@ In this task, you will provision the CloudShop application using an ARM template
 
     ![Deployment purchase in updating the Custom deployment blade.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image60.png "Template blade")
 
-### Task 6: Validate the CloudShop application is up after the deployment
+### Task 5: Validate the CloudShop application is up after the deployment
 
 1.  Using the Azure portal, open the **WGVNetRG2** Resource group and review the deployment.
 
