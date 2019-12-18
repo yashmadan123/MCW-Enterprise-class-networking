@@ -130,10 +130,7 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 ### Task 2: Download hands-on lab step-by-step support files
 
 1.  Within the Remote Desktop session to **LABVM**, open Internet Explorer and download the zipped hands-on lab step-by-step student files by selecting this link:
-
-    ```http
-    https://github.com/microsoft/MCW-Enterprise-class-networking/tree/master/Hands-on%20lab/labfiles/ECN-Hackathon.zip
-    ```
+    https://github.com/microsoft/MCW-Enterprise-class-networking/tree/master/Hands-on%20lab/labfiles/ECN-Hackathon.zip.
 
 2.  Extract the downloaded files into the directory **C:\\ECN-Hackathon**.
 
@@ -187,7 +184,7 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
     ![This represents the properly filled out fields when creating AppSubnet of the second Virtual Network.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image33.png "Subnets blade")
 
-8. When the subnet has completed it's configuration your subnet deployment will look like the following screenshot.
+8. When the subnet has completed its configuration your subnet deployment will look like the following screenshot.
 
      ![This represents the properly filled out fields when creating AppSubnet of the second Virtual Network.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image158.png "Subnets blade")  
 
@@ -238,7 +235,7 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
 3.  On the **WGWEB1** blade, first select **Connect** and then select **Download RDP file** to establish a Remote Desktop session.
 
-    ![CloudShop application connection test](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image61.png "Virtual machine blade")
+    ![CloudShop application connection test.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image61.png "Virtual machine blade")
 
 4.  Depending on your Remote Desktop protocol client and browser configuration, you will either be prompted to open an RDP file, or you will need to download it and then open it separately to connect.
 
@@ -250,7 +247,7 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
 6.  You will be presented with a Remote Desktop Connection warning because of a certificate trust issue. Select **Yes** to continue with the connection.
 
-    ![The Remote Desktop Connection dialog box displays, warning you that the remote computer\'s identity cannot be verified, and asking you if you want to connect anyway. The Don\'t ask me again for connections to this computer is selected, as is the Yes button at the bottom.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image62.png "Remote Desktop Connection warning dialog box")
+    ![The Remote Desktop Connection dialog box displays, warning you that the remote computer's identity cannot be verified, and asking you if you want to connect anyway. The Don't ask me again for connections to this computer is selected, as is the Yes button at the bottom.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image62.png "Remote Desktop Connection warning dialog box")
 
 7.  When logging on for the first time, you will have a prompt asking about network discovery. Select **No**.
 
