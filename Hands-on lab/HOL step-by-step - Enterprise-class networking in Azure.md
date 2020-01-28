@@ -382,31 +382,19 @@ Route Tables are containers for User Defined Routes (UDRs). The route table is c
 
     ![In the Load balancer blade under Settings, Backend pools is selected, and the Add button is selected as well.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image67.png "Load balancer blade")
 
-3.  Enter **LBBE** for the pool name. Under **Associated to**, select **Availability set**.
+3.  Enter **LBBE** for the pool name. Under **Associated to**, select **Virtual machine**.
 
-    ![In the Name field in the Add backend pool blade is LBBE, and under Associated to, Availability set is selected.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image68.png "Add backend pool blade")
+    ![In the Name field in the Add backend pool blade is LBBE, and under Associated to, Virtual machine is selected.](images/2020-01-27-18-33-43.png "Add backend pool blade")
 
-4.  Next, select the **WebAVSet** Availability Set.
+4.  Under **Virtual machine**, choose the **WGWEB1** virtual machine and private IP address, then for the second virtual machine choose the **WGWEB2** virtual machine and private IP address.
 
-5.  Under **Target network IP configurations**, select **+ Add a target network IP configuration**.
+5.  Select **Add** to add the backend pool.
 
-    ![Under Target network IP configurations, Add a target network IP configuration is selected.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image69.png "Target network IP configurations")
-
-6.  Under **Target virtual machine**, select **WGWEB1**.
-
-    ![Under Target virtual machines, WGWEB1 size: Standard\_D1\_v2, network interfaces: 1 is selected.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image70.png "Target virtual machines")
-
-7.  Under **Network IP configuration**, select **WGWEB1NetworkInterface**
-
-8.  Select **+ Add a target network IP configuration** repeating these steps, but this time, adding **WGWEB2** along with its IP configuration.
-
-9.  Then, select **OK**.
-
-10. Wait to proceed until the Backend pool configuration is finished updating.
+6.  Wait to proceed until the Backend pool configuration is finished updating.
 
     ![Updating of the Backend pool configuration.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image167.png "Backend pool blade")
 
-11. Next, under **Settings** on the WGWEBLB Load Balancer blade select **Health Probes**. Select **+ Add**, and use the following information to create a health probe.
+7.  Next, under **Settings** on the WGWEBLB Load Balancer blade select **Health Probes**. Select **+ Add**, and use the following information to create a health probe.
 
     -  Name: **HTTP**
 
@@ -416,9 +404,9 @@ Route Tables are containers for User Defined Routes (UDRs). The route table is c
 
     ![In the Add health probe blade, Name is HTTP, and Protocol is HTTP.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image75.png "Add health probe blade")
 
-12. Select **OK**.
+8.  Select **OK**.
 
-13. After the Health probe has updated. Select **Load balancing rules**. Select +**Add** and complete the configuration as shown below followed by selecting **OK**.
+9.  After the Health probe has updated. Select **Load balancing rules**. Select +**Add** and complete the configuration as shown below followed by selecting **OK**.
 
     - Name: **HTTP**
     - Leave the rest as defaults.
@@ -427,25 +415,25 @@ Route Tables are containers for User Defined Routes (UDRs). The route table is c
 
     **It will take 2-3 minutes for the changes to save.**
 
-14. From an RDP session to WGWEB1, open your browser and point it at <http://10.8.0.100>. Ensure that you successfully connect to either one of two Web servers. 
+10. From an RDP session to WGWEB1, open your browser and point it at <http://10.8.0.100>. Ensure that you successfully connect to either one of two Web servers. 
 
     ![A CloudShop Demo - Products - running on Web1 message displays. ](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image77.png "Server response")
 
     ![A CloudShop Demo - Products - running on Web2 message displays. ](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image78.png "Server response")
 
-15. Using the portal, disassociate the public IP from the NIC of **WGWEB1** **VM**. Do this by selecting the Networking section below on the VM.
+11. Using the portal, disassociate the public IP from the NIC of **WGWEB1** **VM**. Do this by selecting the Networking section below on the VM.
 
     ![Selection of the Networking section on the VM.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image79.png "Virtual machine networking blade")
 
-16. Next, select the listed network interface **WGWEB1NetworkInterface** on the hyperlink.
+12. Next, select the listed network interface **WGWEB1NetworkInterface** on the hyperlink.
 
-17. Select the **IP configurations** section shown.
+13. Select the **IP configurations** section shown.
 
     ![Selection of the IP Configuration section.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image169.png "Network interface blade")
 
-18. Next, select the **ipconfig1** section on the NAME shown above.
+14. Next, select the **ipconfig1** section on the NAME shown above.
 
-19. Select and make sure that the **Public IP address settings** is shown disabled below, and select **Save**. This should remove the public IP address from the network interface of the VM.
+15. Select and make sure that the **Public IP address settings** is shown disabled below, and select **Save**. This should remove the public IP address from the network interface of the VM.
 
     ![Disabling of the Public IP address settings.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image170.png "IP configuration blade")
 
