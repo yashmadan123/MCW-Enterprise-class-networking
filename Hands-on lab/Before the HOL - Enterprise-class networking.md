@@ -95,7 +95,7 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
 6.  Wait for deployment status of **LABVM** to complete. Once the deployment blade displays the message **Your deployment is complete**, select **Go to resource**.
 
-7.  On the **LABVM** blade, first select **Connect** and then select **Download RDP file** to establish a Remote Desktop session.
+7.  On the **LABVM** blade, first select **Connect** then select **RDP**. Then select **Download RDP file** to establish a Remote Desktop session.
 
     ![The Connect button is circled on the Azure Portal top menu bar.](images/Setup/image13.png "Azure Portal")
 
@@ -119,7 +119,7 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
     ![On the Server Manager menu, Local Server is selected.](images/Setup/image16.png "Server Manager menu")
 
-13. In the details pane, ensure the **IE Enhanced Security Configuration** is set to **Off**. If that is not the case, select **On**.
+13. In the Local Server pane, ensure the **IE Enhanced Security Configuration** is set to **Off**. If that is not the case, select **On**.
 
     ![In the Essentials section, IE Enhanced Security Configuration is set to On, and is selected.](images/Setup/image17.png "Essentials section")
 
@@ -129,7 +129,7 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
 ### Task 2: Download hands-on lab step-by-step support files
 
-1.  Within the Remote Desktop session to **LABVM**, open Internet Explorer and download the zipped hands-on lab step-by-step student files by selecting this link:
+1.  Within the Remote Desktop session to **LABVM**, open Internet Explorer and download the zipped hands-on lab step-by-step student files by navigating to this link:
     https://github.com/microsoft/MCW-Enterprise-class-networking/tree/master/Hands-on%20lab/labfiles/ECN-Hackathon.zip.
 
 2.  Extract the downloaded files into the directory **C:\\ECN-Hackathon**.
@@ -162,7 +162,7 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
     ![This represents the properly filled out fields when creating a second Virtual Network.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image31.png "Create virtual network")
 
-4.  Go to the WGVNetRG2 Resource Group, and select **WGVNet2** blade if you're not there already, and select **Subnets**.
+4.  Go to the WGVNetRG2 Resource Group, and select the **WGVNet2** blade if you're not there already, and select **Subnets** under **Settings** on the left.
 
     ![This is a subnet configuration.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image32.png "Subnets blade")
 
@@ -196,7 +196,7 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
 2.  Make sure you are signed into the Azure portal at <http://portal.azure.com>.
 
-3.  Choose **+ Create a resource**, and search for **template deployment**.
+3.  Choose **+ Create a resource**, and search for and select **template deployment**.
 
     ![On the New blade, the Search the Marketplace text box contains the text Template deployment.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image56.png "New blade")
 
@@ -213,8 +213,11 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 7.  Update the following parameters to reference the **WGVNet2** virtual network in the **WGVNetRG2** resource group and to the **AppSubnet** subnet.
 
     - Existing Virtual Network Name: **WGVNet2**
+  
     - Existing Virtual Network Resource Group: **WGVNetRG2**
+  
     - Web Subnet: **AppSubnet**
+  
     - Data Subnet: **DataSubnet**
 
     ![A screenshot that shows the Existing Virtual Network Name, Existing Virtual Network Resource group parameters, Web Subnet, and Data Subnet.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image59.png "Template parameters")
@@ -233,7 +236,7 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
 2.  Navigate to the **WGWEB1** blade.
 
-3.  On the **WGWEB1** blade, first select **Connect** and then select **Download RDP file** to establish a Remote Desktop session.
+3.  On the **WGWEB1** blade, first select **Connect** and click **RDP**. Then select **Download RDP file** to establish a Remote Desktop session.
 
     ![CloudShop application connection test.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image61.png "Virtual machine blade")
 
