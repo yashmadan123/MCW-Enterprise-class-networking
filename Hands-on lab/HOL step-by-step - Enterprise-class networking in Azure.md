@@ -344,6 +344,10 @@ Route Tables are containers for User Defined Routes (UDRs). The route table is c
 
 ## Exercise 4: Configure n-tier application and validate functionality
 
+Duration: 20 minutes
+
+In this exercise, you will create and configure a load balancer to distribute load between the web servers. 
+
 ### Task 1: Create a load balancer to distribute load between the web servers
 
 1.  In the Azure portal, select **+ Create a resource**, then **Networking** and **Load Balancer**.
