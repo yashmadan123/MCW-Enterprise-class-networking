@@ -95,7 +95,7 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
 6.  Wait for deployment status of **LABVM** to complete. Once the deployment blade displays the message **Your deployment is complete**, select **Go to resource**.
 
-7.  On the **LABVM** blade, first select **Connect** then select **RDP**. Then select **Download RDP file** to establish a Remote Desktop session.
+7.  On the **LABVM** blade, first select **Connect**, then select **RDP**, and then select **Download RDP file** to establish a Remote Desktop session.
 
     ![The Connect button is circled on the Azure Portal top menu bar.](images/Setup/image13.png "Azure Portal")
 
@@ -236,7 +236,7 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
 2.  Navigate to the **WGWEB1** blade.
 
-3.  On the **WGWEB1** blade, first select **Connect** and click **RDP**. Then select **Download RDP file** to establish a Remote Desktop session.
+3.  On the **WGWEB1** blade, first select **Connect**, then select **RDP**, and then choose **Download RDP file** to establish a Remote Desktop session.
 
     ![CloudShop application connection test.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image61.png "Virtual machine blade")
 
