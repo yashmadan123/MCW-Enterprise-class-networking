@@ -29,7 +29,7 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 - [Enterprise-class networking in Azure hands-on lab step-by-step](#enterprise-class-networking-in-azure-hands-on-lab-step-by-step)
   - [Abstract and learning objectives](#abstract-and-learning-objectives)
   - [Overview](#overview)
-  - [Solution Architecture](#solution-architecture)
+  - [Solution architecture](#solution-architecture)
   - [Requirements](#requirements)
   - [Help references](#help-references)
   - [Exercise 1: Create a Virtual Network and provision subnets](#exercise-1-create-a-virtual-network-and-provision-subnets)
@@ -98,7 +98,7 @@ You have been asked by Woodgrove Financial Services to provision a proof of conc
 
 The result of this proof of concept will be an environment resembling this diagram:
 
-## Solution Architecture
+## Solution architecture
 
 ![This image represents an entire overview of an environment for the result of this proof of concept.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image200.png "Solution Architecture")
 
