@@ -148,7 +148,7 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
     -  Address space: **10.8.0.0/20**
 
-    -  Subscription: Choose your subscription.
+    -  Subscription: **Choose your subscription**.
 
     -  Resource group: Select **Create new**, and enter the name **WGVNetRG2**.
 
