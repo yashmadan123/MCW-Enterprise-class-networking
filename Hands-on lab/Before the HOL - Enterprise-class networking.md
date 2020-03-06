@@ -9,7 +9,7 @@ Before the hands-on lab setup guide
 </div>
 
 <div class="MCWHeader3">
-November 2019
+March 2020
 </div>
 
 Information in this document, including URL and other Internet Web site references, is subject to change without notice. Unless otherwise noted, the example companies, organizations, products, domain names, e-mail addresses, logos, people, places, and events depicted herein are fictitious, and no association with any real company, organization, product, domain name, e-mail address, logo, person, place or event is intended or should be inferred. Complying with all applicable copyright laws is the responsibility of the user. Without limiting the rights under copyright, no part of this document may be reproduced, stored in or introduced into a retrieval system, or transmitted in any form or by any means (electronic, mechanical, photocopying, recording, or otherwise), or for any purpose, without the express written permission of Microsoft Corporation.
@@ -18,7 +18,7 @@ Microsoft may have patents, patent applications, trademarks, copyrights, or othe
 
 The names of manufacturers, products, or URLs are provided for informational purposes only and Microsoft makes no representations and warranties, either expressed, implied, or statutory, regarding these manufacturers or the use of the products with any Microsoft technologies. The inclusion of a manufacturer or product does not imply endorsement of Microsoft of the manufacturer or product. Links may be provided to third party sites. Such sites are not under the control of Microsoft and Microsoft is not responsible for the contents of any linked site or any link contained in a linked site, or any changes or updates to such sites. Microsoft is not responsible for webcasting or any other form of transmission received from any linked site. Microsoft is providing these links to you only as a convenience, and the inclusion of any link does not imply endorsement of Microsoft of the site or the products contained therein.
 
-© 2019 Microsoft Corporation. All rights reserved.
+© 2020 Microsoft Corporation. All rights reserved.
 
 Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/Usage/General.aspx> are trademarks of the Microsoft group of companies. All other trademarks are property of their respective owners.
 
@@ -27,13 +27,13 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 <!-- TOC -->
 
 - [Enterprise-class networking in Azure before the hands-on lab setup guide](#enterprise-class-networking-in-azure-before-the-hands-on-lab-setup-guide)
-  - [Requirements](#requirements)
-  - [Before the hands-on lab](#before-the-hands-on-lab)
-    - [Task 1: Create a virtual machine to execute the lab in](#task-1-create-a-virtual-machine-to-execute-the-lab-in)
-    - [Task 2: Download hands-on lab step-by-step support files](#task-2-download-hands-on-lab-step-by-step-support-files)
-    - [Task 3: Create a Virtual Network (hub) with Subnets](#task-3-create-a-virtual-network-hub-with-subnets)
-    - [Task 4: Use the Azure portal for a template deployment](#task-4-use-the-azure-portal-for-a-template-deployment)
-    - [Task 5: Validate the CloudShop application is up after the deployment](#task-5-validate-the-cloudshop-application-is-up-after-the-deployment)
+    - [Requirements](#requirements)
+    - [Before the hands-on lab](#before-the-hands-on-lab)
+        - [Task 1: Create a virtual machine to execute the lab in](#task-1-create-a-virtual-machine-to-execute-the-lab-in)
+        - [Task 2: Download hands-on lab step-by-step support files](#task-2-download-hands-on-lab-step-by-step-support-files)
+        - [Task 3: Create a Virtual Network (hub) with Subnets](#task-3-create-a-virtual-network-hub-with-subnets)
+        - [Task 4: Use the Azure portal for a template deployment](#task-4-use-the-azure-portal-for-a-template-deployment)
+        - [Task 5: Validate the CloudShop application is up after the deployment](#task-5-validate-the-cloudshop-application-is-up-after-the-deployment)
 
 <!-- /TOC -->
 
@@ -95,7 +95,7 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
 6.  Wait for deployment status of **LABVM** to complete. Once the deployment blade displays the message **Your deployment is complete**, select **Go to resource**.
 
-7.  On the **LABVM** blade, first select **Connect** and then select **Download RDP file** to establish a Remote Desktop session.
+7.  On the **LABVM** blade, first select **Connect**, then select **RDP**, and then select **Download RDP file** to establish a Remote Desktop session.
 
     ![The Connect button is circled on the Azure Portal top menu bar.](images/Setup/image13.png "Azure Portal")
 
@@ -119,7 +119,7 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
     ![On the Server Manager menu, Local Server is selected.](images/Setup/image16.png "Server Manager menu")
 
-13. In the details pane, ensure the **IE Enhanced Security Configuration** is set to **Off**. If that is not the case, select **On**.
+13. In the Local Server pane, ensure the **IE Enhanced Security Configuration** is set to **Off**. If that is not the case, select **On**.
 
     ![In the Essentials section, IE Enhanced Security Configuration is set to On, and is selected.](images/Setup/image17.png "Essentials section")
 
@@ -129,7 +129,7 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
 ### Task 2: Download hands-on lab step-by-step support files
 
-1.  Within the Remote Desktop session to **LABVM**, open Internet Explorer and download the zipped hands-on lab step-by-step student files by selecting this link:
+1.  Within the Remote Desktop session to **LABVM**, open Internet Explorer and download the zipped hands-on lab step-by-step student files by navigating to this link:
     https://github.com/microsoft/MCW-Enterprise-class-networking/tree/master/Hands-on%20lab/labfiles/ECN-Hackathon.zip.
 
 2.  Extract the downloaded files into the directory **C:\\ECN-Hackathon**.
@@ -148,7 +148,7 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
     -  Address space: **10.8.0.0/20**
 
-    -  Subscription: Choose your subscription.
+    -  Subscription: **Choose your subscription**.
 
     -  Resource group: Select **Create new**, and enter the name **WGVNetRG2**.
 
@@ -162,7 +162,7 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
     ![This represents the properly filled out fields when creating a second Virtual Network.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image31.png "Create virtual network")
 
-4.  Go to the WGVNetRG2 Resource Group, and select **WGVNet2** blade if you're not there already, and select **Subnets**.
+4.  Go to the WGVNetRG2 Resource Group, and select the **WGVNet2** blade if you're not there already, and select **Subnets** under **Settings** on the left.
 
     ![This is a subnet configuration.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image32.png "Subnets blade")
 
@@ -196,7 +196,7 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
 2.  Make sure you are signed into the Azure portal at <http://portal.azure.com>.
 
-3.  Choose **+ Create a resource**, and search for **template deployment**.
+3.  Choose **+ Create a resource**, and search for and select **template deployment**.
 
     ![On the New blade, the Search the Marketplace text box contains the text Template deployment.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image56.png "New blade")
 
@@ -213,8 +213,11 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 7.  Update the following parameters to reference the **WGVNet2** virtual network in the **WGVNetRG2** resource group and to the **AppSubnet** subnet.
 
     - Existing Virtual Network Name: **WGVNet2**
+  
     - Existing Virtual Network Resource Group: **WGVNetRG2**
+  
     - Web Subnet: **AppSubnet**
+  
     - Data Subnet: **DataSubnet**
 
     ![A screenshot that shows the Existing Virtual Network Name, Existing Virtual Network Resource group parameters, Web Subnet, and Data Subnet.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image59.png "Template parameters")
@@ -233,7 +236,7 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
 2.  Navigate to the **WGWEB1** blade.
 
-3.  On the **WGWEB1** blade, first select **Connect** and then select **Download RDP file** to establish a Remote Desktop session.
+3.  On the **WGWEB1** blade, first select **Connect**, then select **RDP**, and then choose **Download RDP file** to establish a Remote Desktop session.
 
     ![CloudShop application connection test.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image61.png "Virtual machine blade")
 
