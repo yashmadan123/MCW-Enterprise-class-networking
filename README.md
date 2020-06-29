@@ -4,7 +4,7 @@ Woodgrove Financial Services has been in business for over 75 years and is a wel
 
 Woodgrove is committed to migrating to Microsoft Azure with the goal of modernizing their infrastructure and want to start with designing an enterprise-class network.
 
-March 2020
+June 2020
 
 ## Target audience
 - Infrastructure Architect
@@ -33,11 +33,13 @@ At the end of this hands-on lab, you will be better able to configure Azure netw
 ### Azure services and related products
 - Azure Virtual Machines
 - Azure PowerShell
-- Azure Virtual Networks 
+- Azure Virtual Networks
+- Azure Bastion
 - Azure Load Balancing
 - Network Virtual Appliances in Azure
 - Azure Site to Site connectivity
 - Azure Site to on-premises connectivity
+- ExpressRoute Global Reach
 
 ## Related references
 - [Microsoft Cloud Workshop](https://microsoftcloudworkshop.com/index.html)
@@ -46,6 +48,8 @@ At the end of this hands-on lab, you will be better able to configure Azure netw
 - [DMZ](https://microsoft.sharepoint.com/sites/infopedia/pages/layouts/kcdoc.aspx?k=g01kc-1-30336)
 - [Windows VMs](https://microsoft.sharepoint.com/sites/infopedia/pages/layouts/kcdoc.aspx?k=g01kc-1-30338)
 - [Highly available network virtual appliances](https://microsoft.sharepoint.com/sites/infopedia/pages/layouts/kcdoc.aspx?k=g01kc-1-30337)
+- [ExpressRoute Global Reach](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-global-reach)
+- [Azure Bastion](https://docs.microsoft.com/en-us/azure/bastion/bastion-overview)
 
 ## Help & Support
 
