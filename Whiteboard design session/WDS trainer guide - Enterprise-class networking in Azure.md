@@ -452,7 +452,7 @@ The solution for Woodgrove involved several technologies, including:
 
     -   Multiple Virtual Networks
 
-    -   Six subnet designations, including gateway, perimeter, web tier, business tier, data tier, and management subnet.
+    -   Six subnet designations, including gateway, perimeter, web tier, business tier, data tier, and Bastion subnet.
 
     -   Azure Firewall configured to provide hybrid connectivity support and internal firewall capabilities internal to the Azure VNet and any paired VNets.
 
