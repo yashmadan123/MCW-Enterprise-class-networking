@@ -483,7 +483,7 @@ The solution for Woodgrove involved several technologies, including:
 -   Implementing Azure Firewall to make sure it protects and filters all the traffic coming into and going out from the Azure virtual network.
 
 
-    ![A diagram that depicts the network flow from two on-premises sites where the traffic flows through Equinix and Level 3 using VPN and ExpressRoute. Multiple virtual networks in Azure are connected via VPN peering.](images/Whiteboarddesignsessiontrainerguide-Enterprise-classnetworkinginAzureimages/media/high-level-architecture.png "Preferred Solution")
+    ![A diagram that depicts the network flow from two on-premises sites where the traffic flows through Equinix and Level 3 using VPN and ExpressRoute. Multiple virtual networks in Azure are connected via VPN peering.](images/Whiteboarddesignsessiontrainerguide-Enterprise-classnetworkinginAzureimages/high-level-architecture.png "Preferred Solution")
 
 
 *Address the following customer requirements*
@@ -621,7 +621,7 @@ The solution for Woodgrove involved several technologies, including:
 
     The following diagram shows a configuration with redundant on-premises routers connected to the primary and secondary circuits. Each circuit handles the traffic for a Microsoft peering and a private peering.
 
-    ![This diagram depicts redundant on-premises routers connected to he primary and secondary circuits. Each circuit is shown handling the traffic for a Microsoft peering and a private peering.](images/Whiteboarddesignsessiontrainerguide-Enterprise-classnetworkinginAzureimages/media/image14.png)
+    ![This diagram depicts redundant on-premises routers connected to he primary and secondary circuits. Each circuit is shown handling the traffic for a Microsoft peering and a private peering.](images/Whiteboarddesignsessiontrainerguide-Enterprise-classnetworkinginAzureimages/image14.png)
 
     Figure 4 - Redundancy and Peering with ExpressRoute
 
