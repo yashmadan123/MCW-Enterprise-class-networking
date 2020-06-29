@@ -446,7 +446,7 @@ The solution for Woodgrove involved several technologies, including:
 
 -   Testing the resiliency of the networking design. which involves taking a link down and ensuring services are still available.
 
--   Azure Bastion service for secure remote administration with Just-in-time (JIT) virtual machine access for RDP and SSH port security.
+-   Azure Bastion service for secure remote administration with Just-in-time (JIT) virtual machine access for RDP port security.
 
 -   Implementing an enterprise-class configuration within an Azure Virtual Network to support the 3-tier core banking application. Components of this solution include:
 
