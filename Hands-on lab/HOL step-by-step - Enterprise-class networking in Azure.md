@@ -9,7 +9,7 @@ Hands-on lab step-by-step
 </div>
 
 <div class="MCWHeader3">
-March 2020
+June 2020
 </div>
 
 Information in this document, including URL and other Internet Web site references, is subject to change without notice. Unless otherwise noted, the example companies, organizations, products, domain names, e-mail addresses, logos, people, places, and events depicted herein are fictitious, and no association with any real company, organization, product, domain name, e-mail address, logo, person, place or event is intended or should be inferred. Complying with all applicable copyright laws is the responsibility of the user. Without limiting the rights under copyright, no part of this document may be reproduced, stored in or introduced into a retrieval system, or transmitted in any form or by any means (electronic, mechanical, photocopying, recording, or otherwise), or for any purpose, without the express written permission of Microsoft Corporation.
@@ -44,8 +44,8 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
   - [Exercise 4: Configure n-tier application and validate functionality](#exercise-4-configure-n-tier-application-and-validate-functionality)
     - [Task 1: Create a load balancer to distribute load between the web servers](#task-1-create-a-load-balancer-to-distribute-load-between-the-web-servers)
     - [Task 2: Configure the load balancer](#task-2-configure-the-load-balancer)
-  - [Exercise 5: Build the management station](#exercise-5-build-the-management-station)
-    - [Task 1: Build the management VM](#task-1-build-the-management-vm)
+  - [Exercise 5: Build the Bastion host service](#exercise-5-build-the-bastion-host-service)
+    - [Task 1: Build the Bastion host](#task-1-build-the-bastion-host)
   - [Exercise 6: Virtual Network Peering](#exercise-6-virtual-network-peering)
     - [Task 1: Configure VNet peering WGVNet1 to WGVNet2 and Vice Versa](#task-1-configure-vnet-peering-wgvnet1-to-wgvnet2-and-vice-versa)
   - [Exercise 7: Provision and configure Azure firewall solution](#exercise-7-provision-and-configure-azure-firewall-solution)
@@ -442,71 +442,36 @@ In this exercise, you will create and configure a load balancer to distribute lo
 
     ![Disabling of the Public IP address settings.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image170.png "IP configuration blade")
 
-## Exercise 5: Build the management station
+## Exercise 5: Build the Bastion host service
 
 Duration: 15 minutes
 
-In this exercise, management of the Azure-based systems will only be available from a management 'jump box.' In this section, you will provision this server.
+In this exercise, management of the Azure-based systems will only be available through a Bastion host. In this section, you will provision this service.
 
-### Task 1: Build the management VM
+### Task 1: Build the Bastion host
 
-1.  In the Azure portal, select **+ Create a resource** then select **Windows Server 2016 Datacenter**.
+1.  In the Azure portal, select **+ Create a resource** then select **Bastion**. In the search results, select the Bastion service with Microsoft as the publisher.
 
-2.  On the **Create a virtual machine** blade, on the **Basics** tab, enter the following information, and select **Next : Disks >**:
+2.  On the **Create a Bastion** blade, on the **Basics** tab, enter the following information, and select **Review + Create**:
 
     -  Subscription: **Select your subscription**.
 
     -  Resource group: Select **Create new** and enter **WGMGMTRG**.
 
-    -  Virtual machine name: **WGMGMT1**
+    -  Name: **WGBastion**
 
     -  Region: **(US) South Central US**
 
-    -  Availability options: **No infrastructure redundancy required**.
-
-    -  Image: **[smalldisk] Windows Server 2016 Datacenter**
-
-    -  Size: **Standard DS1 v2**
-
-    -  Username: **demouser**
-
-    -  Password: **demo@pass123**
-
-    -  Public inbound ports: **Allow selected ports**.
-
-    -  Select inbound ports: **RDP**
-
-    -  Already have a Windows license?: **No**
-
-3.  On the **Create a virtual machine** blade, on the **Disks** tab, set the following configuration and select **Next : Networking >**:
-
-    -  OS disk type: **Premium SSD**
-
-4.  On the **Create a virtual machine** blade, on the **Networking** tab, set the following configuration and select **Next : Management >**:
-
     -  Virtual network: **WGVNet1**
 
-    -  Subnet: **Management (10.7.0.0/25)**
+    -  Subnet: **AzureBastionSubnet** Note: after creation, assign (10.7.0.0/25) as the subnet address
 
-    -  Public IP: **None**
+    -  Public IP: **Create New**
 
-    -  NIC network security group: **None**
+    -  Public IP address name: **BastionPublicIP**
 
-    -  Accelerated networking: **Off**
 
-    -  Place this virtual machine behind an existing load balancing solution: **No**
-
-5.  On the **Create a virtual machine** blade, on the **Management** tab, set the following configuration and select **Review + create**:
-
-    -  Boot diagnostics: **Off**
-
-    -  OS guest diagnostics: **Off**
-
-    -  System assigned managed identity: **Off**
-
-    -  Enable auto-shutdown: **Off**
-
-6.  On the **Create a virtual machine** blade, on the **Review + Create** tab, ensure the validation passes, and select **Create**. The virtual machine will take about 5 minutes to provision.
+3.  On the **Create a Bastion** blade, on the **Review + Create** tab, ensure the validation passes, and select **Create**. The Bastion host will take about 5 minutes to provision.
 
 ## Exercise 6: Virtual Network Peering
 
@@ -978,7 +943,7 @@ In this exercise, you will restrict traffic between tiers of n-tier application 
 
     -  Source: **IP Addresses**
 
-    -  Source IP addresses/CIDR ranges: **10.7.2.0/25** (This IP address range represents the Management subnet on WGVNet1.)
+    -  Source IP addresses/CIDR ranges: **10.7.2.0/25** (This IP address range represents the Bastion subnet on WGVNet1.)
 
     -  Source port ranges: **\***
 
