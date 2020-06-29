@@ -100,7 +100,7 @@ The result of this proof of concept will be an environment resembling this diagr
 
 ## Solution architecture
 
-![This image represents an entire overview of an environment for the result of this proof of concept.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image200.png "Solution Architecture")
+![This image represents an entire overview of an environment for the result of this proof of concept.](images/image200.png "Solution Architecture")
 
 ## Requirements
 
