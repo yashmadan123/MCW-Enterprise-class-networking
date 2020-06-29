@@ -9,7 +9,7 @@ Whiteboard design session student guide
 </div>
 
 <div class="MCWHeader3">
-March 2020
+June 2020
 </div>
 
 Information in this document, including URL and other Internet Web site references, is subject to change without notice. Unless otherwise noted, the example companies, organizations, products, domain names, e-mail addresses, logos, people, places, and events depicted herein are fictitious, and no association with any real company, organization, product, domain name, e-mail address, logo, person, place or event is intended or should be inferred. Complying with all applicable copyright laws is the responsibility of the user. Without limiting the rights under copyright, no part of this document may be reproduced, stored in or introduced into a retrieval system, or transmitted in any form or by any means (electronic, mechanical, photocopying, recording, or otherwise), or for any purpose, without the express written permission of Microsoft Corporation.
@@ -243,6 +243,7 @@ Directions: Tables reconvene with the larger group to hear the facilitator/SME s
 | ExpressRoute Routing requirements                         | <https://azure.microsoft.com/en-us/documentation/articles/expressroute-routing/>                  |
 | ExpressRoute NAT requirements                             | <https://azure.microsoft.com/en-us/documentation/articles/expressroute-nat/>                      |
 | ExpressRoute workflows                                    | <https://azure.microsoft.com/en-us/documentation/articles/expressroute-workflows/>                |
+| ExpressRoute Global Reach                                 | https://docs.microsoft.com/en-us/azure/expressroute/expressroute-global-reach                     |
 | Site-to-Site VPN documentation                            | <https://azure.microsoft.com/en-us/documentation/services/vpn-gateway/>                           |
 | Virtual Network documentation                             | <https://azure.microsoft.com/en-us/documentation/services/virtual-network/>                       |
 | Network Security Group documentation                      | <https://azure.microsoft.com/en-us/documentation/articles/virtual-networks-nsg/>                  |
@@ -252,3 +253,4 @@ Directions: Tables reconvene with the larger group to hear the facilitator/SME s
 | Deploy highly available network virtual appliances        | https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/dmz/nva-ha            |
 | Azure Firewall Documentation                              | https://docs.microsoft.com/en-us/azure/firewall/                                                  |
 | Virtual Network Service Endpoints                         | https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview |
+| Azure Bastion                                             | https://docs.microsoft.com/en-us/azure/bastion/bastion-overview                                   |
