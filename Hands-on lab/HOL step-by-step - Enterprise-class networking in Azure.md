@@ -35,34 +35,34 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
   - [Exercise 1: Create a Virtual Network and provision subnets](#exercise-1-create-a-virtual-network-and-provision-subnets)
     - [Task 1: Create a Virtual Network](#task-1-create-a-virtual-network)
     - [Task 2: Configure subnets](#task-2-configure-subnets)
-  - [Exercise 2: Virtual Network Peering](#exercise-6-virtual-network-peering)
+  - [Exercise 2: Virtual Network Peering](#exercise-2-virtual-network-peering)
     - [Task 1: Configure VNet peering WGVNet1 to WGVNet2 and Vice Versa](#task-1-configure-vnet-peering-wgvnet1-to-wgvnet2-and-vice-versa)
-  - [Exercise 3: Configure Network Security Groups and Application Security Groups](#exercise-9-configure-network-security-groups-and-application-security-groups)
+  - [Exercise 3: Configure Network Security Groups and Application Security Groups](#exercise-3-configure-network-security-groups-and-application-security-groups)
     - [Task 1: Create application security groups](#task-1-create-application-security-groups)
     - [Task 2: Configure application security groups](#task-2-configure-application-security-groups)
     - [Task 3: Create network security group](#task-3-create-network-security-group)
-  - [Exercise 4: Create route tables with required routes](#exercise-3-create-route-tables-with-required-routes)
+  - [Exercise 4: Create route tables with required routes](#exercise-4-create-route-tables-with-required-routes)
     - [Task 1: Create route tables](#task-1-create-route-tables)
     - [Task 2: Add routes to each route table](#task-2-add-routes-to-each-route-table)
-  - [Exercise 5: Configure n-tier application and validate functionality](#exercise-4-configure-n-tier-application-and-validate-functionality)
+  - [Exercise 5: Configure n-tier application and validate functionality](#exercise-5-configure-n-tier-application-and-validate-functionality)
     - [Task 1: Create a load balancer to distribute load between the web servers](#task-1-create-a-load-balancer-to-distribute-load-between-the-web-servers)
     - [Task 2: Configure the load balancer](#task-2-configure-the-load-balancer)
-  - [Exercise 6: Provision and configure Azure firewall solution](#exercise-7-provision-and-configure-azure-firewall-solution)
+  - [Exercise 6: Provision and configure Azure firewall solution](#exercise-6-provision-and-configure-azure-firewall-solution)
     - [Task 1: Provision the Azure firewall](#task-1-provision-the-azure-firewall)
     - [Task 2: Create Firewall Rules](#task-2-create-firewall-rules)
     - [Task 3: Associate route tables to subnets](#task-3-associate-route-tables-to-subnets)
-  - [Exercise 7: Configure Site-to-Site connectivity](#exercise-8-configure-site-to-site-connectivity)
+  - [Exercise 7: Configure Site-to-Site connectivity](#exercise-7-configure-site-to-site-connectivity)
     - [Task 1: Create OnPrem Virtual Network](#task-1-create-onprem-virtual-network)
     - [Task 2: Configure gateway subnets for on premise Virtual Network](#task-2-configure-gateway-subnets-for-on-premise-virtual-network)
     - [Task 3: Create the first gateway](#task-3-create-the-first-gateway)
     - [Task 4: Create the second gateway](#task-4-create-the-second-gateway)
     - [Task 5: Connect the gateways](#task-5-connect-the-gateways)
-  - [Exercise 8: Build the Bastion host service](#exercise-5-build-the-bastion-host-service)
+  - [Exercise 8: Build the Bastion host service](#exercise-8-build-the-bastion-host-service)
     - [Task 1: Build the Bastion host](#task-1-build-the-bastion-host)
-  - [Exercise 9: Validate connectivity from 'on-premises' to Azure](#exercise-10-validate-connectivity-from-on-premises-to-azure)
+  - [Exercise 9: Validate connectivity from 'on-premises' to Azure](#exercise-9-validate-connectivity-from-on-premises-to-azure)
     - [Task 1: Create a virtual machine to validate connectivity](#task-1-create-a-virtual-machine-to-validate-connectivity)
     - [Task 2: Configure routing for simulated 'on-premises' to Azure traffic](#task-2-configure-routing-for-simulated-on-premises-to-azure-traffic)
-  - [Exercise 10: Create a Network Monitoring Solution](#exercise-2-create-a-network-monitoring-solution)
+  - [Exercise 10: Create a Network Monitoring Solution](#exercise-10-create-a-network-monitoring-solution)
     - [Task 1: Create a Log Analytics Workspace](#task-1-create-a-log-analytics-workspace)
     - [Task 2: Configure Network Watcher](#task-2-configure-network-watcher)
   - [Exercise 11: Using Network Watcher to Test and Validate Connectivity](#exercise-11-using-network-watcher-to-test-and-validate-connectivity)
@@ -954,7 +954,7 @@ In this exercise, we will simulate an on-premises connection to the internal web
 
     ![Connections - Watch the progress of the connection status until the status changes for both connections from Unknown to Connected. This may take about 10 minutes.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image139.png "Connections blade")
 
-## Exercise 9: Build the Bastion host service
+## Exercise 8: Build the Bastion host service
 
 Duration: 15 minutes
 
@@ -985,7 +985,7 @@ In this exercise, management of the Azure-based systems will only be available t
 
 3.  On the **Create a Bastion** blade, on the **Review + Create** tab, ensure the validation passes, and select **Create**. The Bastion host will take about 5 minutes to provision.
 
-## Exercise 10: Validate connectivity from 'on-premises' to Azure
+## Exercise 9: Validate connectivity from 'on-premises' to Azure
 
 Duration: 30 minutes
 
@@ -1118,7 +1118,7 @@ When packets arrive from the simulated 'on-premises' Virtual Network (OnPremVNet
 
     -  On the jump host virtual machine (WGMGMT1), initiate a Remote Desktop session to the WGSQL1 via its private IP address (10.8.1.4). This should be successful since it is allowed by Azure Firewall.
 
-## Exercise 11: Create a Network Monitoring Solution
+## Exercise 10: Create a Network Monitoring Solution
 
 Duration: 15 minutes
 
