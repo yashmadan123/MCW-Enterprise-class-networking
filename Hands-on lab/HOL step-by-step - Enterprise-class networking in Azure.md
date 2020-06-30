@@ -194,7 +194,7 @@ Duration: 15 minutes
 
     ![Field values in the Add Subnet blade are set to the previously defined settings.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image159.png "Add Subnet blade")
 
-## Exercise 6: Virtual Network Peering
+## Exercise 2: Virtual Network Peering
 
 Duration: 20 Minutes
 
@@ -234,7 +234,7 @@ Duration: 20 Minutes
 
     ![OK to create Peerings screen.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image94.png "WGVNet2 add peering blade") -->
 
-## Exercise 9: Configure Network Security Groups and Application Security Groups
+## Exercise 3: Configure Network Security Groups and Application Security Groups
 
 Duration: 20 minutes
 
@@ -439,7 +439,7 @@ In this exercise, you will restrict traffic between tiers of n-tier application 
 17. Select **OK** at the bottom of the **Associate subnet** blade.
 
 
-## Exercise 3: Create route tables with required routes
+## Exercise 4: Create route tables with required routes
 
 Duration: 15 minutes
 
@@ -551,7 +551,7 @@ Route Tables are containers for User Defined Routes (UDRs). The route table is c
 
     >**Note:** The route tables and routes you have just created are not associated with any subnets yet, so they are not impacting any traffic flow yet. This will be accomplished later in the lab.
 
-## Exercise 4: Configure n-tier application and validate functionality
+## Exercise 5: Configure n-tier application and validate functionality
 
 Duration: 20 minutes
 
@@ -651,7 +651,7 @@ In this exercise, you will create and configure a load balancer to distribute lo
 
     ![Disabling of the Public IP address settings.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image170.png "IP configuration blade")
 
-## Exercise 7: Provision and configure Azure firewall solution
+## Exercise 6: Provision and configure Azure firewall solution
 
 Duration: 15 minutes
 
@@ -795,7 +795,7 @@ Within 1-2 minutes, the resource group **WGVNetRG1** will have the firewall crea
 
 8.  Select **OK** at the bottom of the **Associate subnet** blade.
 
-## Exercise 8: Configure Site-to-Site connectivity
+## Exercise 7: Configure Site-to-Site connectivity
 
 Duration: 60 minutes
 
@@ -954,7 +954,7 @@ In this exercise, we will simulate an on-premises connection to the internal web
 
     ![Connections - Watch the progress of the connection status until the status changes for both connections from Unknown to Connected. This may take about 10 minutes.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image139.png "Connections blade")
 
-## Exercise 5: Build the Bastion host service
+## Exercise 9: Build the Bastion host service
 
 Duration: 15 minutes
 
@@ -1118,7 +1118,7 @@ When packets arrive from the simulated 'on-premises' Virtual Network (OnPremVNet
 
     -  On the jump host virtual machine (WGMGMT1), initiate a Remote Desktop session to the WGSQL1 via its private IP address (10.8.1.4). This should be successful since it is allowed by Azure Firewall.
 
-## Exercise 2: Create a Network Monitoring Solution
+## Exercise 11: Create a Network Monitoring Solution
 
 Duration: 15 minutes
 
