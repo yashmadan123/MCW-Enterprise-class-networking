@@ -100,7 +100,7 @@ The result of this proof of concept will be an environment resembling this diagr
 
 ## Solution architecture
 
-![This image represents an entire overview of an environment for the result of this proof of concept.](images/image200.png "Solution Architecture")
+![This image represents an entire overview of an environment for the result of this proof of concept. On the left is the OnPremVNetRG resource group, in the middle is the WGVNetRG1 resource group, on the riht is the WGVNetRG2 resource group. In the lower right is the MonitoringRG resource group.](images/image200.png "Solution Architecture")
 
 ## Requirements
 
@@ -223,16 +223,6 @@ Duration: 20 Minutes
     - Allow forwarded traffic from WGVNet1 to WGVNet2: **Enabled**
 
     ![The add peering blade is shown with the values above specified and highlighted. The OK button is highlighted.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image171.png "WGVNet1 add peering blade")
-
-<!-- ### Task 2: Configure VNet peering WGVNET2 to WGVNET1
-
-1.  Select the resource group **WGVNetRG2**, and select the configuration blade for **WGVNet2**. select **Peerings**.
-
-2.  Select **Add**.
-
-3.  Name the new peering **VNETPeering_WGVNet2-WGVNet1**, enable the **Allow forwarded traffic** and **Use remote gateways** settings, and select **OK** to create the peering.
-
-    ![OK to create Peerings screen.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image94.png "WGVNet2 add peering blade") -->
 
 ## Exercise 3: Configure Network Security Groups and Application Security Groups
 
@@ -1188,27 +1178,27 @@ In this exercise, you will collect the flow log and perform connectivity from yo
 
 3. Repeat step 2, but select **East US** for the region and give it a different name.
 
-3. On the Azure portal select **All services** at the left navigation. From the Categories menu select **Networking** then select **Network Watcher**.
+4. On the Azure portal select **All services** at the left navigation. From the Categories menu select **Networking** then select **Network Watcher**.
 
-4. From the **Network Watcher** blade under the **Logs** menu select **NSG flow logs**. You will see both the **OnPremVM-nsg** and **WGAppNSG1** Network Security Groups.
+5. From the **Network Watcher** blade under the **Logs** menu select **NSG flow logs**. You will see both the **OnPremVM-nsg** and **WGAppNSG1** Network Security Groups.
 
-    ![Opening of the NSG Flow logs blade.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image185.png "Network Security Groups in Flow Log")
+    ![The NSG Flow logs blade listing the network security groups. The status for both NSGs is shows as disabled.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image185.png "Network Security Groups in Flow Log")
 
-5. Select the **WGAppNSG1** network security group to open the flow log settings. Select **On** and then select **Version 2** for the Flow logs version.
+6. Select the **WGAppNSG1** network security group to open the flow log settings. Select **On** and then select **Version 2** for the Flow logs version.
 
-6. Select **Storage Account-Configure**. From the drop down select the available storage account created earlier, then the **OK** button.
+7. Select **Storage Account-Configure**. From the drop down select the available storage account created earlier, then the **OK** button.
 
-    ![Opening of the storage account selection in the NSG Flow logs blade.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image187.png "Network Watcher Flow Log Settings")
+    ![The select a storage account blade with the storage account selected in the NSG Flow logs blade.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image187.png "Network Watcher Flow Log Settings")
 
-7. Select **On** to enable the traffic analytics status and set the interval to 10 minutes. Select the **Log Analytics Workspace** created earlier. Select **Save** at the top to confirm the settings.  
+8. Select **On** to enable the traffic analytics status and set the interval to 10 minutes. Select the **Log Analytics Workspace** created earlier. Select **Save** at the top to confirm the settings.  
 
-    ![NSG Flow logs Settings blade.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image188.png "Network Watcher Flow Log Settings")
+    ![Flow logs Settings blade, with the configuration set to on, Traffic Analytics status set to on, the processing interval set to every 10 minutes, the log analytics worksspace selected and the save button highlighted.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image188.png "Network Watcher Flow Log Settings")
 
-8. Repeat Steps 4 - 7 to enable the **OnPremVM-nsg** Network Security Group as well. When completed your configuration should show as the following image.
+9.  Repeat Steps 4 - 7 to enable the **OnPremVM-nsg** Network Security Group as well. When completed your configuration should show as the following image.
 
-     ![NSG Flow logs Settings blade.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image189.png "Network Watcher Flow Log")
+     ![The NSG Flow logs blade listing the network security groups. Both NSGs show a status of enabled.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image189.png "Network Watcher Flow Log")
 
-9. Navigate back to the **OnPremVM**. Connect to it by downloading and opening the RDP file. Then open another RDP connection to the **WGMGMT1** virtual machine within the connection to **OnPremVM**. In the RDP connection to **WGMGMT1**, navigate to the load balancer's private ip and generate some traffic by refreshing the browser. Allow ten minutes to pass for traffic analytics to generate.  
+10. Navigate back to the **OnPremVM**. Connect to it by downloading and opening the RDP file. Then open another RDP connection to the **WGMGMT1** virtual machine within the connection to **OnPremVM**. In the RDP connection to **WGMGMT1**, navigate to the load balancer's private ip and generate some traffic by refreshing the browser. Allow ten minutes to pass for traffic analytics to generate.  
 
      ![CloudShop External and Internal web application.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image190.png "CloudShop Application")
 
@@ -1218,21 +1208,21 @@ In this exercise, you will collect the flow log and perform connectivity from yo
 
 2. Select **Diagnostic Logs** from the **Logs Menu** within the blade.
 
-     ![Network Watcher Diagnostic Log Settings Blade.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image192.png "Network Watcher Diagnostic Log")
+     ![Network Watcher Diagnostic Log Settings Blade. Under the Logs menu on the left, diagnostic logs is highlighted.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image192.png "Network Watcher Diagnostic Log")
 
 3. Select **onpremvmXXX** then select **+Add diagnostic setting**.
 
 4. Enter **OnPremDiag** as the name then select the checkbox for **Archive to a storage account**. Select **Storage account** and from the drop down select the available storage account you created earlier. Select **OK**. 
 
-     ![Network Watcher Diagnostic Log Settings Blade.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image193.png "Network Watcher Diagnostic Resources")
+     ![Network Watcher Diagnostic Log Settings Blade. The name, archive to storage account, and select storage account are highlighted. On the right the select storage account blade is shown with the name of the storage account highlighted.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image193.png "Network Watcher Diagnostic Resources")
 
 5. Select the **Send to Log Analytics** checkbox. Select the workspace created earlier. Select the **AllMetrics** checkbox and set the **Retention (days)** to **60**. Select the **Save** button to complete the settings.
 
-     ![Network Watcher Diagnostic Log Settings Blade.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image194.png "Diagnostic Settings")
+     ![Network Watcher Diagnostic Log Settings Blade with the configurations above set.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image194.png "Diagnostic Settings")
 
 6. Repeat Steps 2 - 5 for each network resource. Once completed your settings will look like the following screenshot.
 
-     ![Network Watcher Diagnostic Log Settings Blade.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image195.png "Diagnostic Settings")
+     ![Network Watcher Diagnostic Log Settings Blade. All diagnostic status are set to enabled.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image195.png "Diagnostic Settings")
 
 ### Task 3: Reviewing Network Traffic
 
@@ -1240,11 +1230,11 @@ In this exercise, you will collect the flow log and perform connectivity from yo
 
 2. Select **Traffic Analytics** from the **Logs** menu in the blade. At this time the diagnostic logs from the network resources have been ingested. Select **View map**.
 
-     ![Network Watcher Traffic Analytics Blade.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image196.png "Your Network Environment")
+     ![Network Watcher Traffic Analytics Blade. The view map button in the middle of the page is highlighted.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image196.png "Your Network Environment")
 
 3. Select the **green check mark** which identifies your network. Within the pop up menu select **More Details** to propagate detailed information of the flow to and from your network.
 
-     ![Network Watcher Traffic Analytics Blade.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image197.png "Your Network Environment")
+     ![The Traffic Analytics Geo Map View is shown with a green check mark on the region where your network resides and monitor metrics displayed next to it.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image197.png "Your Network Environment")
 
 >**Note:** You can select the **See More** link to query the connections detail for more information.
 
@@ -1274,11 +1264,11 @@ In this exercise, you will collect the flow log and perform connectivity from yo
     
     -  Destination Port: **80**
 
-     ![Network Watcher Connection Troubleshoot Blade.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image198.png "Connection Troubleshoot")
+     ![Network Watcher Connection Troubleshoot Blade with the configuration values above set.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image198.png "Connection Troubleshoot")
 
 4. Once the check is complete the connection troubleshoot feature will display a grid view on the name, IP Address Status and Next hop as seen in the following screenshot. 
 
-     ![Network Watcher Connection Troubleshoot Blade.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image199.png "Connection Troubleshoot")
+     ![Network Watcher Connection Troubleshoot Blade with the name, IP Address Status and Next hop shown with a green check mark in the status column.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image199.png "Connection Troubleshoot")
 
 ## After the hands-on lab
 
