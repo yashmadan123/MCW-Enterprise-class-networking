@@ -621,7 +621,7 @@ The solution for Woodgrove involved several technologies, including:
 
     The following diagram shows a configuration with redundant on-premises routers connected to the primary and secondary circuits. Each circuit handles the traffic for a Microsoft peering and a private peering.
 
-    ![This diagram depicts redundant on-premises routers connected to he primary and secondary circuits. Each circuit is shown handling the traffic for a Microsoft peering and a private peering.](images/Whiteboarddesignsessiontrainerguide-Enterprise-classnetworkinginAzureimages/image14.png)
+    ![This diagram depicts redundant on-premises routers connected to he primary and secondary circuits. Each circuit is shown handling the traffic for a Microsoft peering and a private peering.](images/Whiteboarddesignsessiontrainerguide-Enterprise-classnetworkinginAzureimages/media/image14.png)
 
     Figure 4 - Redundancy and Peering with ExpressRoute
 
