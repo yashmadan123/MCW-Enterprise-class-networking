@@ -150,7 +150,7 @@ Duration: 15 minutes
 
 4.  Upon completion, it should look like the following screenshot. Validate the information is correct, and select **Create**.
 
-    ![The create virtual network dialog is displayed.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image26.png "Create virtual network")
+    ![The create virtual network dialog is displayed. The configuration options specified in the previous step are highlighted. ](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image26.png "Create virtual network")
 
 5.  Monitor the deployment status by selecting **Notifications Bell** at the top of the portal. In a minute or so, you should see a confirmation of the successful deployment. Select **Go to Resource**.
 
@@ -204,7 +204,7 @@ Duration: 20 Minutes
 
 2.  Select **Add**.
 
-    ![Add Peerings.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image92.png "Virtual network blade")
+    ![The WGVNet1 Virtual Network Peerings blade is shown. The add button is highlighted.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image92.png "Virtual network blade")
 
 3.  Set the following configuration for the new peering. Select **OK** to create the peering.
 
@@ -222,7 +222,7 @@ Duration: 20 Minutes
   
     - Allow forwarded traffic from WGVNet1 to WGVNet2: **Enabled**
 
-    ![OK to create Peerings screen.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image171.png "WGVNet1 add peering blade")
+    ![The add peering blade is shown with the values above specified and highlighted. The OK button is highlighted.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image171.png "WGVNet1 add peering blade")
 
 <!-- ### Task 2: Configure VNet peering WGVNET2 to WGVNET1
 
@@ -254,7 +254,7 @@ In this exercise, you will restrict traffic between tiers of n-tier application 
 
     -  Region: **(US) South Central US** (This must match the location in which you created the **WGVNet2** virtual network.)
 
-    ![WebTier application security group creation.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image140.png "Create Web Tier ASG")
+    ![The create an application security group blade is shown with the above values populated and highlighted.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image140.png "Create Web Tier ASG")
 
 3.  On the **Create an application security group** blade, on the **Review + Create** tab, ensure the validation passes, and select **Create**. 
 
@@ -268,7 +268,7 @@ In this exercise, you will restrict traffic between tiers of n-tier application 
 
     -  Region: **(US) South Central US** (This must match the location in which you created the **WGVNet2** virtual network.)
 
-    ![DataTier application security group creation](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image141.png "Create Data Tier ASG")
+    ![The create an application security group blade is shown with the above values populated and highlighted.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image141.png "Create Data Tier ASG")
 
 ### Task 2: Configure application security groups
 
@@ -280,7 +280,7 @@ In this exercise, you will restrict traffic between tiers of n-tier application 
 
 4.  On the **Configure the application security groups** blade, in the **Application security groups** drop-down list, select **WebTier**, then **Save**.
 
-    ![WebTier application security group configuration](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image142.png "Configure Web Tier ASG")
+    ![The create an application security group blade is shown with the above values populated and highlighted.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image142.png "Configure Web Tier ASG")
 
 5.  Repeat steps 1-4, but this time for **WGWEB2** in order to assign to its network interface the **WebTier** application security group.
 
@@ -300,7 +300,7 @@ In this exercise, you will restrict traffic between tiers of n-tier application 
 
     -  Region: **(US) South Central US** (This must match the location in which you created the **WGVNet2** virtual network.)
 
-    ![Network security group creation](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image143.png "Create WGApp NSG")
+    ![The create network security group blade is shown with the above values populated and highlighted.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image143.png "Create WGApp NSG")
 
 3.  In the Azure Portal, navigate to **All Services**, type **Network security groups** the search box and select **Network security groups**.
 
@@ -330,7 +330,7 @@ In this exercise, you will restrict traffic between tiers of n-tier application 
 
     -  Name: **AllowDataTierInboundTCP1433**
 
-    ![Network security group configuration.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image146.png "Configure WGAppNSG1 AllowDataTierInboundTCP1433 rule")
+    ![The add inbound security rule blade is shown with the above values populated and highlighted.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image146.png "Configure WGAppNSG1 AllowDataTierInboundTCP1433 rule")
 
 7.  On the **WGAppNSG1 - Inbound security rules** blade, select **Add**.
 
@@ -354,7 +354,7 @@ In this exercise, you will restrict traffic between tiers of n-tier application 
 
     -  Name: **AllowAnyWebTierInboundTCP80**
 
-    ![Network security group configuration.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image147.png "Configure WGAppNSG1 AllowAnyWebTierInboundTCP80 rule")
+    ![The add inbound security rule blade is shown with the above values populated and highlighted.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image147.png "Configure WGAppNSG1 AllowAnyWebTierInboundTCP80 rule")
 
 9.  On the **WGAppNSG1 - Inbound security rules** blade, select **Add**.
 
@@ -378,7 +378,7 @@ In this exercise, you will restrict traffic between tiers of n-tier application 
 
     -  Name: **AllowMgmtInboundAny3389**
 
-    ![Network security group configuration.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image179.png "Configure WGAppNSG1 AllowMgmtInboundAny3389 rule")
+    ![The add inbound security rule blade is shown with the above values populated and highlighted.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image179.png "Configure WGAppNSG1 AllowMgmtInboundAny3389 rule")
 
 11. On the **WGAppNSG1 - Inbound security rules** blade, select **Add**.
 
@@ -404,7 +404,7 @@ In this exercise, you will restrict traffic between tiers of n-tier application 
 
     -  Name: **DenyVNetDataTierInbound**
 
-    ![Network security group configuration.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image151.png "Configure WGAppNSG1 DenyVNetDataTierInbound rule")
+    ![The add inbound security rule blade is shown with the above values populated and highlighted.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image151.png "Configure WGAppNSG1 DenyVNetDataTierInbound rule")
 
 13. On the **WGAppNSG1 - Inbound security rules** blade, select **Add**.
 
@@ -430,7 +430,7 @@ In this exercise, you will restrict traffic between tiers of n-tier application 
 
     -  Name: **DenyVNetWebTierInbound**
 
-    ![Network security group configuration.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image152.png "Configure WGAppNSG1 DenyVNetWebTierInbound rule")
+    ![The add inbound security rule blade is shown with the above values populated and highlighted.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image152.png "Configure WGAppNSG1 DenyVNetWebTierInbound rule")
 
 15. On the **WGAppNSG1 - Inbound security rules** blade, select **Subnets** under **Settings** and then select **+ Associate**.
 
@@ -479,13 +479,13 @@ Route Tables are containers for User Defined Routes (UDRs). The route table is c
 
 5.  Once route tables are created, your **Route tables** blade should look like the following screenshot:
 
-    ![Route Table listing.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image38.png "Route table link")
+    ![Route Table listing showing the two route tables that were just created.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image38.png "Route table link")
 
 ### Task 2: Add routes to each route table
 
 1.  Select the **AppRT** route table, and select **Routes** under **Settings** on the left.
 
-    ![On the Route table blade, under Settings, Routes is selected. ](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image39.png "Route table blade ")
+    ![On the Route table menu, under Settings, Routes is selected. ](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image39.png "Route table blade ")
 
 2.  On the **Routes** blade, select **+ Add**. Enter the following information, and select **OK**:
 
@@ -497,7 +497,7 @@ Route Tables are containers for User Defined Routes (UDRs). The route table is c
 
     -  Next hop address: **10.7.1.4**
 
-    ![The AppToInternet route is being added.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image40.png "Add route configuration")
+    ![The Add route blade is shown with the AppToInternet route being added with the above configurations.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image40.png "Add route configuration")
 
 3.  Repeat this procedure to add the **AppToMgmt** route using the following information:
 
