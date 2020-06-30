@@ -100,7 +100,7 @@ The result of this proof of concept will be an environment resembling this diagr
 
 ## Solution architecture
 
-![This image represents an entire overview of an environment for the result of this proof of concept. On the left is the OnPremVNetRG resource group, in the middle is the WGVNetRG1 resource group, on the riht is the WGVNetRG2 resource group. In the lower right is the MonitoringRG resource group.](images/image200.png "Solution Architecture")
+![This image represents an entire overview of an environment for the result of this proof of concept. On the left is the OnPremVNetRG resource group, in the middle is the WGVNetRG1 resource group, on the right is the WGVNetRG2 resource group. In the lower right is the MonitoringRG resource group.](images/image200.png "Solution Architecture")
 
 ## Requirements
 
@@ -1093,7 +1093,7 @@ When packets arrive from the simulated 'on-premises' Virtual Network (OnPremVNet
 
 10. On the **Associate subnet** blade, select **WGVNet1** under the **Virtual Network** drop down and select **GatewaySubnet** under the **Subnet** drop down.
 
-    ![The associate subnet blad with WGVNet1 selected and GatewaySubnet selected.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image148.png "Associate subnet")
+    ![The associate subnet blade with WGVNet1 selected and GatewaySubnet selected.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image148.png "Associate subnet")
 
 
     >**Note:** At this point, you have configured your enterprise network. You should be able to test your Enterprise Class Network from one region to another. Your testing can include the following scenarios:
@@ -1192,7 +1192,7 @@ In this exercise, you will collect the flow log and perform connectivity from yo
 
 8. Select **On** to enable the traffic analytics status and set the interval to 10 minutes. Select the **Log Analytics Workspace** created earlier. Select **Save** at the top to confirm the settings.  
 
-    ![Flow logs Settings blade, with the configuration set to on, Traffic Analytics status set to on, the processing interval set to every 10 minutes, the log analytics worksspace selected and the save button highlighted.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image188.png "Network Watcher Flow Log Settings")
+    ![Flow logs Settings blade, with the configuration set to on, Traffic Analytics status set to on, the processing interval set to every 10 minutes, the log analytics workspace selected and the save button highlighted.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image188.png "Network Watcher Flow Log Settings")
 
 9.  Repeat Steps 4 - 7 to enable the **OnPremVM-nsg** Network Security Group as well. When completed your configuration should show as the following image.
 
@@ -1210,7 +1210,7 @@ In this exercise, you will collect the flow log and perform connectivity from yo
 
      ![Network Watcher Diagnostic Log Settings Blade. Under the Logs menu on the left, diagnostic logs is highlighted.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image192.png "Network Watcher Diagnostic Log")
 
-3. Select **onpremvmXXX** then select **+Add diagnostic setting**.
+3. Select **onpremvm*NNN*** then select **+Add diagnostic setting**.
 
 4. Enter **OnPremDiag** as the name then select the checkbox for **Archive to a storage account**. Select **Storage account** and from the drop down select the available storage account you created earlier. Select **OK**. 
 
@@ -1232,7 +1232,7 @@ In this exercise, you will collect the flow log and perform connectivity from yo
 
      ![Network Watcher Traffic Analytics Blade. The view map button in the middle of the page is highlighted.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image196.png "Your Network Environment")
 
-3. Select the **green check mark** which identifies your network. Within the pop up menu select **More Details** to propagate detailed information of the flow to and from your network.
+3. Select the **green check mark** which identifies your network. Within the pop-up menu select **More Details** to propagate detailed information of the flow to and from your network.
 
      ![The Traffic Analytics Geo Map View is shown with a green check mark on the region where your network resides and monitor metrics displayed next to it.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image197.png "Your Network Environment")
 
