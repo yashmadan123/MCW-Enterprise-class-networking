@@ -40,6 +40,7 @@ At the end of this hands-on lab, you will be better able to configure Azure netw
 - Azure Site to Site connectivity
 - Azure Site to on-premises connectivity
 - ExpressRoute Global Reach
+- Azure Firewall
 
 ## Related references
 - [Microsoft Cloud Workshop](https://microsoftcloudworkshop.com/index.html)
