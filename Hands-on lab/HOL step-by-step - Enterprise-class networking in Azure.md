@@ -966,7 +966,7 @@ In this exercise, management of the Azure-based systems will only be available t
 
     -  Virtual network: **WGVNet1**
 
-    -  Subnet: **AzureBastionSubnet** Note: after creation, assign (10.7.0.0/25) as the subnet address
+    -  Subnet: **AzureBastionSubnet** Note: after creation, assign (10.7.0.0/27) as the subnet address
 
     -  Public IP: **Create New**
 
