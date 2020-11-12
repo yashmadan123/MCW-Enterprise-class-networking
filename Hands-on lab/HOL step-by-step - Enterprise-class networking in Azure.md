@@ -152,7 +152,7 @@ Duration: 15 minutes
 
     -  Subnet address range: **10.7.0.0/29**
 
-5.  Select **Next: Security**
+5.  Select **Next: Security**.
 
     ![The create virtual network IP addresses dialog is displayed. The configuration options specified in the previous step are highlighted. ](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/20201112virtualnetworkipaddresses.png "Create virtual network: IP Addresses")
 
@@ -172,8 +172,9 @@ Duration: 15 minutes
 
     ![The create virtual network security dialog is displayed. The configuration options specified in the previous step are highlighted. ](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/20201112virtualnetworksecurity.png "Create virtual network: Security")
 
-9.  Select **Review + Create**
-10. Review the configuration and select **Create**
+9.  Select **Review + Create**.
+
+10. Review the configuration and select **Create**.
 
     ![The create virtual network review + create dialog is displayed. The configuration options specified in the previous step are highlighted. ](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/20201112virtualnetworkreview.png "Create virtual network: Review + create")
 
@@ -981,7 +982,7 @@ In this exercise, management of the Azure-based systems will only be available t
 
 ### Task 1: Build the Bastion host
 
-    >**Note:** This step should have been completed in exercise 1, task 1.  If it was not, please complete the steps below.
+    >**Note**: This step should have been completed in Exercise 1, Task 1.  If it was not, please complete the steps below.
 
 1.  In the Azure portal, select **+ Create a resource** then select **Bastion**. In the search results, select the Bastion service with Microsoft as the publisher.
 
@@ -997,7 +998,7 @@ In this exercise, management of the Azure-based systems will only be available t
 
     -  Virtual network: **WGVNet1**
 
-    -  Subnet: **AzureBastionSubnet** Note: after creation, assign (10.7.5.0/24) as the subnet address
+    -  Subnet: **AzureBastionSubnet** Note: After creation, assign (10.7.5.0/24) as the subnet address.
 
     -  Public IP: **Create New**
 
