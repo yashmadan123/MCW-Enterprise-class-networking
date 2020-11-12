@@ -130,29 +130,58 @@ Duration: 15 minutes
 
 1.  From your **LABVM**, connect to the Azure portal, select **+ Create a resource**, and in the list of Marketplace categories, select **Networking** followed by selecting **Virtual Network**.
 
-2.  On the **Create virtual network** blade, enter the following information:
+2.  On the **Create virtual network** blade, on the **Basic** tab, enter the following information:
+
+    -  Subscription: **Select your subscription**.
+  
+    -  Resource group: Select **Create new**, and enter the name **WGVNetRG1**.
 
     -  Name: **WGVNet1**
 
-    -  Address space: **10.7.0.0/20**
-
-    -  Subscription: **Select your subscription**.
-
-    -  Resource group: Select **Create new**, and enter the name **WGVNetRG1**.
-
     -  Location: **(US) South Central US**
 
-    -  Subnet name: **GatewaySubnet** (This name is fixed and cannot be changed.)
+3.  Select **Next: IP Addresses**
+
+    ![The create virtual network basic dialog is displayed. The configuration options specified in the previous step are highlighted. ](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/20201112virtualnetworkbasic.png "Create virtual network: Basics")
+   
+4.  On the **Create virtual network IP Addresses** tab, enter the following information:
+
+    -  Address space: **10.7.0.0/20**
+
+    -  Subnet name: **GatewaySubnet** (Select the **default** name and change to this name.)
 
     -  Subnet address range: **10.7.0.0/29**
 
-3.  Leave the other options as default for now.
+5.  Select **Next: Security**
 
-4.  Upon completion, it should look like the following screenshot. Validate the information is correct, and select **Create**.
+    ![The create virtual network IP addresses dialog is displayed. The configuration options specified in the previous step are highlighted. ](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/20201112virtualnetworkipaddresses.png "Create virtual network: IP Addresses")
+
+6.  On the **Create virtual network Security** tab, select **Enable** for BastionHost.
+
+7.  Enter the following information:
+
+    -  Bastion name: **WGBastion**
+
+    -  AzureBastionSubnet address space: **10.7.5.0/24**
+
+    -  Public IP address: **Create new**
+  
+    -  Public IP address name: **BastionPublicIP**
+
+8.  Leave the other options as default for now.
+
+    ![The create virtual network security dialog is displayed. The configuration options specified in the previous step are highlighted. ](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/20201112virtualnetworksecurity.png "Create virtual network: Security")
+
+9.  Select **Review + Create**
+10. Review the configuration and select **Create**
+
+    ![The create virtual network review + create dialog is displayed. The configuration options specified in the previous step are highlighted. ](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/20201112virtualnetworkreview.png "Create virtual network: Review + create")
+
+11. Upon completion, it should look like the following screenshot. Validate the information is correct, and select **Create**.
 
     ![The create virtual network dialog is displayed. The configuration options specified in the previous step are highlighted. ](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image26.png "Create virtual network")
 
-5.  Monitor the deployment status by selecting **Notifications Bell** at the top of the portal. In a minute or so, you should see a confirmation of the successful deployment. Select **Go to Resource**.
+12. Monitor the deployment status by selecting **Notifications Bell** at the top of the portal. In a minute or so, you should see a confirmation of the successful deployment. Select **Go to Resource**.
 
 ### Task 2: Configure subnets
 
@@ -952,13 +981,15 @@ In this exercise, management of the Azure-based systems will only be available t
 
 ### Task 1: Build the Bastion host
 
+    >**Note:** This step should have been completed in exercise 1, task 1.  If it was not, please complete the steps below.
+
 1.  In the Azure portal, select **+ Create a resource** then select **Bastion**. In the search results, select the Bastion service with Microsoft as the publisher.
 
 2.  On the **Create a Bastion** blade, on the **Basics** tab, enter the following information, and select **Review + Create**:
 
     -  Subscription: **Select your subscription**.
 
-    -  Resource group: Select **Create new** and enter **WGMGMTRG**.
+    -  Resource group: Select **WGVnetRG1**.
 
     -  Name: **WGBastion**
 
@@ -966,7 +997,7 @@ In this exercise, management of the Azure-based systems will only be available t
 
     -  Virtual network: **WGVNet1**
 
-    -  Subnet: **AzureBastionSubnet** Note: after creation, assign (10.7.0.0/27) as the subnet address
+    -  Subnet: **AzureBastionSubnet** Note: after creation, assign (10.7.5.0/24) as the subnet address
 
     -  Public IP: **Create New**
 
