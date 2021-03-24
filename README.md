@@ -1,10 +1,13 @@
+### Let us know how we’re doing!  
+Please take a moment to fill out the [Microsoft Cloud Workshop Survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyEtIpX7sDdChuWsXhzKJXJUNjFBVkROWDhSSVdYT0dSRkY4UVFCVzZBVy4u) and help us improve our offerings.
+
 # Enterprise-class networking in Azure
 
 Woodgrove Financial Services has been in business for over 75 years and is a well-known and respected name brand in the financial industry. They are historically risk-adverse, and it has served them well, enabling them to weather several financial storms that closed the doors on similarly sized institutions. While Woodgrove started in the United States, around 20 years ago, they branched out into the international arena by acquiring a bank headquartered in Mexico City. Today, they have 224 branches in the United States and 64 in Mexico.
 
 Woodgrove is committed to migrating to Microsoft Azure with the goal of modernizing their infrastructure and want to start with designing an enterprise-class network.
 
-June 2020
+March 2021
 
 ## Target audience
 - Infrastructure Architect
@@ -40,6 +43,7 @@ At the end of this hands-on lab, you will be better able to configure Azure netw
 - Azure Site to Site connectivity
 - Azure Site to on-premises connectivity
 - ExpressRoute Global Reach
+- Azure Firewall
 
 ## Related references
 - [Microsoft Cloud Workshop](https://microsoftcloudworkshop.com/index.html)
