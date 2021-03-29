@@ -103,9 +103,9 @@ If you are working on a machine that cannot run PowerShell, carry out this task.
 
 9.  Log in with the credentials specified during creation:
 
-    a.  User: **demouser**
+    -  User: **demouser**
 
-    b.  Password: **demo@pass123**
+    -  Password: **demo@pass123**
 
 10. You will be presented with a Remote Desktop Connection warning because of a certificate trust issue. Choose **Yes** to continue with the connection.
 
