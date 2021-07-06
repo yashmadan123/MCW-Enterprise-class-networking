@@ -477,7 +477,7 @@ Route Tables are containers for User Defined Routes (UDRs). The route table is c
 
     -  Name: **MgmtRT**
 
-    -  Propogate gateway routes: **Yes**
+    -  Propagate gateway routes: **Yes**
 
 3.  When the dialog looks like the following screenshot, select **Review + Create** then **Create**.
 
@@ -1269,7 +1269,7 @@ In this exercise, you will collect the flow log and perform connectivity from yo
 
 1. On the Azure portal select **All services** at the left navigation. From the Categories menu select **Networking** then select **Network Watcher**.
 
-2. Select **Traffic Analytics** from the **Logs** menu in the blade. At this time the diagnostic logs from the network resources have been ingested. Select **View map**.
+2. Select **Traffic Analytics** from the **Logs** menu in the blade. At this time, the diagnostic logs from the network resources have been ingested. Select **View map**.
 
      ![In this screenshot, the 'Network Watcher - Traffic Analytics' blade is depicted is depicted with the 'View map' button selected.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image196.png "Your Network Environment")
 
