@@ -591,7 +591,7 @@ In this exercise, you will create and configure a load balancer to distribute lo
 
     -  Type: **Internal**
 
-    -  SKU: **Basic**
+    -  SKU: **Standard**
 
     -  Virtual network: **WGVNet2**
 
