@@ -587,21 +587,31 @@ In this exercise, you will create and configure a load balancer to distribute lo
 
     -  Name: **WGWEBLB**
 
-    -  Region: **(US) South Central US**
+    -  Region: **South Central US**
 
     -  Type: **Internal**
 
     -  SKU: **Standard**
 
+    Ensure your **Create load balancer** dialog looks like the following, and select **Next: Frontend IP configuration** then select **Create**.
+
+    ![In this screenshot, the 'Create load balancer' blade is depicted with the required settings listed above selected along with the 'Next: Frontend IP configuration' button.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image166.png "Create load balancer")
+
+3. On the **Frontend IP configuration** tile, select **+ Add a frontend IP configuration and enter the following values:
+
+    -  Name: **WGWEBLBIP**
+  
     -  Virtual network: **WGVNet2**
 
     -  Subnet: **AppSubnet (10.8.0.0/25)**
 
     -  IP address assignment: Select **Static** and enter the IP address **10.8.0.100**.
 
-    Ensure your **Create load balancer** dialog looks like the following, and select **Review + create** then select **Create**.
+    Ensure your **Create load balancer - Frontend IP configuration** dialog looks like the following, and select **Add**, **Review + create** then select **Create**.
 
-    ![In this screenshot, the 'Create load balancer' blade is depicted with the required settings listed above selected along with the 'Review + create' button.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image166.png "Create load balancer")
+    ![In this screenshot, the 'Frontend IP configuration' blade is depicted with the required settings listed above selected along with the 'Review + create' button.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/frontendip.png "Frontend IP configuration")
+
+    >**Note**: **Backend pools** can now be configured within the **Create Load balancer** wizard.  For this exercise, we will complete this in the next task.
 
 ### Task 2: Configure the load balancer
 
@@ -1239,7 +1249,10 @@ In this exercise, you will collect the flow log and perform connectivity from yo
 
      ![In this screenshot, the 'Network Watcher - NSG flow logs' blade is depicted with the two flow logs created earlier listed.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image189.png "Network Watcher Flow Log")
 
-9.  Navigate back to the **OnPremVM**. Connect to it by downloading and opening the RDP file. Then open another RDP connection to the **WGWEB1** virtual machine within the connection to **OnPremVM**. In the RDP connection to **WGWEB1**, navigate to the load balancer's private ip address (**10.8.0.100**) and generate some traffic by refreshing the browser. Allow ten minutes to pass for traffic analytics to generate.  
+9.  Navigate back to the **OnPremVM**. Connect to it by downloading and opening the RDP file. Then open another RDP connection to the **WGWEB1** virtual machine within the connection to **OnPremVM**. In the RDP connection to **WGWEB1**, navigate to the load balancer's private ip address (**10.8.0.100**) and generate some traffic by refreshing the browser. Allow ten minutes to pass for traffic analytics to generate.
+
+    >**Note**: If you cannot connect through RDP from **OnPremVM** to **WGWEB1** VM, you may need to create a **Network Security Group** rule to allow RDP traffic between the private IP addresses of these VMs.
+
 
      ![In this screenshot, the RDP connections to OnPremVM and WGWEB1 are depicted with the load balancer connection open.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image190.png "CloudShop Application")
 
