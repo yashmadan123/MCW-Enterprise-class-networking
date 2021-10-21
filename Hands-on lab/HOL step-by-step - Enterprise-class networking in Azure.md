@@ -633,6 +633,10 @@ In this exercise, you will create and configure a load balancer to distribute lo
 
     ![In this screenshot, the 'WGWEBLB - Backend pools' blade of the Azure portal is depicted. The two virtual machines in the backend pool show a status of running, indicating that the backend pool configuration is complete.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image167.png "Backend pool blade")
 
+    >**Note**: If you do not see WGWEB1 in the Virtual Machine selection list, the public IP address was not created as a Standard SKU.  Locate **webip** and in the **Overview** tile, select the **Upgrade to Standard SKU** banner to change the SKU.  You will need to change the IP to static in the **Configuration** and temporarily disassociate it from **WGWEB1NetworkInterface**.
+
+    ![In this screenshot, the upgrade to standard sku will take you through the process of upgrading the public IP address.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/upgradesku.png "Upgrade Public IP from Basic to Standard")
+
 7.  Next, under **Settings** on the WGWEBLB Load Balancer blade select **Health Probes**. Select **+ Add**, and use the following information to create a health probe.
 
     -  Name: **HTTP**
@@ -661,7 +665,7 @@ In this exercise, you will create and configure a load balancer to distribute lo
 
     ![In this screenshot, the web page that appears when you navigate to the load balancer IP address appears indicating that your successfully connected to the WEB2 web server.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image78.png "Server response")
 
-11. Using the portal, disassociate the public IP from the NIC of **WGWEB1VM**. Do this by navigating to the VM and selecting **Networking** under **Settings** on the left. Select the **NIC Public IP** then choose **Dissociate**. Select **Yes** when prompted.
+11. Using the portal, disassociate the public IP from the NIC of **WGWEB1** VM. Do this by navigating to the VM and selecting **Networking** under **Settings** on the left. Select the **NIC Public IP** then choose **Dissociate**. Select **Yes** when prompted.
 
     ![In this screenshot, the WGWEB1 - Networking blade of the Azure portal is depicted with the NIC Public IP selected.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image79.png "Virtual machine networking blade")
 
@@ -969,21 +973,25 @@ In this exercise, we will simulate an on-premises connection to the internal web
 
 2.  On the **Connection** blade, select **Create**.
 
-3.  On the **Basics** blade, leave the **Connection type** set to **VNet-to-VNet**. Select the existing **WGVNetRG1** resource group. Then, change the location of this connection to the Azure region hosting the **WGVNet1** virtual network, **South Central US**. Select **OK**.
+3.  On the **Basics** blade, leave the **Connection type** set to **VNet-to-VNet**. Select the existing **WGVNetRG1** resource group. Enter the following information and select **Next: Settings**:
+    - Establish bidirectional connectivity - checked
+    - First connection name - **WGVNet1-to-OnPremWGGateway**
+    - Second connection name - **WGGateway-to-WGVNet1**
+    - Region - **South Central US**
 
     ![In this screenshot, the Basics step of the 'Create connection' blade of the Azure portal is depicted with the required settings listed above selected.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image134.png "Basics")
 
-4.  On the Settings step, select **WGVNet1Gateway** as the first virtual network gateway and **OnPremWGGateway** as the second virtual network gateway. Ensure **Establish bidirectional connectivity** and **IKEV2** is selected. Enter a shared key, such as **A1B2C3D4**. Select **OK**.
+5.  On the Settings step, select **WGVNet1Gateway** as the first virtual network gateway and **OnPremWGGateway** as the second virtual network gateway. Ensure **Establish bidirectional connectivity** and **IKEV2** is selected. Enter a shared key, such as **A1B2C3D4**. Select **Review + create**.
 
     ![In this screenshot, the Settings step of the 'Create connection' blade of the Azure portal is depicted with the required settings listed above selected including the two virtual network gateway resources created earlier.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image178.png "select virtual network gateway")
 
-5.  Select **OK** on the **Summary** page to create the connection.
+6.  Select **Create** on the **Summary** page to create the connection.
 
-6.  In the Azure portal, select **All services** on the left navigation. Then, type **connections** in the search text box and select **Connections**.
+7.  In the Azure portal, select **All services** on the left navigation. Then, type **connections** in the search text box and select **Connections**.
 
     ![In this screenshot, the 'All services' of the Azure portal is depicted with Connections searched for and selected.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image138.png "Azure Portal")
 
-7.  Watch the progress of the connection status, and use the **Refresh** icon until the status changes for both connections from **Unknown** to **Connected**. This may take 5-10 minutes or more. You might need to refresh the page to see the change in status.
+8.  Watch the progress of the connection status, and use the **Refresh** icon until the status changes for both connections from **Unknown** to **Connected**. This may take 5-10 minutes or more. You might need to refresh the page to see the change in status.
 
     ![In this screenshot, the Connections blade of the Azure portal is depicted with the two connections created earlier listed with their respective statuses showing as Connected.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image139.png "Connections blade")
 
@@ -1249,10 +1257,21 @@ In this exercise, you will collect the flow log and perform connectivity from yo
 
      ![In this screenshot, the 'Network Watcher - NSG flow logs' blade is depicted with the two flow logs created earlier listed.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image189.png "Network Watcher Flow Log")
 
-9.  Navigate back to the **OnPremVM**. Connect to it by downloading and opening the RDP file. Then open another RDP connection to the **WGWEB1** virtual machine within the connection to **OnPremVM**. In the RDP connection to **WGWEB1**, navigate to the load balancer's private ip address (**10.8.0.100**) and generate some traffic by refreshing the browser. Allow ten minutes to pass for traffic analytics to generate.
+9.  Navigate back to the **OnPremVM**. Connect to it by downloading and opening the RDP file. 
+    
+10. Install the **Edge** browser on the **OnPremVM** by opening **PowerShell** and running the following commands:
+    
+    ```
+    md -Path $env:temp\edgeinstall -erroraction SilentlyContinue | Out-Null
+    $Download = join-path $env:temp\edgeinstall MicrosoftEdgeEnterpriseX64.msi
 
-    >**Note**: If you cannot connect through RDP from **OnPremVM** to **WGWEB1** VM, you may need to create a **Network Security Group** rule to allow RDP traffic between the private IP addresses of these VMs.
+    Invoke-WebRequest 'https://msedge.sf.dl.delivery.mp.microsoft.com/filestreamingservice/files/a2662b5b-97d0-4312-8946-598355851b3b/MicrosoftEdgeEnterpriseX64.msi'  -OutFile $Download
 
+    Start-Process "$Download" -ArgumentList "/quiet /passive"
+
+11. Open the **Edge** browser and navigate to portal.azure.com.  Login to the **Azure** portal.
+    
+12. In the **Azure** portal, navigate to **Virtual machines** and select the **WGWEB1**. Connect to **WGWEB1** through **Bastion**.  In **WGWEB1**,  navigate to the load balancer's private ip address (**10.8.0.100**) and generate some traffic by refreshing the browser. Allow ten minutes to pass for traffic analytics to generate.
 
      ![In this screenshot, the RDP connections to OnPremVM and WGWEB1 are depicted with the load balancer connection open.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image190.png "CloudShop Application")
 
