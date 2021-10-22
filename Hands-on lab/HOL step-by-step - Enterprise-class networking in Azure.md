@@ -981,17 +981,17 @@ In this exercise, we will simulate an on-premises connection to the internal web
 
     ![In this screenshot, the Basics step of the 'Create connection' blade of the Azure portal is depicted with the required settings listed above selected.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image134.png "Basics")
 
-5.  On the Settings step, select **WGVNet1Gateway** as the first virtual network gateway and **OnPremWGGateway** as the second virtual network gateway. Ensure **Establish bidirectional connectivity** and **IKEV2** is selected. Enter a shared key, such as **A1B2C3D4**. Select **Review + create**.
+4.  On the Settings step, select **WGVNet1Gateway** as the first virtual network gateway and **OnPremWGGateway** as the second virtual network gateway. Ensure **Establish bidirectional connectivity** and **IKEV2** is selected. Enter a shared key, such as **A1B2C3D4**. Select **Review + create**.
 
     ![In this screenshot, the Settings step of the 'Create connection' blade of the Azure portal is depicted with the required settings listed above selected including the two virtual network gateway resources created earlier.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image178.png "select virtual network gateway")
 
-6.  Select **Create** on the **Summary** page to create the connection.
+5.  Select **Create** on the **Summary** page to create the connection.
 
-7.  In the Azure portal, select **All services** on the left navigation. Then, type **connections** in the search text box and select **Connections**.
+6.  In the Azure portal, select **All services** on the left navigation. Then, type **connections** in the search text box and select **Connections**.
 
     ![In this screenshot, the 'All services' of the Azure portal is depicted with Connections searched for and selected.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image138.png "Azure Portal")
 
-8.  Watch the progress of the connection status, and use the **Refresh** icon until the status changes for both connections from **Unknown** to **Connected**. This may take 5-10 minutes or more. You might need to refresh the page to see the change in status.
+7.  Watch the progress of the connection status, and use the **Refresh** icon until the status changes for both connections from **Unknown** to **Connected**. This may take 5-10 minutes or more. You might need to refresh the page to see the change in status.
 
     ![In this screenshot, the Connections blade of the Azure portal is depicted with the two connections created earlier listed with their respective statuses showing as Connected.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image139.png "Connections blade")
 
