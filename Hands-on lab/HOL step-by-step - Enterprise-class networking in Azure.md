@@ -1259,9 +1259,13 @@ In this exercise, you will collect the flow log and perform connectivity from yo
 
 9.  Navigate back to the **OnPremVM**. Connect to it by downloading and opening the RDP file. 
     
-10. Install the **Edge** browser on the **OnPremVM** by opening **PowerShell** and running the following commands:
+10. Install the **Edge** browser on the **OnPremVM** by opening **PowerShell** and running the following commands.  The first command will force TLS 1.2 use for PowerShell:
     
     ```
+    [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
+
+    [enum]::GetNames([System.Net.SecurityProtocolType])
+        
     md -Path $env:temp\edgeinstall -erroraction SilentlyContinue | Out-Null
     $Download = join-path $env:temp\edgeinstall MicrosoftEdgeEnterpriseX64.msi
 
@@ -1271,7 +1275,7 @@ In this exercise, you will collect the flow log and perform connectivity from yo
 
 11. Open the **Edge** browser and navigate to portal.azure.com.  Login to the **Azure** portal.
     
-12. In the **Azure** portal, navigate to **Virtual machines** and select the **WGWEB1**. Connect to **WGWEB1** through **Bastion**.  In **WGWEB1**,  navigate to the load balancer's private ip address (**10.8.0.100**) and generate some traffic by refreshing the browser. Allow ten minutes to pass for traffic analytics to generate.
+12. In the RDP session for the **OnPremVM**, navigate to the **Azure** portal, navigate to **Virtual machines** and select the **WGWEB1**. Connect to **WGWEB1** through **Bastion**.  In **WGWEB1**,  navigate to the load balancer's private ip address (**10.8.0.100**) and generate some traffic by refreshing the browser. Allow ten minutes to pass for traffic analytics to generate.
 
      ![In this screenshot, the RDP connections to OnPremVM and WGWEB1 are depicted with the load balancer connection open.](images/Hands-onlabstep-by-step-Enterprise-classnetworkinginAzureimages/media/image190.png "CloudShop Application")
 
