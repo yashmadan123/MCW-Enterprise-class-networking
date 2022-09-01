@@ -21,14 +21,19 @@ At the end of the workshop, you will be better able to plan and design virtual n
 
 ### Whiteboard Design Session
 
-In this whiteboard design session, you will look at the process of configuring an enterprise-class network within Azure. Your design will include technologies to connect multiple virtual networks, as well as using capabilities such as routing to deploy network virtual appliances such as firewalls to secure your deployment.
+In this Whiteboard design session, you will look at the process of configuring an enterprise-class network within Azure. Your design will include technologies to connect multiple virtual networks, as well as using capabilities such as routing to deploy network virtual appliances such as firewalls to secure your deployment.
 
-At the end of this whiteboard design session, you will be better able to design solutions using Azure Networking features and capabilities
+At the end of this whiteboard design session, you will be better able to design solutions using Azure Networking features and capabilities.
 
-### Hands-on Lab
-In this hands-on lab, you will setup and configure virtual networks in a secure hub-and-spoke design. You will also learn how to secure virtual networks by implementing Azure Firewall, network security groups and application security groups, as well as configure route tables on the subnets in your virtual network. Additionally, you will set up access to the virtual network via a jump box and provision a site-to-site VPN connection from another virtual network, providing emulation of hybrid connectivity from an on-premises environment.
+Continue to the [Whiteboard design session](https://github.com/microsoft/MCW-Enterprise-class-networking/tree/master/Whiteboard%20design%20session) documents folder.
+
+### Hands-on lab
+
+In this Hands-on lab, you will setup and configure virtual networks in a secure hub-and-spoke design. You will also learn how to secure virtual networks by implementing Azure Firewall, network security groups and application security groups, as well as configure route tables on the subnets in your virtual network. Additionally, you will set up access to the virtual network via a jump box and provision a site-to-site VPN connection from another virtual network, providing emulation of hybrid connectivity from an on-premises environment.
 
 At the end of this hands-on lab, you will be better able to configure Azure networking components.
+
+Continue to the [Hands-on lab](https://github.com/microsoft/MCW-Enterprise-class-networking/tree/master/Hands-on%20lab) documents folder.
 
 ### Azure services and related products
 - Azure Virtual Machines
@@ -43,7 +48,7 @@ At the end of this hands-on lab, you will be better able to configure Azure netw
 - Azure Firewall
 
 ## Related references
-- [Microsoft Cloud Workshop](https://microsoftcloudworkshop.com/index.html)
+- [Microsoft Cloud Workshop](https://microsoftcloudworkshop.com)
 - [Linux VMs](https://microsoft.sharepoint.com/sites/infopedia/pages/layouts/kcdoc.aspx?k=g01kc-1-30339)
 - [Hybrid networking](https://microsoft.sharepoint.com/sites/infopedia/pages/layouts/kcdoc.aspx?k=g01kc-1-30335)
 - [DMZ](https://microsoft.sharepoint.com/sites/infopedia/pages/layouts/kcdoc.aspx?k=g01kc-1-30336)
