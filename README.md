@@ -19,7 +19,7 @@ In this workshop, you will learn to setup and configure a virtual network with s
 
 At the end of the workshop, you will be better able to plan and design virtual networks in Azure with multiple subnets to filter and control network traffic. In addition, you will learn to create a virtual network and provision subnets, create route tables with required routes, build a management jump box, configure firewalls to control traffic flow, and configure site-to-site connectivity.
 
-### Whiteboard Design Session
+### Whiteboard design session
 
 In this Whiteboard design session, you will look at the process of configuring an enterprise-class network within Azure. Your design will include technologies to connect multiple virtual networks, as well as using capabilities such as routing to deploy network virtual appliances such as firewalls to secure your deployment.
 
