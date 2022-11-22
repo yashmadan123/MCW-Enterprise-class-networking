@@ -204,7 +204,7 @@ Ten years ago, Woodgrove went through a major upgrade of their Ethernet core and
 
 There is also a datacenter in Mexico, located in Mexico City. The Mexico datacenter has an MPLS connection to the Chicago datacenter with 200 Mbps bandwidth and a Site-to-Site VPN connection for redundancy that is 100 Mbps. All 64 of the Mexico-based branches have Site-to-Site VPN connections to this datacenter and the internet bandwidth for all branches was standardized recently at 50 Mbps up/down.
 
-![The diagram of Woodgrove's current scenario has a cloud at the top, city locations below the cloud, and branches and one headquarters below the cities. Two of the cities - Plano Texas and Chicago Illinois - connect to the cloud with 500 Mbps connections. Mexico City Mexico, the third city, connect with a 100 Mbps connection. Plano and Chicago connect to each other with 5 Gbps connections, while Chicago and Mexico connect with a 200 Mbps, and 100 Mbps connections. Mexico City has three branch offices with 50 Mbps connections, while Plano and Chicago share four branch offices and headquarters. Connections between Chicago / Plano and the branches vary between 100 Mbps and 200 Mbps. The connection with headquarters is 200Mbps.](images/Whiteboarddesignsessionstudentguide-Enterprise-classnetworkinginAzureimages/media/image2.png "Woodgrove current scenario diagram")
+![The diagram of Woodgrove's current scenario has a cloud at the top, city locations below the cloud, and branches and one headquarters below the cities. Two of the cities - Plano Texas and Chicago Illinois - connect to the cloud with 500 Mbps connections. Mexico City Mexico, the third city, connect with a 100 Mbps connection. Plano and Chicago connect to each other with 5 Gbps connections, while Chicago and Mexico connect with a 200 Mbps, and 100 Mbps connections. Mexico City has three branch offices with 50 Mbps connections, while Plano and Chicago share four branch offices and headquarters. Connections between Chicago / Plano and the branches vary between 100 Mbps and 200 Mbps. The connection with headquarters is 200Mbps.](media/woodgrove-location-network-diagram.png "Woodgrove current scenario diagram")
 
 Figure 1 - Woodgrove current network configuration
 
@@ -268,7 +268,9 @@ Woodgrove's pilot deployment of cloud-native applications will include:
 
 ### Infographic for common scenarios
 
-![Infographic that depicts several Azure infrastructure technologies including virtual machines, virtual networks, site-to-site VPN, and ExpressRoute ](images/Whiteboarddesignsessionstudentguide-Enterprise-classnetworkinginAzureimages/media/image3.jpeg "Infographic for common scenarios")
+![Infographic that depicts several Azure infrastructure technologies including virtual machines, virtual networks, site-to-site VPN, and ExpressRoute ](media/iaas-infographic.jpeg "Infographic for common scenarios")
+
+Figure 2 - Common scenarios using Azure Infrastructure as a Service
 
 ## Step 2: Design a proof of concept solution
 
@@ -467,7 +469,9 @@ The solution for Woodgrove involved several technologies, including:
 
 - Implementing Azure Firewall to make sure it protects and filters all the traffic coming into and going out from the Azure virtual network.
 
-    ![A diagram that depicts the network flow from two on-premises sites where the traffic flows through Equinix and Level 3 using VPN and ExpressRoute. Multiple virtual networks in Azure are connected via VPN peering.](images/Whiteboarddesignsessiontrainerguide-Enterprise-classnetworkinginAzureimages/media/high-level-architecture.png "Preferred Solution")
+    ![A diagram that depicts the network flow from two on-premises sites where the traffic flows through Equinix and Level 3 using VPN and ExpressRoute. Multiple virtual networks in Azure are connected via VPN peering.](media/high-level-architecture.png "Preferred Solution")
+
+    Figure 3 - Preferred Solution diagram
 
 *Address the following customer requirements*
 
@@ -487,9 +491,9 @@ The solution for Woodgrove involved several technologies, including:
 
     After learning that, with ExpressRoute, PaaS services do not traverse the internet, there was renewed interest in planning for PaaS adoption. These needs, in conjunction with connecting to private services (such as IaaS), dictate for the ExpressRoute circuits to be set up for private and Microsoft peering.
 
-    ![This image represents private and Microsoft peering for the ExpressRoute circuits.](images/Whiteboarddesignsessiontrainerguide-Enterprise-classnetworkinginAzureimages/media/image7.png)
+    ![This image represents private and Microsoft peering for the ExpressRoute circuits.](media/peering-for-express-routes.png "Peering for ExpressRoute")
 
-    Figure 2 - Peering for ExpressRoute
+    Figure 4 - Peering for ExpressRoute
 
     **Private peering**
 
@@ -501,9 +505,19 @@ The solution for Woodgrove involved several technologies, including:
 
     Addresses from the two subnets will be used to establish two private peering for redundancy.
 
-    ![The Link 1 table lists two IP addresses for Customer/Provider use, and Microsoft use: 10.0.5.1/30, and 10.0.5.2/30.](images/Whiteboarddesignsessiontrainerguide-Enterprise-classnetworkinginAzureimages/media/image8.png "Link 1 table")
+    **Private peering - Link 1**
 
-    ![The Link 2 table lists two IP addresses for Customer/Provider use, and Microsoft use: 10.0.5.5/30, and 10.0.5.6/30.](images/Whiteboarddesignsessiontrainerguide-Enterprise-classnetworkinginAzureimages/media/image9.png "Link 2 table")
+    | IP Address | Usage |
+    |----|----|
+    |10.0.5.1/30 | Customer/Provider use |
+    |10.0.5.2/30 | Microsoft use |
+
+    **Private peering - Link 2**
+
+    | IP Address | Usage |
+    |----|----|
+    |10.0.5.5/30 | Customer/Provider use |
+    |10.0.5.6/30 | Microsoft use |
 
     **Microsoft peering**
 
@@ -513,9 +527,19 @@ The solution for Woodgrove involved several technologies, including:
 
     - 72.191.44.4/30
 
-    ![This table lists the IP addresses and Autonomous System Numbers for Customer/Provider use and Microsoft use. IP Addresses are 72.191.44.1/30, and 72.191.44.2/30. ](images/Whiteboarddesignsessiontrainerguide-Enterprise-classnetworkinginAzureimages/media/image10.png "Link 1 table")
+    **Microsoft peering - Link 1**
 
-    ![This table lists the IP addresses and Autonomous System Numbers for Customer/Provider use and Microsoft use. IP Addresses are now 72.191.44.5/30, and 72.191.44.6/30.](images/Whiteboarddesignsessiontrainerguide-Enterprise-classnetworkinginAzureimages/media/image11.png "Link 2 table")
+    | IP Address | Autonomous System Number | Usage |
+    |----|----|----|
+    |72.191.44.1/30 | AS20046 | Customer/Provider use |
+    |72.191.44.2/30 | AS20046 | Microsoft use |
+
+    **Microsoft peering - Link 2**
+
+    | IP Address | Autonomous System Number | Usage |
+    |----|----|----|
+    |72.191.44.5/30 | AS20046 | Customer/Provider use |
+    |72.191.44.6/30 | AS20046 | Microsoft use |
 
     **ExpressRoute connectivity type for Chicago**
 
@@ -594,17 +618,17 @@ The solution for Woodgrove involved several technologies, including:
 
     The Microsoft peering path enables you to connect to all services hosted in Azure over their Public IP addresses. These services include all services listed in the ExpressRoute FAQ and any services hosted by ISVs on Microsoft Azure. The Microsoft peering also lets you connect to Office 365 services such as Exchange Online, SharePoint Online, Skype for Business, and to CRM Online. Microsoft supports bidirectional connectivity via Microsoft peering. Traffic destined to Microsoft cloud services must be SNATed to valid Public IPv4 or IPv6 addresses before they enter the Microsoft network.
 
-    ![The ExpressRoute diagram is made up of three boxes from left to right: Customer Network, Layer 2 Connectivity Provider, and Microsoft Cloud. Within the Customer Network box are user icons in the cloud, and two NAT boxes. The Layer 2 Connectivity provider box has the same Partner Edge box. Express Route connects The Layer 2 Connectivity Provider box with the Microsoft Cloud box, which includes Microsoft Edge and Microsoft Public Services.](images/Whiteboarddesignsessiontrainerguide-Enterprise-classnetworkinginAzureimages/media/image13.png "ExpressRoute")
+    ![The ExpressRoute diagram is made up of three boxes from left to right: Customer Network, Layer 2 Connectivity Provider, and Microsoft Cloud. Within the Customer Network box are user icons in the cloud, and two NAT boxes. The Layer 2 Connectivity provider box has the same Partner Edge box. Express Route connects The Layer 2 Connectivity Provider box with the Microsoft Cloud box, which includes Microsoft Edge and Microsoft Public Services.](media/snat-diagram.png "Microsoft peering SNAT")
 
-    Figure : Microsoft peering SNAT
+    Figure 5 - Microsoft peering SNAT diagram
 
 4. How does your design address availability at the network layer?
 
     The following diagram shows a configuration with redundant on-premises routers connected to the primary and secondary circuits. Each circuit handles the traffic for a Microsoft peering and a private peering.
 
-    ![This diagram depicts redundant on-premises routers connected to he primary and secondary circuits. Each circuit is shown handling the traffic for a Microsoft peering and a private peering.](images/Whiteboarddesignsessiontrainerguide-Enterprise-classnetworkinginAzureimages/media/image14.png)
+    ![This diagram depicts redundant on-premises routers connected to the primary and secondary circuits. Each circuit is shown handling the traffic for a Microsoft peering and a private peering.](media/microsoft-peering.png "Redundancy and Peering with ExpressRoute")
 
-    Figure 4 - Redundancy and Peering with ExpressRoute
+    Figure 6 - Redundancy and Peering with ExpressRoute
 
     Azure Firewall has high-availability built-in, so no additional load balancers are required and there is nothing for you to configure for redundancy.
 
