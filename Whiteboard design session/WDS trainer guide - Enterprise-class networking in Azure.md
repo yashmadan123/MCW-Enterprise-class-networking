@@ -92,11 +92,11 @@ Each whiteboard design session uses the following flow:
 
 Analyze your customer's needs.
 
-- Customer's background, situation, needs and technical requirements
+- Customer's background, situation, needs, and technical requirements
 
 - Current customer infrastructure and architecture
 
-- Potential issues, objectives and blockers
+- Potential issues, objectives, and blockers
 
 **Step 2: Design a proof of concept solution (60 minutes)**
 
@@ -106,7 +106,7 @@ Design a solution and prepare to present the solution to the target customer aud
 
 - Determine your target customer audience.
 
-- Determine customer's business needs to address your solution.
+- Determine the customer's business needs to address your solution.
 
 - Design and diagram your solution.
 
@@ -194,7 +194,7 @@ Directions:  With all participants in the session, the facilitator/SME presents 
 
 Woodgrove Financial Services has been in business for over 75 years and is a well-known and respected name brand in the financial industry. They are historically risk-averse, and it has served them well, enabling them to weather several financial storms that closed the doors on similarly sized institutions. While Woodgrove started in the United States, around 20 years ago, they branched out into the international arena by acquiring a bank headquartered in Mexico City. Today, they have 224 branches in the United States and 64 in Mexico.
 
-Five years ago, a new president of Woodgrove Financial Services was brought onboard to help modernize the image of the bank and to drive efficiencies through use of modern technologies. The new president is under stiff pressure from the board to lower capital costs and help Woodgrove refocus on its core business. Woodgrove's mission is to promote its customer's well-being and secure their future through a broad range of financial services.
+Five years ago, a new president of Woodgrove Financial Services was brought on board to help modernize the image of the bank and to drive efficiencies through the use of modern technologies. The new president is under stiff pressure from the board to lower capital costs and help Woodgrove refocus on its core business. Woodgrove's mission is to promote its customer's well-being and secure their future through a broad range of financial services.
 
 Woodgrove Financial Services headquarters is in Chicago, IL, and their United States branches exist in several states extending over the North Central United States. Their Mexico-based branches are in Mexico City and in the surrounding cities.
 
@@ -214,7 +214,7 @@ Woodgrove's business critical applications include:
 
 - Their core banking application (a client-server application taking advantage of approximately 50 application servers and a SQL Server 2014-based data tier using Always on Availability Groups and In-Memory tables).
 
-- Their website that enables online banking features (running on several web farms in the company's perimeter network and securely interacting with the banking application servers).
+- Their website enables online banking features (running on several web farms in the company's perimeter network and securely interacting with the banking application servers).
 
 - Their HR system (a custom-written system taking advantage of several application servers and an Oracle-based data tier).
 
@@ -242,19 +242,19 @@ Woodgrove's pilot deployment of cloud-native applications will include:
 
 4. For the time being, all internet traffic must be passed through an on-premises intrusion detection or prevention system to comply with company policy.
 
-5. All the incoming traffic must be inspected in order to ensure protection against SQL injections, cross-site scripting and other web attacks such as http protocol violation etc.
+5. All the incoming traffic must be inspected to ensure protection against SQL injections, cross-site scripting and other web attacks such as HTTP protocol violation, etc.
 
-6. All traffic targeting the cloud-based marketing web app will not be passed through on premises network. An alternative cloud-native security solution is required.
+6. All traffic targeting the cloud-based marketing web app will not be passed through on-premises network. An alternative cloud-native security solution is required.
 
-7. URL based routing, redirection, SSL termination will need to be implemented on the FW/LB level for the new cloud web apps.
+7. URL based routing, redirection, and SSL termination will need to be implemented on the FW/LB level for the new cloud web apps.
 
-8. DDoS protection plan must be configured for the Virtual Network which will host the Data and Web tiers of the core banking application.
+8. A DDoS protection plan must be configured for the Virtual Network which will host the Data and Web tiers of the core banking application.
 
 9. All traffic that goes in and out of Azure virtual networks must be filtered and passed through a firewall appliance.
 
-10. All traffic that goes through ExpressRoute circuit needs to be distributed based on business units and will have granular control of circuit distributions.
+10. All traffic that goes through the ExpressRoute circuit needs to be distributed based on business units and will have granular control of circuit distributions.
 
-11. ExpressRoute circuits need to be link together to make a private network so that data can directly exchange between offices.
+11. ExpressRoute circuits need to be linked together to make a private network so that data can directly exchange between offices.
 
 ### Customer objections
 
@@ -300,7 +300,7 @@ The desired outcome is a network architecture that meets the needs of a modern f
 
 1. Explain the approach you would take to deploying ExpressRoute Circuits including location and circuit size.
 
-2. What ExpressRoute peering options you would enable and what workloads would use them? Diagram your peering configuration including subnet, IP and autonomous system number configuration needed.
+2. What ExpressRoute peering options you would enable and what workloads would use them? Diagram your peering configuration including the subnet, IP, and autonomous system number configuration needed.
 
 3. What are the NAT requirements for ExpressRoute integration?
 
@@ -481,7 +481,7 @@ The solution for Woodgrove involved several technologies, including:
 
     Taking advantage of different providers will enable Woodgrove to maintain robust connectivity to Azure even in the case of a catastrophic provider issue.
 
-    Because of the potential of large amounts of data movement back and forth between Azure and the on-premises environment, the metered data option was chosen for both ExpressRoute circuits (customer has the option of converting from metered to unlimited if needed). From a bandwidth perspective, after completing a study of current bandwidth usage trends, 1 Gbps circuit sizes were selected for both ExpressRoute circuits.
+    Because of the potential of large amounts of data movement back and forth between Azure and the on-premises environment, the metered data option was chosen for both ExpressRoute circuits (the customer has the option of converting from metered to unlimited if needed). From a bandwidth perspective, after completing a study of current bandwidth usage trends, 1 Gbps circuit sizes were selected for both ExpressRoute circuits.
 
 2. What ExpressRoute peering options you would enable and what workloads would use them? Diagram your peering configuration including subnet, IP and autonomous system number configuration needed.
 
