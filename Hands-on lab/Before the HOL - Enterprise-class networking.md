@@ -52,9 +52,9 @@ Duration: 15 minutes
 
 2. Extract the downloaded ECN-Hackathon.zip file into the directory **C:\\ECN-Hackathon**.
 
-    ![In File Explorer, the Downloads folder and ECN-Hackathon.zip are highlighted. The context menu is showing for the ECN-Hackathon.zip file, and 'Extract All...' is highlighted.](images/bhol-task2-ecn-hackathon-zip-file-explorer.png "File Explorer showing the ECN-Hackathon.zip file in the Downloads folder")
+    ![In File Explorer, the Downloads folder and ECN-Hackathon.zip are highlighted. The context menu is showing for the ECN-Hackathon.zip file, and 'Extract All...' is highlighted.](images/bhol-task1-ecn-hackathon-zip-file-explorer.png "File Explorer showing the ECN-Hackathon.zip file in the Downloads folder")
 
-    ![In the Extract Compressed (Zipped) Folders dialog, files are being extracted to C:\\ECH-Hackathon, and the Extract button is highlighted.](images/bhol-task2-extract-ecn-hackathon-zip.png "Extract Compressed (Zipped) Folders dialog")
+    ![In the Extract Compressed (Zipped) Folders dialog, files are being extracted to C:\\ECH-Hackathon, and the Extract button is highlighted.](images/bhol-task1-extract-ecn-hackathon-zip.png "Extract Compressed (Zipped) Folders dialog")
 
 ### Task 2: Create a Virtual Network (hub) with Subnets
 
@@ -72,7 +72,7 @@ Duration: 15 minutes
 
 3. Upon completion, it should look like the following screenshot. Validate the information is correct, and choose **Next: IP Addresses**.
 
-    ![In this screenshot, the Basics tab of the 'Create virtual network' blade of the Azure portal is depicted with the required fields - Subscription, Resource group, Name, and Region - and the 'Next: IP Addresses' button highlighted.](images/bhol-task3-create-virtual-network.png "Create virtual network blade's Basics tab")
+    ![In this screenshot, the Basics tab of the 'Create virtual network' blade of the Azure portal is depicted with the required fields - Subscription, Resource group, Name, and Region - and the 'Next: IP Addresses' button highlighted.](images/bhol-task2-create-virtual-network.png "Create virtual network blade's Basics tab")
 
 4. On the **IP Addresses** tab of the **Create virtual network** blade, enter the following information:
 
@@ -86,15 +86,17 @@ Duration: 15 minutes
 
        - NAT Gateway: **None**
 
+    ![In this screenshot, the IP Addresses tab of the 'Create virtual network' blade of the Azure portal is depicted with the IPv4 address spacee, 'Add subnet' button, and the 'Review + create' button highlighted.](images/bhol-task2-create-virtual-network-ip-addresses.png "Create virtual network blade's IP Addresses tab")
+
 5. Once complete, click **Review + Create** then once the validation passes, click **Create**.
 
 6. Go to the WGVNetRG2 Resource Group, select the **WGVNet2** blade, and select **Subnets** under **Settings** on the left.
 
-    ![In this screenshot, the Azure portal navigation for the WGVNet2 virtual network is shown. The Subnets option under the Settings section is highlighted](images/bhol-task3-subnets-navigation.png "WGVNet2 Subnets blade")
+    ![In this screenshot, the Azure portal navigation for the WGVNet2 virtual network is shown. The Subnets option under the Settings section is highlighted](images/bhol-task2-subnets-navigation.png "WGVNet2 Subnets blade")
 
-7. In the **Subnets** blade, select **+Subnet**.
+7. In the **Subnets** blade, select **+ Subnet**.
 
-    ![In this screenshot, the Subnets blade is shown with the AppSubnet created earlier listed below. The '+ Subnet' button is highlighted.](images/bhol-task3-add-subnet-button.png "Subnets blade")
+    ![In this screenshot, the Subnets blade is shown with the AppSubnet created earlier listed below. The '+ Subnet' button is highlighted.](images/bhol-task2-add-subnet-button.png "Subnets blade")
 
 8. On the **Add subnet** blade, enter the following information:
 
@@ -110,11 +112,11 @@ Duration: 15 minutes
 
 9. When your dialog looks like the following screenshot, select **Save** to create the subnet.
 
-    ![In this screenshot, the 'Add subnet' blade for WVGNet2 is depicted with the required information for the DataSubnet highlighted.](images/bhol-task3-add-subnet-blade.png "Add subnet blade")
+    ![In this screenshot, the 'Add subnet' blade for WVGNet2 is depicted with the required information for the DataSubnet highlighted.](images/bhol-task2-add-subnet-blade.png "Add subnet blade")
 
 10. When the subnet has completed its configuration, your subnet deployment will look like the following screenshot.
 
-     ![In this screenshot, the Azure portal Subnets blade of the WGVNet2 virtual network is depicted with the newly created subnets listed.](images/bhol-task3-subnets-table.png "WGVNet2 virtual network's subnets table")  
+     ![In this screenshot, the Azure portal Subnets blade of the WGVNet2 virtual network is depicted with the newly created subnets listed.](images/bhol-task2-subnets-table.png "WGVNet2 virtual network's subnets table")  
 
 ### Task 3: Use the Azure portal for a template deployment
 
@@ -124,17 +126,17 @@ Duration: 15 minutes
 
 3. Expand the left navigation and choose **+ Create a resource**. Search for and select **template deployment (deploy using custom templates)**.
 
-    ![In this screenshot, the 'Create a resource' blade is depicted with 'Template deployment (deploy using custom templates)' entered in the 'Search the Marketplace' box.](images/bhol-task4-create-template-deployment.png "Create a resource blade")
+    ![In this screenshot, the 'Create a resource' blade is depicted with 'Template deployment (deploy using custom templates)' entered in the 'Search the Marketplace' box.](images/bhol-task3-create-template-deployment.png "Create a resource blade")
 
 4. On the **Template deployment (deploy using custom templates)** blade, select **Create**.
 
 5. On the Custom deployment blade, select **Build your own template in the editor**.
 
-    ![In this screenshot, the 'Custom deployment' blade of the Azure portal is depicted with the 'Build your own template in the editor' link highlighted.](images/bhol-task4-custom-deployment.png "Custom deployment blade")
+    ![In this screenshot, the 'Custom deployment' blade of the Azure portal is depicted with the 'Build your own template in the editor' link highlighted.](images/bhol-task3-custom-deployment.png "Custom deployment blade")
 
-6. Choose **Load file** and select the **CloudShop.json** file from your **C:\\ECN-Hackathon** directory and then select **Save**.
+6. Choose **Load file**. Select the **CloudShop.json** file from your **C:\\ECN-Hackathon** directory. Select **Save**.
 
-    ![In this screenshot, the 'Edit template' blade of the Azure portal is depicted with the 'Load file' button and 'Save' button highlighted.](images/bhol-task4-load-custom-template.png "Edit template blade")
+    ![In this screenshot, the 'Edit template' blade of the Azure portal is depicted with the 'Load file' button and 'Save' button highlighted.](images/bhol-task3-load-custom-template.png "Edit template blade")
 
 7. Update the following parameters to reference the **WGVNet2** virtual network in the **WGVNetRG2** resource group and to the **AppSubnet** and **DataSubnet** subnets.
 
@@ -146,7 +148,7 @@ Duration: 15 minutes
   
     - Data Subnet: **DataSubnet**
 
-    ![In this screenshot, the 'Custom deployment' blade of the Azure portal is depicted with the parameters listed above selected with their proper values.](images/bhol-task4-virtual-network-resources.png "Template parameters")
+    ![In this screenshot, the 'Custom deployment' blade of the Azure portal is depicted with the 'Existing Virtual Network Name', 'Existing Virtual Network Resource Group', 'WebSubnet', and 'DataSubnet' fields highlighted with their specified values.](images/bhol-task3-virtual-network-resources.png "Template parameters")
 
 8. Update the **Custom deployment** blade using the following inputs, agree to the terms, and select **Review + create**. Review the configuration, and then select **Create**. This deployment will take approximately 30-40 minutes.
 
@@ -154,7 +156,7 @@ Duration: 15 minutes
 
     - Region: This should be the same location you used to provision resources earlier in this lab.
 
-    ![In this screenshot, the 'Custom deployment' blade of the Azure portal is depicted with the parameters listed above selected with their proper values.](images/bhol-task4-custom-deployment-resource-group.png "Template blade")
+    ![In this screenshot, the 'Custom deployment' blade of the Azure portal is depicted with the parameters listed above selected with their proper values.](images/bhol-task3-custom-deployment-resource-group.png "Template blade")
 
 ### Task 4: Validate the CloudShop application is up after the deployment
 
@@ -164,7 +166,7 @@ Duration: 15 minutes
 
 3. On the **WGWEB1** blade, first select **Connect**, then select **RDP**. When prompted, choose **Download RDP file** to download the RDP file to connect to WGWEB1.
 
-    ![In this screenshot, the WGWEB1 virtual machine blade of the Azure portal is depicted with the Connect context menu expanded. The Connect button and the RDP option are highlighted.](images/bhol-task5-connect-to-wgweb1.png "Virtual machine blade")
+    ![In this screenshot, the WGWEB1 virtual machine blade of the Azure portal is depicted with the Connect context menu expanded. The Connect button and the RDP option are highlighted.](images/bhol-task4-connect-to-wgweb1.png "Virtual machine blade")
 
 4. Depending on your Remote Desktop protocol client and browser configuration, you will either be prompted to open an RDP file, or you will need to download it and then open it separately to connect.
 
@@ -176,11 +178,11 @@ Duration: 15 minutes
 
 6. You will be presented with a Remote Desktop Connection warning because of a certificate trust issue. Select **Yes** to continue with the connection.
 
-    ![In this screenshot, the Remote Desktop Connection warning is depicted with the Yes button and 'Don't ask me again' box highlighted.](images/bhol-task5-rdp-notice-wgweb1.png "Remote Desktop Connection warning dialog box")
+    ![In this screenshot, the Remote Desktop Connection warning is depicted with the Yes button and 'Don't ask me again' box highlighted.](images/bhol-task4-rdp-notice-wgweb1.png "Remote Desktop Connection warning dialog box")
 
 7. When logging on for the first time, you will have a prompt asking about network discovery. Select **No**.
 
-    ![Screenshot of the network discovery dialog asking whether to find PCs, devices, and content on this network. 'No' is highlighted.](images/bhol-task5-network-discovery.png)
+    ![Screenshot of the network discovery dialog asking whether to find PCs, devices, and content on this network. 'No' is highlighted.](images/bhol-task4-network-discovery.png)
 
 8. Notice that Server Manager opens by default. Close Server Manager.
 
@@ -189,6 +191,6 @@ Duration: 15 minutes
     - WGWEB1 CloudShop site: <http://wgweb1>
     - WGWEB2 CloudShop site: <http://wgweb2>
 
-    ![In this screenshot, the Cloud Shop app is displayed. WGWEB2 is highlighted at the end of the title 'CloudShop Demo - Products - running on WGWEB2'.](images/bhol-task5-test-cloudshop-app.png "CloudShop app running on WGWEB2")
+    ![In this screenshot, the Cloud Shop app is displayed. WGWEB2 is highlighted at the end of the title 'CloudShop Demo - Products - running on WGWEB2'.](images/bhol-task4-test-cloudshop-app.png "CloudShop app running on WGWEB2")
 
 You should follow all steps provided *before* performing the Hands-on lab.
