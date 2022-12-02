@@ -326,7 +326,7 @@ This task will create a network security group with the following rules:
 - Deny all other traffic from the virtual machines to the data tier.
 - Deny all other traffic from the virtual machines to the web tier.
 
-1. In the Azure portal, select **+ Create a resource**. In the **Search the Marketplace** box, **Network security group** and press Enter. On the **Network security group** blade, select **Create**.
+1. In the Azure portal, select **+ Create a resource**. In the **Search the Marketplace** box, search for **Network security group** and press Enter. On the **Network security group** blade, select **Create**.
 
 2. On the **Create network security group** blade, enter the following information, and select **Review + Create** then **Create**:
 
@@ -470,9 +470,11 @@ This task will create a network security group with the following rules:
 
     - Name: **DenyVNetWebTierInbound**
 
-    ![In this screenshot, the 'Add inbound security rule' blade of the Azure portal is depicted with the above required settings selected..](images/hol-ex3-task3-add-inbound-security-rule-deny-web-tier-inbound.png "Configure WGAppNSG1 DenyVNetWebTierInbound rule")
+    ![In this screenshot, the 'Add inbound security rule' blade of the Azure portal is depicted with the above required settings selected.](images/hol-ex3-task3-add-inbound-security-rule-deny-web-tier-inbound.png "Configure WGAppNSG1 DenyVNetWebTierInbound rule")
 
 15. On the **WGAppNSG1 - Inbound security rules** blade, select **Subnets** under **Settings** and then select **+ Associate**.
+
+    ![In this screenshot, Subnets blade of WGAppNSG1 is depicted. The 'Subnets' navigation and the '+ Associate' button are highlighted.](images/hol-ex3-task3-associate-subnet-nsg.png "WGAppNSG1 Subnets")
 
 16. On the **Associate subnet** blade, select **WGVNet2** on the **Virtual network** drop down and **AppSubnet** on the **Subnet** dropdown.
 
@@ -564,7 +566,7 @@ Route Tables are containers for User Defined Routes (UDRs). The route table is c
 
     ![In this screenshot, the 'Routes' blade of the Azure portal is depicted with the MgmtRT route table selected. The Routes option under the Settings section of the left navigation is highlighted.](images/hol-ex4-task2-mgmtrt-in-route-tables.png "MgmtRT")
 
-7. On the **Routes** blade, select **+Add**. Enter the following information, and select **OK**:
+7. On the **Routes** blade, select **+Add**. Enter the following information, and select **Add**:
 
     - Route name: **MgmtToOnPremises**
 
@@ -764,9 +766,9 @@ In this exercise, you will provision and configure an Azure firewall in your net
 
 ### Task 2: Create Firewall Rules
 
-Within 1-2 minutes, the resource group **WGVNetRG1** will have the firewall created. Next, we will firewall rules to allow the inbound and outbound traffic.
+Within 1-2 minutes, the resource group **WGVNetRG1** will have the firewall created. Next, we will create firewall rules to allow the inbound and outbound traffic.
 
-1. On the main Azure menu select **Resource groups**.
+1. On the main Azure menu, select **Resource groups**.
 
 2. Select the **WGVNetRG1** resource group. This resource group contains the azure firewall and its public IP address resources.
 
@@ -786,6 +788,8 @@ Within 1-2 minutes, the resource group **WGVNetRG1** will have the firewall crea
 
     - Protocol: **TCP**
 
+    - Source type: **IP Address**
+
     - Source: **\***
 
     - Destination Address: Type the public IP address assigned to the firewall you identified earlier in this task.
@@ -802,6 +806,8 @@ Within 1-2 minutes, the resource group **WGVNetRG1** will have the firewall crea
 
     - Protocol: **TCP**
 
+    - Source type: **IP Address**
+
     - Source: **\***
 
     - Destination Address: Type the public IP address assigned to the firewall you identified earlier in this task.
@@ -814,7 +820,7 @@ Within 1-2 minutes, the resource group **WGVNetRG1** will have the firewall crea
 
     ![In this screenshot, the 'Edit NAT rule collection' page is depicted with the required settings listed above selected.](images/hol-ex6-task2-edit-nat-rule-collection.png "Azure Firewall NAT Rules for HTTP and HTTPS")
 
-7. Select **Save** and wait until the update completes.
+7. Select **Add** and wait until the update completes.
 
 8. Back on the Azure Firewall **Rules (classic)** page, select **Network rule collection**. Then Select **+ Add Network Rule collection** and enter the following information to create a Network Rule for inbound traffic. This rule allows HTTP connectivity from any directly connected network targeting the frontend IP address of the load balancer.
 
@@ -833,6 +839,8 @@ Within 1-2 minutes, the resource group **WGVNetRG1** will have the firewall crea
     - Destination Address: **10.8.0.100**
 
     - Destination ports: **80,443**
+
+    ![In this screenshot, the azureFirewall Rules (classic) blade is depicted. The 'Network rule collection' tab and 'Add network rule collection' link are highlighted.](images/hol-ex6-task2-network-rule-collection.png)
 
 9. Create another rule for Remote Desktop sessions from the Management subnet on WGVNet1. The IP Addresses rules should look like the image below.
 
