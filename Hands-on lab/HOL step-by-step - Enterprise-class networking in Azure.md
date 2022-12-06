@@ -266,7 +266,7 @@ Duration: 20 Minutes
 
 Duration: 20 minutes
 
-In this exercise, you will restrict traffic between tiers of n-tier application by using network security groups and application security groups.
+In this exercise, you will restrict traffic between tiers of an n-tier application by using network security groups and application security groups.
 
 ### Task 1: Create application security groups
 
@@ -1300,7 +1300,7 @@ In this exercise, you will collect the flow log and perform connectivity from yo
 
 3. Select **onpremvm*NNN*** then select **+Add diagnostic setting**.
 
-     ![In this screenshot, the Diagnostics logs blade of Network Watch is depicted. The 'Diagnostic Logs' menu option and the resources that start with 'onpremvm' are highlighted.](images/hol-ex10-task2-diagnostic-logs-navigation.png "Network Watcher Diagnostic logs")
+     ![In this screenshot, the Diagnostics logs blade of Network Watch is depicted. The 'Diagnostic Logs' menu option and the network interface resource that starts with 'onpremvm' is highlighted.](images/hol-ex10-task2-diagnostic-logs-navigation.png "Network Watcher Diagnostic logs")
 
 4. Enter **OnPremDiag** as the name then select the checkbox for **Archive to a storage account**. On the **Storage accounts** drop down, select the available storage account you created earlier.
 
