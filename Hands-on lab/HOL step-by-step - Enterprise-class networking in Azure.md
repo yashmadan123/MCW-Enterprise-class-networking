@@ -9,7 +9,7 @@ Hands-on lab step-by-step
 </div>
 
 <div class="MCWHeader3">
-November 2022
+December 2022
 </div>
 
 Information in this document, including URL and other Internet Web site references, is subject to change without notice. Unless otherwise noted, the example companies, organizations, products, domain names, e-mail addresses, logos, people, places, and events depicted herein are fictitious, and no association with any real company, organization, product, domain name, e-mail address, logo, person, place or event is intended or should be inferred. Complying with all applicable copyright laws is the responsibility of the user. Without limiting the rights under copyright, no part of this document may be reproduced, stored in or introduced into a retrieval system, or transmitted in any form or by any means (electronic, mechanical, photocopying, recording, or otherwise), or for any purpose, without the express written permission of Microsoft Corporation.
@@ -98,7 +98,7 @@ The result of this proof of concept will be an environment resembling this diagr
 
 ## Solution architecture
 
-![This image represents an entire overview of an environment for the result of this proof of concept. On the left is the OnPremVNetRG resource group, in the middle is the WGVNetRG1 resource group, on the right is the WGVNetRG2 resource group. In the lower right is the MonitoringRG resource group.](images/hol-architecture.png "Solution Architecture")
+![This image represents an entire overview of an environment for the result of this proof of concept. On the left is the OnPremVNetRG resource group, in the middle is the WGVNetRG1 resource group, and on the right is the WGVNetRG2 resource group. In the lower right is the MonitoringRG resource group.](images/hol-architecture.png "Solution Architecture")
 
 ## Requirements
 
@@ -604,9 +604,9 @@ Route Tables are containers for User Defined Routes (UDRs). The route table is c
 
 Duration: 20 minutes
 
-In this exercise, you will create and configure a load balancer to distribute load between the web servers.
+In this exercise, you will create and configure a load balancer to distribute the load between the web servers.
 
-### Task 1: Create a load balancer to distribute load between the web servers
+### Task 1: Create a load balancer to distribute the load between the web servers
 
 1. In the Azure portal, from the home page navigation, select **Load balancers**, then select **+ Create**.
 
@@ -708,7 +708,7 @@ In this exercise, you will create and configure a load balancer to distribute lo
 
     ![In this screenshot, the 'Add load balancing rule' blade of the Azure portal is depicted with the required settings listed above and the Add button highlighted.](images/hol-ex5-task2-add-load-balancing-rule-http.png "Add load balancing rule")
 
-10. Navigate to WGWEB1 in the Azure portal. Connect to WGWEB1 via Bastion. Within WGWEB1, open Microsoft Edge from the Start menu and navigate to <http://10.8.0.100>. Ensure that you successfully connect to either one of two Web servers.
+10. Navigate to WGWEB1 in the Azure portal. Connect to WGWEB1 via Bastion. Within WGWEB1, open Microsoft Edge from the Start menu and navigate to <http://10.8.0.100>. Ensure that you successfully connect to either one of the two Web servers.
 
     ![In this screenshot, the web page that appears when you navigate to the load balancer IP address appears indicating that your successfully connected to the WEB1 web server.](images/hol-ex5-task2-cloudshop-demo-on-wgweb1.png "Server response for the CloudShop demo on WGWEB1")
 
@@ -778,7 +778,7 @@ Within 1-2 minutes, the resource group **WGVNetRG1** will have the firewall crea
 
     ![In this screenshot, the Azure Firewall page is depicted with Rules (classic) selected on the left.](images/hol-ex6-task2-azure-firewall-rules-navigation.png "Azure Firewall overview page")
 
-5. Select **+ Add NAT Rule collection** and enter the following information to create an inbound NAT Rule (collection is a list of rules that share the same priority and action) then select **Add**:
+5. Select **+ Add NAT Rule collection** and enter the following information to create an inbound NAT Rule (a collection is a list of rules that share the same priority and action) then select **Add**:
 
     - Name: **NATRuleCollection1**
 
@@ -800,7 +800,7 @@ Within 1-2 minutes, the resource group **WGVNetRG1** will have the firewall crea
 
     - Translated Port: **80**
 
-6. Back on the **azureFirewall - Rules (classic)** page, select the newly created NAT rule collection. Add another rule for HTTPS, as illustrated on the following screenshot (alternatively you could create a single rule for both HTTP and HTTPS). The rules should look like the image below.
+6. Back on the **azureFirewall - Rules (classic)** page, select the newly created NAT rule collection. Add another rule for HTTPS, as illustrated in the following screenshot (alternatively you could create a single rule for both HTTP and HTTPS). The rules should look like the image below.
 
     - Rules name: **IncomingHTTPS**
 
@@ -840,7 +840,7 @@ Within 1-2 minutes, the resource group **WGVNetRG1** will have the firewall crea
 
     - Destination ports: **80,443**
 
-    ![In this screenshot, the azureFirewall Rules (classic) blade is depicted. The 'Network rule collection' tab and 'Add network rule collection' link are highlighted.](images/hol-ex6-task2-network-rule-collection.png)
+    ![In this screenshot, the azureFirewall Rules (classic) blade is depicted. The 'Network rule collection' tab and the 'Add network rule collection' link are highlighted.](images/hol-ex6-task2-network-rule-collection.png)
 
 9. Create another rule for Remote Desktop sessions from the Management subnet on WGVNet1. The IP Addresses rules should look like the image below.
 
@@ -1200,7 +1200,7 @@ Duration: 15 minutes
 
     - Resource group: Select **Create new**, and enter the name **MonitoringRG**.
 
-    - Name: **Enter a unique name all lowercase**
+    - Name: **Enter a unique name in all lowercase**
 
     - Location: **East US**
 
@@ -1236,7 +1236,7 @@ In this exercise, you will collect the flow log and perform connectivity from yo
 
     - Resource Group: **MonitoringRG** (Use the existing resource group created earlier.)
 
-    - Storage Account Name: **This must be Unique and alphanumeric, lowercase and no special characters.**
+    - Storage Account Name: **This must be Unique and alphanumeric, lowercase, and have no special characters.**
 
     - Location: **(US) South Central US**
 
@@ -1300,7 +1300,7 @@ In this exercise, you will collect the flow log and perform connectivity from yo
 
 3. Select **onpremvm*NNN*** then select **+Add diagnostic setting**.
 
-     ![In this screenshot, the Diagnostics logs blade of Network Watch is depicted. The 'Diagnostic Logs' menu option and the resources that starts with 'onpremvm' are highlighted.](images/hol-ex10-task2-diagnostic-logs-navigation.png "Network Watcher Diagnostic logs")
+     ![In this screenshot, the Diagnostics logs blade of Network Watch is depicted. The 'Diagnostic Logs' menu option and the resources that start with 'onpremvm' are highlighted.](images/hol-ex10-task2-diagnostic-logs-navigation.png "Network Watcher Diagnostic logs")
 
 4. Enter **OnPremDiag** as the name then select the checkbox for **Archive to a storage account**. On the **Storage accounts** drop down, select the available storage account you created earlier.
 
@@ -1354,9 +1354,9 @@ In this exercise, you will collect the flow log and perform connectivity from yo
 
      ![In this screenshot, the 'Network Watcher - Connection troubleshoot' blade is depicted with the required settings listed above selected.](images/hol-ex10-task4-network-watcher-connection-troubleshoot-settings.png "Connection Troubleshoot")
 
-4. Once the check is complete the connection troubleshoot feature will display a grid view on the name, IP Address Status and Next hop as seen in the following screenshot.
+4. Once the check is complete the Connection troubleshoot feature will display a grid view of the Name, IP address, Status, and Next hop as seen in the following screenshot.
 
-     ![In this screenshot, the results of the connection troubleshoot operation performed in the previous step is depicted with a grid view showing the name, IP Address Status, and Next hop IP address.](images/hol-ex10-task4-network-watcher-connection-troubleshoot.png "Connection Troubleshoot")
+     ![In this screenshot, the results of the connection troubleshoot operation performed in the previous step is depicted with a grid view showing the Name, IP address, Status, and Next hop IP address.](images/hol-ex10-task4-network-watcher-connection-troubleshoot.png "Connection Troubleshoot")
 
 ## After the hands-on lab
 
