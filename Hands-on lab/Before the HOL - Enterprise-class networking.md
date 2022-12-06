@@ -9,7 +9,7 @@ Before the hands-on lab setup guide
 </div>
 
 <div class="MCWHeader3">
-November 2022
+December 2022
 </div>
 
 Information in this document, including URL and other Internet Web site references, is subject to change without notice. Unless otherwise noted, the example companies, organizations, products, domain names, e-mail addresses, logos, people, places, and events depicted herein are fictitious, and no association with any real company, organization, product, domain name, e-mail address, logo, person, place or event is intended or should be inferred. Complying with all applicable copyright laws is the responsibility of the user. Without limiting the rights under copyright, no part of this document may be reproduced, stored in or introduced into a retrieval system, or transmitted in any form or by any means (electronic, mechanical, photocopying, recording, or otherwise), or for any purpose, without the express written permission of Microsoft Corporation.
@@ -86,7 +86,7 @@ Duration: 15 minutes
 
        - NAT Gateway: **None**
 
-    ![In this screenshot, the IP Addresses tab of the 'Create virtual network' blade of the Azure portal is depicted with the IPv4 address spacee, 'Add subnet' button, and the 'Review + create' button highlighted.](images/bhol-task2-create-virtual-network-ip-addresses.png "Create virtual network blade's IP Addresses tab")
+    ![In this screenshot, the IP Addresses tab of the 'Create virtual network' blade of the Azure portal is depicted with the IPv4 address space, 'Add subnet' button, and the 'Review + create' button highlighted.](images/bhol-task2-create-virtual-network-ip-addresses.png "Create virtual network blade's IP Addresses tab")
 
 5. Once complete, click **Review + Create** then once the validation passes, click **Create**.
 
