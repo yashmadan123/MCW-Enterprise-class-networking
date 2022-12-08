@@ -48,7 +48,7 @@ Duration: 15 minutes
 
 ### Task 1: Download hands-on lab step-by-step support files
 
-1. Download the zipped hands-on lab step-by-step student files by navigating to the following link: <https://github.com/microsoft/MCW-Enterprise-class-networking/tree/master/Hands-on%20lab/labfiles/ECN-Hackathon.zip>
+1. Download the zipped hands-on lab step-by-step student files by navigating to the following link: <https://github.com/microsoft/MCW-Enterprise-class-networking/tree/main/Hands-on%20lab/labfiles/ECN-Hackathon.zip>
 
 2. Extract the downloaded ECN-Hackathon.zip file into the directory **C:\\ECN-Hackathon**.
 
