@@ -26,7 +26,7 @@ In this Whiteboard design session, you will look at the process of configuring a
 
 At the end of this whiteboard design session, you will be better able to design solutions using Azure Networking features and capabilities.
 
-Continue to the [Whiteboard design session](https://github.com/microsoft/MCW-Enterprise-class-networking/tree/master/Whiteboard%20design%20session) documents folder.
+Continue to the [Whiteboard design session](https://github.com/microsoft/MCW-Enterprise-class-networking/tree/main/Whiteboard%20design%20session) documents folder.
 
 ### Hands-on lab
 
@@ -34,7 +34,7 @@ In this Hands-on lab, you will setup and configure virtual networks in a secure 
 
 At the end of this hands-on lab, you will be better able to configure Azure networking components.
 
-Continue to the [Hands-on lab](https://github.com/microsoft/MCW-Enterprise-class-networking/tree/master/Hands-on%20lab) documents folder.
+Continue to the [Hands-on lab](https://github.com/microsoft/MCW-Enterprise-class-networking/tree/main/Hands-on%20lab) documents folder.
 
 ### Azure services and related products
 
