@@ -742,7 +742,7 @@ In this exercise, you will provision and configure an Azure firewall in your net
 
 2. On the **Create a firewall** blade, on the **Basics** tab, enter the following information:
 
-    - Subscription: select your subscription.
+    - Subscription: **Select your subscription**.
 
     - Resource group: **WGVNetRG1**
 
@@ -1066,7 +1066,7 @@ In this exercise, you will validate connectivity from your simulated on-premises
 
 2. On the **Create a virtual machine** blade, on the **Basics** tab, enter the following information, and select **Next : Disks >**:
 
-    - Subscription: **Select your subscription*.
+    - Subscription: **Select your subscription**.
 
     - Resource group: Select **Create new** and enter **OnPremVMRG**.
 
@@ -1260,7 +1260,7 @@ In this exercise, you will collect the flow log and perform connectivity from yo
 
 6. In the **Create a flow log** blade that appears, enter the following information then select **Next: Configuration**.
 
-    - Subscription: **Select your subscription**
+    - Subscription: **Select your subscription**.
 
     - Network Security Group: **WGAppNSG1**
 
