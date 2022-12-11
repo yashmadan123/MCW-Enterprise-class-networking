@@ -40,7 +40,7 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 
 ## Requirements
 
-You must have a working Azure subscription [without a spending limit](https://learn.microsoft.com/azure/cost-management-billing/manage/spending-limit#why-you-might-want-to-remove-the-spending-limit)  in order to carry out this step-by-step, hands-on lab.
+You must have a working Azure subscription with Owner or Contributor access in order to carry out this step-by-step, hands-on lab.
 
 ## Before the hands-on lab
 
