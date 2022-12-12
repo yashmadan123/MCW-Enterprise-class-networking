@@ -102,7 +102,7 @@ The result of this proof of concept will be an environment resembling this diagr
 
 ## Requirements
 
-You must have a working Azure subscription with Owner or Contributor access to carry out this hands-on lab step-by-step. Complete the steps given in the [Before the HOL - Enterprise-class networking in Azure](./Before%20the%20HOL%20-%20Enterprise-class%20networking.md) guide before starting this lab.
+You must have a working Azure subscription with Owner or Contributor access to carry out this hands-on lab step-by-step. Complete the steps given in the [Before the HOL - Enterprise-class networking in Azure](https://github.com/microsoft/MCW-Enterprise-class-networking/blob/main/Hands-on%20lab/Before%20the%20HOL%20-%20Enterprise-class%20networking.md) guide before starting this lab.
 
 ## Help references
 
