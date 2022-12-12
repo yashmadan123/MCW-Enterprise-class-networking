@@ -4,9 +4,10 @@ Woodgrove Financial Services has been in business for over 75 years and is a wel
 
 Woodgrove is committed to migrating to Microsoft Azure with the goal of modernizing their infrastructure and want to start with designing an enterprise-class network.
 
-March 2021
+December 2022
 
 ## Target audience
+
 - Infrastructure Architect
 - IT Professional
 - Cloud Solution Architect
@@ -25,7 +26,7 @@ In this Whiteboard design session, you will look at the process of configuring a
 
 At the end of this whiteboard design session, you will be better able to design solutions using Azure Networking features and capabilities.
 
-Continue to the [Whiteboard design session](https://github.com/microsoft/MCW-Enterprise-class-networking/tree/master/Whiteboard%20design%20session) documents folder.
+Continue to the [Whiteboard design session](https://github.com/microsoft/MCW-Enterprise-class-networking/tree/main/Whiteboard%20design%20session) documents folder.
 
 ### Hands-on lab
 
@@ -33,9 +34,10 @@ In this Hands-on lab, you will setup and configure virtual networks in a secure 
 
 At the end of this hands-on lab, you will be better able to configure Azure networking components.
 
-Continue to the [Hands-on lab](https://github.com/microsoft/MCW-Enterprise-class-networking/tree/master/Hands-on%20lab) documents folder.
+Continue to the [Hands-on lab](https://github.com/microsoft/MCW-Enterprise-class-networking/tree/main/Hands-on%20lab) documents folder.
 
 ### Azure services and related products
+
 - Azure Virtual Machines
 - Azure PowerShell
 - Azure Virtual Networks
@@ -48,20 +50,21 @@ Continue to the [Hands-on lab](https://github.com/microsoft/MCW-Enterprise-class
 - Azure Firewall
 
 ## Related references
+
 - [Microsoft Cloud Workshop](https://microsoftcloudworkshop.com)
-- [Linux VMs](https://microsoft.sharepoint.com/sites/infopedia/pages/layouts/kcdoc.aspx?k=g01kc-1-30339)
-- [Hybrid networking](https://microsoft.sharepoint.com/sites/infopedia/pages/layouts/kcdoc.aspx?k=g01kc-1-30335)
-- [DMZ](https://microsoft.sharepoint.com/sites/infopedia/pages/layouts/kcdoc.aspx?k=g01kc-1-30336)
-- [Windows VMs](https://microsoft.sharepoint.com/sites/infopedia/pages/layouts/kcdoc.aspx?k=g01kc-1-30338)
-- [Highly available network virtual appliances](https://microsoft.sharepoint.com/sites/infopedia/pages/layouts/kcdoc.aspx?k=g01kc-1-30337)
-- [ExpressRoute Global Reach](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-global-reach)
-- [Azure Bastion](https://docs.microsoft.com/en-us/azure/bastion/bastion-overview)
+- [Azure VMs](https://learn.microsoft.com/azure/virtual-machines/)
+- [Hybrid networking](https://learn.microsoft.com/azure/architecture/guide/technology-choices/hybrid-considerations)
+- [DMZ](https://learn.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-dmz)
+- [Highly available network virtual appliances](https://learn.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha)
+- [ExpressRoute Global Reach](https://learn.microsoft.com/azure/expressroute/expressroute-global-reach)
+- [Azure Bastion](https://learn.microsoft.com/azure/bastion/bastion-overview)
 
 ## Help & Support
 
 We welcome feedback and comments from Microsoft SMEs & learning partners who deliver MCWs.  
 
 ***Having trouble?***
+
 - First, verify you have followed all written lab instructions (including the Before the Hands-on lab document).
 - Next, submit an issue with a detailed description of the problem.
 - Do not submit pull requests. Our content authors will make all changes and submit pull requests for approval.  
