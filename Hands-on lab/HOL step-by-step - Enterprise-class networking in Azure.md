@@ -534,7 +534,7 @@ Route Tables are containers for User Defined Routes (UDRs). The route table is c
 
     - Address prefix destination: **IP Addresses**
 
-    - Address prefix: **0.0.0.0/0**
+    - Destination IP addresses/CIDR ranges: **0.0.0.0/0**
 
     - Next hop type: **Virtual appliance**
 
@@ -548,7 +548,7 @@ Route Tables are containers for User Defined Routes (UDRs). The route table is c
 
     - Address prefix destination: **IP Addresses**
 
-    - Address prefix: **10.7.0.8/29**
+    - Destination IP addresses/CIDR ranges: **10.7.0.8/29**
 
     - Next hop type: **Virtual appliance**
 
@@ -971,6 +971,8 @@ In this exercise, we will simulate an on-premises connection to the internal web
     - Public IP address name: **onpremgatewayIP1**
 
     - Enable active-active mode: **Enabled**
+    
+    - Second Public Ip Address: **Create new**
 
     - Second Public IP address name: **onpremgatewayIP2**
 
@@ -1011,6 +1013,8 @@ In this exercise, we will simulate an on-premises connection to the internal web
     - Public IP address name: **vnet1gatewayIP1**
 
     - Enable active-active mode: **Enabled**
+    
+    - Second Public Ip Address: **Create new**
 
     - Second Public IP address name: **vnet1gatewayIP2**
 
@@ -1130,7 +1134,7 @@ When packets arrive from the simulated 'on-premises' Virtual Network (OnPremVNet
 
 1. On the Azure portal select **All services** at the left navigation. Enter **Route** in the search box, and select **Route tables**.
 
-2. On the **Route tables** blade, select **+ Add**.
+2. On the **Route tables** blade, select **+ Create**.
 
 3. On the **Create route table** blade, enter the following information:
 
@@ -1230,7 +1234,7 @@ In this exercise, you will collect the flow log and perform connectivity from yo
 
 1. On the Azure portal select **+ Create a resource**. Select **Storage account**. Select **Create**.
 
-2. On the **Create a storage account** blade. Enter the following information, and select **Review + Create** then select the **Create** button:
+2. On the **Create a storage account** blade. Enter the following information, and select **Review** then select the **Create** button:
 
     - Subscription: **Your Subscription**
 
