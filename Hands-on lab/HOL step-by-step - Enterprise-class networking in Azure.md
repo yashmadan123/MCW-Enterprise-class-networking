@@ -132,6 +132,8 @@ Duration: 15 minutes
 
 ### Task 1: Create a Virtual Network
 
+This virtual network will have a gateway subnet named `GatewaySubnet` provisioned with [the guidance from the Cloud Adoption Framework](https://learn.microsoft.com/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-networking) of using the last part of the virtual network address space.
+
 1. Navigate to the Azure portal. Expand the navigation on the left, then select **+ Create a resource**. In the **Search the Marketplace** box, search for **Virtual network**. Select **Virtual network**, then select **Create**.
 
 2. On the **Create virtual network** blade, on the **Basic** tab, enter the following information:
@@ -156,7 +158,7 @@ Duration: 15 minutes
 
       - Subnet name: **GatewaySubnet**
 
-      - Subnet address range: **10.7.0.0/27**
+      - Subnet address range: **10.7.15.0/27**
 
 5. On the **Create virtual network Security** tab, select **Enable** for **BastionHost**.
 
@@ -548,7 +550,7 @@ Route Tables are containers for User Defined Routes (UDRs). The route table is c
 
     - Address prefix destination: **IP Addresses**
 
-    - Address prefix: **10.7.0.8/29**
+    - Address prefix: **10.7.0.8/27**
 
     - Next hop type: **Virtual appliance**
 
@@ -1062,7 +1064,7 @@ In this exercise, you will validate connectivity from your simulated on-premises
 
 ### Task 1: Create a virtual machine to validate connectivity
 
-1. Create a new virtual machine in the OnPremVnet virtual network. In the Azure portal, select **+ Create a resource** and select **Virtual machine**.
+1. Create a new virtual machine in the OnPremVNet virtual network. In the Azure portal, select **+ Create a resource** and select **Virtual machine**.
 
 2. On the **Create a virtual machine** blade, on the **Basics** tab, enter the following information, and select **Next : Disks >**:
 
@@ -1096,7 +1098,7 @@ In this exercise, you will validate connectivity from your simulated on-premises
 
     - Virtual network: **OnPremVNet**
 
-    - Subnet: **OnPremManagementSubnet (192.168.2.0/29)**
+    - Subnet: **OnPremManagementSubnet (192.168.2.0/27)**
 
     - Public IP: **(new)OnPremVM-ip**
 
@@ -1126,7 +1128,7 @@ In this exercise, you will validate connectivity from your simulated on-premises
 
 ### Task 2: Configure routing for simulated 'on-premises' to Azure traffic
 
-When packets arrive from the simulated 'on-premises' Virtual Network (OnPremVNet) to the 'Azure-side' (WGVNet1), they arrive at the gateway WGVNet1Gateway. This gateway is in a gateway subnet (10.7.0.0/27). For packets to be directed to the Azure firewall, we need another route table and route to be associated with the gateway subnet on the 'Azure-side'.
+When packets arrive from the simulated 'on-premises' Virtual Network (OnPremVNet) to the 'Azure-side' (WGVNet1), they arrive at the gateway WGVNet1Gateway. This gateway is in a gateway subnet (10.7.15.0/27). For packets to be directed to the Azure firewall, we need another route table and route to be associated with the gateway subnet on the 'Azure-side'.
 
 1. On the Azure portal select **All services** at the left navigation. Enter **Route** in the search box, and select **Route tables**.
 
@@ -1166,19 +1168,19 @@ When packets arrive from the simulated 'on-premises' Virtual Network (OnPremVNet
 
     ![In this screenshot, the 'Add route' blade of the 'WGAzureVNetGWRT' route table is depicted with the required settings listed above selected along with the OK button.](images/hol-ex8-task2-onpremtoappsubnet-to-virtual-appliance.png "Add route")
 
-8. On the **WGAzureVNetGWRT - Routes** blade, select **Subnets** under **Settings** on the left.
+8. Navigate to the **WGVNet1** virtual network in the Azure portal.
 
-9. On the **Subnets** blade, select **+ Associate**.
+9. Under the **Settings** section, select **Subnets**. On the **Subnets** blade, select **Gateway Subnet**.
 
-10. On the **Associate subnet** blade, select **WGVNet1** under the **Virtual Network** drop down and select **GatewaySubnet** under the **Subnet** drop down.
+10. On the **GatewaySubnet** dialog, under the **Route table** drop down, select **WGAzureVNetGWRT**. Then select **Save**.
 
-    ![In this screenshot, the 'Associate subnet' blade of the 'WGAzureVNetGWRT' route table is depicted with the required WGVNet1 virtual network and GatewaySubnet subnet selected along with the OK button.](images/hol-ex8-task2-associate-gatewaysubnet.png "Associate subnet")
+    ![In this screenshot, the 'GatewaySubnet' dialog of the 'WGVNet1' virtual network is depicted with the required route table and Save button highlighted.](images/hol-ex8-task2-associate-gatewaysubnet.png "GatewaySubnet")
 
     >**Note:** At this point, you have configured your enterprise network. You should be able to test your Enterprise Class Network from one region to another. Your testing can include the following scenarios:
 
     - On the 'on-premises' virtual machine (OnPremVM), attempt to initiate a Remote Desktop session to any virtual machine on the AppSubnet (10.8.0.0/25). Note that this should fail since it is blocked by Azure Firewall.
 
-    - In the Azure portal, navigate to and browse to the web application deployed to the WGVnet2 via the private IP address of the Azure Load Balancer(10.8.0.100). Note that this traffic is routed (and allowed) via Azure Firewall.
+    - In the Azure portal, navigate to and browse to the web application deployed to the WGVNet2 via the private IP address of the Azure Load Balancer(10.8.0.100). Note that this traffic is routed (and allowed) via Azure Firewall.
 
     - In the Azure portal, navigate to the WGWEB1 VM and initiate a Bastion connection session to the WGWEB1 virtual machine by selecting **Connect** and **Bastion**. This should be successful since it is allowed by Azure Firewall and Azure Bastion Host.
 
