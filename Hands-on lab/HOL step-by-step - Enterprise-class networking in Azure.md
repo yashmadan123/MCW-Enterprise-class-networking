@@ -158,7 +158,7 @@ This virtual network will have a gateway subnet named `GatewaySubnet` provisione
 
       - Subnet name: **GatewaySubnet**
 
-      - Subnet address range: **10.7.15.0/26**
+      - Subnet address range: **10.7.15.0/27**
 
 5. On the **Create virtual network Security** tab, select **Enable** for **BastionHost**.
 
@@ -1064,7 +1064,7 @@ In this exercise, you will validate connectivity from your simulated on-premises
 
 ### Task 1: Create a virtual machine to validate connectivity
 
-1. Create a new virtual machine in the OnPremVnet virtual network. In the Azure portal, select **+ Create a resource** and select **Virtual machine**.
+1. Create a new virtual machine in the OnPremVNet virtual network. In the Azure portal, select **+ Create a resource** and select **Virtual machine**.
 
 2. On the **Create a virtual machine** blade, on the **Basics** tab, enter the following information, and select **Next : Disks >**:
 
@@ -1128,7 +1128,7 @@ In this exercise, you will validate connectivity from your simulated on-premises
 
 ### Task 2: Configure routing for simulated 'on-premises' to Azure traffic
 
-When packets arrive from the simulated 'on-premises' Virtual Network (OnPremVNet) to the 'Azure-side' (WGVNet1), they arrive at the gateway WGVNet1Gateway. This gateway is in a gateway subnet (10.7.15.0/26). For packets to be directed to the Azure firewall, we need another route table and route to be associated with the gateway subnet on the 'Azure-side'.
+When packets arrive from the simulated 'on-premises' Virtual Network (OnPremVNet) to the 'Azure-side' (WGVNet1), they arrive at the gateway WGVNet1Gateway. This gateway is in a gateway subnet (10.7.15.0/27). For packets to be directed to the Azure firewall, we need another route table and route to be associated with the gateway subnet on the 'Azure-side'.
 
 1. On the Azure portal select **All services** at the left navigation. Enter **Route** in the search box, and select **Route tables**.
 
@@ -1168,11 +1168,11 @@ When packets arrive from the simulated 'on-premises' Virtual Network (OnPremVNet
 
     ![In this screenshot, the 'Add route' blade of the 'WGAzureVNetGWRT' route table is depicted with the required settings listed above selected along with the OK button.](images/hol-ex8-task2-onpremtoappsubnet-to-virtual-appliance.png "Add route")
 
-8. On the **WGAzureVNetGWRT - Routes** blade, select **Subnets** under **Settings** on the left.
+8. Navigate to the **WGVNet1** virtual network in the Azure portal.
 
-9. On the **Subnets** blade, select **+ Associate**.
+9. Under the **Settings** section, select **Subnets**. On the **Subnets** blade, select **Gateway Subnet**.
 
-10. On the **Associate subnet** blade, select **WGVNet1** under the **Virtual Network** drop down and select **GatewaySubnet** under the **Subnet** drop down.
+10. On the **GatewaySubnet** dialog, under the **Route table** drop down, select **WGAzureVNetGWRT**. Then select **Save**.
 
     ![In this screenshot, the 'Associate subnet' blade of the 'WGAzureVNetGWRT' route table is depicted with the required WGVNet1 virtual network and GatewaySubnet subnet selected along with the OK button.](images/hol-ex8-task2-associate-gatewaysubnet.png "Associate subnet")
 
@@ -1180,7 +1180,7 @@ When packets arrive from the simulated 'on-premises' Virtual Network (OnPremVNet
 
     - On the 'on-premises' virtual machine (OnPremVM), attempt to initiate a Remote Desktop session to any virtual machine on the AppSubnet (10.8.0.0/25). Note that this should fail since it is blocked by Azure Firewall.
 
-    - In the Azure portal, navigate to and browse to the web application deployed to the WGVnet2 via the private IP address of the Azure Load Balancer(10.8.0.100). Note that this traffic is routed (and allowed) via Azure Firewall.
+    - In the Azure portal, navigate to and browse to the web application deployed to the WGVNet2 via the private IP address of the Azure Load Balancer(10.8.0.100). Note that this traffic is routed (and allowed) via Azure Firewall.
 
     - In the Azure portal, navigate to the WGWEB1 VM and initiate a Bastion connection session to the WGWEB1 virtual machine by selecting **Connect** and **Bastion**. This should be successful since it is allowed by Azure Firewall and Azure Bastion Host.
 
