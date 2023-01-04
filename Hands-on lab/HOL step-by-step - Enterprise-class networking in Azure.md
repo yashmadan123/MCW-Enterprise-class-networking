@@ -132,6 +132,8 @@ Duration: 15 minutes
 
 ### Task 1: Create a Virtual Network
 
+This virtual network will have a gateway subnet named `GatewaySubnet` provisioned with [the guidance from the Cloud Adoption Framework](https://learn.microsoft.com/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-networking) of using the last part of the virtual network address space.
+
 1. Navigate to the Azure portal. Expand the navigation on the left, then select **+ Create a resource**. In the **Search the Marketplace** box, search for **Virtual network**. Select **Virtual network**, then select **Create**.
 
 2. On the **Create virtual network** blade, on the **Basic** tab, enter the following information:
@@ -156,7 +158,7 @@ Duration: 15 minutes
 
       - Subnet name: **GatewaySubnet**
 
-      - Subnet address range: **10.7.0.0/27**
+      - Subnet address range: **10.7.15.0/26**
 
 5. On the **Create virtual network Security** tab, select **Enable** for **BastionHost**.
 
@@ -548,7 +550,7 @@ Route Tables are containers for User Defined Routes (UDRs). The route table is c
 
     - Address prefix destination: **IP Addresses**
 
-    - Address prefix: **10.7.0.8/29**
+    - Address prefix: **10.7.0.8/27**
 
     - Next hop type: **Virtual appliance**
 
@@ -1096,7 +1098,7 @@ In this exercise, you will validate connectivity from your simulated on-premises
 
     - Virtual network: **OnPremVNet**
 
-    - Subnet: **OnPremManagementSubnet (192.168.2.0/29)**
+    - Subnet: **OnPremManagementSubnet (192.168.2.0/27)**
 
     - Public IP: **(new)OnPremVM-ip**
 
@@ -1126,7 +1128,7 @@ In this exercise, you will validate connectivity from your simulated on-premises
 
 ### Task 2: Configure routing for simulated 'on-premises' to Azure traffic
 
-When packets arrive from the simulated 'on-premises' Virtual Network (OnPremVNet) to the 'Azure-side' (WGVNet1), they arrive at the gateway WGVNet1Gateway. This gateway is in a gateway subnet (10.7.0.0/27). For packets to be directed to the Azure firewall, we need another route table and route to be associated with the gateway subnet on the 'Azure-side'.
+When packets arrive from the simulated 'on-premises' Virtual Network (OnPremVNet) to the 'Azure-side' (WGVNet1), they arrive at the gateway WGVNet1Gateway. This gateway is in a gateway subnet (10.7.15.0/26). For packets to be directed to the Azure firewall, we need another route table and route to be associated with the gateway subnet on the 'Azure-side'.
 
 1. On the Azure portal select **All services** at the left navigation. Enter **Route** in the search box, and select **Route tables**.
 
