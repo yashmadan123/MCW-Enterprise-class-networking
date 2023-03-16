@@ -56,7 +56,8 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
     - [Task 2: Configure gateway subnets for on premise Virtual Network](#task-2-configure-gateway-subnets-for-on-premise-virtual-network)
     - [Task 3: Create the first gateway](#task-3-create-the-first-gateway)
     - [Task 4: Create the second gateway](#task-4-create-the-second-gateway)
-    - [Task 5: Connect the gateways](#task-5-connect-the-gateways)  
+    - [Task 5: Connect the gateways](#task-5-connect-the-gateways)
+    - [Task 6: Update VNet peerings to use gateway](#task-6-update-vnet-peerings-to-use-gateway)  
   - [Exercise 8: Validate connectivity from 'on-premises' to Azure](#exercise-8-validate-connectivity-from-on-premises-to-azure)
     - [Task 1: Create a virtual machine to validate connectivity](#task-1-create-a-virtual-machine-to-validate-connectivity)
     - [Task 2: Configure routing for simulated 'on-premises' to Azure traffic](#task-2-configure-routing-for-simulated-on-premises-to-azure-traffic)
@@ -550,7 +551,7 @@ Route Tables are containers for User Defined Routes (UDRs). The route table is c
 
     - Address prefix destination: **IP Addresses**
 
-    - Address prefix: **10.7.0.8/27**
+    - Address prefix: **10.7.0.8/29**
 
     - Next hop type: **Virtual appliance**
 
@@ -1040,7 +1041,7 @@ In this exercise, we will simulate an on-premises connection to the internal web
     - Second connection name - **WGGateway-to-WGVNet1**
     - Region - **South Central US**
 
-    ![In this screenshot, the Basics step of the 'Create connection' blade of the Azure portal is depicted with the required settings listed above selected.](images/hol-ex7-task5-create-connection-vnet-to-vnet.png "Basics")
+    ![In this screenshot, the Basics step of the 'xCreate connection' blade of the Azure portal is depicted with the required settings listed above selected.](images/hol-ex7-task5-create-connection-vnet-to-vnet.png "Basics")
 
 4. On the Settings step, select **WGVNet1Gateway** as the first virtual network gateway and **OnPremWGGateway** as the second virtual network gateway. Ensure **Establish bidirectional connectivity** and **IKEv2** is selected. Enter a shared key, such as **A1B2C3D4**. Select **Review + create**.
 
@@ -1055,6 +1056,42 @@ In this exercise, we will simulate an on-premises connection to the internal web
 7. Watch the progress of the connection status, and use the **Refresh** icon until the status changes for both connections from **Unknown** to **Connected**. This may take 5-10 minutes or more. You might need to refresh the page to see the change in status.
 
     ![In this screenshot, the Connections blade of the Azure portal is depicted with the two connections created earlier listed with their respective statuses showing as Connected.](images/hol-ex7-task5-connections-blade.png "Connections blade")
+
+### Task 6: Update VNet peerings to use gateway
+
+1. In the Azure Portal, go to All Services and type **virtual network** in the search box and select **Virtual Networks**.
+
+2. Select **WGVNet1**, and select **Peerings** under **Settings** on the left.
+
+    ![In the Virtual Network blade, in the Settings section of the navigation, Peerings is highlighted.](images/2023-03-15-22-36-22.png "Virtual network blade")
+
+3. On the **Peerings** pane, select the **VNETPeering_WGVNet1-WGVNet2** peering.
+
+    ![Peerings pane showing the virtual network peering that is configured.](images/2023-03-15-22-39-35.png "Peerings list")
+
+4. On the **VNETPeering_WGVNet1-WGVNet2**, set the **Virtual network gateway or Route Server** setting to the value of **Use this virtual network's gateway or Route Server**.
+
+    ![Peering settings pane with virtual network gateway setting configured](images/2023-03-15-22-41-06.png "Peering settings")
+
+5. Select **Save**.
+
+6. In the Azure Portal, go to All Services and type **virtual network** in the search box and select **Virtual Networks**.
+
+7. Select **WGVNet2**, and select **Peerings** under **Settings** on the left.
+
+    ![In the Virtual Network blade, in the Settings section of the navigation, Peerings is highlighted.](images/2023-03-15-22-45-00.png "Virtual network blade")
+
+8. On the **Peerings** pane, select the **VNETPeering_WGVNet2-WGVNet1** peering.
+
+    ![Peerings pane showing the virtual network peering that is configured.](images/2023-03-15-22-45-59.png "Peerings list")
+
+9. On the **VNETPeering_WGVNet2-WGVNet1**, set the **Virtual network gateway or Route Server** setting to the value of **Use the remote virtual network's gateway or Route Server**.
+
+    ![Peering settings pane with virtual network gateway setting configured](images/2023-03-15-22-47-04.png "Peering settings")
+
+10. Select **Save**.
+
+The change to the gateway setting for the virtual network peerings may take a few minutes to update.
 
 ## Exercise 8: Validate connectivity from 'on-premises' to Azure
 
