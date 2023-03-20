@@ -1063,15 +1063,15 @@ In this exercise, we will simulate an on-premises connection to the internal web
 
 2. Select **WGVNet1**, and select **Peerings** under **Settings** on the left.
 
-    ![In the Virtual Network blade, in the Settings section of the navigation, Peerings is highlighted.](images/2023-03-15-22-36-22.png "Virtual network blade")
+    ![In the Virtual Network blade, in the Settings section of the navigation, Peerings is highlighted.](images/hol-ex7-task6-wgvnet1-peerings.png "Virtual network blade")
 
 3. On the **Peerings** pane, select the **VNETPeering_WGVNet1-WGVNet2** peering.
 
-    ![Peerings pane showing the virtual network peering that is configured.](images/2023-03-15-22-39-35.png "Peerings list")
+    ![Peerings pane showing the virtual network peering that is configured.](images/hol-ex7-task6-wgvnet1-peerings-list.png "Peerings list")
 
 4. On the **VNETPeering_WGVNet1-WGVNet2**, set the **Virtual network gateway or Route Server** setting to the value of **Use this virtual network's gateway or Route Server**.
 
-    ![Peering settings pane with virtual network gateway setting configured.](images/2023-03-15-22-41-06.png "Peering settings")
+    ![Peering settings pane with virtual network gateway setting configured.](images/hol-ex7-task6-wgvnet1-peering-configured.png "Peering settings")
 
 5. Select **Save**.
 
@@ -1079,15 +1079,15 @@ In this exercise, we will simulate an on-premises connection to the internal web
 
 7. Select **WGVNet2**, and select **Peerings** under **Settings** on the left.
 
-    ![In the Virtual Network blade, in the Settings section of the navigation, Peerings is highlighted.](images/2023-03-15-22-45-00.png "Virtual network blade")
+    ![In the Virtual Network blade, in the Settings section of the navigation, Peerings is highlighted.](images/hol-ex7-task6-wgvnet2-peerings.png "Virtual network blade")
 
 8. On the **Peerings** pane, select the **VNETPeering_WGVNet2-WGVNet1** peering.
 
-    ![Peerings pane showing the virtual network peering that is configured.](images/2023-03-15-22-45-59.png "Peerings list")
+    ![Peerings pane showing the virtual network peering that is configured.](images/hol-ex7-task6-wgvnet2-peerings-list.png "Peerings list")
 
 9. On the **VNETPeering_WGVNet2-WGVNet1**, set the **Virtual network gateway or Route Server** setting to the value of **Use the remote virtual network's gateway or Route Server**.
 
-    ![Peering settings pane with virtual network gateway setting configured.](images/2023-03-15-22-47-04.png "Peering settings")
+    ![Peering settings pane with virtual network gateway setting configured.](images/hol-ex7-task6-wgvnet2-peering-configured.png "Peering settings")
 
 10. Select **Save**.
 
