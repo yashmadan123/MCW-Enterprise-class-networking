@@ -1071,7 +1071,7 @@ In this exercise, we will simulate an on-premises connection to the internal web
 
 4. On the **VNETPeering_WGVNet1-WGVNet2**, set the **Virtual network gateway or Route Server** setting to the value of **Use this virtual network's gateway or Route Server**.
 
-    ![Peering settings pane with virtual network gateway setting configured](images/2023-03-15-22-41-06.png "Peering settings")
+    ![Peering settings pane with virtual network gateway setting configured.](images/2023-03-15-22-41-06.png "Peering settings")
 
 5. Select **Save**.
 
@@ -1087,7 +1087,7 @@ In this exercise, we will simulate an on-premises connection to the internal web
 
 9. On the **VNETPeering_WGVNet2-WGVNet1**, set the **Virtual network gateway or Route Server** setting to the value of **Use the remote virtual network's gateway or Route Server**.
 
-    ![Peering settings pane with virtual network gateway setting configured](images/2023-03-15-22-47-04.png "Peering settings")
+    ![Peering settings pane with virtual network gateway setting configured.](images/2023-03-15-22-47-04.png "Peering settings")
 
 10. Select **Save**.
 
