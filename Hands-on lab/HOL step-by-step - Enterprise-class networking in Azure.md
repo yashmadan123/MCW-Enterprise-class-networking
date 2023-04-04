@@ -339,16 +339,18 @@ This task will create a network security group with the following rules:
     - Region: **South Central US** (This must match the location in which you created the **WGVNet2** virtual network.)
 
     ![In this screenshot, the 'Create network security group' blade of the Azure portal is depicted with the required settings listed above highlighted.](images/hol-ex3-task3-create-network-security-group.png "Create WGApp NSG")
+    
+3. Review the configuration and select **Create**.    
 
-3. In the Azure Portal, navigate to **All Services**, type **Network security groups** the search box and select **Network security groups**.
+4. In the Azure Portal, navigate to **All Services**, type **Network security groups** the search box and select **Network security groups**.
 
-4. On the **Network security groups** blade, select **WGAppNSG1**.
+5. On the **Network security groups** blade, select **WGAppNSG1**.
 
-5. On the **WGAppNSG1** blade, select **Inbound security rules** under **Settings** on the left and select **Add**.
+6. On the **WGAppNSG1** blade, select **Inbound security rules** under **Settings** on the left and select **Add**.
 
     ![In this screen, the 'Inbound security rules' blade for the WGAppNSG1 network security group is displayed. 'Inbound security rules' in the left navigation and the Add button are highlighted.](images/hol-ex3-task3-add-inbound-security-rule.png)
 
-6. On the **Add inbound security rule** blade, enter the following information, and select **Add**:
+7. On the **Add inbound security rule** blade, enter the following information, and select **Add**:
 
     - Source: **Application security group**
 
@@ -372,9 +374,9 @@ This task will create a network security group with the following rules:
 
     ![In this screenshot, the 'Add inbound security rule' blade of the Azure portal is depicted with the above required settings highlighted.](images/hol-ex3-task3-add-inbound-security-rule-data-tier-inbound.png "Configure WGAppNSG1 AllowDataTierInboundTCP1433 rule")
 
-7. On the **WGAppNSG1 - Inbound security rules** blade, select **Add**.
+8. On the **WGAppNSG1 - Inbound security rules** blade, select **Add**.
 
-8. On the **Add inbound security rule** blade, enter the following information, and select **Add**:
+9. On the **Add inbound security rule** blade, enter the following information, and select **Add**:
 
     - Source: **Any**
 
@@ -396,9 +398,9 @@ This task will create a network security group with the following rules:
 
     ![In this screenshot, the 'Add inbound security rule' blade of the Azure portal is depicted with the above required settings highlighted.](images/hol-ex3-task3-add-inbound-security-rule-web-tier-inbound.png "Configure WGAppNSG1 AllowAnyWebTierInboundTCP80 rule")
 
-9. On the **WGAppNSG1 - Inbound security rules** blade, select **Add**.
+10. On the **WGAppNSG1 - Inbound security rules** blade, select **Add**.
 
-10. On the **Add inbound security rule** blade, enter the following information, and select **Add**:
+11. On the **Add inbound security rule** blade, enter the following information, and select **Add**:
 
     - Source: **IP Addresses**
 
@@ -420,9 +422,9 @@ This task will create a network security group with the following rules:
 
     ![In this screenshot, the 'Add inbound security rule' blade of the Azure portal is depicted with the above required settings highlighted.](images/hol-ex3-task3-add-inbound-security-rule-mgmt-inbound.png "Configure WGAppNSG1 AllowMgmtInboundAny3389 rule")
 
-11. On the **WGAppNSG1 - Inbound security rules** blade, select **Add**.
+12. On the **WGAppNSG1 - Inbound security rules** blade, select **Add**.
 
-12. On the **Add inbound security rule** blade, enter the following information, and select **Add**:
+13. On the **Add inbound security rule** blade, enter the following information, and select **Add**:
 
     - Source: **Service Tag**
 
@@ -446,9 +448,9 @@ This task will create a network security group with the following rules:
 
     ![In this screenshot, the 'Add inbound security rule' blade of the Azure portal is depicted with the above required settings highlighted.](images/hol-ex3-task3-add-inbound-security-rule-deny-data-tier-inbound.png "Configure WGAppNSG1 DenyVNetDataTierInbound rule")
 
-13. On the **WGAppNSG1 - Inbound security rules** blade, select **Add**.
+14. On the **WGAppNSG1 - Inbound security rules** blade, select **Add**.
 
-14. On the **Add inbound security rule** blade, enter the following information, and select **Add**:
+15. On the **Add inbound security rule** blade, enter the following information, and select **Add**:
 
     - Source: **Service Tag**
 
@@ -472,13 +474,13 @@ This task will create a network security group with the following rules:
 
     ![In this screenshot, the 'Add inbound security rule' blade of the Azure portal is depicted with the above required settings selected.](images/hol-ex3-task3-add-inbound-security-rule-deny-web-tier-inbound.png "Configure WGAppNSG1 DenyVNetWebTierInbound rule")
 
-15. On the **WGAppNSG1 - Inbound security rules** blade, select **Subnets** under **Settings** and then select **+ Associate**.
+16. On the **WGAppNSG1 - Inbound security rules** blade, select **Subnets** under **Settings** and then select **+ Associate**.
 
     ![In this screenshot, Subnets blade of WGAppNSG1 is depicted. The 'Subnets' navigation and the '+ Associate' button are highlighted.](images/hol-ex3-task3-associate-subnet-nsg.png "WGAppNSG1 Subnets")
 
-16. On the **Associate subnet** blade, select **WGVNet2** on the **Virtual network** drop down and **AppSubnet** on the **Subnet** dropdown.
+17. On the **Associate subnet** blade, select **WGVNet2** on the **Virtual network** drop down and **AppSubnet** on the **Subnet** dropdown.
 
-17. Select **OK** at the bottom of the **Associate subnet** blade.
+18. Select **OK** at the bottom of the **Associate subnet** blade.
 
 ## Exercise 4: Create route tables with required routes
 
@@ -896,7 +898,7 @@ In this exercise, we will simulate an on-premises connection to the internal web
 
     - Subscription: **Select your subscription**.
 
-    - Resource group: Select **Create new**, and enter the name **OnPremVNetRG**.
+    - Resource group: **OnPremVNetRG**.
 
     - Name: **OnPremVNet**
 
