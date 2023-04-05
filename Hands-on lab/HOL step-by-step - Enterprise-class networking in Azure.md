@@ -154,11 +154,11 @@ Duration: 15 minutes
       
       - Azure Bastion host name : **WGBastion**
       
-        ![](../images/Ex1-Task1-Step3.png "Create virtual network: Basics")
+        ![](images/Ex1-Task1-Step3.png "Create virtual network: Basics")
 
 5. On the **Create virtual network - IP Addresses** tab, click on **ellipsis (...)**, and click on **Delete address space** button.
 
-        ![](../images/Ex1-Task1-Step4.png "Create virtual network: Basics")   
+        ![](images/Ex1-Task1-Step4.png "Create virtual network: Basics")   
 
 6. On the **Create virtual network - IP Addresses** tab, click on **Add an IP address space** enter the following information. Then, select **Add**.
  
@@ -168,11 +168,11 @@ Duration: 15 minutes
       
       - Address space size : from the drop down menu select **/20**  
 
-        ![](/images/Ex1-Task1-Step5.png "Create virtual network: Basics")
+        ![](images/Ex1-Task1-Step5.png "Create virtual network: Basics")
 
 7. On the **Create virtual network - IP Addresses** tab, click on **+ Add a subnet**.
 
-        ![](/images/Ex1-Task1-Step6.png "Create virtual network: Basics")
+   ![](images/Ex1-Task1-Step6.png "Create virtual network: Basics")
 
 8. On the **Add a Subnet**, enter the following information. Then, select **Add**.
 
@@ -182,7 +182,7 @@ Duration: 15 minutes
       
       - Subnet size: from the drop down menu select **/27**  
 
-        ![](/images/Ex1-Task1-Step7.png "Create virtual network: Basics")
+        ![](images/Ex1-Task1-Step7.png "Create virtual network: Basics")
 
 9. On the **Create virtual network - IP Addresses** tab, click on **+ Add a subnet**. Enter the following information, then select **Add**.
 
@@ -194,13 +194,13 @@ Duration: 15 minutes
 
     - Subnet size: from the drop down menu select **/24**
 
-        ![](/images/Ex1-Task1-Step9.png "Create virtual network: Basics")
+        ![](images/Ex1-Task1-Step9.png "Create virtual network: Basics")
 
 11. Select **Review + Create**.
 
 12. Review the configuration and select **Create**.
 
-    ![In this screenshot, the 'Review + create' tab of the Azure portal's 'Create virtual network' blade is depicted' with the 'Create' button highlighted.](images/hol-ex1-task1-create-virtual-network-review.png "Create virtual network: Review + create")
+    ![In this screenshot, the 'Review + create' tab of the Azure portal's 'Create virtual network' blade is depicted' with the 'Create' button highlighted.](images/Ex1-Task1-Step11.png "Create virtual network: Review + create")
 
 13. Monitor the deployment status by selecting **Notifications** at the top of the portal. When the deployment is complete, select **Go to Resource**.
 
@@ -718,7 +718,7 @@ In this exercise, you will create and configure a load balancer to distribute th
 
 8. Select **Add**.
 
-9. After the Health probe has been added, select **Load balancing rules** from the left navigation. Select **+ Add** and complete the configuration as shown below followed by selecting **Add**.
+9. After the Health probe has been added, select **Load balancing rules** from the left navigation. Select **+ Add** and complete the configuration as shown below followed by selecting **Save**.
 
     - Name: **HTTP**
 
@@ -732,7 +732,7 @@ In this exercise, you will create and configure a load balancer to distribute th
 
     - Health probe: **HTTP**
 
-    ![In this screenshot, the 'Add load balancing rule' blade of the Azure portal is depicted with the required settings listed above and the Add button highlighted.](images/hol-ex5-task2-add-load-balancing-rule-http.png "Add load balancing rule")
+    ![In this screenshot, the 'Add load balancing rule' blade of the Azure portal is depicted with the required settings listed above and the Add button highlighted.](images/Ex5-Task2-Step9.png "Add load balancing rule")
 
 10. Navigate to WGWEB1 in the Azure portal. Connect to WGWEB1 via Bastion. Within WGWEB1, open Microsoft Edge from the Start menu and navigate to <http://10.8.0.100>. Ensure that you successfully connect to either one of the two Web servers.
 
@@ -747,6 +747,8 @@ In this exercise, you will create and configure a load balancer to distribute th
     ![In this screenshot, the WGWEB1 - Networking blade of the Azure portal is depicted with the NIC Public IP selected.](images/hol-ex5-task2-wgweb1-dissociate-ip-address.png "Virtual machine networking blade")
 
 12. Next, return to the **WGWEB1 - Networking** blade and select the **Network Interface**.
+
+    ![In this screenshot, the WGWEB1 - Networking blade of the Azure portal is depicted with the NIC Public IP selected.](images/Ex6-Task3-step12.png "Virtual machine networking blade")
 
 13. Select **IP configurations** under **Settings** on the left.
 
@@ -906,7 +908,7 @@ Within 1-2 minutes, the resource group **WGVNetRG1** will have the firewall crea
 
 7. On the **Associate subnet** blade, select **WGVNet1** on the **Virtual network** drop down. Select **Management** on the **Subnet** dropdown.
 
-    ![In this screenshot, the 'Associate subnet' blade is depicted with the 'WGVNet1' virtual network and 'Management' subnet selected along with the 'OK' button.](images/hol-ex6-task3-associate-subnet-blade-wgvnet1.png "Associate subnet blade for MgmtRT")
+    ![In this screenshot, the 'Associate subnet' blade is depicted with the 'WGVNet1' virtual network and 'Management' subnet selected along with the 'OK' button.](images/Ex6-Task3-step7.png "Associate subnet blade for MgmtRT")
 
 8. Select **OK** at the bottom of the **Associate subnet** blade.
 
@@ -936,17 +938,37 @@ In this exercise, we will simulate an on-premises connection to the internal web
 
     ![In this screenshot, the Basics tab of the 'Create virtual network' blade in the Azure portal is depicted with the required settings selected.](images/hol-ex7-task1-create-virtual-network-onpremvnet.png "Create virtual network")
 
-5. On the **IP addresses** tab of the **Create virtual network blade**, enter the following information.
+5. On the **Create virtual network - IP Addresses** tab, click on **ellipsis (...)**, and click on **Delete address space** button.
 
-    - Address space: **192.168.0.0/16**
+        ![](images/Ex7-Task1-Step3.png "Create virtual network: Basics")   
 
-    - Select **+ Add subnet** then enter the following information in the blade that appears on the right and select **Add**.
+6. On the **Create virtual network - IP Addresses** tab, click on **Add an IP address space (1)** enter the following information. Then, select **Add (5)**.
+ 
+      - Address space Type: **IPv4 (2)** 
+      
+      - Starting address: **192.168.0.0 (3)**
+      
+      - Address space size : from the drop down menu select **/16 (4)**  
 
-      - Subnet name: **default**
+        ![](images/Ex7-Task1-Step4.png "Create virtual network: Basics")
 
-      - Subnet address range: **192.168.0.0/24**
+7. On the **Create virtual network - IP Addresses** tab, click on **+ Add a subnet**.
 
-6. Select **Review + create** then **Create**.
+        ![](images/Ex7-Task1-Step5.png "Create virtual network: Basics")
+
+8. On the **Add a Subnet**, enter the following information. Then, select **Add**.
+
+      - Subnet Template: **Default**
+      
+      - Name: **default**
+
+      - Starting address: **192.168.0.0**
+      
+      - Subnet size: from the drop down menu select **/24**  
+
+        ![](/images/Ex7-Task1-Step6.png "Create virtual network: Basics")
+
+9. Select **Review + create** then **Create**.
 
 ### Task 2: Configure gateway subnets for on premise Virtual Network
 
@@ -1085,6 +1107,42 @@ In this exercise, we will simulate an on-premises connection to the internal web
 7. Watch the progress of the connection status, and use the **Refresh** icon until the status changes for both connections from **Unknown** to **Connected**. This may take 5-10 minutes or more. You might need to refresh the page to see the change in status.
 
     ![In this screenshot, the Connections blade of the Azure portal is depicted with the two connections created earlier listed with their respective statuses showing as Connected.](images/hol-ex7-task5-connections-blade.png "Connections blade")
+    
+### Task 6: Update VNet peerings to use gateway
+
+1. In the Azure Portal, go to All Services and type **virtual network** in the search box and select **Virtual Networks**.
+
+2. Select **WGVNet1**, and select **Peerings** under **Settings** on the left.
+
+    ![In the Virtual Network blade, in the Settings section of the navigation, Peerings is highlighted.](Ex7-Task6-Step2.png "Virtual network blade")
+
+3. On the **Peerings** pane, select the **VNETPeering_WGVNet1-WGVNet2** peering.
+
+    ![Peerings pane showing the virtual network peering that is configured.](images/Ex7-Task6-Step3.png "Peerings list")
+
+4. On the **VNETPeering_WGVNet1-WGVNet2**, set the **Virtual network gateway or Route Server** setting to the value of **Use this virtual network's gateway or Route Server**.
+
+    ![Peering settings pane with virtual network gateway setting configured.](images/Ex7-Task6-Step4.png "Peering settings")
+
+5. Select **Save**.
+
+6. In the Azure Portal, go to All Services and type **virtual network** in the search box and select **Virtual Networks**.
+
+7. Select **WGVNet2**, and select **Peerings** under **Settings** on the left.
+
+    ![In the Virtual Network blade, in the Settings section of the navigation, Peerings is highlighted.](images/Ex7-Task6-Step7.png "Virtual network blade")
+
+8. On the **Peerings** pane, select the **VNETPeering_WGVNet2-WGVNet1** peering.
+
+    ![Peerings pane showing the virtual network peering that is configured.](images/Ex7-Task6-Step8.png "Peerings list")
+
+9. On the **VNETPeering_WGVNet2-WGVNet1**, set the **Virtual network gateway or Route Server** setting to the value of **Use the remote virtual network's gateway or Route Server**.
+
+    ![Peering settings pane with virtual network gateway setting configured.](images/Ex7-Task6-Step9.png "Peering settings")
+
+10. Select **Save**.
+
+The change to the gateway setting for the virtual network peerings may take a few minutes to update.    
 
 ## Exercise 8: Validate connectivity from 'on-premises' to Azure
 
@@ -1288,9 +1346,9 @@ In this exercise, you will collect the flow log and perform connectivity from yo
 
 5. On the Azure portal select **All services** at the left navigation. From the Categories menu select **Networking** then select **Network Watcher**.
 
-6. From the **Network Watcher** blade under the **Logs** menu on the left, select **NSG flow logs**. Select **+ Create**.
+6. From the **Network Watcher** blade under the **Logs** menu on the left, select **Flow logs**. Select **+ Create**.
 
-    ![In this screenshot, the 'NSG Flow logs blade is depicted with the '+ Create' button selected.](images/hol-ex10-task1-nsg-flow-logs-create-button.png "Network Security Groups in Flow Log")
+    ![In this screenshot, the 'NSG Flow logs blade is depicted with the '+ Create' button selected.](images/Ex10-Task1-Step5.png "Network Security Groups in Flow Log")
 
 7. In the **Create a flow log** blade that appears, enter the following information then select **Next: Configuration**.
 
@@ -1302,7 +1360,7 @@ In this exercise, you will collect the flow log and perform connectivity from yo
 
     - Retention (days): **0**
 
-    ![In this screenshot, the Basics tab of the 'Create a flow log' blade is depicted with the required settings listed above selected along with the 'Next: Configuration' button selected.](images/hol-ex10-task1-create-flowlog-wgappnsg1.png "Create a flow log Basics")
+    ![In this screenshot, the Basics tab of the 'Create a flow log' blade is depicted with the required settings listed above selected along with the 'Next: Configuration' button selected.](images/Ex10-Task1-Step6.png "Create a flow log Basics")
 
 8. On the **Configuration** tab of the **Create a flow log** blade, enter the following information then select **Review + create** then **Create**.
 
@@ -1314,7 +1372,7 @@ In this exercise, you will collect the flow log and perform connectivity from yo
 
     - Log Analytics Workspace: **The log analytics workspace you created earlier**
 
-9. Repeat Steps 5 - 7 to create a flow log for the **OnPremVM-nsg** Network Security Group as well. When completed your **NSG flow logs** blade on **Network Watcher** should look like what's depicted in the below image.
+9. Repeat Steps 5 - 7 to create a flow log for the **OnPremVM-nsg** Network Security Group as well. When completed your **Flow logs** blade on **Network Watcher** should look like what's depicted in the below image.
 
      ![In this screenshot, the 'Network Watcher - NSG flow logs' blade is depicted with the two flow logs created earlier listed.](images/hol-ex10-task1-nsg-flow-logs-blade.png "Network Watcher Flow Log")
 
@@ -1336,7 +1394,7 @@ In this exercise, you will collect the flow log and perform connectivity from yo
 
 3. Select **onpremvm*NNN*** then select **+Add diagnostic setting**.
 
-     ![In this screenshot, the Diagnostics logs blade of Network Watch is depicted. The 'Diagnostic Logs' menu option and the network interface resource that starts with 'onpremvm' is highlighted.](images/hol-ex10-task2-diagnostic-logs-navigation.png "Network Watcher Diagnostic logs")
+     ![In this screenshot, the Diagnostics logs blade of Network Watch is depicted. The 'Diagnostic Logs' menu option and the network interface resource that starts with 'onpremvm' is highlighted.](images/Ex10-Task2-Step3.png "Network Watcher Diagnostic logs")
 
 4. Enter **OnPremDiag** as the name then select the checkbox for **Archive to a storage account**. On the **Storage accounts** drop down, select the available storage account you created earlier.
 
@@ -1346,7 +1404,7 @@ In this exercise, you will collect the flow log and perform connectivity from yo
 
 6. Repeat Steps 2 - 5 for each network resource. Once completed your settings will look like the following screenshot.
 
-     ![In this screenshot, the 'Network Watcher - Diagnostic logs' blade is depicted with all the network resources having a 'Diagnostic status' of 'Enabled'.](images/hol-ex10-task2-diagnostic-logs.png "Diagnostic Settings")
+     ![In this screenshot, the 'Network Watcher - Diagnostic logs' blade is depicted with all the network resources having a 'Diagnostic status' of 'Enabled'.](images/Ex10-Task2-Step6.png "Diagnostic Settings")
 
 ### Task 3: Reviewing Network Traffic
 
