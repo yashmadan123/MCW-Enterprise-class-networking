@@ -138,47 +138,71 @@ Duration: 15 minutes
 
     - Subscription: **Select your subscription**.
 
-    - Resource group: Select **Create new**, and enter the name **WGVNetRG1**.
+    - Resource group: Select **Create new**, and enter the name **WGVNetRG1 (1)**.
 
-    - Name: **WGVNet1**
+    - Name: **WGVNet1 (2)**
 
-    - Location: **South Central US**
+    - Location: **South Central US (3)**
 
-3. Select **Next: IP Addresses**
+3. Select **Next (4)**
 
-    ![In this screenshot, the Basics tab of the 'Create virtual network' blade is depicted with the Resource group, Name, Region, fields and the 'Next: IP Addresses' button highlighted.](images/hol-ex1-task1-create-virtual-network-basics.png "Create virtual network: Basics")
+![In this screenshot, the Basics tab of the 'Create virtual network' blade is depicted with the Resource group, Name, Region, fields and the 'Next: IP Addresses' button highlighted.](images/Ex1-Task1-Step2.png "Create virtual network: Basics")
 
-4. On the **Create virtual network - IP Addresses** tab, enter the following information. Then, select **Next: Security**.
+4. On the **Create virtual network - Security** tab, enter the following information. Then, select **Next**
 
-    - IPv4 Address space: **10.7.0.0/20**
+      - Enable Azure Bastion: **Enable** 
+      
+      - Azure Bastion host name : **WGBastion**
+      
+        ![](../images/Ex1-Task1-Step3.png "Create virtual network: Basics")
 
-    - Select **+ Add subnet** then enter the following information and select **Add**.
+5. On the **Create virtual network - IP Addresses** tab, click on **ellipsis (...)**, and click on **Delete address space** button.
 
-      - Subnet name: **GatewaySubnet**
+        ![](../images/Ex1-Task1-Step4.png "Create virtual network: Basics")   
 
-      - Subnet address range: **10.7.0.0/27**
+6. On the **Create virtual network - IP Addresses** tab, click on **Add an IP address space** enter the following information. Then, select **Add**.
+ 
+      - Address space Type: **IPv4** 
+      
+      - Starting address: **10.7.0.0**
+      
+      - Address space size : from the drop down menu select **/20**  
 
-5. On the **Create virtual network Security** tab, select **Enable** for **BastionHost**.
+        ![](/images/Ex1-Task1-Step5.png "Create virtual network: Basics")
 
-6. Enter the following information, then select **Review + Create**.
+7. On the **Create virtual network - IP Addresses** tab, click on **+ Add a subnet**.
 
-    - Bastion name: **WGBastion**
+        ![](/images/Ex1-Task1-Step6.png "Create virtual network: Basics")
 
-    - AzureBastionSubnet address space: **10.7.5.0/24**
+8. On the **Add a Subnet**, enter the following information. Then, select **Add**.
 
-    - Public IP address: **Create new**
+      - Subnet Template: **GatewaySubnet**
 
-    - Public IP address name: **BastionPublicIP**
+      - Starting address: **10.7.15.0**
+      
+      - Subnet size: from the drop down menu select **/27**  
 
-    ![In this screenshot, the 'Security' tab of the Azure portal's 'Create virtual network' blade is depicted with BastionHost, Bastion name, AzureBastionSubnet address space, Public IP address, and 'Review + create' button highlighted.](images/hol-ex1-task1-create-virtual-network-security.png "Create virtual network: Security")
+        ![](/images/Ex1-Task1-Step7.png "Create virtual network: Basics")
 
-7. Select **Review + Create**.
+9. On the **Create virtual network - IP Addresses** tab, click on **+ Add a subnet**. Enter the following information, then select **Add**.
 
-8. Review the configuration and select **Create**.
+10. 8. On the **Add a Subnet**, enter the following information. Then, select **Add**.
+
+    - Subnet Template:  **Azure Bastion**
+
+    - Starting address: **10.7.5.0**
+
+    - Subnet size: from the drop down menu select **/24**
+
+        ![](/images/Ex1-Task1-Step9.png "Create virtual network: Basics")
+
+11. Select **Review + Create**.
+
+12. Review the configuration and select **Create**.
 
     ![In this screenshot, the 'Review + create' tab of the Azure portal's 'Create virtual network' blade is depicted' with the 'Create' button highlighted.](images/hol-ex1-task1-create-virtual-network-review.png "Create virtual network: Review + create")
 
-9. Monitor the deployment status by selecting **Notifications** at the top of the portal. When the deployment is complete, select **Go to Resource**.
+13. Monitor the deployment status by selecting **Notifications** at the top of the portal. When the deployment is complete, select **Go to Resource**.
 
 ### Task 2: Configure subnets
 
@@ -715,6 +739,8 @@ In this exercise, you will create and configure a load balancer to distribute th
     ![In this screenshot, the web page that appears when you navigate to the load balancer IP address appears indicating that your successfully connected to the WEB1 web server.](images/hol-ex5-task2-cloudshop-demo-on-wgweb1.png "Server response for the CloudShop demo on WGWEB1")
 
     ![In this screenshot, the web page that appears when you navigate to the load balancer IP address appears indicating that your successfully connected to the WEB2 web server.](images/hol-ex5-task2-cloudshop-demo-on-wgweb2.png "Server response for the CloudShop demo on WGWEB1")
+    
+    **Note**: If the website not loaded as expected. Connect WGWEB2 via Bastion, use the given credentials for login to WGWEB2 i.e, **Username**: demouser **Password**: demo@pass123. Open your browser and navigate to <http://10.8.0.100>. Ensure that you successfully connect to either one of two Web servers. Then close WGWEB2 Bastion and re-do the step 10.
 
 11. Using the portal, disassociate the public IP from the NIC of **WGWEB1** VM. Do this by navigating to the VM and selecting **Networking** under **Settings** on the left. Select the **NIC Public IP** then choose **Dissociate**. Select **Yes** when prompted.
 
@@ -1112,7 +1138,7 @@ In this exercise, you will validate connectivity from your simulated on-premises
 
     - Select inbound ports: **RDP**
 
-    - Accelerated networking: **Unchecked**
+    - Enable accelerated networking: **Unchecked**
 
     - Load balancing options: **None**
 
@@ -1204,7 +1230,7 @@ Duration: 15 minutes
 
     - Subscription: **Select your subscription**.
 
-    - Resource group: Select **Create new**, and enter the name **MonitoringRG**.
+    - Resource group: Select **MonitoringRG**.
 
     - Name: **Enter a unique name in all lowercase**
 
@@ -1255,16 +1281,18 @@ In this exercise, you will collect the flow log and perform connectivity from yo
     ![In this screenshot, the 'Create storage account' blade is depicted with the above required settings selected along with the 'Review + create' button.](images/hol-ex10-task1-create-storage-account-monitoring.png "Add storage account")
 
    >**Note:** Ensure the storage account is created before continuing.
+ 
+3. Click on the **Review** , ensure the validation passes, and select **Create**.
 
-3. Repeat steps 1 and 2, but select **East US** for the region and give it a different name.
+4. Repeat steps 1 and 2, but select **East US** for the region and give it a different name.
 
-4. On the Azure portal select **All services** at the left navigation. From the Categories menu select **Networking** then select **Network Watcher**.
+5. On the Azure portal select **All services** at the left navigation. From the Categories menu select **Networking** then select **Network Watcher**.
 
-5. From the **Network Watcher** blade under the **Logs** menu on the left, select **NSG flow logs**. Select **+ Create**.
+6. From the **Network Watcher** blade under the **Logs** menu on the left, select **NSG flow logs**. Select **+ Create**.
 
     ![In this screenshot, the 'NSG Flow logs blade is depicted with the '+ Create' button selected.](images/hol-ex10-task1-nsg-flow-logs-create-button.png "Network Security Groups in Flow Log")
 
-6. In the **Create a flow log** blade that appears, enter the following information then select **Next: Configuration**.
+7. In the **Create a flow log** blade that appears, enter the following information then select **Next: Configuration**.
 
     - Subscription: **Select your subscription**.
 
@@ -1276,7 +1304,7 @@ In this exercise, you will collect the flow log and perform connectivity from yo
 
     ![In this screenshot, the Basics tab of the 'Create a flow log' blade is depicted with the required settings listed above selected along with the 'Next: Configuration' button selected.](images/hol-ex10-task1-create-flowlog-wgappnsg1.png "Create a flow log Basics")
 
-7. On the **Configuration** tab of the **Create a flow log** blade, enter the following information then select **Review + create** then **Create**.
+8. On the **Configuration** tab of the **Create a flow log** blade, enter the following information then select **Review + create** then **Create**.
 
     - Flow Logs Version: **Version 2**
 
@@ -1286,17 +1314,19 @@ In this exercise, you will collect the flow log and perform connectivity from yo
 
     - Log Analytics Workspace: **The log analytics workspace you created earlier**
 
-8. Repeat Steps 5 - 7 to create a flow log for the **OnPremVM-nsg** Network Security Group as well. When completed your **NSG flow logs** blade on **Network Watcher** should look like what's depicted in the below image.
+9. Repeat Steps 5 - 7 to create a flow log for the **OnPremVM-nsg** Network Security Group as well. When completed your **NSG flow logs** blade on **Network Watcher** should look like what's depicted in the below image.
 
      ![In this screenshot, the 'Network Watcher - NSG flow logs' blade is depicted with the two flow logs created earlier listed.](images/hol-ex10-task1-nsg-flow-logs-blade.png "Network Watcher Flow Log")
 
-9. Navigate back to the **OnPremVM**. Connect to it by downloading and opening the RDP file.
+10. Navigate back to the **OnPremVM**. Connect to it by downloading and opening the RDP file.
 
-10. Open the **Microsoft Edge** browser from the Start menu. Navigate to portal.azure.com.  Login to the **Azure** portal.
+11. Open the **Microsoft Edge** browser from the Start menu. Navigate to portal.azure.com.  Login to the **Azure** portal.
 
-11. In the RDP session for the **OnPremVM**, navigate to the **Azure** portal, navigate to **Virtual machines** and select the **WGWEB1**. Connect to **WGWEB1** through **Bastion**.  In **WGWEB1**,  navigate to the load balancer's private ip address (**10.8.0.100**) and generate some traffic by refreshing the browser. Allow ten minutes to pass for traffic analytics to generate.
+12. In the RDP session for the **OnPremVM**, navigate to the **Azure** portal, navigate to **Virtual machines** and select the **WGWEB1**. Connect to **WGWEB1** through **Bastion**.  In **WGWEB1**,  navigate to the load balancer's private ip address (**10.8.0.100**) and generate some traffic by refreshing the browser. Allow ten minutes to pass for traffic analytics to generate.
 
      ![In this screenshot, the RDP connections to OnPremVM and WGWEB1 are depicted with the load balancer connection open.](images/hol-ex10-task1-web-traffic-over-load-balancer.png "CloudShop Application")
+     
+     **Note**: If the website not loaded as expected. Connect WGWEB2 via Bastion, use the given credentials for login to WGWEB2 i.e, **Username**: demouser **Password**: demo@pass123. Open your browser and navigate to <http://10.8.0.100>. Ensure that you successfully connect to either one of two Web servers. Then close WGWEB2 Bastion and re-do the step 12.
 
 ### Task 2: Configuring Diagnostic Logs
 
