@@ -138,47 +138,71 @@ Duration: 15 minutes
 
     - Subscription: **Select your subscription**.
 
-    - Resource group: Select **Create new**, and enter the name **WGVNetRG1**.
+    - Resource group: Select **Create new**, and enter the name **WGVNetRG1 (1)**.
 
-    - Name: **WGVNet1**
+    - Name: **WGVNet1 (2)**
 
-    - Location: **South Central US**
+    - Location: **South Central US (3)**
 
-3. Select **Next: IP Addresses**
+3. Select **Next (4)**
 
-    ![In this screenshot, the Basics tab of the 'Create virtual network' blade is depicted with the Resource group, Name, Region, fields and the 'Next: IP Addresses' button highlighted.](images/hol-ex1-task1-create-virtual-network-basics.png "Create virtual network: Basics")
+![In this screenshot, the Basics tab of the 'Create virtual network' blade is depicted with the Resource group, Name, Region, fields and the 'Next: IP Addresses' button highlighted.](images/Ex1-Task1-Step2.png "Create virtual network: Basics")
 
-4. On the **Create virtual network - IP Addresses** tab, enter the following information. Then, select **Next: Security**.
+4. On the **Create virtual network - Security** tab, enter the following information. Then, select **Next**
 
-    - IPv4 Address space: **10.7.0.0/20**
+      - Enable Azure Bastion: **Enable** 
+      
+      - Azure Bastion host name : **WGBastion**
+      
+        ![](images/Ex1-Task1-Step3.png "Create virtual network: Basics")
 
-    - Select **+ Add subnet** then enter the following information and select **Add**.
+5. On the **Create virtual network - IP Addresses** tab, click on **ellipsis (...)**, and click on **Delete address space** button.
 
-      - Subnet name: **GatewaySubnet**
+        ![](images/Ex1-Task1-Step4.png "Create virtual network: Basics")   
 
-      - Subnet address range: **10.7.0.0/27**
+6. On the **Create virtual network - IP Addresses** tab, click on **Add an IP address space** enter the following information. Then, select **Add**.
+ 
+      - Address space Type: **IPv4** 
+      
+      - Starting address: **10.7.0.0**
+      
+      - Address space size : from the drop down menu select **/20**  
 
-5. On the **Create virtual network Security** tab, select **Enable** for **BastionHost**.
+        ![](images/Ex1-Task1-Step5.png "Create virtual network: Basics")
 
-6. Enter the following information, then select **Review + Create**.
+7. On the **Create virtual network - IP Addresses** tab, click on **+ Add a subnet**.
 
-    - Bastion name: **WGBastion**
+   ![](images/Ex1-Task1-Step6.png "Create virtual network: Basics")
 
-    - AzureBastionSubnet address space: **10.7.5.0/24**
+8. On the **Add a Subnet**, enter the following information. Then, select **Add**.
 
-    - Public IP address: **Create new**
+      - Subnet Template: **GatewaySubnet**
 
-    - Public IP address name: **BastionPublicIP**
+      - Starting address: **10.7.15.0**
+      
+      - Subnet size: from the drop down menu select **/27**  
 
-    ![In this screenshot, the 'Security' tab of the Azure portal's 'Create virtual network' blade is depicted with BastionHost, Bastion name, AzureBastionSubnet address space, Public IP address, and 'Review + create' button highlighted.](images/hol-ex1-task1-create-virtual-network-security.png "Create virtual network: Security")
+        ![](images/Ex1-Task1-Step7.png "Create virtual network: Basics")
 
-7. Select **Review + Create**.
+9. On the **Create virtual network - IP Addresses** tab, click on **+ Add a subnet**. Enter the following information, then select **Add**.
 
-8. Review the configuration and select **Create**.
+10. 8. On the **Add a Subnet**, enter the following information. Then, select **Add**.
 
-    ![In this screenshot, the 'Review + create' tab of the Azure portal's 'Create virtual network' blade is depicted' with the 'Create' button highlighted.](images/hol-ex1-task1-create-virtual-network-review.png "Create virtual network: Review + create")
+    - Subnet Template:  **Azure Bastion**
 
-9. Monitor the deployment status by selecting **Notifications** at the top of the portal. When the deployment is complete, select **Go to Resource**.
+    - Starting address: **10.7.5.0**
+
+    - Subnet size: from the drop down menu select **/24**
+
+        ![](images/Ex1-Task1-Step9.png "Create virtual network: Basics")
+
+11. Select **Review + Create**.
+
+12. Review the configuration and select **Create**.
+
+    ![In this screenshot, the 'Review + create' tab of the Azure portal's 'Create virtual network' blade is depicted' with the 'Create' button highlighted.](images/Ex1-Task1-Step11.png "Create virtual network: Review + create")
+
+13. Monitor the deployment status by selecting **Notifications** at the top of the portal. When the deployment is complete, select **Go to Resource**.
 
 ### Task 2: Configure subnets
 
@@ -339,16 +363,18 @@ This task will create a network security group with the following rules:
     - Region: **South Central US** (This must match the location in which you created the **WGVNet2** virtual network.)
 
     ![In this screenshot, the 'Create network security group' blade of the Azure portal is depicted with the required settings listed above highlighted.](images/hol-ex3-task3-create-network-security-group.png "Create WGApp NSG")
+    
+3. Review the configuration and select **Create**.    
 
-3. In the Azure Portal, navigate to **All Services**, type **Network security groups** the search box and select **Network security groups**.
+4. In the Azure Portal, navigate to **All Services**, type **Network security groups** the search box and select **Network security groups**.
 
-4. On the **Network security groups** blade, select **WGAppNSG1**.
+5. On the **Network security groups** blade, select **WGAppNSG1**.
 
-5. On the **WGAppNSG1** blade, select **Inbound security rules** under **Settings** on the left and select **Add**.
+6. On the **WGAppNSG1** blade, select **Inbound security rules** under **Settings** on the left and select **Add**.
 
     ![In this screen, the 'Inbound security rules' blade for the WGAppNSG1 network security group is displayed. 'Inbound security rules' in the left navigation and the Add button are highlighted.](images/hol-ex3-task3-add-inbound-security-rule.png)
 
-6. On the **Add inbound security rule** blade, enter the following information, and select **Add**:
+7. On the **Add inbound security rule** blade, enter the following information, and select **Add**:
 
     - Source: **Application security group**
 
@@ -372,9 +398,9 @@ This task will create a network security group with the following rules:
 
     ![In this screenshot, the 'Add inbound security rule' blade of the Azure portal is depicted with the above required settings highlighted.](images/hol-ex3-task3-add-inbound-security-rule-data-tier-inbound.png "Configure WGAppNSG1 AllowDataTierInboundTCP1433 rule")
 
-7. On the **WGAppNSG1 - Inbound security rules** blade, select **Add**.
+8. On the **WGAppNSG1 - Inbound security rules** blade, select **Add**.
 
-8. On the **Add inbound security rule** blade, enter the following information, and select **Add**:
+9. On the **Add inbound security rule** blade, enter the following information, and select **Add**:
 
     - Source: **Any**
 
@@ -396,9 +422,9 @@ This task will create a network security group with the following rules:
 
     ![In this screenshot, the 'Add inbound security rule' blade of the Azure portal is depicted with the above required settings highlighted.](images/hol-ex3-task3-add-inbound-security-rule-web-tier-inbound.png "Configure WGAppNSG1 AllowAnyWebTierInboundTCP80 rule")
 
-9. On the **WGAppNSG1 - Inbound security rules** blade, select **Add**.
+10. On the **WGAppNSG1 - Inbound security rules** blade, select **Add**.
 
-10. On the **Add inbound security rule** blade, enter the following information, and select **Add**:
+11. On the **Add inbound security rule** blade, enter the following information, and select **Add**:
 
     - Source: **IP Addresses**
 
@@ -420,9 +446,9 @@ This task will create a network security group with the following rules:
 
     ![In this screenshot, the 'Add inbound security rule' blade of the Azure portal is depicted with the above required settings highlighted.](images/hol-ex3-task3-add-inbound-security-rule-mgmt-inbound.png "Configure WGAppNSG1 AllowMgmtInboundAny3389 rule")
 
-11. On the **WGAppNSG1 - Inbound security rules** blade, select **Add**.
+12. On the **WGAppNSG1 - Inbound security rules** blade, select **Add**.
 
-12. On the **Add inbound security rule** blade, enter the following information, and select **Add**:
+13. On the **Add inbound security rule** blade, enter the following information, and select **Add**:
 
     - Source: **Service Tag**
 
@@ -446,9 +472,9 @@ This task will create a network security group with the following rules:
 
     ![In this screenshot, the 'Add inbound security rule' blade of the Azure portal is depicted with the above required settings highlighted.](images/hol-ex3-task3-add-inbound-security-rule-deny-data-tier-inbound.png "Configure WGAppNSG1 DenyVNetDataTierInbound rule")
 
-13. On the **WGAppNSG1 - Inbound security rules** blade, select **Add**.
+14. On the **WGAppNSG1 - Inbound security rules** blade, select **Add**.
 
-14. On the **Add inbound security rule** blade, enter the following information, and select **Add**:
+15. On the **Add inbound security rule** blade, enter the following information, and select **Add**:
 
     - Source: **Service Tag**
 
@@ -472,13 +498,13 @@ This task will create a network security group with the following rules:
 
     ![In this screenshot, the 'Add inbound security rule' blade of the Azure portal is depicted with the above required settings selected.](images/hol-ex3-task3-add-inbound-security-rule-deny-web-tier-inbound.png "Configure WGAppNSG1 DenyVNetWebTierInbound rule")
 
-15. On the **WGAppNSG1 - Inbound security rules** blade, select **Subnets** under **Settings** and then select **+ Associate**.
+16. On the **WGAppNSG1 - Inbound security rules** blade, select **Subnets** under **Settings** and then select **+ Associate**.
 
     ![In this screenshot, Subnets blade of WGAppNSG1 is depicted. The 'Subnets' navigation and the '+ Associate' button are highlighted.](images/hol-ex3-task3-associate-subnet-nsg.png "WGAppNSG1 Subnets")
 
-16. On the **Associate subnet** blade, select **WGVNet2** on the **Virtual network** drop down and **AppSubnet** on the **Subnet** dropdown.
+17. On the **Associate subnet** blade, select **WGVNet2** on the **Virtual network** drop down and **AppSubnet** on the **Subnet** dropdown.
 
-17. Select **OK** at the bottom of the **Associate subnet** blade.
+18. Select **OK** at the bottom of the **Associate subnet** blade.
 
 ## Exercise 4: Create route tables with required routes
 
@@ -692,7 +718,7 @@ In this exercise, you will create and configure a load balancer to distribute th
 
 8. Select **Add**.
 
-9. After the Health probe has been added, select **Load balancing rules** from the left navigation. Select **+ Add** and complete the configuration as shown below followed by selecting **Add**.
+9. After the Health probe has been added, select **Load balancing rules** from the left navigation. Select **+ Add** and complete the configuration as shown below followed by selecting **Save**.
 
     - Name: **HTTP**
 
@@ -706,19 +732,23 @@ In this exercise, you will create and configure a load balancer to distribute th
 
     - Health probe: **HTTP**
 
-    ![In this screenshot, the 'Add load balancing rule' blade of the Azure portal is depicted with the required settings listed above and the Add button highlighted.](images/hol-ex5-task2-add-load-balancing-rule-http.png "Add load balancing rule")
+    ![In this screenshot, the 'Add load balancing rule' blade of the Azure portal is depicted with the required settings listed above and the Add button highlighted.](images/Ex5-Task2-Step9.png "Add load balancing rule")
 
 10. Navigate to WGWEB1 in the Azure portal. Connect to WGWEB1 via Bastion. Within WGWEB1, open Microsoft Edge from the Start menu and navigate to <http://10.8.0.100>. Ensure that you successfully connect to either one of the two Web servers.
 
     ![In this screenshot, the web page that appears when you navigate to the load balancer IP address appears indicating that your successfully connected to the WEB1 web server.](images/hol-ex5-task2-cloudshop-demo-on-wgweb1.png "Server response for the CloudShop demo on WGWEB1")
 
     ![In this screenshot, the web page that appears when you navigate to the load balancer IP address appears indicating that your successfully connected to the WEB2 web server.](images/hol-ex5-task2-cloudshop-demo-on-wgweb2.png "Server response for the CloudShop demo on WGWEB1")
+    
+    **Note**: If the website not loaded as expected. Connect WGWEB2 via Bastion, use the given credentials for login to WGWEB2 i.e, **Username**: demouser **Password**: demo@pass123. Open your browser and navigate to <http://10.8.0.100>. Ensure that you successfully connect to either one of two Web servers. Then close WGWEB2 Bastion and re-do the step 10.
 
 11. Using the portal, disassociate the public IP from the NIC of **WGWEB1** VM. Do this by navigating to the VM and selecting **Networking** under **Settings** on the left. Select the **NIC Public IP** then choose **Dissociate**. Select **Yes** when prompted.
 
     ![In this screenshot, the WGWEB1 - Networking blade of the Azure portal is depicted with the NIC Public IP selected.](images/hol-ex5-task2-wgweb1-dissociate-ip-address.png "Virtual machine networking blade")
 
 12. Next, return to the **WGWEB1 - Networking** blade and select the **Network Interface**.
+
+    ![In this screenshot, the WGWEB1 - Networking blade of the Azure portal is depicted with the NIC Public IP selected.](images/Ex6-Task3-step12.png "Virtual machine networking blade")
 
 13. Select **IP configurations** under **Settings** on the left.
 
@@ -878,7 +908,7 @@ Within 1-2 minutes, the resource group **WGVNetRG1** will have the firewall crea
 
 7. On the **Associate subnet** blade, select **WGVNet1** on the **Virtual network** drop down. Select **Management** on the **Subnet** dropdown.
 
-    ![In this screenshot, the 'Associate subnet' blade is depicted with the 'WGVNet1' virtual network and 'Management' subnet selected along with the 'OK' button.](images/hol-ex6-task3-associate-subnet-blade-wgvnet1.png "Associate subnet blade for MgmtRT")
+    ![In this screenshot, the 'Associate subnet' blade is depicted with the 'WGVNet1' virtual network and 'Management' subnet selected along with the 'OK' button.](images/Ex6-Task3-step7.png "Associate subnet blade for MgmtRT")
 
 8. Select **OK** at the bottom of the **Associate subnet** blade.
 
@@ -896,7 +926,7 @@ In this exercise, we will simulate an on-premises connection to the internal web
 
     - Subscription: **Select your subscription**.
 
-    - Resource group: Select **Create new**, and enter the name **OnPremVNetRG**.
+    - Resource group: **OnPremVNetRG**.
 
     - Name: **OnPremVNet**
 
@@ -908,17 +938,37 @@ In this exercise, we will simulate an on-premises connection to the internal web
 
     ![In this screenshot, the Basics tab of the 'Create virtual network' blade in the Azure portal is depicted with the required settings selected.](images/hol-ex7-task1-create-virtual-network-onpremvnet.png "Create virtual network")
 
-5. On the **IP addresses** tab of the **Create virtual network blade**, enter the following information.
+5. On the **Create virtual network - IP Addresses** tab, click on **ellipsis (...)**, and click on **Delete address space** button.
 
-    - Address space: **192.168.0.0/16**
+        ![](images/Ex7-Task1-Step3.png "Create virtual network: Basics")   
 
-    - Select **+ Add subnet** then enter the following information in the blade that appears on the right and select **Add**.
+6. On the **Create virtual network - IP Addresses** tab, click on **Add an IP address space (1)** enter the following information. Then, select **Add (5)**.
+ 
+      - Address space Type: **IPv4 (2)** 
+      
+      - Starting address: **192.168.0.0 (3)**
+      
+      - Address space size : from the drop down menu select **/16 (4)**  
 
-      - Subnet name: **default**
+        ![](images/Ex7-Task1-Step4.png "Create virtual network: Basics")
 
-      - Subnet address range: **192.168.0.0/24**
+7. On the **Create virtual network - IP Addresses** tab, click on **+ Add a subnet**.
 
-6. Select **Review + create** then **Create**.
+        ![](images/Ex7-Task1-Step5.png "Create virtual network: Basics")
+
+8. On the **Add a Subnet**, enter the following information. Then, select **Add**.
+
+      - Subnet Template: **Default**
+      
+      - Name: **default**
+
+      - Starting address: **192.168.0.0**
+      
+      - Subnet size: from the drop down menu select **/24**  
+
+        ![](/images/Ex7-Task1-Step6.png "Create virtual network: Basics")
+
+9. Select **Review + create** then **Create**.
 
 ### Task 2: Configure gateway subnets for on premise Virtual Network
 
@@ -1057,6 +1107,42 @@ In this exercise, we will simulate an on-premises connection to the internal web
 7. Watch the progress of the connection status, and use the **Refresh** icon until the status changes for both connections from **Unknown** to **Connected**. This may take 5-10 minutes or more. You might need to refresh the page to see the change in status.
 
     ![In this screenshot, the Connections blade of the Azure portal is depicted with the two connections created earlier listed with their respective statuses showing as Connected.](images/hol-ex7-task5-connections-blade.png "Connections blade")
+    
+### Task 6: Update VNet peerings to use gateway
+
+1. In the Azure Portal, go to All Services and type **virtual network** in the search box and select **Virtual Networks**.
+
+2. Select **WGVNet1**, and select **Peerings** under **Settings** on the left.
+
+    ![In the Virtual Network blade, in the Settings section of the navigation, Peerings is highlighted.](Ex7-Task6-Step2.png "Virtual network blade")
+
+3. On the **Peerings** pane, select the **VNETPeering_WGVNet1-WGVNet2** peering.
+
+    ![Peerings pane showing the virtual network peering that is configured.](images/Ex7-Task6-Step3.png "Peerings list")
+
+4. On the **VNETPeering_WGVNet1-WGVNet2**, set the **Virtual network gateway or Route Server** setting to the value of **Use this virtual network's gateway or Route Server**.
+
+    ![Peering settings pane with virtual network gateway setting configured.](images/Ex7-Task6-Step4.png "Peering settings")
+
+5. Select **Save**.
+
+6. In the Azure Portal, go to All Services and type **virtual network** in the search box and select **Virtual Networks**.
+
+7. Select **WGVNet2**, and select **Peerings** under **Settings** on the left.
+
+    ![In the Virtual Network blade, in the Settings section of the navigation, Peerings is highlighted.](images/Ex7-Task6-Step7.png "Virtual network blade")
+
+8. On the **Peerings** pane, select the **VNETPeering_WGVNet2-WGVNet1** peering.
+
+    ![Peerings pane showing the virtual network peering that is configured.](images/Ex7-Task6-Step8.png "Peerings list")
+
+9. On the **VNETPeering_WGVNet2-WGVNet1**, set the **Virtual network gateway or Route Server** setting to the value of **Use the remote virtual network's gateway or Route Server**.
+
+    ![Peering settings pane with virtual network gateway setting configured.](images/Ex7-Task6-Step9.png "Peering settings")
+
+10. Select **Save**.
+
+The change to the gateway setting for the virtual network peerings may take a few minutes to update.    
 
 ## Exercise 8: Validate connectivity from 'on-premises' to Azure
 
@@ -1110,7 +1196,7 @@ In this exercise, you will validate connectivity from your simulated on-premises
 
     - Select inbound ports: **RDP**
 
-    - Accelerated networking: **Unchecked**
+    - Enable accelerated networking: **Unchecked**
 
     - Load balancing options: **None**
 
@@ -1202,7 +1288,7 @@ Duration: 15 minutes
 
     - Subscription: **Select your subscription**.
 
-    - Resource group: Select **Create new**, and enter the name **MonitoringRG**.
+    - Resource group: Select **MonitoringRG**.
 
     - Name: **Enter a unique name in all lowercase**
 
@@ -1253,16 +1339,18 @@ In this exercise, you will collect the flow log and perform connectivity from yo
     ![In this screenshot, the 'Create storage account' blade is depicted with the above required settings selected along with the 'Review + create' button.](images/hol-ex10-task1-create-storage-account-monitoring.png "Add storage account")
 
    >**Note:** Ensure the storage account is created before continuing.
+ 
+3. Click on the **Review** , ensure the validation passes, and select **Create**.
 
-3. Repeat steps 1 and 2, but select **East US** for the region and give it a different name.
+4. Repeat steps 1 and 2, but select **East US** for the region and give it a different name.
 
-4. On the Azure portal select **All services** at the left navigation. From the Categories menu select **Networking** then select **Network Watcher**.
+5. On the Azure portal select **All services** at the left navigation. From the Categories menu select **Networking** then select **Network Watcher**.
 
-5. From the **Network Watcher** blade under the **Logs** menu on the left, select **NSG flow logs**. Select **+ Create**.
+6. From the **Network Watcher** blade under the **Logs** menu on the left, select **Flow logs**. Select **+ Create**.
 
-    ![In this screenshot, the 'NSG Flow logs blade is depicted with the '+ Create' button selected.](images/hol-ex10-task1-nsg-flow-logs-create-button.png "Network Security Groups in Flow Log")
+    ![In this screenshot, the 'NSG Flow logs blade is depicted with the '+ Create' button selected.](images/Ex10-Task1-Step5.png "Network Security Groups in Flow Log")
 
-6. In the **Create a flow log** blade that appears, enter the following information then select **Next: Configuration**.
+7. In the **Create a flow log** blade that appears, enter the following information then select **Next: Configuration**.
 
     - Subscription: **Select your subscription**.
 
@@ -1272,9 +1360,9 @@ In this exercise, you will collect the flow log and perform connectivity from yo
 
     - Retention (days): **0**
 
-    ![In this screenshot, the Basics tab of the 'Create a flow log' blade is depicted with the required settings listed above selected along with the 'Next: Configuration' button selected.](images/hol-ex10-task1-create-flowlog-wgappnsg1.png "Create a flow log Basics")
+    ![In this screenshot, the Basics tab of the 'Create a flow log' blade is depicted with the required settings listed above selected along with the 'Next: Configuration' button selected.](images/Ex10-Task1-Step6.png "Create a flow log Basics")
 
-7. On the **Configuration** tab of the **Create a flow log** blade, enter the following information then select **Review + create** then **Create**.
+8. On the **Configuration** tab of the **Create a flow log** blade, enter the following information then select **Review + create** then **Create**.
 
     - Flow Logs Version: **Version 2**
 
@@ -1284,17 +1372,19 @@ In this exercise, you will collect the flow log and perform connectivity from yo
 
     - Log Analytics Workspace: **The log analytics workspace you created earlier**
 
-8. Repeat Steps 5 - 7 to create a flow log for the **OnPremVM-nsg** Network Security Group as well. When completed your **NSG flow logs** blade on **Network Watcher** should look like what's depicted in the below image.
+9. Repeat Steps 5 - 7 to create a flow log for the **OnPremVM-nsg** Network Security Group as well. When completed your **Flow logs** blade on **Network Watcher** should look like what's depicted in the below image.
 
      ![In this screenshot, the 'Network Watcher - NSG flow logs' blade is depicted with the two flow logs created earlier listed.](images/hol-ex10-task1-nsg-flow-logs-blade.png "Network Watcher Flow Log")
 
-9. Navigate back to the **OnPremVM**. Connect to it by downloading and opening the RDP file.
+10. Navigate back to the **OnPremVM**. Connect to it by downloading and opening the RDP file.
 
-10. Open the **Microsoft Edge** browser from the Start menu. Navigate to portal.azure.com.  Login to the **Azure** portal.
+11. Open the **Microsoft Edge** browser from the Start menu. Navigate to portal.azure.com.  Login to the **Azure** portal.
 
-11. In the RDP session for the **OnPremVM**, navigate to the **Azure** portal, navigate to **Virtual machines** and select the **WGWEB1**. Connect to **WGWEB1** through **Bastion**.  In **WGWEB1**,  navigate to the load balancer's private ip address (**10.8.0.100**) and generate some traffic by refreshing the browser. Allow ten minutes to pass for traffic analytics to generate.
+12. In the RDP session for the **OnPremVM**, navigate to the **Azure** portal, navigate to **Virtual machines** and select the **WGWEB1**. Connect to **WGWEB1** through **Bastion**.  In **WGWEB1**,  navigate to the load balancer's private ip address (**10.8.0.100**) and generate some traffic by refreshing the browser. Allow ten minutes to pass for traffic analytics to generate.
 
      ![In this screenshot, the RDP connections to OnPremVM and WGWEB1 are depicted with the load balancer connection open.](images/hol-ex10-task1-web-traffic-over-load-balancer.png "CloudShop Application")
+     
+     **Note**: If the website not loaded as expected. Connect WGWEB2 via Bastion, use the given credentials for login to WGWEB2 i.e, **Username**: demouser **Password**: demo@pass123. Open your browser and navigate to <http://10.8.0.100>. Ensure that you successfully connect to either one of two Web servers. Then close WGWEB2 Bastion and re-do the step 12.
 
 ### Task 2: Configuring Diagnostic Logs
 
@@ -1304,7 +1394,7 @@ In this exercise, you will collect the flow log and perform connectivity from yo
 
 3. Select **onpremvm*NNN*** then select **+Add diagnostic setting**.
 
-     ![In this screenshot, the Diagnostics logs blade of Network Watch is depicted. The 'Diagnostic Logs' menu option and the network interface resource that starts with 'onpremvm' is highlighted.](images/hol-ex10-task2-diagnostic-logs-navigation.png "Network Watcher Diagnostic logs")
+     ![In this screenshot, the Diagnostics logs blade of Network Watch is depicted. The 'Diagnostic Logs' menu option and the network interface resource that starts with 'onpremvm' is highlighted.](images/Ex10-Task2-Step3.png "Network Watcher Diagnostic logs")
 
 4. Enter **OnPremDiag** as the name then select the checkbox for **Archive to a storage account**. On the **Storage accounts** drop down, select the available storage account you created earlier.
 
@@ -1314,7 +1404,7 @@ In this exercise, you will collect the flow log and perform connectivity from yo
 
 6. Repeat Steps 2 - 5 for each network resource. Once completed your settings will look like the following screenshot.
 
-     ![In this screenshot, the 'Network Watcher - Diagnostic logs' blade is depicted with all the network resources having a 'Diagnostic status' of 'Enabled'.](images/hol-ex10-task2-diagnostic-logs.png "Diagnostic Settings")
+     ![In this screenshot, the 'Network Watcher - Diagnostic logs' blade is depicted with all the network resources having a 'Diagnostic status' of 'Enabled'.](images/Ex10-Task2-Step6.png "Diagnostic Settings")
 
 ### Task 3: Reviewing Network Traffic
 
