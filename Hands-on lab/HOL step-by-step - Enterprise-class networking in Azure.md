@@ -1297,7 +1297,7 @@ In this exercise, you will collect the flow log and perform connectivity from yo
 
     ![In this screenshot, the 'NSG Flow logs blade is depicted with the '+ Create' button selected.](images/hol-ex10-task1-nsg-flow-logs-create-button.png "Network Security Groups in Flow Log")
 
-6. In the **Create a flow log** blade that appears, enter the following information then select **Next: Configuration**.
+6. In the **Create a flow log** blade that appears, enter the following information then select **Next: Analytics**.
 
     - Subscription: **Select your subscription**.
 
@@ -1307,7 +1307,7 @@ In this exercise, you will collect the flow log and perform connectivity from yo
 
     - Retention (days): **0**
 
-        ![In this screenshot, the Basics tab of the 'Create a flow log' blade is depicted with the required settings listed above selected along with the 'Next: Configuration' button selected.](images/hol-ex10-task1-create-flowlog-wgappnsg1.png "Create a flow log Basics")
+        ![In this screenshot, the Basics tab of the 'Create a flow log' blade is depicted with the required settings listed above selected along with the 'Next: Configuration' button selected.](images/a1.2.png "Create a flow log Basics")
 
 7. On the **Configuration** tab of the **Create a flow log** blade, enter the following information then select **Review + create** then **Create**.
 
@@ -1318,6 +1318,8 @@ In this exercise, you will collect the flow log and perform connectivity from yo
     - Traffic Analytics processing interval: **Every 10 minutes**
 
     - Log Analytics Workspace: **The log analytics workspace you created earlier**
+
+        ![In this screenshot, the Basics tab of the 'Create a flow log' blade is depicted with the required settings listed above selected along with the 'Next: Configuration' button selected.](images/a1.3.png "Create a flow log Basics")
 
 8. Repeat Steps 5 - 7 to create a flow log for the **OnPremVM-nsg** Network Security Group as well. When completed your **NSG flow logs** blade on **Network Watcher** should look like what's depicted in the below image.
 
