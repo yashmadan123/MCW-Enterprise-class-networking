@@ -937,7 +937,7 @@ In this exercise, we will simulate an on-premises connection to the internal web
 
     - Route table: **None** (We will add this later.)
 
-        ![In this screenshot, the 'Add subnet' blade of the Azure portal is depicted with the required settings listed above selected along with the Save button.](images/hol-ex7-task2-add-gateway-subnet.png "Add subnet")
+        ![In this screenshot, the 'Add subnet' blade of the Azure portal is depicted with the required settings listed above selected along with the Save button.](images/a1.4.png "Add subnet")
 
 4. Next, select **+ Subnet** and add the **OnPremManagementSubnet** subnet to the **OnPremVNet**, as shown below in the screenshot:
 
@@ -947,7 +947,7 @@ In this exercise, we will simulate an on-premises connection to the internal web
 
     - Leave the rest of the values as their defaults. Select **Save**.
 
-        ![In this screenshot, the 'Add subnet' blade of the Azure portal is depicted with the required settings listed above selected along with the Save button.](images/hol-ex7-task2-add-onprem-mgmt-subnet.png "Add subnet")
+        ![In this screenshot, the 'Add subnet' blade of the Azure portal is depicted with the required settings listed above selected along with the Save button.](images/a1.5.png "Add subnet")
 
 ### Task 3: Create the first gateway
 
