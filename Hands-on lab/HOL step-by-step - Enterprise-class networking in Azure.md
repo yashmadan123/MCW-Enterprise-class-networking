@@ -175,8 +175,6 @@ This virtual network will have a gateway subnet named `GatewaySubnet` provisione
 
         ![In this screenshot, the 'Security' tab of the Azure portal's 'Create virtual network' blade is depicted with BastionHost, Bastion name, AzureBastionSubnet address space, Public IP address, and 'Review + create' button highlighted.](images/hol-ex1-task1-create-virtual-network-security.png "Create virtual network: Security")
 
-7. Select **Review + Create**.
-
 8. Review the configuration and select **Create**.
 
     ![In this screenshot, the 'Review + create' tab of the Azure portal's 'Create virtual network' blade is depicted' with the 'Create' button highlighted.](images/hol-ex1-task1-create-virtual-network-review.png "Create virtual network: Review + create")
