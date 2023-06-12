@@ -691,7 +691,7 @@ In this exercise, you will create and configure a load balancer to distribute th
 
         ![In this screenshot, the 'WGWEBLB' load balancer blade of the Azure portal is depicted with 'Health probes' under 'Settings' in the left navigation highlighted.](images/hol-ex5-task2-health-probes-add-button.png "Settings section, Add health probe blade")
 
-        ![In this screenshot, the 'Add health probe' blade is depicted with the required settings listed above selected along with the Add button selected.](images/hol-ex5-task2-add-health-probe-blade-http.png "Add health probe blade")
+        ![In this screenshot, the 'Add health probe' blade is depicted with the required settings listed above selected along with the Add button selected.](images/a1.6.png "Add health probe blade")
 
 8. Select **Add**.
 
@@ -709,7 +709,7 @@ In this exercise, you will create and configure a load balancer to distribute th
 
     - Health probe: **HTTP**
 
-        ![In this screenshot, the 'Add load balancing rule' blade of the Azure portal is depicted with the required settings listed above and the Add button highlighted.](images/hol-ex5-task2-add-load-balancing-rule-http.png "Add load balancing rule")
+        ![In this screenshot, the 'Add load balancing rule' blade of the Azure portal is depicted with the required settings listed above and the Add button highlighted.](images/a1.7.png "Add load balancing rule")
 
 10. Navigate to WGWEB1 in the Azure portal. Connect to WGWEB1 via Bastion. Within WGWEB1, open Microsoft Edge from the Start menu and navigate to <http://10.8.0.100>. Ensure that you successfully connect to either one of the two Web servers.
 
@@ -1211,7 +1211,7 @@ When packets arrive from the simulated 'on-premises' Virtual Network (OnPremVNet
 
 10. On the **GatewaySubnet** dialog, under the **Route table** drop down, select **WGAzureVNetGWRT**. Then select **Save**.
 
-    ![In this screenshot, the 'GatewaySubnet' dialog of the 'WGVNet1' virtual network is depicted with the required route table and Save button highlighted.](images/hol-ex8-task2-associate-gatewaysubnet.png "GatewaySubnet")
+    ![In this screenshot, the 'GatewaySubnet' dialog of the 'WGVNet1' virtual network is depicted with the required route table and Save button highlighted.](images/a1.8.png "GatewaySubnet")
 
     >**Note:** At this point, you have configured your enterprise network. You should be able to test your Enterprise Class Network from one region to another. Your testing can include the following scenarios:
 
@@ -1293,9 +1293,9 @@ In this exercise, you will collect the flow log and perform connectivity from yo
 
 4. On the Azure portal select **All services** at the left navigation. From the Categories menu select **Networking** then select **Network Watcher**.
 
-5. From the **Network Watcher** blade under the **Logs** menu on the left, select **NSG flow logs**. Select **+ Create**.
+5. From the **Network Watcher** blade under the **Logs** menu on the left, select **flow logs**. Select **+ Create**.
 
-    ![In this screenshot, the 'NSG Flow logs blade is depicted with the '+ Create' button selected.](images/hol-ex10-task1-nsg-flow-logs-create-button.png "Network Security Groups in Flow Log")
+    ![In this screenshot, the 'NSG Flow logs blade is depicted with the '+ Create' button selected.](images/a1.10.png "Network Security Groups in Flow Log")
 
 6. In the **Create a flow log** blade that appears, enter the following information then select **Next: Analytics**.
 
@@ -1319,7 +1319,7 @@ In this exercise, you will collect the flow log and perform connectivity from yo
 
     - Log Analytics Workspace: **The log analytics workspace you created earlier**
 
-        ![In this screenshot, the Basics tab of the 'Create a flow log' blade is depicted with the required settings listed above selected along with the 'Next: Configuration' button selected.](images/a1.3.png "Create a flow log Basics")
+        ![In this screenshot, the Basics tab of the 'Create a flow log' blade is depicted with the required settings listed above selected along with the 'Next: Configuration' button selected.](images/a1.9.png "Create a flow log Basics")
 
 8. Repeat Steps 5 - 7 to create a flow log for the **OnPremVM-nsg** Network Security Group as well. When completed your **NSG flow logs** blade on **Network Watcher** should look like what's depicted in the below image.
 
@@ -1339,7 +1339,7 @@ In this exercise, you will collect the flow log and perform connectivity from yo
 
 2. Select **Diagnostic Logs** from the **Logs Menu** within the blade.
 
-3. Select **onpremvm*NNN*** then select **+Add diagnostic setting**.
+3. Select **onpremvm###** then select **+Add diagnostic setting**.
 
      ![In this screenshot, the Diagnostics logs blade of Network Watch is depicted. The 'Diagnostic Logs' menu option and the network interface resource that starts with 'onpremvm' is highlighted.](images/hol-ex10-task2-diagnostic-logs-navigation.png "Network Watcher Diagnostic logs")
 
